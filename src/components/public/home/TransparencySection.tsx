@@ -36,7 +36,7 @@ export const TransparencySection: React.FC = () => {
               {[
                 isBn ? 'বাংলাদেশের ট্রাস্ট আইন ১৮৮২ (Trust Act of 1882)-এর অধীনে নিবন্ধিত' : 'Established under Bangladesh Trust Act of 1882',
                 isBn ? '২০২৬-২০৩১ পাঁচ বছর মেয়াদী কৌশলগত বাজেট কাঠামো' : 'Five-Year Strategic Budget Framework (2026–2031)',
-                isBn ? 'প্রথম প্রজেক্ট (SPUS): ৩ বছর মেয়াদী ১৩.২৭ মিলিয়ন টাকা স্বচ্ছ বাজেট' : 'SPUS Project: BDT 13.27M (~$108K) Transparent 3-Year Allocation'
+                isBn ? 'প্রথম প্রজেক্ট (SPUS): ৩ বছর মেয়াদী ১১.০ মিলিয়ন টাকা (~$৮৮ হাজার) স্বচ্ছ বাজেট' : 'SPUS Project: BDT 11.0M (~$88K) Transparent 3-Year Allocation'
               ].map((text, idx) => (
                 <div key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm font-bold text-slate-800">
                   <CheckCircle2 className="w-4 h-4 text-[#138086] shrink-0" />
