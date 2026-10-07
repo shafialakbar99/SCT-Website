@@ -2,77 +2,77 @@ import { SiteContent, AboutOrganization, MissionVisionData } from '../types';
 
 export const initialSiteContent: SiteContent = {
   id: 'site_content_default',
-  orgName: { en: 'Humanity First BD', bn: 'হিউম্যানিটি ফাস্ট বিডি' },
-  orgTagline: { en: 'Serving Humanity with Dignity & Transparency', bn: 'মর্যাদা ও স্বচ্ছতার সাথে মানবতার সেবা' },
-  regInfo: { en: 'Registered under NGO Affairs Bureau Bangladesh (Reg No: 2847)', bn: 'এনজিও বিষয়ক ব্যুরো বাংলাদেশ নিবন্ধিত (রেজি নং: ২৮৪৭)' },
-  taxInfo: { en: '100% Tax Exempted Charity under Section 44(4) of Income Tax Act', bn: 'আয়কর আইনের ৪৪(৪) ধারা অনুযায়ী ১০০% কর অব্যাহতির সুবিধাপ্রাপ্ত' },
+  orgName: { en: 'Shaheen Cares Trust', bn: 'শাহীন কেয়ার্স ট্রাস্ট' },
+  orgTagline: { en: 'Building Dignified Futures, Together', bn: 'মর্যাদাপূর্ণ ভবিষ্যৎ গড়ি, একসাথে' },
+  regInfo: { en: 'Formally established under Trust Act of 1882 of Bangladesh', bn: 'বাংলাদেশের ১৮৮২ সালের ট্রাস্ট আইনের অধীনে নিবন্ধিত' },
+  taxInfo: { en: 'Charitable & Humanitarian Initiative of the Shaheen Community', bn: 'শাহীন কমিউনিটির একটি দাতব্য ও মানবিক উদ্যোগ' },
   emergencyTicker: {
-    en: 'ALERT: Urgent Flood Relief Campaign active in Sylhet & Feni — Emergency Medical Kits, Clean Water & Food Pack Distribution ongoing.',
-    bn: 'জরুরি নোটিশ: সিলেট ও ফেনীতে বন্যা ত্রাণ তহবিল কার্যক্রম চলমান — চিকিৎসাসামগ্রী, বিশুদ্ধ পানি ও খাদ্য সামগ্রী বিতরণ করা হচ্ছে।'
+    en: 'ANNOUNCEMENT: Shaheen Cares Trust Inauguration on October 9, 2026 in Dhaka. First Major Project: SPUS Satarkul (2026–2029).',
+    bn: 'বিজ্ঞপ্তি: আগামী ৯ই অক্টোবর, ২০২৬ ঢাকায় শাহীন কেয়ার্স ট্রাস্টের আনুষ্ঠানিক উদ্বোধন। প্রথম প্রকল্প: এসপিইউএস সাঁতারকুল (২০২৬-২০২৯)।'
   },
-  hotline: { en: '+880 9612-445566', bn: '+880 ৯৬১২-৪৪৫৫৬৬' },
-  email: { en: 'info@humanityfirstbd.org', bn: 'info@humanityfirstbd.org' },
-  whatsapp: { en: '+880 1711-001122', bn: '+880 ১৭১১-০০১১২২' },
+  hotline: { en: '+880 1700-000000', bn: '+880 ১৭০০-০০০০০০' },
+  email: { en: 'info@shaheencarestrust.org', bn: 'info@shaheencarestrust.org' },
+  whatsapp: { en: '+880 1700-000000', bn: '+880 ১৭০০-০০০০০০' },
   address: {
-    en: 'House 42, Road 11, Block D, Banani, Dhaka-1213, Bangladesh',
-    bn: 'হাউস ৪২, রোড ১১, ব্লক ডি, বনানী, ঢাকা-১২১৩, বাংলাদেশ'
+    en: 'Dhaka, Bangladesh',
+    bn: 'ঢাকা, বাংলাদেশ'
   },
   nav: {
     home: { en: 'Home', bn: 'হোম' },
-    causes: { en: 'Causes & Campaigns', bn: 'প্রকল্প ও ক্যাম্পেইন' },
-    emergency: { en: 'Flood Relief', bn: 'বন্যা ত্রাণ' },
-    zakat: { en: 'Zakat Calculator', bn: 'যাকাত ক্যালকুলেটর' },
+    causes: { en: 'Our Five Pillars', bn: 'আমাদের ৫টি স্তম্ভ' },
+    emergency: { en: 'First Project: SPUS', bn: 'প্রথম প্রকল্প: SPUS' },
+    zakat: { en: 'Impact & Measurement', bn: 'প্রভাব ও পরিমাপ' },
     gallery: { en: 'Media & Gallery', bn: 'মিডিয়া ও গ্যালারি' },
     photos: { en: 'Photo Gallery', bn: 'ছবি গ্যালারি' },
     videos: { en: 'Video Gallery', bn: 'ভিডিও গ্যালারি' },
-    blogs: { en: 'Field Stories', bn: 'ফিল্ড স্টোরি' },
+    blogs: { en: 'Stories & News', bn: 'স্টোরি ও আপডেট' },
     news: { en: 'Press & News', bn: 'সংবাদ ও বিজ্ঞপ্তি' },
-    sponsor: { en: 'Sponsor a Life', bn: 'একটি জীবন স্পন্সর করুন' },
-    transparency: { en: 'Financial Integrity', bn: 'আর্থিক স্বচ্ছতা' },
-    volunteer: { en: 'Become Volunteer', bn: 'স্বেচ্ছাসেবক হন' },
-    events: { en: 'Drives & Events', bn: 'ইভেন্ট ও ড্রাইভ' },
-    donors: { en: 'Featured Donors', bn: 'সম্মানিত দাতাগণ' },
+    sponsor: { en: 'Support a Cause', bn: 'সহযোগিতা করুন' },
+    transparency: { en: 'Strategy 2026–2031', bn: 'কৌশলগত পরিকল্পনা' },
+    volunteer: { en: 'Get Involved', bn: 'যুক্ত হন' },
+    events: { en: 'Programs & Events', bn: 'ইভেন্ট ও কার্যক্রম' },
+    donors: { en: 'Shaheen Community', bn: 'শাহীন কমিউনিটি' },
     aboutUs: { en: 'About Us', bn: 'আমাদের সম্পর্কে' },
-    missionVision: { en: 'Mission & Vision', bn: 'লক্ষ্য ও উদ্দেশ্য' },
-    chairmanMessage: { en: 'Chairman Message', bn: 'চেয়ারম্যানের বাণী' },
-    ceoMessage: { en: 'MD / CEO Message', bn: 'ব্যবস্থাপনা পরিচালকের বাণী' },
-    boardOfTrustees: { en: 'Board of Trustees', bn: 'ট্রাস্টি বোর্ড ও উপদেষ্টা' },
-    staffMembers: { en: 'Our Team & Staff', bn: 'আমাদের টিম ও কর্মকর্তা' },
+    missionVision: { en: 'Vision & Mission', bn: 'ভিশন ও মিশন' },
+    chairmanMessage: { en: 'Chairperson Message', bn: 'চেয়ারপারসনের বাণী' },
+    ceoMessage: { en: 'Our Purpose', bn: 'আমাদের উদ্দেশ্য' },
+    boardOfTrustees: { en: 'Board of Trustees', bn: 'ট্রাস্টি বোর্ড' },
+    staffMembers: { en: 'Expert Pool & Team', bn: 'এক্সপার্ট পুল ও টিম' },
     contact: { en: 'Contact Us', bn: 'যোগাযোগ' },
-    donateNow: { en: 'Donate Now', bn: 'দান করুন' },
-    quickDonate: { en: 'Quick Donate', bn: 'দ্রুত দান' },
+    donateNow: { en: 'Join SCT', bn: 'যুক্ত হন' },
+    quickDonate: { en: 'Support SCT', bn: 'সহযোগিতা' },
     admin: { en: 'Admin Panel', bn: 'এডমিন প্যানেল' }
   },
   quickDonateWidget: {
-    title: { en: 'Make an Instant Impact', bn: 'তাত্ক্ষণিক প্রভাব ফেলুন' },
-    subtitle: { en: 'Your small contribution brings hope to vulnerable families in Bangladesh.', bn: 'আপনার সামান্য অনুদান বাংলাদেশে অসহায় পরিবারের মাঝে আশা জাগায়।' },
+    title: { en: 'Be a Part of Real Inclusion', bn: 'প্রকৃত অন্তর্ভুক্তির অংশ হন' },
+    subtitle: { en: 'Your time, skills, and support build dignified futures for children with special needs and vulnerable communities.', bn: 'আপনার সময়, মেধা ও সমর্থন বিশেষ চাহিদাসম্পন্ন শিশু এবং অসহায় মানুষের জন্য মর্যাদাপূর্ণ ভবিষ্যৎ তৈরি করবে।' },
     frequency: {
       oneTime: { en: 'One-time', bn: 'একবার' },
       monthly: { en: 'Monthly', bn: 'মাসিক' }
     },
-    amounts: [500, 1000, 2500, 5000],
+  amounts: [1000, 2500, 5000, 10000],
     customAmount: { en: 'Custom Amount', bn: 'অন্যান্য পরিমাণ' },
-    selectPayment: { en: 'Payment Method', bn: 'পেমেন্ট মেথড' },
-    donateBtn: { en: 'Donate Now with bKash / Card', bn: 'বিকাশ / কার্ডের মাধ্যমে দান করুন' },
-    secureBadge: { en: '100% Encrypted & SSL Commerz Secured', bn: '১০০% নিরাপদ ও এসএসএল সমার্স সুরক্ষিত' }
+    selectPayment: { en: 'Support Focus', bn: 'সহযোগিতার খাত' },
+    donateBtn: { en: 'Get Involved / Support Now', bn: 'যুক্ত হন / সমর্থন জানান' },
+    secureBadge: { en: '100% Transparent & Dignified Community Service', bn: '১০০% স্বচ্ছ ও মর্যাদাপূর্ণ সামাজিক সেবা' }
   },
   counters: {
-    meals: { en: '1,250,000+', bn: '১২,৫০,০০০+' },
-    mealsLabel: { en: 'Emergency Meals Served', bn: 'খাদ্য সামগ্রী বিতরণ' },
-    wells: { en: '1,840+', bn: '১,৮৪০+' },
-    wellsLabel: { en: 'Clean Water Wells Built', bn: 'টিউবওয়েল ও গভীর নলকূপ' },
-    students: { en: '12,500+', bn: '১২,৫০০+' },
-    studentsLabel: { en: 'Children Educated', bn: 'শিক্ষার্থী সহায়তা' },
-    lives: { en: '450,000+', bn: '৪,৫০,০০০+' },
-    livesLabel: { en: 'Lives Positively Transformed', bn: 'উপকৃত মানুষ' }
+    meals: { en: '75', bn: '৭৫' },
+    mealsLabel: { en: 'Children in Inclusive Education (SPUS)', bn: 'বিশেষ চাহিদাসম্পন্ন শিশু শিক্ষা' },
+    wells: { en: '100', bn: '১০০' },
+    wellsLabel: { en: 'Therapy & Rehab Beneficiaries', bn: 'থেরাপি ও পুনর্বাসন সুবিধাভোগী' },
+    students: { en: '5', bn: '৫' },
+    studentsLabel: { en: 'Core Strategic Pillars', bn: 'কৌশলগত মূল স্তম্ভ' },
+    lives: { en: 'BDT 13.27M', bn: '১৩.২৭ মিলিয়ন টাকা' },
+    livesLabel: { en: '3-Year SPUS Project Budget (~$108K)', bn: '৩ বছর মেয়াদী SPUS প্রকল্প বাজেট' }
   },
   bankDetails: {
-    bankName: { en: 'BRAC Bank Limited', bn: 'ব্র্যাক ব্যাংক লিমিটেড' },
-    accountName: { en: 'Humanity First Bangladesh Foundation', bn: 'হিউম্যানিটি ফাস্ট বাংলাদেশ ফাউন্ডেশন' },
-    accountNo: { en: '1501204892018001', bn: '১৫০১২০৪৮৯২০১৮০০১' },
-    branch: { en: 'Banani Branch, Dhaka', bn: 'বনানী শাখা, ঢাকা' },
-    routingNo: { en: '060260783', bn: '০৬০২৬MD৮৩' },
-    swiftCode: { en: 'BRACBDDH', bn: 'BRACBDDH' }
+    bankName: { en: 'To Be Announced', bn: 'শীঘ্রই আনুষ্ঠানিকভাবে ঘোষিত হবে' },
+    accountName: { en: 'Shaheen Cares Trust', bn: 'শাহীন কেয়ার্স ট্রাস্ট' },
+    accountNo: { en: 'TBA', bn: 'TBA' },
+    branch: { en: 'Dhaka, Bangladesh', bn: 'ঢাকা, বাংলাদেশ' },
+    routingNo: { en: 'TBA', bn: 'TBA' },
+    swiftCode: { en: 'TBA', bn: 'TBA' }
   }
 };
 
@@ -80,93 +80,92 @@ export const siteContent = initialSiteContent;
 
 export const initialAboutData: AboutOrganization = {
   id: 'about_default',
-  heroTitle: { en: 'Serving Humanity with Dignity & Absolute Transparency', bn: 'মর্যাদা ও স্বচ্ছতার সাথে মানবতার সেবা' },
-  heroSubtitle: { en: 'Registered under NGO Affairs Bureau Bangladesh (Reg No: 2847). Operating across all 64 districts, we deliver rapid disaster rescue, clean water wells, and child education.', bn: 'এনজিও বিষয়ক ব্যুরো বাংলাদেশ (রেজি নং: ২৮৪৭) নিবন্ধিত একটি অরাজনৈতিক ও নিরপেক্ষ মানবিক সহায়তা সংস্থা।' },
+  heroTitle: { en: 'From Friendship to Service — From Caring to Lasting Impact', bn: 'বন্ধুত্ব থেকে সেবা — যত্ন থেকে দীর্ঘস্থায়ী প্রভাব' },
+  heroSubtitle: { en: 'Shaheen Cares Trust (SCT) is a charitable initiative of the Shaheen community, transforming "Once a Shaheen, Always a Shaheen" into meaningful service.', bn: 'শাহীন কেয়ার্স ট্রাস্ট (SCT) শাহীন কমিউনিটির একটি মানবিক উদ্যোগ, যা "ওয়ান্স এ শাহীন, অলওয়েজ এ শাহীন" চেতনাকে বাস্তব সেবায় রূপান্তর করে।' },
   overview: {
-    en: 'We believe that humanitarian assistance must preserve the inherent dignity of every human being. Assistance is delivered not as a patronizing gesture, but as a fundamental right to health, clean water, and opportunity. Our strict 100% Zero-Overhead Zakat Policy guarantees that 100% of your Zakat funds are disbursed directly to verified eligible families without deducting any administrative expenses.',
-    bn: 'আমরা বিশ্বাস করি কোনো সুবিধাবঞ্চিত মানুষ যেন করুণার পাত্র হিসেবে নিজেকে না দেখে। আমাদের প্রতিটি ত্রাণ ও বিতরণ ড্রাইভ সর্বোচ্চ আত্মমর্যাদা বজায় রেখে পরিচালিত হয়। আমাদের ১০০% যাকাত নীতি অনুযায়ী আপনার প্রদানকৃত যাকাতের পুরো টাকাই সরাসরি উপকারভোগীর হাতে পৌঁছে দেয়া হয়, কোনো প্রকার প্রশাসনিক খরচ না কেটে।'
+    en: 'The spirit behind Shaheen Cares Trust began more than a decade ago, when members of the Shaheen community (mostly Class of 1989) stepped up for emergency medical assistance, school fees, winter drives, and flood/COVID relief. In late 2024, consultation began to make this impact structured and sustainable, culminating in the establishment of SCT under Bangladesh\'s Trust Act of 1882. The Trust will be inaugurated on October 9, 2026.',
+    bn: 'শাহীন কেয়ার্স ট্রাস্টের পেছনের চেতনা এক দশকেরও বেশি আগে শুরু হয়েছিল (মূলত এসএসসি ১৯৮৯ ব্যাচ), যখন শাহীন সদস্যরা চিকিৎসা সহায়তা, শিক্ষার্থীদের ফি, শীতবস্ত্র বিতরণ ও ত্রাণ কাজে এগিয়ে আসেন। ২০২৪ সালের শেষের দিকে এটিকে স্থায়ী ও প্রাতিষ্ঠানিক রূপ দেওয়ার উদ্যোগ নেওয়া হয়, যার মাধ্যমে ১৮৮২ সালের ট্রাস্ট আইনের অধীনে SCT প্রতিষ্ঠিত হয়। ২০২৬ সালের ৯ই অক্টোবর এর আনুষ্ঠানিক যাত্রা শুরু হবে।'
   },
   zakatPolicy: {
-    en: '100% Direct Distribution to Eight Quranic Beneficiary Categories with Zero Financial Leakage.',
-    bn: 'কুরআনুল কারীমে বর্ণিত ৮টি খাতে কোনো প্রকার কাটছাট ছাড়াই ১০০% সরাসরি বণ্টন।'
+    en: 'Strategic care ecosystem developing sustainable care systems, knowledge hubs, and organizational capacity across Bangladesh.',
+    bn: 'টেকসই যত্ন ব্যবস্থা, নলেজ হাব ও প্রাতিষ্ঠানিক সক্ষমতা বৃদ্ধির মাধ্যমে সুসংগঠিত মানবিক সেবা প্রদান।'
   },
   coreValues: [
     {
-      title: { en: '100% Zero-Overhead Zakat', bn: '১০০% প্রশাসনিক খরচবিহীন যাকাত' },
-      desc: { en: 'Every taka of your Zakat goes directly to verified eligible families with full shariah compliance.', bn: 'আপনার প্রদত্ত যাকাতের পুরো টাকাই কোনো কাটিং ছাড়া সরাসরি উপকারভোগী পরিবারে পৌঁছানো হয়।' }
+      title: { en: 'Children with Special Needs (2026–2029)', bn: 'বিশেষ চাহিদাসম্পন্ন শিশু (২০২৬–২০২৯)' },
+      desc: { en: 'Pathways to greater skills, dignity, inclusion, and independence through strong partner organizations.', bn: 'অংশীদার সংস্থাসমূহের মাধ্যমে বিশেষ চাহিদাসম্পন্ন শিশুদের দক্ষতা, মর্যাদা ও অন্তর্ভুক্তির সুযোগ সৃষ্টি।' }
     },
     {
-      title: { en: 'Absolute Financial Transparency', bn: 'সম্পূর্ণ আর্থিক স্বচ্ছতা' },
-      desc: { en: 'Audited annually by chartered accountants and publicly published on our website.', bn: 'বার্ষিক হিসাব চার্টার্ড অ্যাকাউন্ট্যান্ট দ্বারা নিরীক্ষিত এবং নিয়মিত ওয়েবসাইটে প্রকাশিত।' }
+      title: { en: 'Youth Employability (2029–2030)', bn: 'যুব কর্মসংস্থান ও দক্ষতা (২০২৯–২০৩০)' },
+      desc: { en: 'Equipping young people with internationally relevant skills and vocational career pathways.', bn: 'তরুণদের আন্তর্জাতিক মানের কারিগরি ও বৃত্তিমূলক দক্ষতায় দক্ষ করে গড়ে তোলা।' }
     },
     {
-      title: { en: 'Preserving Human Dignity', bn: 'মানবিক মর্যাদা রক্ষা' },
-      desc: { en: 'Relief distribution is conducted respectfully without photo-shaming beneficiaries.', bn: 'উপকারভোগীদের সম্মান রক্ষা করে অত্যন্ত সুশৃঙ্খলভাবে সহায়তা প্রদান করা হয়।' }
+      title: { en: 'Elderly Care (2030 Onward)', bn: 'বয়স্কদের মর্যাদা ও যত্ন (২০৩০ থেকে)' },
+      desc: { en: 'Dignified systems of care connected with empowered youth for intergenerational community support.', bn: 'বয়স্কদের জন্য সুসংগঠিত পরিচর্যা ব্যবস্থা এবং প্রবীণ-নবীন আন্তঃপ্রজন্মীয় বন্ধন তৈরি।' }
     },
     {
-      title: { en: 'Rapid Emergency Response', bn: 'দ্রুততম জরুরি উদ্ধারকাজ' },
-      desc: { en: 'Emergency rescue speedboats deployed within 6 hours of disaster alerts in Sylhet & Feni.', bn: 'বন্যা উপদ্রুত এলাকায় ৬ ঘণ্টার মধ্যে স্পিডবোট ও রেসকিউ বোট নামানোর সক্ষমতা।' }
+      title: { en: 'Organizational Sustainability', bn: 'সংস্থার প্রাতিষ্ঠানিক স্থায়িত্ব' },
+      desc: { en: 'Helping nonprofits strengthen systems and reduce long-term dependence on traditional donations.', bn: 'অলাভজনক সংস্থাসমূহের প্রাতিষ্ঠানিক সক্ষমতা বাড়িয়ে অনুদান-নির্ভরতা কমানো।' }
     },
     {
-      title: { en: 'Community Empowerment', bn: 'স্থানীয় জনসম্পৃক্ততা' },
-      desc: { en: 'Empowering local widow sewing groups and youth volunteer clubs in all 64 districts.', bn: 'স্থানীয় তরুণদের প্রশিক্ষিত করে স্বয়ংসম্পূর্ণ ভলান্টিয়ার ক্লাব তৈরি করা।' }
+      title: { en: 'Shaheen Community Care', bn: 'শাহীন কমিউনিটি সেবা' },
+      desc: { en: 'Standing beside members of the wider Shaheen community and teachers in times of genuine need.', bn: 'শাহীন পরিবারের সদস্য ও সাবেক শিক্ষকদের বিপদে-আপদে পাশে দাঁড়ানো।' }
     },
     {
-      title: { en: 'Environmental Sustainability', bn: 'পরিবেশবান্ধব স্থায়িত্ব' },
-      desc: { en: 'Constructing solar-powered deep tube wells that run on clean green energy for 25+ years.', bn: 'সৌরবিদ্যুৎ চালিত নলকূপ যা দীর্ঘ ২৫ বছর গ্রামীণ জনগোষ্ঠীকে সুপেয় পানি জোগাবে।' }
+      title: { en: 'Systems & Intergenerational Approach', bn: 'সিস্টেম ও আন্তঃপ্রজন্মীয় পদ্ধতি' },
+      desc: { en: 'Building interconnected knowledge, technology, and expert hubs across urban and rural communities.', bn: 'প্রযুক্তি ও বিষয়ভিত্তিক বিশেষজ্ঞ পুলের সমন্বয়ে টেকসই নলেজ হাব ও কেয়ার ইকোসিস্টেম তৈরি।' }
     }
   ],
   historyMilestones: [
     {
-      year: '2018',
-      title: { en: 'Foundation Established in Banani, Dhaka', bn: 'বনানীতে কার্যক্রম শুরু' },
-      desc: { en: 'Started with 50 volunteers providing winter blankets in Northern Bangladesh.', bn: '৫০ জন স্বেচ্ছাসেবী নিয়ে উত্তরাঞ্চলে শীতবস্ত্র বিতরণের মাধ্যমে যাত্রা শুরু।' }
+      year: '2014–2023',
+      title: { en: 'A Decade of Voluntary Initiatives', bn: 'স্বেচ্ছাসেবী সেবার এক দশক' },
+      desc: { en: 'Shaheen Class of 1989 led emergency medical assistance, student scholarships, flood, and COVID-19 relief drives.', bn: 'শাহীন ৮৯ ব্যাচের উদ্যোগে জরুরি চিকিৎসা সহায়তা, ছাত্রবৃত্তি, বন্যা ও করোনা মহামারীতে ত্রাণ বিতরণ কার্যক্রম।' }
     },
     {
-      year: '2020',
-      title: { en: 'COVID-19 Emergency Ration Response', bn: 'করোনা ভাইরাসজরুরি খাদ্য সহায়তা' },
-      desc: { en: 'Distributed food packs to 150,000 lockdown-affected daily wage earners.', bn: 'দেড় লক্ষাধিক দিনমজুর ও দুস্থ পরিবারকে খাদ্য সামগ্রী ও স্বাস্থ্য সুরক্ষা সামগ্রী বিতরণ।' }
+      year: 'Late 2024',
+      title: { en: 'Strategic Consultations & Research', bn: 'কৌশলগত পরামর্শ ও গবেষণা' },
+      desc: { en: 'Consultation with sector experts, partner visits, and deliberations to design sustainable social impact.', bn: 'বিশেষজ্ঞদের পরামর্শ, অংশীদার সংস্থা পরিদর্শন ও দীর্ঘমেয়াদী কৌশল তৈরির উদ্যোগ।' }
     },
     {
-      year: '2022',
-      title: { en: 'NGO Affairs Bureau Registration (Reg No: 2847)', bn: 'এনজিও বিষয়ক ব্যুরো কর্তৃক নিবন্ধন লাভ' },
-      desc: { en: 'Obtained official government NGO certification and 100% tax exemption approval.', bn: 'সরকারি অনুমোদন ও আয়কর আইনের ৪ ৪(৪) ধারায় কর অব্যাহতি অনুমোদন।' }
+      year: '2025–2026',
+      title: { en: 'Establishment of Shaheen Cares Trust', bn: 'শাহীন কেয়ার্স ট্রাস্টের প্রতিষ্ঠা' },
+      desc: { en: 'Formally registered under Bangladesh Trust Act 1882 and Strategy 2026–2031 finalized.', bn: 'বাংলাদেশের ট্রাস্ট আইন ১৮৮২-এর অধীনে ট্রাস্ট গঠন এবং ২০২৬–২০৩১ সালের কৌশলগত পরিকল্পনা তৈরি।' }
     },
     {
-      year: '2024',
-      title: { en: 'Launch of Coastal Solar Tube Well Drive', bn: 'উপকূলীয় সুপেয় পানি প্রজেক্ট শুরু' },
-      desc: { en: 'Built 250 deep solar wells in Satkhira, Khulna, and Barguna salinity zones.', bn: 'সাতক্ষীরা ও খুলনার লোনাপানি কবলিত এলাকায় ২৫০টি সোলার ডিপ টিউবওয়েল স্থাপন।' }
+      year: 'Oct 9, 2026',
+      title: { en: 'Official Trust Inauguration in Dhaka', bn: 'ঢাকায় ট্রাস্টের আনুষ্ঠানিক উদ্বোধন' },
+      desc: { en: 'Inauguration bringing together Shaheens from Bangladesh, North America, Europe, and Australia.', bn: 'বিশ্বজুড়ে ছড়িয়ে থাকা শাহীনদের ঐক্যবদ্ধ করে ট্রাস্টের আনুষ্ঠানিক উদ্বোধন।' }
     },
     {
-      year: '2026',
-      title: { en: 'Sylhet & Feni Flood Fleet & 64-District Reach', bn: 'সিলেট ও ফেনী বন্যা উদ্ধার কাজ ও ৬৪ জেলায় বিস্তার' },
-      desc: { en: 'Deployed emergency rescue speedboat fleet and crossed 1.2M meals distributed.', bn: 'নিজস্ব স্পিডবোট উদ্ধার বহর নামানো ও ১২ লক্ষাধিক খাদ্য বিতরণের মাইলফলক অর্জন।' }
+      year: '2026–2029',
+      title: { en: 'First Major Project: SPUS Satarkul', bn: 'প্রথম প্রকল্প: এসপিইউএস সাঁতারকুল' },
+      desc: { en: '3-year partnership with Satarkul Protibandhi Unnayan Sangstha (BDT 13.27M budget) for disability inclusion.', bn: 'সাঁতারকুল প্রতিবন্ধী উন্নয়ন সংস্থার সাথে ৩ বছর মেয়াদী (১৩.২৭ মিলিয়ন টাকা বাজেট) অংশীদারিত্ব।' }
     }
   ],
   stats: [
-    { label: { en: 'Solar Water Wells', bn: 'উপকূলীয় সোলার টিউবওয়েল' }, value: { en: '450+', bn: '৪৫০+' } },
-    { label: { en: 'Children Educated', bn: 'শিক্ষার্থী সহায়তা' }, value: { en: '12,500+', bn: '১২,৫০০+' } },
-    { label: { en: 'Emergency Meals', bn: 'জরুরি খাদ্য সামগ্রী' }, value: { en: '1,250,000+', bn: '১২,৫০,০০০+' } },
-    { label: { en: 'Active Volunteers', bn: 'সক্রিয় স্বেচ্ছাসেবী' }, value: { en: '12,000+', bn: '১২,০০০+' } }
+    { label: { en: 'Inclusive Education Beneficiaries', bn: 'অন্তর্ভুক্তিমূলক শিক্ষা শিক্ষার্থী' }, value: { en: '75', bn: '৭৫' } },
+    { label: { en: 'Therapy & Rehabilitation Support', bn: 'থেরাপি ও পুনর্বাসন সুবিধাভোগী' }, value: { en: '100', bn: '১০০' } },
+    { label: { en: 'Strategic Pillars (2026–2031)', bn: 'কৌশলগত স্তম্ভ' }, value: { en: '5 Pillars', bn: '৫টি স্তম্ভ' } },
+    { label: { en: 'First Project Budget (3 Years)', bn: 'প্রথম প্রকল্পের বাজেট' }, value: { en: 'BDT 13.27M', bn: '১৩.২৭ মিলিয়ন টাকা' } }
   ]
 };
 
 export const initialMissionVisionData: MissionVisionData = {
   id: 'mission_vision_default',
-  missionTitle: { en: 'Rapid Relief & Dignified Empowerment', bn: 'মানবতার কল্যাণ ও দ্রুততম পুনর্বাসন' },
-  missionDesc: { en: 'To deliver rapid emergency relief within 6 hours of flood disasters, install 25-year solar deep tube wells in salt-affected coastal regions, and sponsor quality education for orphan children with 100% financial transparency.', bn: 'বাংলাদেশের নদীভাঙন, খরা ও বন্যায় বিপর্যস্ত পরিবারগুলোকে ৬ ঘণ্টার মধ্যে জরুরি খাদ্য ও উদ্ধার সুবিধা পৌঁছে দেয়া; উপকূলীয় এলাকায় বিশুদ্ধ খাবার পানির ১০০% নিরাপদ সোলার গভীর নলকূপ স্থাপন করা এবং এতিম ও পথশিশুদের বিনামূল্যে শিক্ষার সুব্যবস্থা করা।' },
+  missionTitle: { en: 'Empowerment, Care Systems & Sustainable Impact', bn: 'ক্ষমতায়ন, সেবা ব্যবস্থা ও টেকসই প্রভাব' },
+  missionDesc: { en: 'To create sustainable pathways to empowerment through strategic partnerships, skills development, dignified elderly care, and intergenerational community support initiatives across Bangladesh.', bn: 'কৌশলগত অংশীদারিত্ব, দক্ষতা উন্নয়ন, প্রবীণদের মর্যাদাপূর্ণ সেবা এবং আন্তঃপ্রজন্মীয় সামাজিক সহায়তার মাধ্যমে সারা বাংলাদেশে টেকসই ক্ষমতায়ন নিশ্চিত করা।' },
   missionPoints: [
-    { en: '64-District Emergency Rescue & Relief Fleet', bn: '৬৪ জেলায় দ্রুততম উদ্ধারকাজ ও স্পিডবোট বহর' },
-    { en: '100% Zero-Overhead Direct Zakat Policy', bn: '১০০% প্রশাসনিক খরচমুক্ত যাকাত ব্যবস্থা' },
-    { en: '100% Tax Exempted & Audited Financial Operations', bn: 'কর অব্যাহতিপ্রাপ্ত অডিটযোগ্য অনুদান ব্যবস্থা' }
+    { en: 'System-centered care ecosystem for special needs, youth, and elders', bn: 'বিশেষ চাহিদাসম্পন্ন শিশু, যুব ও প্রবীণদের জন্য প্রাতিষ্ঠানিক সেবা ব্যবস্থা' },
+    { en: 'Capacity building & financial sustainability for grassroots NGOs', bn: 'স্থানীয় এনজিও ও সামাজিক সংস্থার সক্ষমতা ও স্থায়িত্ব বৃদ্ধি' },
+    { en: 'Integrated expert pool and knowledge hub development', bn: 'বিশেষজ্ঞদের সমন্বিত পুল এবং নলেজ হাব বা তথ্যকেন্দ্র স্থাপন' }
   ],
-  visionTitle: { en: 'A Resilient, Safe & Empowered Nation', bn: 'একটি সুপেয় পানি ও দারিদ্র্যমুক্ত বাংলাদেশ' },
-  visionDesc: { en: 'By 2030, establish 10,000 solar deep water wells in coastal salinity zones, liberate 50,000 extreme poor families from extreme poverty through self-reliance, and educate 5,000 vulnerable children.', bn: '২০৩০ সালের মধ্যে বাংলাদেশের সকল লোনাপানি উপদ্রুত জেলায় ১০,০০০টি সোলার সুপেয় গভীর নলকূপ স্থাপন, ৫০,০০০ দুস্থ পরিবারকে স্বাবলম্বী করা এবং ৫,০০০ পথশিশুকে কারিগরি ও প্রাতিষ্ঠানিক শিক্ষার আওতায় আনা।' },
+  visionTitle: { en: 'An Inclusive & Dignified Intergenerational Community', bn: 'অন্তর্ভুক্তিমূলক ও মর্যাদাপূর্ণ সহমর্মী সমাজ' },
+  visionDesc: { en: 'An inclusive community where people of all generations — children, youth, adults, and older people — support one another with dignity, purpose, and compassion.', bn: 'এমন একটি অন্তর্ভুক্তিমূলক সমাজ যেখানে সকল প্রজন্মের মানুষ — শিশু, তরুণ, প্রাপ্তবয়স্ক ও প্রবীণগণ — মর্যাদা, উদ্দেশ্য ও সহমর্মিতার সাথে একে অপরকে সহযোগিতা করবে।' },
   visionPoints: [
-    { en: '10,000 Coastal Solar Water Wells by 2030', bn: '১০,০০০ সুপেয় ডিপ নলকূপ প্রকল্প' },
-    { en: '50,000 Self-Reliant Livelihoods', bn: '৫০,০০০ পরিবারের স্বাবলম্বীকরণ' },
-    { en: 'Floating Mobile Health Clinic Fleet', bn: 'ফ্রি মোবাইল ডাক্তার ও হাসপাতাল বোট' }
+    { en: 'Inclusive education and therapy for special needs children (Pillar 1)', bn: 'বিশেষ চাহিদাসম্পন্ন শিশুদের অন্তর্ভুক্তিমূলক শিক্ষা ও থেরাপি (স্তম্ভ ১)' },
+    { en: 'Internationally standard youth vocational skills & employment (Pillar 2)', bn: 'তরুণদের আন্তর্জাতিক মানের কারিগরি দক্ষতা ও কর্মসংস্থান (স্তম্ভ ২)' },
+    { en: 'Dignified elderly care supported by trained youth networks (Pillar 3)', bn: 'প্রশিক্ষিত তরুণদের মাধ্যমে প্রবীণদের মর্যাদাপূর্ণ পরিচর্যা ব্যবস্থা (স্তম্ভ ৩)' }
   ],
-  roadmapYear: '2030'
+  roadmapYear: '2031'
 };
-
