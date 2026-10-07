@@ -4,18 +4,18 @@ export const initialSiteContent: SiteContent = {
   id: 'site_content_default',
   orgName: { en: 'Shaheen Cares Trust', bn: 'শাহীন কেয়ার্স ট্রাস্ট' },
   orgTagline: { en: 'Building Dignified Futures, Together', bn: 'মর্যাদাপূর্ণ ভবিষ্যৎ গড়ি, একসাথে' },
-  regInfo: { en: 'Formally established under Trust Act of 1882 of Bangladesh', bn: 'বাংলাদেশের ১৮৮২ সালের ট্রাস্ট আইনের অধীনে নিবন্ধিত' },
+  regInfo: { en: 'Established under Trust Act of 1882 of Bangladesh', bn: 'বাংলাদেশের ১৮৮২ সালের ট্রাস্ট আইনের অধীনে নিবন্ধিত' },
   taxInfo: { en: 'Charitable & Humanitarian Initiative of the Shaheen Community', bn: 'শাহীন কমিউনিটির একটি দাতব্য ও মানবিক উদ্যোগ' },
   emergencyTicker: {
     en: 'ANNOUNCEMENT: Shaheen Cares Trust Inauguration on October 9, 2026 in Dhaka. First Major Project: SPUS Satarkul (2026–2029).',
     bn: 'বিজ্ঞপ্তি: আগামী ৯ই অক্টোবর, ২০২৬ ঢাকায় শাহীন কেয়ার্স ট্রাস্টের আনুষ্ঠানিক উদ্বোধন। প্রথম প্রকল্প: এসপিইউএস সাঁতারকুল (২০২৬-২০২৯)।'
   },
-  hotline: { en: '+880 1700-000000', bn: '+880 ১৭০০-০০০০০০' },
-  email: { en: 'info@shaheencarestrust.org', bn: 'info@shaheencarestrust.org' },
-  whatsapp: { en: '+880 1700-000000', bn: '+880 ১৭০০-০০০০০০' },
+  hotline: { en: '+880 1805-099605', bn: '+880 ১৮০৫-০৯৯৬০৫' },
+  email: { en: 'shaheencares@gmail.com', bn: 'shaheencares@gmail.com' },
+  whatsapp: { en: '+880 1805-099605', bn: '+880 ১৮০৫-০৯৯৬০৫' },
   address: {
-    en: 'Dhaka, Bangladesh',
-    bn: 'ঢাকা, বাংলাদেশ'
+    en: 'House # 12/A, Road # 08, Gulshan-1, Dhaka-1212, Bangladesh',
+    bn: 'হাউস # ১২/এ, রোড # ০৮, গুলশান-১, ঢাকা-১২১২, বাংলাদেশ'
   },
   nav: {
     home: { en: 'Home', bn: 'হোম' },
@@ -50,7 +50,7 @@ export const initialSiteContent: SiteContent = {
       oneTime: { en: 'One-time', bn: 'একবার' },
       monthly: { en: 'Monthly', bn: 'মাসিক' }
     },
-  amounts: [1000, 2500, 5000, 10000],
+    amounts: [1000, 2500, 5000, 10000],
     customAmount: { en: 'Custom Amount', bn: 'অন্যান্য পরিমাণ' },
     selectPayment: { en: 'Support Focus', bn: 'সহযোগিতার খাত' },
     donateBtn: { en: 'Get Involved / Support Now', bn: 'যুক্ত হন / সমর্থন জানান' },
@@ -70,7 +70,7 @@ export const initialSiteContent: SiteContent = {
     bankName: { en: 'To Be Announced', bn: 'শীঘ্রই আনুষ্ঠানিকভাবে ঘোষিত হবে' },
     accountName: { en: 'Shaheen Cares Trust', bn: 'শাহীন কেয়ার্স ট্রাস্ট' },
     accountNo: { en: 'TBA', bn: 'TBA' },
-    branch: { en: 'Dhaka, Bangladesh', bn: 'ঢাকা, বাংলাদেশ' },
+    branch: { en: 'Gulshan-1, Dhaka, Bangladesh', bn: 'গুলশান-১, ঢাকা, বাংলাদেশ' },
     routingNo: { en: 'TBA', bn: 'TBA' },
     swiftCode: { en: 'TBA', bn: 'TBA' }
   }
@@ -169,3 +169,42 @@ export const initialMissionVisionData: MissionVisionData = {
   ],
   roadmapYear: '2031'
 };
+
+export const boardOfTrusteesData = [
+  {
+    role: { en: 'Chairperson', bn: 'চেয়ারপারসন' },
+    name: { en: 'Data Magfur', bn: 'দাতা মাগফুর' }
+  },
+  {
+    role: { en: 'General Secretary', bn: 'সাধারণ সম্পাদক' },
+    name: { en: 'Sumana Binte Masud', bn: 'সুমানা বিনতে মাসুদ' }
+  },
+  {
+    role: { en: 'Treasurer', bn: 'কোষাধ্যক্ষ' },
+    name: { en: 'Anisuzzaman Naser Khan', bn: 'আনিসুজ্জামান নাসের খান' }
+  },
+  {
+    role: { en: 'Trustee', bn: 'ট্রাস্টি' },
+    name: { en: 'Selin Sultana', bn: 'সেলিন সুলতানা' }
+  },
+  {
+    role: { en: 'Trustee', bn: 'ট্রাস্টি' },
+    name: { en: 'Shahnaz Sharmeen', bn: 'শাহনাজ শারমীন' }
+  },
+  {
+    role: { en: 'Trustee', bn: 'ট্রাস্টি' },
+    name: { en: 'Anirban Yasin Aftab', bn: 'অনির্বাণ ইয়াসিন আফতাব' }
+  },
+  {
+    role: { en: 'Trustee', bn: 'ট্রাস্টি' },
+    name: { en: 'Rozana Rouf', bn: 'রোজানা রউফ' }
+  },
+  {
+    role: { en: 'Trustee', bn: 'ট্রাস্টি' },
+    name: { en: 'M Mazedul Islam', bn: 'এম মাজহারুল ইসলাম' }
+  },
+  {
+    role: { en: 'Trustee', bn: 'ট্রাস্টি' },
+    name: { en: 'Fazal Salahuddin Ahmad', bn: 'ফজল সালাহউদ্দিন আহমদ' }
+  }
+];

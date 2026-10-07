@@ -55,9 +55,13 @@ export const AboutPage: React.FC = () => {
             </p>
 
             <div className="flex flex-wrap items-center gap-3 pt-2 text-xs font-bold">
+              
+              {/*
               <span className="bg-white/10 px-3.5 py-1.5 rounded-xl border border-white/10">
-                ✓ NGO Affairs Bureau Reg: 2847
-              </span>
+                 ✓ NGO Affairs Bureau Reg: 2847
+               </span>
+              */}
+              
               <span className="bg-white/10 px-3.5 py-1.5 rounded-xl border border-white/10">
                 ✓ 100% Tax Exempt under Sec 44(4)
               </span>
@@ -72,7 +76,7 @@ export const AboutPage: React.FC = () => {
         <div className="flex p-2 bg-white rounded-2xl border border-slate-200/80 shadow-sm text-xs font-bold gap-2 overflow-x-auto">
           {[
             { id: 'overview', labelEn: 'Organizational Overview', labelBn: 'সংগঠনের পরিচিতি' },
-            { id: 'mission', labelEn: 'Mission & Vision 2030', labelBn: 'লক্ষ্য ও ভিশন ২০৩০' },
+            { id: 'mission', labelEn: 'Mission & Vision 2030', labelBn: 'লক্ষ্য ও ভিশন' },
             { id: 'values', labelEn: 'Core Operational Values', labelBn: 'আমাদের মূলনীতি' },
             { id: 'history', labelEn: 'History & Key Milestones', labelBn: 'ইতিহাস ও মাইলফলক' }
           ].map((tab) => (
@@ -94,7 +98,7 @@ export const AboutPage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div className="space-y-4 text-slate-700 text-sm leading-relaxed">
                 <h2 className="text-2xl font-black text-slate-900 tracking-tight">
-                  {isBn ? 'কেন হিউম্যানিটি ফাস্ট বিডি আলাদা?' : 'Why Humanity First BD Stands Out'}
+                  {isBn ? 'কেন শাহীন কেয়ারস ট্রাস্ট অনন্য?' : 'Why Shaheen Cares Trust Stands Out'}
                 </h2>
                 <div className="whitespace-pre-line">
                   {t(aboutData.overview)}
@@ -114,7 +118,7 @@ export const AboutPage: React.FC = () => {
 
               <div className="rounded-3xl overflow-hidden shadow-xl border border-slate-200">
                 <SafeImage
-                  src="https://images.unsplash.com/photo-1547683905-f686c993aae5?w=800&auto=format&fit=crop"
+                  src="/Images/shaheen_bg_1.png?w=800&auto=format&fit=crop"
                   alt="Relief Distribution"
                   className="w-full h-80 object-cover"
                   fallbackCategory="emergency"
@@ -163,8 +167,8 @@ export const AboutPage: React.FC = () => {
                 </h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
                   {isBn
-                    ? 'বাংলাদেশের প্রতিটি প্রাকৃতিক দুর্যোগে দ্রুততম সময়ের মধ্যে উদ্ধারকাজ ও ত্রাণ নিশ্চিত করা, উপকূলীয় অঞ্চলে নিরাপদ খাবার পানির স্থায়ী সুযোগ তৈরি করা এবং সুবিধাবঞ্চিত এতিম ও পথশিশুদের সুশিক্ষায় শিক্ষিত করে গড়ে তোলা।'
-                    : 'To provide rapid, honorable disaster relief during catastrophes, establish sustainable solar clean water infrastructure in climate-vulnerable coastal belts, and empower marginalized children through holistic primary education.'
+                    ? 'কৌশলগত অংশীদারিত্ব, দক্ষতা উন্নয়ন, প্রবীণদের মর্যাদাপূর্ণ সেবা এবং বিভিন্ন প্রজন্মের মধ্যে পারস্পরিক সহায়তামূলক উদ্যোগের মাধ্যমে সমগ্র বাংলাদেশ জুড়ে ক্ষমতায়নের টেকসই পথ তৈরি করা।'
+                    : 'To create sustainable pathways to empowerment through strategic partnerships, skills development, dignified elderly care, and intergenerational community support initiatives across Bangladesh.'
                   }
                 </p>
               </div>
@@ -175,12 +179,12 @@ export const AboutPage: React.FC = () => {
                   <Eye className="w-6 h-6" />
                 </div>
                 <h3 className="text-2xl font-black text-slate-900">
-                  {isBn ? 'আমাদের ভিশন ২০৩০ (Our Vision 2030)' : 'Our Vision 2030'}
+                  {isBn ? 'আমাদের ভিশন (Our Vision)' : 'Our Vision'}
                 </h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
                   {isBn
-                    ? 'একটি স্বাবলম্বী, দারিদ্র্যমুক্ত ও বৈষম্যহীন বাংলাদেশ গড়ে তোলা যেখানে কোনো মা নিরাপদ সুপেয় পানির অভাবে ভুগবে না এবং কোনো শিশু দারিদ্র্যের কারণে শিক্ষার আলো থেকে বঞ্চিত হবে না।'
-                    : 'A resilient, self-sufficient, and poverty-free Bangladesh where every citizen enjoys clean water, dignified shelter, equal healthcare, and quality education.'
+                    ? 'এমন একটি অন্তর্ভুক্তিমূলক সম্প্রদায় যেখানে সব প্রজন্মের মানুষ—শিশু, তরুণ, প্রাপ্তবয়স্ক ও প্রবীণ—মর্যাদা, উদ্দেশ্যবোধ ও সহমর্মিতার সাথে একে অপরকে সহায়তা করে।'
+                    : 'An inclusive community where people of all generations — children, youth, adults, and older people — support one another with dignity, purpose, and compassion.'
                   }
                 </p>
               </div>
