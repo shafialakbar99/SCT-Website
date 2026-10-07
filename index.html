@@ -29,6 +29,9 @@
           }
         }).catch(function() {});
       }
+      try {
+        localStorage.removeItem('hf_db_leadership_members');
+      } catch (e) {}
     </script>
   </body>
 </html>

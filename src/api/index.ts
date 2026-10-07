@@ -499,79 +499,81 @@ export async function dbInsertVolunteer(row: VolunteerTableRow): Promise<Volunte
 // -------------------------------------------------------------
 // 13. LEADERSHIP MEMBERS TABLE REPOSITORY
 // -------------------------------------------------------------
-const defaultLeadershipRows: LeadershipMemberTableRow[] = [
-  {
-    id: chairmanData.id,
-    member_type: 'chairman',
-    name_en: chairmanData.name.en,
-    name_bn: chairmanData.name.bn,
-    role_en: chairmanData.role.en,
-    role_bn: chairmanData.role.bn,
-    designation_en: chairmanData.designation.en,
-    designation_bn: chairmanData.designation.bn,
-    image_url: chairmanData.imageUrl,
-    bio_en: chairmanData.bio.en,
-    bio_bn: chairmanData.bio.bn,
-    message_en: chairmanData.message?.en,
-    message_bn: chairmanData.message?.bn,
-    quote_en: chairmanData.quote?.en,
-    quote_bn: chairmanData.quote?.bn,
-    display_order: 1
-  },
-  {
-    id: ceoData.id,
-    member_type: 'ceo',
-    name_en: ceoData.name.en,
-    name_bn: ceoData.name.bn,
-    role_en: ceoData.role.en,
-    role_bn: ceoData.role.bn,
-    designation_en: ceoData.designation.en,
-    designation_bn: ceoData.designation.bn,
-    image_url: ceoData.imageUrl,
-    bio_en: ceoData.bio.en,
-    bio_bn: ceoData.bio.bn,
-    message_en: ceoData.message?.en,
-    message_bn: ceoData.message?.bn,
-    quote_en: ceoData.quote?.en,
-    quote_bn: ceoData.quote?.bn,
-    display_order: 2
-  },
-  ...boardMembersData.map((b, idx) => ({
-    id: b.id,
-    member_type: 'board' as const,
-    name_en: b.name.en,
-    name_bn: b.name.bn,
-    role_en: b.role.en,
-    role_bn: b.role.bn,
-    designation_en: b.designation.en,
-    designation_bn: b.designation.bn,
-    image_url: b.imageUrl,
-    bio_en: b.bio.en,
-    bio_bn: b.bio.bn,
-    display_order: idx + 3
-  })),
-  ...staffMembersData.map((s, idx) => ({
-    id: s.id,
-    member_type: 'staff' as const,
-    name_en: s.name.en,
-    name_bn: s.name.bn,
-    role_en: s.role.en,
-    role_bn: s.role.bn,
-    designation_en: s.designation.en,
-    designation_bn: s.designation.bn,
-    image_url: s.imageUrl,
-    bio_en: s.bio.en,
-    bio_bn: s.bio.bn,
-    email: s.email,
-    phone: s.phone,
-    department: s.department,
-    display_order: idx + 20
-  }))
-];
+export function getDefaultLeadershipRows(): LeadershipMemberTableRow[] {
+  return [
+    {
+      id: chairmanData.id,
+      member_type: 'chairman',
+      name_en: chairmanData.name.en,
+      name_bn: chairmanData.name.bn,
+      role_en: chairmanData.role.en,
+      role_bn: chairmanData.role.bn,
+      designation_en: chairmanData.designation.en,
+      designation_bn: chairmanData.designation.bn,
+      image_url: chairmanData.imageUrl,
+      bio_en: chairmanData.bio.en,
+      bio_bn: chairmanData.bio.bn,
+      message_en: chairmanData.message?.en,
+      message_bn: chairmanData.message?.bn,
+      quote_en: chairmanData.quote?.en,
+      quote_bn: chairmanData.quote?.bn,
+      display_order: 1
+    },
+    {
+      id: ceoData.id,
+      member_type: 'ceo',
+      name_en: ceoData.name.en,
+      name_bn: ceoData.name.bn,
+      role_en: ceoData.role.en,
+      role_bn: ceoData.role.bn,
+      designation_en: ceoData.designation.en,
+      designation_bn: ceoData.designation.bn,
+      image_url: ceoData.imageUrl,
+      bio_en: ceoData.bio.en,
+      bio_bn: ceoData.bio.bn,
+      message_en: ceoData.message?.en,
+      message_bn: ceoData.message?.bn,
+      quote_en: ceoData.quote?.en,
+      quote_bn: ceoData.quote?.bn,
+      display_order: 2
+    },
+    ...boardMembersData.map((b, idx) => ({
+      id: b.id,
+      member_type: 'board' as const,
+      name_en: b.name.en,
+      name_bn: b.name.bn,
+      role_en: b.role.en,
+      role_bn: b.role.bn,
+      designation_en: b.designation.en,
+      designation_bn: b.designation.bn,
+      image_url: b.imageUrl,
+      bio_en: b.bio.en,
+      bio_bn: b.bio.bn,
+      display_order: idx + 3
+    })),
+    ...staffMembersData.map((s, idx) => ({
+      id: s.id,
+      member_type: 'staff' as const,
+      name_en: s.name.en,
+      name_bn: s.name.bn,
+      role_en: s.role.en,
+      role_bn: s.role.bn,
+      designation_en: s.designation.en,
+      designation_bn: s.designation.bn,
+      image_url: s.imageUrl,
+      bio_en: s.bio.en,
+      bio_bn: s.bio.bn,
+      email: s.email,
+      phone: s.phone,
+      department: s.department,
+      display_order: idx + 20
+    }))
+  ];
+}
 
 export async function dbGetLeadershipMembers(): Promise<LeadershipMemberTableRow[]> {
   await delay();
-  return getTableData<LeadershipMemberTableRow>('leadership_members', defaultLeadershipRows);
+  return getDefaultLeadershipRows();
 }
 
 export async function dbSaveLeadershipMembers(rows: LeadershipMemberTableRow[]): Promise<LeadershipMemberTableRow[]> {

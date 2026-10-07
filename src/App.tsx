@@ -3,15 +3,21 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { LanguageProvider } from './context/LanguageContext';
 import { ThemeProvider } from './context/ThemeContext';
 import { AdminAuthProvider } from './context/AdminAuthContext';
-import { Header } from './components/public/common/Header';
-import { Footer } from './components/public/common/Footer';
-import { SearchModal } from './components/public/common/SearchModal';
+import { Header } from './components/common/Header';
+import { Footer } from './components/common/Footer';
+import { SearchModal } from './components/common/SearchModal';
 
 // Public Pages
 import { Home } from './pages/public/Home';
 import { DonatePage } from './pages/public/DonatePage';
 import { DonorsPage } from './pages/public/DonorsPage';
 import { AboutPage } from './pages/public/AboutPage';
+import { PurposePage } from './pages/public/PurposePage';
+import { PillarsPage } from './pages/public/PillarsPage';
+import { SpusProjectPage } from './pages/public/SpusProjectPage';
+import { StrategyPage } from './pages/public/StrategyPage';
+import { WhyJoinUsPage } from './pages/public/WhyJoinUsPage';
+import { ResourcesPage } from './pages/public/ResourcesPage';
 import { MissionVisionPage } from './pages/public/MissionVisionPage';
 import { ChairmanPage } from './pages/public/ChairmanPage';
 import { CeoPage } from './pages/public/CeoPage';
@@ -68,15 +74,26 @@ function AppContent() {
       <div className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/donate" element={<DonatePage />} />
-          <Route path="/donors" element={<DonorsPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/purpose" element={<PurposePage />} />
+          <Route path="/pillars" element={<PillarsPage />} />
+          <Route path="/spus" element={<SpusProjectPage />} />
+          <Route path="/projects/spus" element={<SpusProjectPage />} />
+          <Route path="/strategy" element={<StrategyPage />} />
+          <Route path="/join-us" element={<WhyJoinUsPage />} />
+          <Route path="/get-involved" element={<WhyJoinUsPage />} />
+          <Route path="/resources" element={<ResourcesPage />} />
+          <Route path="/donate" element={<DonatePage />} />
           <Route path="/mission" element={<MissionVisionPage />} />
           <Route path="/vision" element={<MissionVisionPage />} />
           <Route path="/leadership/chairman" element={<ChairmanPage />} />
+          <Route path="/chairman" element={<ChairmanPage />} />
           <Route path="/leadership/ceo" element={<CeoPage />} />
+          <Route path="/ceo" element={<CeoPage />} />
           <Route path="/leadership/board" element={<BoardPage />} />
+          <Route path="/board" element={<BoardPage />} />
           <Route path="/team" element={<StaffPage />} />
+          <Route path="/staff" element={<StaffPage />} />
           <Route path="/zakat-calculator" element={<ZakatCalculatorPage />} />
           <Route path="/campaigns" element={<CampaignsPage />} />
           <Route path="/campaigns/:slug" element={<CampaignDetailPage />} />

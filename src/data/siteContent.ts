@@ -7,8 +7,8 @@ export const initialSiteContent: SiteContent = {
   regInfo: { en: 'Established under Trust Act of 1882 of Bangladesh', bn: 'বাংলাদেশের ১৮৮২ সালের ট্রাস্ট আইনের অধীনে নিবন্ধিত' },
   taxInfo: { en: 'Charitable & Humanitarian Initiative of the Shaheen Community', bn: 'শাহীন কমিউনিটির একটি দাতব্য ও মানবিক উদ্যোগ' },
   emergencyTicker: {
-    en: 'ANNOUNCEMENT: Shaheen Cares Trust Inauguration on October 9, 2026 in Dhaka. First Major Project: SPUS Satarkul (2026–2029).',
-    bn: 'বিজ্ঞপ্তি: আগামী ৯ই অক্টোবর, ২০২৬ ঢাকায় শাহীন কেয়ার্স ট্রাস্টের আনুষ্ঠানিক উদ্বোধন। প্রথম প্রকল্প: এসপিইউএস সাঁতারকুল (২০২৬-২০২৯)।'
+    en: 'ANNOUNCEMENT: Shaheen Cares Trust Inauguration on Friday, October 9, 2026 in Dhaka. First Major Project: SPUS Satarkul (2026–2029).',
+    bn: 'বিজ্ঞপ্তি: আগামী শুক্রবার, ৯ই অক্টোবর, ২০২৬ ঢাকায় শাহীন কেয়ার্স ট্রাস্টের আনুষ্ঠানিক উদ্বোধন। প্রথম প্রকল্প: এসপিইউএস সাঁতারকুল (২০২৬-২০২৯)।'
   },
   hotline: { en: '+880 1805-099605', bn: '+880 ১৮০৫-০৯৯৬০৫' },
   email: { en: 'shaheencares@gmail.com', bn: 'shaheencares@gmail.com' },
@@ -63,16 +63,16 @@ export const initialSiteContent: SiteContent = {
     wellsLabel: { en: 'Therapy & Rehab Beneficiaries', bn: 'থেরাপি ও পুনর্বাসন সুবিধাভোগী' },
     students: { en: '5', bn: '৫' },
     studentsLabel: { en: 'Core Strategic Pillars', bn: 'কৌশলগত মূল স্তম্ভ' },
-    lives: { en: 'BDT 13.27M', bn: '১৩.২৭ মিলিয়ন টাকা' },
-    livesLabel: { en: '3-Year SPUS Project Budget (~$108K)', bn: '৩ বছর মেয়াদী SPUS প্রকল্প বাজেট' }
+    lives: { en: 'BDT 11.0M', bn: '১১.০ মিলিয়ন টাকা' },
+    livesLabel: { en: '3-Year SPUS Project Budget (~$88K)', bn: '৩ বছর মেয়াদী SPUS প্রকল্প বাজেট' }
   },
   bankDetails: {
-    bankName: { en: 'To Be Announced', bn: 'শীঘ্রই আনুষ্ঠানিকভাবে ঘোষিত হবে' },
+    bankName: { en: 'The City Bank PLC', bn: 'দি সিটি ব্যাংক পিএলসি' },
     accountName: { en: 'Shaheen Cares Trust', bn: 'শাহীন কেয়ার্স ট্রাস্ট' },
-    accountNo: { en: 'TBA', bn: 'TBA' },
-    branch: { en: 'Gulshan-1, Dhaka, Bangladesh', bn: 'গুলশান-১, ঢাকা, বাংলাদেশ' },
-    routingNo: { en: 'TBA', bn: 'TBA' },
-    swiftCode: { en: 'TBA', bn: 'TBA' }
+    accountNo: { en: '1254962668001', bn: '১২৫৪৯৬২৬৬৮০০১' },
+    branch: { en: 'Gulshan Branch, Dhaka, Bangladesh', bn: 'গুলশান শাখা, ঢাকা, বাংলাদেশ' },
+    routingNo: { en: '225261729', bn: '২২৫২৬১৭২৯' },
+    swiftCode: { en: 'CIBLBDDH', bn: 'CIBLBDDH' }
   }
 };
 
@@ -83,8 +83,8 @@ export const initialAboutData: AboutOrganization = {
   heroTitle: { en: 'From Friendship to Service — From Caring to Lasting Impact', bn: 'বন্ধুত্ব থেকে সেবা — যত্ন থেকে দীর্ঘস্থায়ী প্রভাব' },
   heroSubtitle: { en: 'Shaheen Cares Trust (SCT) is a charitable initiative of the Shaheen community, transforming "Once a Shaheen, Always a Shaheen" into meaningful service.', bn: 'শাহীন কেয়ার্স ট্রাস্ট (SCT) শাহীন কমিউনিটির একটি মানবিক উদ্যোগ, যা "ওয়ান্স এ শাহীন, অলওয়েজ এ শাহীন" চেতনাকে বাস্তব সেবায় রূপান্তর করে।' },
   overview: {
-    en: 'The spirit behind Shaheen Cares Trust began more than a decade ago, when members of the Shaheen community (mostly Class of 1989) stepped up for emergency medical assistance, school fees, winter drives, and flood/COVID relief. In late 2024, consultation began to make this impact structured and sustainable, culminating in the establishment of SCT under Bangladesh\'s Trust Act of 1882. The Trust will be inaugurated on October 9, 2026.',
-    bn: 'শাহীন কেয়ার্স ট্রাস্টের পেছনের চেতনা এক দশকেরও বেশি আগে শুরু হয়েছিল (মূলত এসএসসি ১৯৮৯ ব্যাচ), যখন শাহীন সদস্যরা চিকিৎসা সহায়তা, শিক্ষার্থীদের ফি, শীতবস্ত্র বিতরণ ও ত্রাণ কাজে এগিয়ে আসেন। ২০২৪ সালের শেষের দিকে এটিকে স্থায়ী ও প্রাতিষ্ঠানিক রূপ দেওয়ার উদ্যোগ নেওয়া হয়, যার মাধ্যমে ১৮৮২ সালের ট্রাস্ট আইনের অধীনে SCT প্রতিষ্ঠিত হয়। ২০২৬ সালের ৯ই অক্টোবর এর আনুষ্ঠানিক যাত্রা শুরু হবে।'
+    en: "The spirit behind Shaheen Cares Trust began more than a decade ago, when members of the Shaheen community (mostly Class of 1989) stepped up for emergency medical assistance, school fees, winter drives, flood relief, and COVID-19 support. In late 2024, consultation began to make this impact structured and sustainable, culminating in the establishment of SCT under Bangladesh's Trust Act of 1882. The Trust will be inaugurated in Dhaka on Friday, October 9, 2026.",
+    bn: 'শাহীন কেয়ার্স ট্রাস্টের পেছনের চেতনা এক দশকেরও বেশি আগে শুরু হয়েছিল (মূলত এসএসসি ১৯৮৯ ব্যাচ), যখন শাহীন সদস্যরা চিকিৎসা সহায়তা, শিক্ষার্থীদের ফি, শীতবস্ত্র বিতরণ, বন্যা ও করোনা ত্রাণ কাজে এগিয়ে আসেন। ২০২৪ সালের শেষের দিকে এটিকে স্থায়ী ও প্রাতিষ্ঠানিক রূপ দেওয়ার উদ্যোগ নেওয়া হয়, যার মাধ্যমে ১৮৮২ সালের ট্রাস্ট আইনের অধীনে SCT প্রতিষ্ঠিত হয়। ২০২৬ সালের ৯ই অক্টোবর (শুক্রবার) ঢাকায় এর আনুষ্ঠানিক উদ্বোধন অনুষ্ঠিত হবে।'
   },
   zakatPolicy: {
     en: 'Strategic care ecosystem developing sustainable care systems, knowledge hubs, and organizational capacity across Bangladesh.',
@@ -119,7 +119,7 @@ export const initialAboutData: AboutOrganization = {
   historyMilestones: [
     {
       year: '2014–2023',
-      title: { en: 'A Decade of Voluntary Initiatives', bn: 'স্বেচ্ছাসেবী সেবার এক দশক' },
+      title: { en: 'A Decade of Quiet Service', bn: 'স্বেচ্ছাসেবী সেবার এক দশক' },
       desc: { en: 'Shaheen Class of 1989 led emergency medical assistance, student scholarships, flood, and COVID-19 relief drives.', bn: 'শাহীন ৮৯ ব্যাচের উদ্যোগে জরুরি চিকিৎসা সহায়তা, ছাত্রবৃত্তি, বন্যা ও করোনা মহামারীতে ত্রাণ বিতরণ কার্যক্রম।' }
     },
     {
@@ -135,26 +135,26 @@ export const initialAboutData: AboutOrganization = {
     {
       year: 'Oct 9, 2026',
       title: { en: 'Official Trust Inauguration in Dhaka', bn: 'ঢাকায় ট্রাস্টের আনুষ্ঠানিক উদ্বোধন' },
-      desc: { en: 'Inauguration bringing together Shaheens from Bangladesh, North America, Europe, and Australia.', bn: 'বিশ্বজুড়ে ছড়িয়ে থাকা শাহীনদের ঐক্যবদ্ধ করে ট্রাস্টের আনুষ্ঠানিক উদ্বোধন।' }
+      desc: { en: 'Inauguration on Friday, October 9, 2026, bringing together Shaheens across Bangladesh and globally.', bn: 'শুক্রবার, ৯ই অক্টোবর ২০২৬ বিশ্বজুড়ে ছড়িয়ে থাকা শাহীনদের ঐক্যবদ্ধ করে ট্রাস্টের আনুষ্ঠানিক উদ্বোধন।' }
     },
     {
       year: '2026–2029',
       title: { en: 'First Major Project: SPUS Satarkul', bn: 'প্রথম প্রকল্প: এসপিইউএস সাঁতারকুল' },
-      desc: { en: '3-year partnership with Satarkul Protibandhi Unnayan Sangstha (BDT 13.27M budget) for disability inclusion.', bn: 'সাঁতারকুল প্রতিবন্ধী উন্নয়ন সংস্থার সাথে ৩ বছর মেয়াদী (১৩.২৭ মিলিয়ন টাকা বাজেট) অংশীদারিত্ব।' }
+      desc: { en: '3-year partnership with Satarkul Protibandhi Unnayan Sangstha (BDT 11.0M tentative budget) for disability inclusion.', bn: 'সাঁতারকুল প্রতিবন্ধী উন্নয়ন সংস্থার সাথে ৩ বছর মেয়াদী (১১.০ মিলিয়ন টাকা বাজেট) অংশীদারিত্ব।' }
     }
   ],
   stats: [
     { label: { en: 'Inclusive Education Beneficiaries', bn: 'অন্তর্ভুক্তিমূলক শিক্ষা শিক্ষার্থী' }, value: { en: '75', bn: '৭৫' } },
     { label: { en: 'Therapy & Rehabilitation Support', bn: 'থেরাপি ও পুনর্বাসন সুবিধাভোগী' }, value: { en: '100', bn: '১০০' } },
     { label: { en: 'Strategic Pillars (2026–2031)', bn: 'কৌশলগত স্তম্ভ' }, value: { en: '5 Pillars', bn: '৫টি স্তম্ভ' } },
-    { label: { en: 'First Project Budget (3 Years)', bn: 'প্রথম প্রকল্পের বাজেট' }, value: { en: 'BDT 13.27M', bn: '১৩.২৭ মিলিয়ন টাকা' } }
+    { label: { en: 'First Project Budget (3 Years)', bn: 'প্রথম প্রকল্পের বাজেট' }, value: { en: 'BDT 11.0M', bn: '১১.০ মিলিয়ন টাকা' } }
   ]
 };
 
 export const initialMissionVisionData: MissionVisionData = {
   id: 'mission_vision_default',
   missionTitle: { en: 'Empowerment, Care Systems & Sustainable Impact', bn: 'ক্ষমতায়ন, সেবা ব্যবস্থা ও টেকসই প্রভাব' },
-  missionDesc: { en: 'To create sustainable pathways to empowerment through strategic partnerships, skills development, dignified elderly care, and intergenerational community support initiatives across Bangladesh.', bn: 'কৌশলগত অংশীদারিত্ব, দক্ষতা উন্নয়ন, প্রবীণদের মর্যাদাপূর্ণ সেবা এবং আন্তঃপ্রজন্মীয় সামাজিক সহায়তার মাধ্যমে সারা বাংলাদেশে টেকসই ক্ষমতায়ন নিশ্চিত করা।' },
+  missionDesc: { en: 'To create sustainable pathways to empowerment through strategic partnerships, skills development, dignified elderly care, and intergenerational community support across Bangladesh.', bn: 'কৌশলগত অংশীদারিত্ব, দক্ষতা উন্নয়ন, প্রবীণদের মর্যাদাপূর্ণ সেবা এবং আন্তঃপ্রজন্মীয় সামাজিক সহায়তার মাধ্যমে সারা বাংলাদেশে টেকসই ক্ষমতায়ন নিশ্চিত করা।' },
   missionPoints: [
     { en: 'System-centered care ecosystem for special needs, youth, and elders', bn: 'বিশেষ চাহিদাসম্পন্ন শিশু, যুব ও প্রবীণদের জন্য প্রাতিষ্ঠানিক সেবা ব্যবস্থা' },
     { en: 'Capacity building & financial sustainability for grassroots NGOs', bn: 'স্থানীয় এনজিও ও সামাজিক সংস্থার সক্ষমতা ও স্থায়িত্ব বৃদ্ধি' },

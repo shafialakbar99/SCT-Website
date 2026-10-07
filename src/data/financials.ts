@@ -2,30 +2,42 @@ import { AuditReport } from '../types';
 
 export const initialAuditReports: AuditReport[] = [
   {
-    id: 'audit-2026',
-    year: '2025-2026',
-    title: { en: 'Annual Audited Financial Statement FY 2025-26', bn: 'বার্ষিক অডিটকৃত হিসাব বিবরণী ২০২৫-২৬' },
+    id: 'audit-2026-2029',
+    year: '2026-2029 (Tentative Budget)',
+    title: { 
+      en: 'SPUS Project 3-Year Tentative Budget Statement (2026–2029)', 
+      bn: 'এসপিইউএস ৩ বছর মেয়াদী প্রস্তাবিত বাজেট বিবরণী (২০২৬-২০২৯)' 
+    },
     pdfUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
-    fileSize: '3.8 MB',
-    auditorName: 'A. Qasem & Co. Chartered Accountants',
-    summary: { en: 'Total Income: ৳4.85 Crore | Field Program Expenses: 88.4% | Admin: 7.2% | Fundraising: 4.4%', bn: 'মোট আয়: ৪.৮৫ কোটি টাকা | মাঠপর্যায়ে ব্যয়: ৮৮.৪% | প্রশাসনিক: ৭.২% | ফান্ড সংগ্রাহক: ৪.৪%' }
+    fileSize: '2.1 MB',
+    auditorName: 'Shaheen Cares Trust Finance Committee & Audit Review',
+    summary: { 
+      en: 'Total Tentative Budget: BDT 11.0M (~$88,000 USD) | Year 1: BDT 4.0M ($32,000) | Year 2: BDT 3.5M ($28,000) | Year 3: BDT 3.5M ($28,000)', 
+      bn: 'মোট প্রস্তাবিত বাজেট: ১ কোটি ১০ লক্ষ টাকা (~৮৮,০০০ ইউএসডি) | ১ম বছর: ৪০.০ লক্ষ | ২য় বছর: ৩৫.০ লক্ষ | ৩য় বছর: ৩৫.০ লক্ষ' 
+    }
   },
   {
-    id: 'audit-2025',
-    year: '2024-2025',
-    title: { en: 'Annual Audited Financial Statement FY 2024-25', bn: 'বার্ষিক অডিটকৃত হিসাব বিবরণী ২০২৪-২৫' },
+    id: 'audit-strategy-2026-2031',
+    year: '2026-2031',
+    title: { 
+      en: 'Five-Year Strategic Plan & Financial Governance Framework', 
+      bn: 'পাঁচ বছর মেয়াদী কৌশলগত পরিকল্পনা ও আর্থিক শাসন কাঠামো' 
+    },
     pdfUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
-    fileSize: '3.1 MB',
-    auditorName: 'Hoda Vasi Chowdhury & Co.',
-    summary: { en: 'Total Income: ৳3.92 Crore | Field Program Expenses: 87.9% | Admin: 7.5% | Fundraising: 4.6%', bn: 'মোট আয়: ৩.৯২ কোটি টাকা | মাঠপর্যায়ে ব্যয়: ৮৭.৯% | প্রশাসনিক: ৭.৫% | ফান্ড সংগ্রাহক: ৪.৬%' }
+    fileSize: '1.8 MB',
+    auditorName: 'Board of Trustees & Sector Advisory Panel',
+    summary: { 
+      en: 'Focusing on Special Needs (Pillar 1), Youth Employability (Pillar 2), Elderly Care (Pillar 3), and NGO Sustainability (Pillar 4).', 
+      bn: 'বিশেষ চাহিদাসম্পন্ন শিশু (স্তম্ভ ১), যুব কর্মসংস্থান (স্তম্ভ ২), প্রবীণ সেবা (স্তম্ভ ৩) ও প্রাতিষ্ঠানিক স্থায়িত্বের (স্তম্ভ ৪) ওপর কেন্দ্রিক।' 
+    }
   }
 ];
 
 export const expenseAllocationData = [
-  { nameEn: 'Emergency Disaster Relief', nameBn: 'জরুরি বন্যা ও দুর্যোগ ত্রাণ', value: 42, color: '#0D6E4F' },
-  { nameEn: 'Clean Water & WASH Wells', nameBn: 'সুপেয় পানি ও নলকূপ', value: 24, color: '#124E5B' },
-  { nameEn: 'Orphan & Child Education', nameBn: 'এতিম ও শিশু শিক্ষা', value: 14, color: '#E6A119' },
-  { nameEn: 'Zakat Self-Reliance Drives', nameBn: 'যাকাত স্বাবলম্বীকরণ', value: 8.4, color: '#E06D53' },
-  { nameEn: 'Administrative & Staff Cost', nameBn: 'প্রশাসনিক ও পরিচালনা খরচ', value: 7.2, color: '#64748B' },
-  { nameEn: 'Fundraising & Awareness', nameBn: 'ফান্ড রাইজিং ও প্রচার', value: 4.4, color: '#94A3B8' }
+  { nameEn: 'Pillar 1: Special Needs Inclusive Education & Therapy', nameBn: 'স্তম্ভ ১: বিশেষ চাহিদাসম্পন্ন শিশু শিক্ষা ও থেরাপি', value: 36.4, color: '#138086' },
+  { nameEn: 'Nutrition, Hygiene & Assistive Support', nameBn: 'পুষ্টি, হাইজিন ও সহায়ক উপকরণ', value: 22.7, color: '#104E7A' },
+  { nameEn: 'Pillar 2 & 3: Youth Skills & Elderly Care Systems', nameBn: 'স্তম্ভ ২ ও ৩: যুব দক্ষতা ও প্রবীণ যত্ন ব্যবস্থা', value: 18.2, color: '#D4AF37' },
+  { nameEn: 'Pillar 4: SPUS Institutional Capacity & Monitoring', nameBn: 'স্তম্ভ ৪: প্রাতিষ্ঠানিক সক্ষমতা ও মনিটরিং', value: 11.8, color: '#E06D53' },
+  { nameEn: 'Staffing, Advocacy & Operational Expenses', nameBn: 'স্টাফিং, অ্যাডভোকেসি ও পরিচালনা খরচ', value: 6.9, color: '#64748B' },
+  { nameEn: 'Pillar 5: Shaheen Community Care Reserve', nameBn: 'স্তম্ভ ৫: শাহীন কমিউনিটি সেবা রিজার্ভ', value: 4.0, color: '#94A3B8' }
 ];

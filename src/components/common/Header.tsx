@@ -1,11 +1,39 @@
 import React, { useState, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Globe, Search, Heart, Phone, Shield, Palette, Menu, X, ChevronDown, AlertCircle, ArrowRight, Award } from 'lucide-react';
+import {
+  Globe,
+  Search,
+  Heart,
+  Phone,
+  Shield,
+  Palette,
+  Menu,
+  X,
+  ChevronDown,
+  AlertCircle,
+  ArrowRight,
+  Award,
+  Layers,
+  Sparkles,
+  BookOpen,
+  Users,
+  Compass,
+  FileText,
+  Target,
+  HandHeart,
+  Calendar,
+  Building,
+  Activity,
+  HeartHandshake,
+  CheckCircle2,
+  ShieldCheck,
+  GitBranch
+} from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import { siteContent } from '../../data/siteContent';
+import { chairmanData, ceoData } from '../../data/leadership';
 import { SearchModal } from './SearchModal';
-import { SafeImage } from './SafeImage';
 
 export const Header: React.FC = () => {
   const { language, toggleLanguage, t, isBn } = useLanguage();
@@ -14,6 +42,7 @@ export const Header: React.FC = () => {
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileSubMenu, setMobileSubMenu] = useState<string | null>(null);
   const [activeMegaTab, setActiveMegaTab] = useState<string | null>(null);
 
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -29,24 +58,30 @@ export const Header: React.FC = () => {
     }, 300); // 300ms buffer to prevent flicker
   };
 
+  const closeMegaMenu = () => {
+    if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+    setActiveMegaTab(null);
+    setMobileMenuOpen(false);
+  };
+
   return (
     <>
       <header className="sticky top-0 z-40 w-full transition-all duration-300">
         
-        {/* TOP EMERGENCY ALERT BAR */}
-        <div className="bg-[#0D6E4F] text-white text-[11px] md:text-xs py-1.5 px-3 sm:px-6 flex items-center justify-between border-b border-white/10">
+        {/* TOP EMERGENCY / INAUGURATION ALERT BAR */}
+        <div className="bg-[#1B365D] text-white text-[11px] md:text-xs py-1.5 px-3 sm:px-6 flex items-center justify-between border-b border-white/10">
           <div className="flex items-center gap-2 overflow-hidden mr-2">
-            <span className="bg-[#E6A119] text-slate-900 font-bold px-2 py-0.5 rounded text-[10px] uppercase tracking-wider animate-pulse shrink-0">
-              {isBn ? 'জরুরি নোটিশ' : 'URGENT'}
+            <span className="bg-[#E6A119] text-slate-950 font-black px-2 py-0.5 rounded text-[10px] uppercase tracking-wider animate-pulse shrink-0">
+              {isBn ? 'বিজ্ঞপ্তি' : 'INAUGURATION'}
             </span>
-            <div className="truncate text-white/95">
+            <div className="truncate text-white/95 font-medium">
               {t(siteContent.emergencyTicker)}
             </div>
             <Link 
-              to="/donate" 
-              className="hidden lg:inline-flex items-center text-[#E6A119] hover:underline font-semibold text-[11px] shrink-0 ml-1"
+              to="/spus" 
+              className="hidden lg:inline-flex items-center text-[#E6A119] hover:underline font-bold text-[11px] shrink-0 ml-1"
             >
-              {t(siteContent.nav.donateNow)} <ArrowRight className="w-3 h-3 ml-0.5" />
+              {isBn ? 'SPUS প্রজেক্ট দেখুন' : 'Explore SPUS'} <ArrowRight className="w-3 h-3 ml-0.5" />
             </Link>
           </div>
 
@@ -59,56 +94,51 @@ export const Header: React.FC = () => {
 
             {/* Language Toggle Button */}
             <button
+              id="lang-toggle-btn"
               onClick={toggleLanguage}
-              className="flex items-center gap-1 bg-white/10 hover:bg-white/20 px-2 py-0.5 rounded text-[11px] font-medium transition-all"
-              title="Switch Language"
+              className="flex items-center gap-1 bg-white/10 hover:bg-white/20 px-2 py-0.5 rounded text-[11px] font-bold transition-colors cursor-pointer"
+              title="Change Language"
             >
               <Globe className="w-3 h-3 text-[#E6A119]" />
-              <span className="font-bold">{language === 'en' ? 'বাংলা' : 'EN'}</span>
-            </button>
-
-            {/* Theme Toggle Button */}
-            <button
-              onClick={toggleTheme}
-              className="flex items-center gap-1 bg-white/10 hover:bg-white/20 px-2 py-0.5 rounded text-[11px] font-medium transition-all"
-              title="Toggle Theme"
-            >
-              <Palette className="w-3 h-3 text-[#E6A119]" />
-              <span className="hidden md:inline">{theme === 'hope-humanity' ? 'Theme 2' : 'Theme 1'}</span>
+              <span>{language === 'en' ? 'বাংলা' : 'English'}</span>
             </button>
           </div>
         </div>
 
-        {/* MAIN STICKY NAVIGATION BAR */}
-        <div className="glass-nav border-b border-slate-200/80 shadow-xs relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        {/* MAIN NAVIGATION BAR */}
+        <div className="bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
             
             {/* LOGO AREA */}
-            <Link to="/" className="flex items-center gap-2.5 shrink-0">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#0D6E4F] to-[#0A583F] text-white flex items-center justify-center shadow-md shadow-[#0D6E4F]/20 font-bold">
-                <Heart className="w-5 h-5 text-[#E6A119] fill-[#E6A119]" />
-              </div>
+            <Link to="/" onClick={closeMegaMenu} className="flex items-center gap-3 shrink-0 py-1">
+              <img 
+                src="/Images/logo.png" 
+                alt="Shaheen Cares Trust Logo" 
+                className="h-11 sm:h-12 w-auto object-contain" 
+              />
               <div className="flex flex-col">
-                <span className="font-black text-slate-900 text-lg sm:text-xl leading-tight tracking-tight">
+                <span className="font-black text-[#1B365D] text-base sm:text-lg leading-tight tracking-tight">
                   {t(siteContent.orgName)}
                 </span>
-                <span className="text-[10px] text-slate-500 font-medium hidden sm:block">
+                <span className="text-[10px] text-[#138086] font-bold tracking-tight hidden sm:block">
                   {t(siteContent.orgTagline)}
                 </span>
               </div>
             </Link>
 
-            {/* DESKTOP NAV LINKS WITH MEGA MENU MECHANICS */}
-            <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5 text-xs font-bold text-slate-700 shrink">
+            {/* DESKTOP NAV LINKS (THEMEFOREST STANDARDS) */}
+            <nav className="hidden xl:flex items-center gap-1 text-xs font-bold text-slate-700">
               
+              {/* Home */}
               <Link 
                 to="/" 
-                className="px-2 py-1.5 rounded-lg hover:text-[#0D6E4F] hover:bg-slate-100/80 whitespace-nowrap transition-colors"
+                onClick={closeMegaMenu}
+                className="px-2.5 py-2 rounded-lg hover:text-[#138086] hover:bg-slate-100/80 whitespace-nowrap transition-colors"
               >
-                {t(siteContent.nav.home)}
+                {isBn ? 'হোম' : 'Home'}
               </Link>
 
-              {/* Mega Menu Trigger 0: About & Leadership */}
+              {/* 1. ABOUT MEGA MENU */}
               <div
                 onMouseEnter={() => handleMouseEnter('about')}
                 onMouseLeave={handleMouseLeave}
@@ -116,98 +146,144 @@ export const Header: React.FC = () => {
               >
                 <Link
                   to="/about"
-                  className="px-2 py-1.5 rounded-lg hover:text-[#0D6E4F] hover:bg-slate-100/80 flex items-center gap-0.5 whitespace-nowrap transition-colors"
+                  className={`px-2.5 py-2 rounded-lg flex items-center gap-1 whitespace-nowrap transition-colors ${
+                    activeMegaTab === 'about' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
+                  }`}
                 >
-                  {t(siteContent.nav.aboutUs)}
+                  <span>{isBn ? 'আমাদের কথা' : 'About'}</span>
                   <ChevronDown className="w-3 h-3 opacity-60" />
                 </Link>
               </div>
 
-              {/* Mega Menu Trigger 1: Causes & Campaigns */}
+              {/* 2. OUR WORK / FIVE PILLARS MEGA MENU */}
               <div
-                onMouseEnter={() => handleMouseEnter('causes')}
+                onMouseEnter={() => handleMouseEnter('pillars')}
                 onMouseLeave={handleMouseLeave}
                 className="relative"
               >
                 <Link
-                  to="/campaigns"
-                  className="px-2 py-1.5 rounded-lg hover:text-[#0D6E4F] hover:bg-slate-100/80 flex items-center gap-0.5 whitespace-nowrap transition-colors"
+                  to="/pillars"
+                  className={`px-2.5 py-2 rounded-lg flex items-center gap-1 whitespace-nowrap transition-colors ${
+                    activeMegaTab === 'pillars' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
+                  }`}
                 >
-                  {isBn ? 'ক্যাম্পেইন' : 'Causes'}
+                  <span>{isBn ? 'আমাদের ৫টি স্তম্ভ' : 'Our Work'}</span>
                   <ChevronDown className="w-3 h-3 opacity-60" />
                 </Link>
               </div>
 
-              <Link 
-                to="/donors" 
-                className="px-2 py-1.5 rounded-lg hover:text-[#0D6E4F] hover:bg-slate-100/80 flex items-center gap-1 whitespace-nowrap transition-colors text-slate-800 font-extrabold"
-              >
-                <Award className="w-3.5 h-3.5 text-[#E6A119]" />
-                {isBn ? 'দাতাগণ' : 'Donors'}
-              </Link>
-
-              <Link 
-                to="/zakat-calculator" 
-                className="px-2 py-1.5 rounded-lg hover:text-[#0D6E4F] hover:bg-slate-100/80 flex items-center gap-1 whitespace-nowrap transition-colors text-[#0D6E4F] font-extrabold"
-              >
-                {isBn ? 'যাকাত' : 'Zakat Calc'}
-              </Link>
-
-              {/* Mega Menu Trigger 2: Media & Gallery */}
+              {/* 3. FIRST PROJECT: SPUS */}
               <div
-                onMouseEnter={() => handleMouseEnter('media')}
+                onMouseEnter={() => handleMouseEnter('spus')}
                 onMouseLeave={handleMouseLeave}
                 className="relative"
               >
-                <span className="px-2 py-1.5 rounded-lg hover:text-[#0D6E4F] hover:bg-slate-100/80 flex items-center gap-0.5 whitespace-nowrap cursor-pointer transition-colors">
-                  {isBn ? 'মিডিয়া' : 'Media'}
+                <Link
+                  to="/spus"
+                  className={`px-2.5 py-2 rounded-lg flex items-center gap-1 whitespace-nowrap transition-colors ${
+                    activeMegaTab === 'spus' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
+                  }`}
+                >
+                  <span className="flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#138086] animate-pulse" />
+                    <span>{isBn ? 'প্রথম প্রজেক্ট (SPUS)' : 'First Project: SPUS'}</span>
+                  </span>
                   <ChevronDown className="w-3 h-3 opacity-60" />
-                </span>
+                </Link>
               </div>
 
-              {/* Mega Menu Trigger 3: Get Involved */}
+              {/* 4. STRATEGY 2026–2031 */}
+              <div
+                onMouseEnter={() => handleMouseEnter('strategy')}
+                onMouseLeave={handleMouseLeave}
+                className="relative"
+              >
+                <Link
+                  to="/strategy"
+                  className={`px-2.5 py-2 rounded-lg flex items-center gap-1 whitespace-nowrap transition-colors ${
+                    activeMegaTab === 'strategy' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
+                  }`}
+                >
+                  <span>{isBn ? 'কৌশল ২০২৬–২০৩১' : 'Strategy'}</span>
+                  <ChevronDown className="w-3 h-3 opacity-60" />
+                </Link>
+              </div>
+
+              {/* 5. GET INVOLVED */}
               <div
                 onMouseEnter={() => handleMouseEnter('involved')}
                 onMouseLeave={handleMouseLeave}
                 className="relative"
               >
-                <span className="px-2 py-1.5 rounded-lg hover:text-[#0D6E4F] hover:bg-slate-100/80 flex items-center gap-0.5 whitespace-nowrap cursor-pointer transition-colors">
-                  {isBn ? 'অংশগ্রহণ' : 'Get Involved'}
+                <Link
+                  to="/join-us"
+                  className={`px-2.5 py-2 rounded-lg flex items-center gap-1 whitespace-nowrap transition-colors ${
+                    activeMegaTab === 'involved' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
+                  }`}
+                >
+                  <span>{isBn ? 'যুক্ত হোন' : 'Get Involved'}</span>
                   <ChevronDown className="w-3 h-3 opacity-60" />
-                </span>
+                </Link>
               </div>
+
+              {/* 6. RESOURCES & REFERENCES */}
+              <div
+                onMouseEnter={() => handleMouseEnter('resources')}
+                onMouseLeave={handleMouseLeave}
+                className="relative"
+              >
+                <Link
+                  to="/resources"
+                  className={`px-2.5 py-2 rounded-lg flex items-center gap-1 whitespace-nowrap transition-colors ${
+                    activeMegaTab === 'resources' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
+                  }`}
+                >
+                  <span>{isBn ? 'রিসোর্স' : 'Resources'}</span>
+                  <ChevronDown className="w-3 h-3 opacity-60" />
+                </Link>
+              </div>
+
+              {/* Contact */}
+              <Link 
+                to="/contact" 
+                onClick={closeMegaMenu}
+                className="px-2.5 py-2 rounded-lg hover:text-[#138086] hover:bg-slate-100/80 whitespace-nowrap transition-colors"
+              >
+                {isBn ? 'যোগাযোগ' : 'Contact'}
+              </Link>
 
             </nav>
 
-            {/* ACTION BUTTONS (SEARCH & DONATE) */}
-            <div className="flex items-center gap-2">
+            {/* ACTION BUTTONS (SEARCH & JOIN/DONATE) */}
+            <div className="flex items-center gap-2 sm:gap-3">
               
               {/* Global Search Button */}
               <button
                 id="search-trigger-btn"
                 onClick={() => setIsSearchOpen(true)}
-                className="p-2 text-slate-600 hover:text-[#0D6E4F] hover:bg-slate-100 rounded-lg flex items-center gap-1.5 transition-colors"
+                className="p-2 text-slate-600 hover:text-[#138086] hover:bg-slate-100 rounded-xl flex items-center gap-1.5 transition-colors cursor-pointer"
                 title="Search (Ctrl+K)"
               >
                 <Search className="w-4 h-4" />
-                <span className="hidden xl:inline text-[11px] font-mono text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">
+                <span className="hidden xl:inline text-[10px] font-mono text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">
                   Ctrl+K
                 </span>
               </button>
 
-              {/* Primary Donate CTA Button */}
+              {/* Primary CTA Button */}
               <Link
-                to="/donate"
-                className="bg-[#0D6E4F] hover:bg-[#0A583F] text-white px-4 py-2 rounded-xl text-xs font-bold shadow-md shadow-[#0D6E4F]/20 hover:shadow-lg hover:shadow-[#0D6E4F]/30 flex items-center gap-1.5 transition-all transform active:scale-95"
+                to="/join-us"
+                className="bg-[#1B365D] hover:bg-[#104E7A] text-white px-4 py-2 sm:py-2.5 rounded-xl text-xs font-bold shadow-md shadow-[#1B365D]/20 hover:shadow-lg flex items-center gap-1.5 transition-all transform active:scale-95"
               >
-                <Heart className="w-4 h-4 text-[#E6A119] fill-[#E6A119]" />
-                <span>{t(siteContent.nav.donateNow)}</span>
+                <Heart className="w-3.5 h-3.5 text-[#E6A119] fill-[#E6A119]" />
+                <span>{isBn ? 'আমাদের সাথে যুক্ত হোন' : 'Join Us / Donate'}</span>
               </Link>
 
               {/* Mobile Menu Toggle Button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 text-slate-700 hover:text-[#0D6E4F] lg:hidden rounded-lg hover:bg-slate-100"
+                className="p-2 text-slate-700 hover:text-[#138086] xl:hidden rounded-xl hover:bg-slate-100 cursor-pointer"
+                aria-label="Toggle menu"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -216,7 +292,9 @@ export const Header: React.FC = () => {
 
           </div>
 
-          {/* MEGA MENU DROPDOWN PANEL AT HEADER COMPONENT LEVEL WITH 300MS BRIDGE */}
+          {/* ========================================================= */}
+          {/* DESKTOP MEGA MENU DROPDOWN PANEL                          */}
+          {/* ========================================================= */}
           {activeMegaTab && (
             <div
               onMouseEnter={() => {
@@ -225,206 +303,273 @@ export const Header: React.FC = () => {
               onMouseLeave={handleMouseLeave}
               className="absolute top-[calc(100%-1px)] left-0 w-full bg-white border-b border-slate-200 shadow-xl z-50 animate-fadeIn"
             >
-              {/* Invisible Bridge Element */}
+              {/* Invisible Hover Bridge */}
               <div className="absolute -top-3 left-0 w-full h-3 bg-transparent" />
 
-              <div className="max-w-7xl mx-auto p-6 grid grid-cols-4 gap-6">
+              <div className="max-w-7xl mx-auto p-6 sm:p-8">
                 
+                {/* 1. ABOUT MEGA MENU */}
                 {activeMegaTab === 'about' && (
-                  <>
-                    <div className="col-span-1 border-r border-slate-100 pr-4">
-                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
-                        {isBn ? 'সংগঠন ও রূপরেখা' : 'About Organization'}
+                  <div className="grid grid-cols-4 gap-6">
+                    <div className="col-span-1 border-r border-slate-100 pr-4 space-y-3">
+                      <h4 className="text-xs font-black text-slate-400 uppercase tracking-wider">
+                        {isBn ? 'সংগঠন ও উদ্দেশ্য' : 'About SCT'}
                       </h4>
-                      <div className="space-y-2">
-                        <Link to="/about" onClick={() => setActiveMegaTab(null)} className="block p-2 rounded-lg hover:bg-emerald-50 text-slate-800 hover:text-[#0D6E4F] text-xs font-semibold">
-                          📌 {t(siteContent.nav.aboutUs)}
+                      <div className="space-y-1.5">
+                        <Link to="/about" onClick={closeMegaMenu} className="p-2 rounded-xl hover:bg-[#138086]/5 flex items-center gap-2.5 text-xs font-bold text-slate-800 hover:text-[#138086] transition-colors">
+                          <BookOpen className="w-4 h-4 text-[#138086]" />
+                          <span>{isBn ? 'আমাদের পটভূমি ও ইতিহাস' : 'Our Story & Background'}</span>
                         </Link>
-                        <Link to="/mission" onClick={() => setActiveMegaTab(null)} className="block p-2 rounded-lg hover:bg-emerald-50 text-slate-800 hover:text-[#0D6E4F] text-xs font-semibold">
-                          🎯 {t(siteContent.nav.missionVision)}
+                        <Link to="/mission" onClick={closeMegaMenu} className="p-2 rounded-xl hover:bg-[#138086]/5 flex items-center gap-2.5 text-xs font-bold text-slate-800 hover:text-[#138086] transition-colors">
+                          <Target className="w-4 h-4 text-[#138086]" />
+                          <span>{isBn ? 'ভিশন ও মিশন' : 'Vision & Mission'}</span>
                         </Link>
-                        <Link to="/transparency" onClick={() => setActiveMegaTab(null)} className="block p-2 rounded-lg hover:bg-emerald-50 text-slate-800 hover:text-[#0D6E4F] text-xs font-semibold">
-                          🛡️ {t(siteContent.nav.transparency)}
+                        <Link to="/purpose" onClick={closeMegaMenu} className="p-2 rounded-xl hover:bg-[#138086]/5 flex items-center gap-2.5 text-xs font-bold text-slate-800 hover:text-[#138086] transition-colors">
+                          <Sparkles className="w-4 h-4 text-[#E6A119]" />
+                          <span>{isBn ? 'আমাদের উদ্দেশ্য (Our Purpose)' : 'Our Purpose & What We Do'}</span>
                         </Link>
                       </div>
                     </div>
 
-                    <div className="col-span-2 px-2 border-r border-slate-100 pr-4">
-                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
+                    <div className="col-span-2 px-2 border-r border-slate-100 pr-4 space-y-3">
+                      <h4 className="text-xs font-black text-slate-400 uppercase tracking-wider">
                         {isBn ? 'নেতৃত্ব ও গভর্ন্যান্স' : 'Leadership & Governance'}
                       </h4>
                       <div className="grid grid-cols-2 gap-3">
-                        <Link to="/leadership/chairman" onClick={() => setActiveMegaTab(null)} className="p-3 bg-slate-50 hover:bg-emerald-50 rounded-xl border border-slate-100 transition-colors">
-                          <span className="text-[10px] font-bold text-[#E6A119] uppercase block">Founder & Chairman</span>
-                          <h5 className="text-xs font-extrabold text-slate-900 mt-0.5">{isBn ? 'চেয়ারম্যানের বাণী' : "Chairman's Message"}</h5>
-                          <p className="text-[11px] text-slate-500 mt-1">Dr. Mushtaq Ahmed Chowdhury</p>
+                        <Link to="/leadership/chairman" onClick={closeMegaMenu} className="p-3 bg-slate-50 hover:bg-[#138086]/5 rounded-2xl border border-slate-100 transition-colors">
+                          <span className="text-[10px] font-black text-[#E6A119] uppercase block">{t(chairmanData.designation)}</span>
+                          <h5 className="text-xs font-black text-slate-900 mt-0.5">{isBn ? 'চেয়ারপারসনের বাণী' : "Chairperson's Message"}</h5>
+                          <p className="text-[11px] text-slate-500 mt-1 font-semibold">{t(chairmanData.name)}</p>
                         </Link>
 
-                        <Link to="/leadership/ceo" onClick={() => setActiveMegaTab(null)} className="p-3 bg-slate-50 hover:bg-emerald-50 rounded-xl border border-slate-100 transition-colors">
-                          <span className="text-[10px] font-bold text-[#0D6E4F] uppercase block">Managing Director & CEO</span>
-                          <h5 className="text-xs font-extrabold text-slate-900 mt-0.5">{isBn ? 'সিইও-এর বার্তা' : "CEO's Message"}</h5>
-                          <p className="text-[11px] text-slate-500 mt-1">Syeda Razia Begum</p>
+                        <Link to="/leadership/ceo" onClick={closeMegaMenu} className="p-3 bg-slate-50 hover:bg-[#138086]/5 rounded-2xl border border-slate-100 transition-colors">
+                          <span className="text-[10px] font-black text-[#138086] uppercase block">{t(ceoData.designation)}</span>
+                          <h5 className="text-xs font-black text-slate-900 mt-0.5">{isBn ? 'সাধারণ সম্পাদকের বার্তা' : "General Secretary's Message"}</h5>
+                          <p className="text-[11px] text-slate-500 mt-1 font-semibold">{t(ceoData.name)}</p>
                         </Link>
                       </div>
 
-                      <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
-                        <Link to="/leadership/board" onClick={() => setActiveMegaTab(null)} className="p-2.5 rounded-lg hover:bg-slate-100 font-bold text-slate-700 block">
-                          🏛️ {t(siteContent.nav.boardOfTrustees)}
+                      <div className="mt-2 grid grid-cols-2 gap-2 text-xs">
+                        <Link to="/leadership/board" onClick={closeMegaMenu} className="p-2.5 rounded-xl hover:bg-slate-100 font-bold text-slate-800 flex items-center gap-2">
+                          <Building className="w-4 h-4 text-slate-500" />
+                          <span>{isBn ? 'বোর্ড অফ ট্রাস্টিজ' : 'Board of Trustees'}</span>
                         </Link>
-                        <Link to="/team" onClick={() => setActiveMegaTab(null)} className="p-2.5 rounded-lg hover:bg-slate-100 font-bold text-slate-700 block">
-                          👥 {t(siteContent.nav.staffMembers)}
+                        <Link to="/team" onClick={closeMegaMenu} className="p-2.5 rounded-xl hover:bg-slate-100 font-bold text-slate-800 flex items-center gap-2">
+                          <Users className="w-4 h-4 text-slate-500" />
+                          <span>{isBn ? 'এক্সপার্ট পুল ও টিম' : 'Secretariat & Team'}</span>
                         </Link>
                       </div>
                     </div>
 
-                    <div className="col-span-1 bg-emerald-50/50 p-4 rounded-xl border border-emerald-100 flex flex-col justify-between">
-                      <div>
-                        <span className="text-xs font-bold text-[#0D6E4F]">NGO Bureau Reg: 2847</span>
-                        <h5 className="text-sm font-bold text-slate-900 mt-1">{isBn ? 'স্বচ্ছ এনজিও পরিচালনা' : 'Audited Governance'}</h5>
-                        <p className="text-xs text-slate-600 mt-1">{isBn ? '৬৪ জেলায় দ্রুততম ও অডিটযোগ্য মানবিক সহায়তায় নিবেদিত।' : 'Operating under strict public accountability across 64 Bangladesh districts.'}</p>
-                      </div>
-                      <Link to="/donors" onClick={() => setActiveMegaTab(null)} className="mt-3 bg-[#0D6E4F] text-white text-xs font-bold py-2 px-3 rounded-lg text-center">
-                        {isBn ? 'দাতা তালিকা দেখুন' : 'View Wall of Honor'}
-                      </Link>
-                    </div>
-                  </>
-                )}
-
-                {activeMegaTab === 'causes' && (
-                  <>
-                    <div className="col-span-1 border-r border-slate-100 pr-4">
-                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
-                        {isBn ? 'ক্যাম্পেইন ক্যাটাগরি' : 'Campaign Categories'}
-                      </h4>
+                    <div className="col-span-1 bg-slate-50 p-5 rounded-2xl border border-slate-200/80 flex flex-col justify-between">
                       <div className="space-y-2">
-                        <Link to="/campaigns?cat=emergency" onClick={() => setActiveMegaTab(null)} className="block p-2 rounded-lg hover:bg-emerald-50 text-slate-800 hover:text-[#0D6E4F] text-xs font-semibold">
-                          🚨 {isBn ? 'জরুরি বন্যা ও খরা ত্রাণ' : 'Emergency Relief'}
-                        </Link>
-                        <Link to="/campaigns?cat=zakat" onClick={() => setActiveMegaTab(null)} className="block p-2 rounded-lg hover:bg-emerald-50 text-slate-800 hover:text-[#0D6E4F] text-xs font-semibold">
-                          🌙 {isBn ? '১০০% যাকাতযোগ্য প্রজেক্ট' : 'Zakat Eligible Projects'}
-                        </Link>
-                        <Link to="/campaigns?cat=water" onClick={() => setActiveMegaTab(null)} className="block p-2 rounded-lg hover:bg-emerald-50 text-slate-800 hover:text-[#0D6E4F] text-xs font-semibold">
-                          💧 {isBn ? 'উপকূলীয় সুপেয় পানি ও নলকূপ' : 'Clean Water Wells'}
-                        </Link>
-                        <Link to="/campaigns?cat=education" onClick={() => setActiveMegaTab(null)} className="block p-2 rounded-lg hover:bg-emerald-50 text-slate-800 hover:text-[#0D6E4F] text-xs font-semibold">
-                          📚 {isBn ? 'পথশিশু ও প্রাথমিক শিক্ষা' : 'Education & Literacy'}
-                        </Link>
+                        <span className="text-[10px] font-black px-2 py-0.5 rounded bg-[#138086]/10 text-[#138086] uppercase">Legal Status</span>
+                        <h5 className="text-xs font-black text-[#1B365D]">Trust Act of 1882</h5>
+                        <p className="text-[11px] text-slate-600 leading-relaxed">
+                          {isBn ? 'বাংলাদেশের ১৮৮২ সালের ট্রাস্ট আইনের অধীনে নিবন্ধিত মানবকল্যাণ সংস্থা।' : 'Formally established and governed under the Trust Act of 1882.'}
+                        </p>
                       </div>
-                    </div>
-                    <div className="col-span-2 px-2">
-                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
-                        {isBn ? 'জরুরি ফান্ডিং প্রয়োজন' : 'Urgent Funding Needed'}
-                      </h4>
-                      <div className="bg-emerald-50/60 p-4 rounded-xl border border-emerald-100 flex items-start gap-4">
-                        <SafeImage
-                          src="https://images.unsplash.com/photo-1547683905-f686c993aae5?w=300&auto=format&fit=crop"
-                          alt="Flood Relief"
-                          className="w-24 h-24 object-cover rounded-lg shrink-0"
-                          fallbackCategory="emergency"
-                        />
-                        <div>
-                          <span className="text-[10px] font-bold text-red-600 bg-red-100 px-2 py-0.5 rounded uppercase">Urgent</span>
-                          <h5 className="text-sm font-bold text-slate-900 mt-1">Sylhet & Feni Flood Relief Drive</h5>
-                          <p className="text-xs text-slate-600 mt-1 line-clamp-2">Providing dry food packs and clean water in Sylhet & Feni.</p>
-                          <Link to="/campaigns/sylhet-feni-flood-relief" onClick={() => setActiveMegaTab(null)} className="inline-flex items-center text-xs font-bold text-[#0D6E4F] mt-2 hover:underline">
-                            {isBn ? 'বিস্তারিত দেখুন' : 'View Campaign'} →
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-span-1 bg-amber-50/50 p-4 rounded-xl border border-amber-100 flex flex-col justify-between">
-                      <div>
-                        <span className="text-xs font-bold text-[#E6A119]">Zakat Tool</span>
-                        <h5 className="text-sm font-bold text-slate-900 mt-1">{isBn ? 'যাকাত হিসাব করুন' : 'Calculate Your Zakat'}</h5>
-                        <p className="text-xs text-slate-600 mt-1">{isBn ? 'সঠিক নিসাব ও ২.৫% হিসেব করে দান করুন।' : 'Assess 2.5% Nisab easily with our tool.'}</p>
-                      </div>
-                      <Link to="/zakat-calculator" onClick={() => setActiveMegaTab(null)} className="mt-3 bg-[#0D6E4F] text-white text-xs font-bold py-2 px-3 rounded-lg text-center">
-                        {isBn ? 'ক্যালকুলেটর খুলুন' : 'Open Calculator'}
+                      <Link to="/transparency" onClick={closeMegaMenu} className="text-xs font-bold text-[#138086] hover:underline flex items-center gap-1 mt-3">
+                        <span>{isBn ? 'আর্থিক স্বচ্ছতা পোর্টাল' : 'Transparency Portal'}</span>
+                        <ArrowRight className="w-3 h-3" />
                       </Link>
                     </div>
-                  </>
+                  </div>
                 )}
 
-                {activeMegaTab === 'media' && (
-                  <>
-                    <div className="col-span-1 border-r border-slate-100 pr-4">
-                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
-                        {isBn ? 'মিডিয়া সেন্টারে জানুন' : 'Media Center'}
-                      </h4>
-                      <div className="space-y-2">
-                        <Link to="/gallery/photos" onClick={() => setActiveMegaTab(null)} className="block p-2 rounded-lg hover:bg-slate-50 text-slate-800 text-xs font-semibold">
-                          📷 {t(siteContent.nav.photos)}
-                        </Link>
-                        <Link to="/gallery/videos" onClick={() => setActiveMegaTab(null)} className="block p-2 rounded-lg hover:bg-slate-50 text-slate-800 text-xs font-semibold">
-                          🎥 {t(siteContent.nav.videos)}
-                        </Link>
-                        <Link to="/blog" onClick={() => setActiveMegaTab(null)} className="block p-2 rounded-lg hover:bg-slate-50 text-slate-800 text-xs font-semibold">
-                          ✍️ {t(siteContent.nav.blogs)}
-                        </Link>
-                        <Link to="/news" onClick={() => setActiveMegaTab(null)} className="block p-2 rounded-lg hover:bg-slate-50 text-slate-800 text-xs font-semibold">
-                          📰 {t(siteContent.nav.news)}
-                        </Link>
-                      </div>
-                    </div>
-                    <div className="col-span-3 grid grid-cols-2 gap-4">
-                      <div className="p-3 border border-slate-100 rounded-xl hover:border-[#0D6E4F]/30 transition-colors">
-                        <span className="text-[10px] font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Featured Documentary</span>
-                        <h5 className="text-xs font-bold text-slate-900 mt-1">Field Report: Flood Rescue in Feni</h5>
-                        <p className="text-[11px] text-slate-500 mt-1">Watch how our speedboats delivered rations to isolated villages.</p>
-                        <Link to="/gallery/videos" onClick={() => setActiveMegaTab(null)} className="text-xs text-[#0D6E4F] font-bold mt-2 inline-block">Watch Video →</Link>
-                      </div>
-                      <div className="p-3 border border-slate-100 rounded-xl hover:border-[#0D6E4F]/30 transition-colors">
-                        <span className="text-[10px] font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded">Field Blog</span>
-                        <h5 className="text-xs font-bold text-slate-900 mt-1">Solar Tube Wells in Satkhira</h5>
-                        <p className="text-[11px] text-slate-500 mt-1">Solving groundwater salinity in coastal Bangladesh.</p>
-                        <Link to="/blog" onClick={() => setActiveMegaTab(null)} className="text-xs text-[#0D6E4F] font-bold mt-2 inline-block">Read Article →</Link>
-                      </div>
-                    </div>
-                  </>
-                )}
-
-                {activeMegaTab === 'involved' && (
-                  <>
-                    <div className="col-span-2 pr-4 border-r border-slate-100 space-y-3">
-                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
-                        {isBn ? 'আমাদের সাথে যুক্ত হোন' : 'Ways to Participate'}
-                      </h4>
-                      <Link to="/volunteer" onClick={() => setActiveMegaTab(null)} className="p-3 rounded-xl hover:bg-emerald-50 flex items-start gap-3 transition-colors border border-slate-100">
-                        <div className="p-2 bg-emerald-100 text-[#0D6E4F] rounded-lg">🙋‍♂️</div>
-                        <div>
-                          <h5 className="text-xs font-bold text-slate-900">{t(siteContent.nav.volunteer)}</h5>
-                          <p className="text-[11px] text-slate-500">{isBn ? 'আপনার জেলায় ত্রাণ ও উদ্ধার টিমে কাজ করুন।' : 'Join ground rescue & relief teams across Bangladesh.'}</p>
-                        </div>
-                      </Link>
-                      <Link to="/sponsor" onClick={() => setActiveMegaTab(null)} className="p-3 rounded-xl hover:bg-amber-50 flex items-start gap-3 transition-colors border border-slate-100">
-                        <div className="p-2 bg-amber-100 text-[#E6A119] rounded-lg">👶</div>
-                        <div>
-                          <h5 className="text-xs font-bold text-slate-900">{t(siteContent.nav.sponsor)}</h5>
-                          <p className="text-[11px] text-slate-500">{isBn ? 'মাসিক ২০০০ টাকায় এতিম শিশুর লালন-পালন স্পন্সর করুন।' : 'Sponsor an orphan student for BDT 2000/month.'}</p>
-                        </div>
-                      </Link>
-                    </div>
-                    <div className="col-span-2 pl-2 flex flex-col justify-between">
+                {/* 2. OUR WORK / FIVE PILLARS MEGA MENU */}
+                {activeMegaTab === 'pillars' && (
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between border-b border-slate-100 pb-3">
                       <div>
-                        <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
-                          {isBn ? 'স্বচ্ছতা ও যোগাযোগ' : 'Transparency & Contact'}
+                        <h4 className="text-sm font-black text-[#1B365D]">
+                          {isBn ? 'আমাদের ৫টি কৌশলগত স্তম্ভ (২০২৬–২০৩১)' : 'Our Five Strategic Pillars (2026–2031)'}
                         </h4>
-                        <div className="space-y-2">
-                          <Link to="/transparency" onClick={() => setActiveMegaTab(null)} className="p-2.5 bg-slate-50 hover:bg-emerald-50 rounded-xl border border-slate-100 flex items-center justify-between text-xs font-bold text-slate-800 transition-colors">
-                            <span>🛡️ {t(siteContent.nav.transparency)}</span>
-                            <span className="text-[10px] text-[#0D6E4F] bg-emerald-100 px-2 py-0.5 rounded font-semibold">NGO Bureau Audited</span>
-                          </Link>
-                          <Link to="/contact" onClick={() => setActiveMegaTab(null)} className="p-2.5 bg-slate-50 hover:bg-emerald-50 rounded-xl border border-slate-100 flex items-center justify-between text-xs font-bold text-slate-800 transition-colors">
-                            <span>📞 {t(siteContent.nav.contact)}</span>
-                            <span className="text-[10px] text-slate-500">Banani, Dhaka</span>
-                          </Link>
-                        </div>
+                        <p className="text-xs text-slate-500">
+                          {isBn ? 'আন্তঃপ্রজন্মীয় যত্ন ব্যবস্থা ও টেকসই সমাজ গঠনের পঞ্চস্তর রূপরেখা' : 'Phased intergenerational systems bridging special needs, youth, and elderly care.'}
+                        </p>
                       </div>
-                      <Link to="/contact" onClick={() => setActiveMegaTab(null)} className="inline-block bg-slate-900 text-white text-xs font-bold py-2 px-4 rounded-lg text-center mt-3 hover:bg-slate-800 transition-colors">
-                        {isBn ? 'যোগাযোগ ও পার্টনারশিপ' : 'Contact Partnerships Desk'}
+                      <Link to="/pillars" onClick={closeMegaMenu} className="text-xs font-black text-[#138086] hover:underline flex items-center gap-1">
+                        <span>{isBn ? 'সকল স্তম্ভ বিস্তারিত' : 'View Full Pillar Architecture'}</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
                     </div>
-                  </>
+
+                    <div className="grid grid-cols-5 gap-3">
+                      {[
+                        { num: 1, title: 'Children with Special Needs', bnTitle: 'বিশেষ চাহিদাসম্পন্ন শিশু', year: '2026–2029', hash: 'pillar-1', color: '#138086' },
+                        { num: 2, title: 'Youth Employability', bnTitle: 'যুব কর্মসংস্থান ও দক্ষতা', year: '2029–2030', hash: 'pillar-2', color: '#104E7A' },
+                        { num: 3, title: 'Elderly Care', bnTitle: 'প্রবীণ সেবা ও যত্ন', year: '2030 onward', hash: 'pillar-3', color: '#D4AF37' },
+                        { num: 4, title: 'Organizational Sustainability', bnTitle: 'প্রাতিষ্ঠানিক সক্ষমতা ও স্থায়িত্ব', year: 'All Phases', hash: 'pillar-4', color: '#E06D53' },
+                        { num: 5, title: 'Shaheen Community Care', bnTitle: 'শাহীন কমিউনিটি সেবা', year: 'Ongoing', hash: 'pillar-5', color: '#64748B' }
+                      ].map(p => (
+                        <Link
+                          key={p.num}
+                          to={`/pillars#${p.hash}`}
+                          onClick={closeMegaMenu}
+                          className="p-3.5 bg-slate-50 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-[#138086]/40 hover:shadow-sm transition-all space-y-2 group"
+                        >
+                          <div className="flex items-center justify-between">
+                            <span 
+                              className="w-5 h-5 rounded-full text-white text-[10px] font-black flex items-center justify-center font-mono"
+                              style={{ backgroundColor: p.color }}
+                            >
+                              {p.num}
+                            </span>
+                            <span className="text-[10px] font-bold text-slate-400 font-mono">{p.year}</span>
+                          </div>
+                          <h5 className="text-xs font-black text-slate-900 group-hover:text-[#138086] leading-snug">
+                            {isBn ? p.bnTitle : p.title}
+                          </h5>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* 3. FIRST PROJECT: SPUS MEGA MENU */}
+                {activeMegaTab === 'spus' && (
+                  <div className="grid grid-cols-12 gap-6 items-center">
+                    <div className="col-span-5 space-y-3 border-r border-slate-100 pr-6">
+                      <div className="flex items-center gap-2">
+                        <span className="px-2.5 py-0.5 rounded bg-[#138086]/10 text-[#138086] text-[10px] font-black uppercase">
+                          Flagship Project (2026–2029)
+                        </span>
+                        <span className="text-[10px] font-bold text-slate-500 font-mono">Pillars 1 & 4</span>
+                      </div>
+                      <h4 className="text-base font-black text-[#1B365D]">
+                        {isBn ? 'সাঁতারকুল প্রতিবন্ধী উন্নয়ন সংস্থা (SPUS)' : 'Satarkul Protibandhi Unnayan Sangstha'}
+                      </h4>
+                      <p className="text-xs text-slate-600 leading-relaxed">
+                        {isBn 
+                          ? 'সাঁতারকুলে ৭৫ জন বিশেষ শিশুর অন্তর্ভুক্তিমূলক শিক্ষা, ১০০ সুবিধাভোগীর থেরাপি এবং প্রাতিষ্ঠানিক টেকসই উন্নয়নে ৩ বছর মেয়াদী প্রথম প্রধান প্রকল্প।'
+                          : 'Supporting inclusive education for 75 children, regular therapy for 100 beneficiaries, and long-term NGO institutional capacity building.'}
+                      </p>
+                      <div className="pt-2">
+                        <Link
+                          to="/spus"
+                          onClick={closeMegaMenu}
+                          className="bg-[#138086] text-white px-4 py-2 rounded-xl text-xs font-bold inline-flex items-center gap-1.5 hover:bg-[#0f686d] transition-colors"
+                        >
+                          <span>{isBn ? 'সম্পূর্ণ প্রকল্প বিবরণ দেখুন' : 'Explore Full Project'}</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
+                      </div>
+                    </div>
+
+                    <div className="col-span-7 grid grid-cols-3 gap-3">
+                      <Link to="/spus" onClick={closeMegaMenu} className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200/80 hover:bg-white hover:border-[#138086]/40 transition-all space-y-1.5">
+                        <Activity className="w-5 h-5 text-[#138086]" />
+                        <h5 className="text-xs font-black text-slate-900">{isBn ? 'সেবা প্যাকেজ' : 'Service Packages'}</h5>
+                        <p className="text-[11px] text-slate-500">{isBn ? 'শিক্ষা, থেরাপি ও পুষ্টি' : 'Education, Therapy, Nutrition'}</p>
+                      </Link>
+
+                      <Link to="/spus" onClick={closeMegaMenu} className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200/80 hover:bg-white hover:border-[#138086]/40 transition-all space-y-1.5">
+                        <Calendar className="w-5 h-5 text-[#104E7A]" />
+                        <h5 className="text-xs font-black text-slate-900">{isBn ? '৮টি প্রধান কার্যক্রম' : '8 Key Activities'}</h5>
+                        <p className="text-[11px] text-slate-500">{isBn ? 'মাঠপর্যায়ের রূপরেখা' : 'Operational Implementation'}</p>
+                      </Link>
+
+                      <Link to="/spus" onClick={closeMegaMenu} className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200/80 hover:bg-white hover:border-[#138086]/40 transition-all space-y-1.5">
+                        <ShieldCheck className="w-5 h-5 text-[#D4AF37]" />
+                        <h5 className="text-xs font-black text-slate-900">{isBn ? 'বাজেট ও যাচাই' : 'Budget & Diligence'}</h5>
+                        <p className="text-[11px] text-slate-500">{isBn ? '১৩.২৭ মিলিয়ন টাকা' : 'BDT 13.27M (~$108K)'}</p>
+                      </Link>
+                    </div>
+                  </div>
+                )}
+
+                {/* 4. STRATEGY MEGA MENU */}
+                {activeMegaTab === 'strategy' && (
+                  <div className="grid grid-cols-4 gap-6">
+                    <div className="col-span-1 border-r border-slate-100 pr-4 space-y-2">
+                      <span className="text-[10px] font-black uppercase text-[#138086] bg-[#138086]/10 px-2 py-0.5 rounded">Action Plan</span>
+                      <h4 className="text-sm font-black text-[#1B365D]">
+                        {isBn ? 'কৌশলগত পরিকল্পনা ২০২৬–২০৩১' : 'Strategy 2026–2031'}
+                      </h4>
+                      <p className="text-xs text-slate-600 leading-relaxed">
+                        {isBn ? '৫টি কৌশলগত পদ্ধতি, থিওরি অব চেঞ্জ ও ফলাফল তদারকি রূপরেখা।' : 'Comprehensive five-year framework creating sustainable care ecosystems.'}
+                      </p>
+                      <Link to="/strategy" onClick={closeMegaMenu} className="text-xs font-bold text-[#138086] hover:underline flex items-center gap-1 pt-2">
+                        <span>{isBn ? 'সম্পূর্ণ কৌশল পাঠ করুন' : 'View Full Strategy'}</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </div>
+
+                    <div className="col-span-3 grid grid-cols-3 gap-3">
+                      <Link to="/strategy" onClick={closeMegaMenu} className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200/80 hover:bg-white hover:border-[#138086]/40 transition-all space-y-1.5">
+                        <Compass className="w-5 h-5 text-[#138086]" />
+                        <h5 className="text-xs font-black text-slate-900">{isBn ? 'কৌশলগত পদ্ধতি (৫টি)' : '5 Strategic Approaches'}</h5>
+                        <p className="text-[11px] text-slate-500">{isBn ? 'কেয়ার সিস্টেম ও নলেজ হাব' : 'Care Systems & Knowledge Base'}</p>
+                      </Link>
+
+                      <Link to="/strategy" onClick={closeMegaMenu} className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200/80 hover:bg-white hover:border-[#138086]/40 transition-all space-y-1.5">
+                        <GitBranch className="w-5 h-5 text-[#104E7A]" />
+                        <h5 className="text-xs font-black text-slate-900">{isBn ? 'থিওরি অব চেঞ্জ' : 'Theory of Change'}</h5>
+                        <p className="text-[11px] text-slate-500">IF → THEN → BECAUSE Model</p>
+                      </Link>
+
+                      <Link to="/strategy" onClick={closeMegaMenu} className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200/80 hover:bg-white hover:border-[#138086]/40 transition-all space-y-1.5">
+                        <Globe className="w-5 h-5 text-[#D4AF37]" />
+                        <h5 className="text-xs font-black text-slate-900">{isBn ? 'এসডিজি ও বাংলাদেশ আইন' : 'SDG & Policy Alignment'}</h5>
+                        <p className="text-[11px] text-slate-500">CRPD, SDGs & Disability Act 2013</p>
+                      </Link>
+                    </div>
+                  </div>
+                )}
+
+                {/* 5. GET INVOLVED MEGA MENU */}
+                {activeMegaTab === 'involved' && (
+                  <div className="grid grid-cols-4 gap-4">
+                    <Link to="/join-us" onClick={closeMegaMenu} className="p-4 bg-slate-50 rounded-2xl border border-slate-200 hover:border-[#138086]/40 hover:bg-white transition-all space-y-2">
+                      <HandHeart className="w-6 h-6 text-[#138086]" />
+                      <h5 className="text-xs font-black text-slate-900">{isBn ? 'কেন যুক্ত হবেন? (Why Join Us)' : 'Why Join Us'}</h5>
+                      <p className="text-[11px] text-slate-500">{isBn ? 'বাস্তব অন্তর্ভুক্তি ও স্থায়ী পরিবর্তনের অংশীদার হোন' : 'Be part of real inclusion and lasting change.'}</p>
+                    </Link>
+
+                    <Link to="/volunteer" onClick={closeMegaMenu} className="p-4 bg-slate-50 rounded-2xl border border-slate-200 hover:border-[#138086]/40 hover:bg-white transition-all space-y-2">
+                      <Users className="w-6 h-6 text-[#104E7A]" />
+                      <h5 className="text-xs font-black text-slate-900">{isBn ? 'স্বেচ্ছাসেবী হিসেবে যোগ দিন' : 'Volunteer With Us'}</h5>
+                      <p className="text-[11px] text-slate-500">{isBn ? 'সাঁতারকুল সেন্টারে সময় ও মেধা দিন' : 'Offer your time and support children.'}</p>
+                    </Link>
+
+                    <Link to="/contact" onClick={closeMegaMenu} className="p-4 bg-slate-50 rounded-2xl border border-slate-200 hover:border-[#138086]/40 hover:bg-white transition-all space-y-2">
+                      <Building className="w-6 h-6 text-[#D4AF37]" />
+                      <h5 className="text-xs font-black text-slate-900">{isBn ? 'উপদেষ্টা ও প্রাতিষ্ঠানিক পার্টনার' : 'Advisor / Strategic Partner'}</h5>
+                      <p className="text-[11px] text-slate-500">{isBn ? 'সিএসআর ও গবেষণা যৌথ কার্যক্রম' : 'Pro-bono expert pool & CSR alliances.'}</p>
+                    </Link>
+
+                    <Link to="/donate" onClick={closeMegaMenu} className="p-4 bg-[#1B365D] text-white rounded-2xl hover:bg-[#104E7A] transition-all space-y-2">
+                      <Heart className="w-6 h-6 text-[#E6A119]" />
+                      <h5 className="text-xs font-black">{isBn ? 'অনুদান ও সহায়তা' : 'Support / Donate'}</h5>
+                      <p className="text-[11px] text-slate-200">{isBn ? 'সিটি ব্যাংক ও বিকাশ অনুদান চ্যানেল' : 'The City Bank PLC & verified channels.'}</p>
+                    </Link>
+                  </div>
+                )}
+
+                {/* 6. RESOURCES MEGA MENU */}
+                {activeMegaTab === 'resources' && (
+                  <div className="grid grid-cols-2 gap-6">
+                    <Link to="/transparency" onClick={closeMegaMenu} className="p-5 bg-slate-50 rounded-2xl border border-slate-200 hover:border-[#138086]/40 hover:bg-white transition-all flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-xl bg-emerald-100 text-[#0D6E4F] flex items-center justify-center shrink-0">
+                        <ShieldCheck className="w-5 h-5" />
+                      </div>
+                      <div className="space-y-1">
+                        <h5 className="text-xs font-black text-slate-900">{isBn ? 'আর্থিক স্বচ্ছতা ও অডিট পোর্টাল' : 'Financial Transparency & Audits'}</h5>
+                        <p className="text-[11px] text-slate-500">{isBn ? 'স্বাধীন চার্টার্ড অ্যাকাউন্ট্যান্টস দ্বারা নিরীক্ষিত বার্ষিক স্টেটমেন্ট ও বাজেট বিবরণী।' : 'Audited reports certified by independent Chartered Accountants.'}</p>
+                      </div>
+                    </Link>
+
+                    <Link to="/resources" onClick={closeMegaMenu} className="p-5 bg-slate-50 rounded-2xl border border-slate-200 hover:border-[#138086]/40 hover:bg-white transition-all flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-xl bg-[#138086]/10 text-[#138086] flex items-center justify-center shrink-0">
+                        <BookOpen className="w-5 h-5" />
+                      </div>
+                      <div className="space-y-1">
+                        <h5 className="text-xs font-black text-slate-900">{isBn ? 'তথ্যসূত্র, আইন ও গবেষণা সংস্থান' : 'Resources & References Repository'}</h5>
+                        <p className="text-[11px] text-slate-500">{isBn ? 'জাতিসংঘ সনদ (CRPD, CRC), বাংলাদেশ ট্রাস্ট আইন ১৮৮২ ও প্রতিবন্ধী আইন ২০১৩।' : 'UN CRPD, CRC, SDGs, Bangladesh Trust Act 1882 & statutory citations.'}</p>
+                      </div>
+                    </Link>
+                  </div>
                 )}
 
               </div>
@@ -433,50 +578,121 @@ export const Header: React.FC = () => {
 
         </div>
 
-        {/* MOBILE MENU overlay */}
+        {/* ========================================================= */}
+        {/* MOBILE NAVIGATION DRAWER (ACCORDION STYLE)                */}
+        {/* ========================================================= */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-2 animate-fadeIn text-sm font-bold text-slate-800">
-            <Link to="/" onClick={() => setMobileMenuOpen(false)} className="block py-1.5">
-              {t(siteContent.nav.home)}
+          <div className="xl:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-8 space-y-2 animate-fadeIn text-sm font-bold text-slate-800 max-h-[80vh] overflow-y-auto">
+            
+            <Link to="/" onClick={closeMegaMenu} className="block py-2 border-b border-slate-100">
+              {isBn ? 'হোম' : 'Home'}
             </Link>
-            <Link to="/about" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 text-[#0D6E4F]">
-              📌 {t(siteContent.nav.aboutUs)}
+
+            {/* About Accordion */}
+            <div className="border-b border-slate-100 py-1">
+              <button 
+                onClick={() => setMobileSubMenu(mobileSubMenu === 'about' ? null : 'about')}
+                className="w-full flex items-center justify-between py-2 text-left"
+              >
+                <span>{isBn ? 'আমাদের কথা (About SCT)' : 'About SCT'}</span>
+                <ChevronDown className={`w-4 h-4 transition-transform ${mobileSubMenu === 'about' ? 'rotate-180 text-[#138086]' : ''}`} />
+              </button>
+              {mobileSubMenu === 'about' && (
+                <div className="pl-4 pb-2 space-y-2 text-xs font-semibold text-slate-600 animate-fadeIn">
+                  <Link to="/about" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'পটভূমি ও ইতিহাস' : 'Our Story'}</Link>
+                  <Link to="/mission" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'ভিশন ও মিশন' : 'Vision & Mission'}</Link>
+                  <Link to="/purpose" onClick={closeMegaMenu} className="block py-1 text-[#138086] font-bold">• {isBn ? 'আমাদের উদ্দেশ্য (Our Purpose)' : 'Our Purpose'}</Link>
+                  <Link to="/leadership/chairman" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'চেয়ারপারসনের বাণী' : "Chairperson's Message"}</Link>
+                  <Link to="/leadership/ceo" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'সাধারণ সম্পাদকের বার্তা' : "General Secretary's Message"}</Link>
+                  <Link to="/leadership/board" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'বোর্ড অফ ট্রাস্টিজ' : 'Board of Trustees'}</Link>
+                  <Link to="/team" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'টিম ও কর্মী' : 'Secretariat & Team'}</Link>
+                </div>
+              )}
+            </div>
+
+            {/* Pillars Accordion */}
+            <div className="border-b border-slate-100 py-1">
+              <button 
+                onClick={() => setMobileSubMenu(mobileSubMenu === 'pillars' ? null : 'pillars')}
+                className="w-full flex items-center justify-between py-2 text-left"
+              >
+                <span>{isBn ? 'আমাদের ৫টি স্তম্ভ (Five Pillars)' : 'Our Five Pillars'}</span>
+                <ChevronDown className={`w-4 h-4 transition-transform ${mobileSubMenu === 'pillars' ? 'rotate-180 text-[#138086]' : ''}`} />
+              </button>
+              {mobileSubMenu === 'pillars' && (
+                <div className="pl-4 pb-2 space-y-2 text-xs font-semibold text-slate-600 animate-fadeIn">
+                  <Link to="/pillars" onClick={closeMegaMenu} className="block py-1 font-bold text-[#138086]">• {isBn ? 'সকল স্তম্ভের সামগ্রিক রূপরেখা' : 'Pillars Overview'}</Link>
+                  <Link to="/pillars#pillar-1" onClick={closeMegaMenu} className="block py-1">• 1. {isBn ? 'বিশেষ চাহিদাসম্পন্ন শিশু (২০২৬–২০২৯)' : 'Special Needs (2026–2029)'}</Link>
+                  <Link to="/pillars#pillar-2" onClick={closeMegaMenu} className="block py-1">• 2. {isBn ? 'যুব কর্মসংস্থান (২০২৯–২০৩০)' : 'Youth Employability (2029–2030)'}</Link>
+                  <Link to="/pillars#pillar-3" onClick={closeMegaMenu} className="block py-1">• 3. {isBn ? 'প্রবীণ সেবা (২০৩০ থেকে)' : 'Elderly Care (2030 onward)'}</Link>
+                  <Link to="/pillars#pillar-4" onClick={closeMegaMenu} className="block py-1">• 4. {isBn ? 'প্রাতিষ্ঠানিক সক্ষমতা ও স্থায়িত্ব' : 'Organizational Sustainability'}</Link>
+                  <Link to="/pillars#pillar-5" onClick={closeMegaMenu} className="block py-1">• 5. {isBn ? 'শাহীন কমিউনিটি সেবা' : 'Shaheen Community Care'}</Link>
+                </div>
+              )}
+            </div>
+
+            {/* First Project SPUS */}
+            <Link to="/spus" onClick={closeMegaMenu} className="block py-2 border-b border-slate-100 text-[#138086] font-bold">
+              ★ {isBn ? 'প্রথম প্রজেক্ট: SPUS সাঁতারকুল' : 'First Project: SPUS Satarkul'}
             </Link>
-            <div className="pl-4 space-y-1 text-xs font-semibold text-slate-600">
-              <Link to="/leadership/chairman" onClick={() => setMobileMenuOpen(false)} className="block py-1">
-                • {t(siteContent.nav.chairmanMessage)}
-              </Link>
-              <Link to="/leadership/ceo" onClick={() => setMobileMenuOpen(false)} className="block py-1">
-                • {t(siteContent.nav.ceoMessage)}
-              </Link>
-              <Link to="/leadership/board" onClick={() => setMobileMenuOpen(false)} className="block py-1">
-                • {t(siteContent.nav.boardOfTrustees)}
-              </Link>
-              <Link to="/team" onClick={() => setMobileMenuOpen(false)} className="block py-1">
-                • {t(siteContent.nav.staffMembers)}
+
+            {/* Strategy */}
+            <Link to="/strategy" onClick={closeMegaMenu} className="block py-2 border-b border-slate-100">
+              {isBn ? 'কৌশলগত পরিকল্পনা ২০২৬–২০৩১' : 'Strategy 2026–2031'}
+            </Link>
+
+            {/* Get Involved */}
+            <div className="border-b border-slate-100 py-1">
+              <button 
+                onClick={() => setMobileSubMenu(mobileSubMenu === 'involved' ? null : 'involved')}
+                className="w-full flex items-center justify-between py-2 text-left"
+              >
+                <span>{isBn ? 'যুক্ত হোন (Get Involved)' : 'Get Involved'}</span>
+                <ChevronDown className={`w-4 h-4 transition-transform ${mobileSubMenu === 'involved' ? 'rotate-180 text-[#138086]' : ''}`} />
+              </button>
+              {mobileSubMenu === 'involved' && (
+                <div className="pl-4 pb-2 space-y-2 text-xs font-semibold text-slate-600 animate-fadeIn">
+                  <Link to="/join-us" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'কেন যুক্ত হবেন (Why Join Us)' : 'Why Join Us'}</Link>
+                  <Link to="/volunteer" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'স্বেচ্ছাসেবী হিসেবে যোগ দিন' : 'Volunteer'}</Link>
+                  <Link to="/contact" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'উপদেষ্টা / অংশীদারিত্ব' : 'Partner with SCT'}</Link>
+                  <Link to="/donate" onClick={closeMegaMenu} className="block py-1 font-bold text-[#E6A119]">• {isBn ? 'অনুদান ও সহায়তা' : 'Support / Donate'}</Link>
+                </div>
+              )}
+            </div>
+
+            {/* Resources */}
+            <div className="border-b border-slate-100 py-1">
+              <button 
+                onClick={() => setMobileSubMenu(mobileSubMenu === 'resources' ? null : 'resources')}
+                className="w-full flex items-center justify-between py-2 text-left"
+              >
+                <span>{isBn ? 'রিসোর্স ও স্বচ্ছতা' : 'Resources & Transparency'}</span>
+                <ChevronDown className={`w-4 h-4 transition-transform ${mobileSubMenu === 'resources' ? 'rotate-180 text-[#138086]' : ''}`} />
+              </button>
+              {mobileSubMenu === 'resources' && (
+                <div className="pl-4 pb-2 space-y-2 text-xs font-semibold text-slate-600 animate-fadeIn">
+                  <Link to="/transparency" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'আর্থিক স্বচ্ছতা ও অডিট রিপোর্ট' : 'Financial Transparency'}</Link>
+                  <Link to="/resources" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'তথ্যসূত্র, আইন ও নীতিমালা' : 'Resources & Legal References'}</Link>
+                </div>
+              )}
+            </div>
+
+            {/* Contact */}
+            <Link to="/contact" onClick={closeMegaMenu} className="block py-2 border-b border-slate-100">
+              {isBn ? 'যোগাযোগ' : 'Contact Us'}
+            </Link>
+
+            {/* Bottom Direct CTA */}
+            <div className="pt-4">
+              <Link
+                to="/join-us"
+                onClick={closeMegaMenu}
+                className="w-full bg-[#1B365D] text-white py-3 rounded-xl text-xs font-bold text-center block shadow-md"
+              >
+                {isBn ? 'আমাদের সাথে যুক্ত হোন' : 'Join Our Movement'}
               </Link>
             </div>
-            <Link to="/donors" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 text-[#E6A119]">
-              🏆 {t(siteContent.nav.donors)}
-            </Link>
-            <Link to="/campaigns" onClick={() => setMobileMenuOpen(false)} className="block py-1.5">
-              {t(siteContent.nav.causes)}
-            </Link>
-            <Link to="/zakat-calculator" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 text-[#0D6E4F]">
-              {t(siteContent.nav.zakat)}
-            </Link>
-            <Link to="/transparency" onClick={() => setMobileMenuOpen(false)} className="block py-1.5">
-              {t(siteContent.nav.transparency)}
-            </Link>
-            <Link to="/volunteer" onClick={() => setMobileMenuOpen(false)} className="block py-1.5">
-              {t(siteContent.nav.volunteer)}
-            </Link>
-            <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="block py-1.5">
-              {t(siteContent.nav.contact)}
-            </Link>
-            <Link to="/admin" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 text-xs text-slate-400 font-normal">
-              ⚙️ {t(siteContent.nav.admin)}
-            </Link>
+
           </div>
         )}
 
