@@ -1,0 +1,25 @@
+{
+  "id": "org.charity.app",
+  "name": "Humanity First BD",
+  "short_name": "Humanity First",
+  "description": "Humanitarian Charity & NGO Platform for Bangladesh and International Donors",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FDFBF7",
+  "theme_color": "#0D6E4F",
+  "icons": [
+    {
+      "src": "https://images.unsplash.com/photo-1532629345422-7515fe926fb8?w=192&auto=format&fit=crop",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1532629345422-7515fe926fb8?w=512&auto=format&fit=crop",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}

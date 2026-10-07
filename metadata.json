@@ -1,0 +1,6 @@
+{
+  "name": "Humanity First BD - Charity & NGO Platform",
+  "description": "A charity and NGO web platform for Bangladesh and international donors featuring bilingual support, Zakat calculator, emergency relief campaigns, photo/video gallery, transparency audit, volunteer portal, and online donations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
