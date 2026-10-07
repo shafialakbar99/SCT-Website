@@ -37,11 +37,23 @@ export const API_BASE_URL = '/api';
 const delay = (ms = 150) => new Promise(res => setTimeout(res, ms));
 
 // Helper for separate typed localStorage tables
-function getTableData<T>(tableName: string, defaultData: T[]): T[] {
+function getTableData<T extends Record<string, any>>(tableName: string, defaultData: T[]): T[] {
   try {
     const raw = safeStorage.getItem(`hf_db_${tableName}`);
     if (raw) {
-      return JSON.parse(raw);
+      const parsed: T[] = JSON.parse(raw);
+      // Ensure default code data updates take precedence for matching items
+      const defaultMap = new Map<string, T>();
+      defaultData.forEach(item => {
+        const key = item.id || item.slug;
+        if (key) defaultMap.set(String(key), item);
+      });
+      // Preserve any dynamically added user entries from admin
+      const extraItems = parsed.filter(item => {
+        const key = item.id || item.slug;
+        return key && !defaultMap.has(String(key));
+      });
+      return [...defaultData, ...extraItems];
     }
   } catch (err) {
     console.error(`Error reading ${tableName} from storage:`, err);

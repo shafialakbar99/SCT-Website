@@ -3,92 +3,129 @@ import { BlogPost } from '../types';
 export const initialBlogs: BlogPost[] = [
   {
     id: 'blog-1',
-    slug: 'sustainable-water-solutions-coastal-bangladesh',
+    slug: 'inclusive-education-for-special-needs-children-satarkul',
     title: {
-      en: 'Tackling Salinity: Solar Submersible Wells in Coastal Bangladesh',
-      bn: 'লবণাক্ততা মোকাবেলা: উপকূলীয় বাংলাদেশে সোলার সাবমার্সিবল টিউবওয়েল'
+      en: 'Breaking Barriers: Inclusive Education & Therapy for Special Needs Children in Satarkul',
+      bn: 'প্রতিবন্ধকতা পেরিয়ে: সাঁতারকুলে বিশেষ চাহিদাসম্পন্ন শিশুদের অন্তর্ভুক্তিমূলক শিক্ষা ও থেরাপি'
     },
     summary: {
-      en: 'How solar-powered deep filtration systems are solving the acute drinking water crisis in Satkhira and Bagerhat.',
-      bn: 'সৌরশক্তিচালিত গভীর ফিল্টারিং ব্যবস্থা কীভাবে সাতক্ষীরা ও বাগেরহাটের খাবার পানির সঙ্কট দূর করছে।'
+      en: 'How SCT’s flagship partnership with SPUS is transforming the lives of 75 children with special needs and 100 therapy beneficiaries in Satarkul, Dhaka.',
+      bn: 'শাহীন কেয়ার্স ট্রাস্ট ও এসপিইউএস-এর যৌথ উদ্যোগে ঢাকার সাঁতারকুলে ৭৫ জন বিশেষ চাহিদাসম্পন্ন শিশুর শিক্ষা ও ১০০ জনের থেরাপি সেবার নতুন দিগন্ত।'
     },
     content: {
-      en: `## The Crisis of Groundwater Salinity
-Climate change and frequent cyclones like Aila, Amphan, and Remal have severely impacted southern coastal Bangladesh. Rising sea levels force saline water into local ponds and shallow aquifers. For decades, local women have walked hours carrying heavy 'kolshis' just to fetch semi-saline water.
+      en: `## The Reality of Special Needs Education in Bangladesh
+More than 60% of children with disabilities in Bangladesh remain out of formal school systems. In grassroots areas like Satarkul, families often face severe social stigma and a lack of specialized therapy facilities.
 
-## Our Technological Approach
-Humanity First BD introduced 600-feet deep solar submersible pumps equipped with multi-stage reverse osmosis and sand filtration units. 
+## Our Partnership with SPUS (2026–2029)
+Shaheen Cares Trust (SCT) has partnered with Satarkul Protibandhi Unnayan Sangstha (SPUS)—a disability-led grassroots organization—under Pillars 1 & 4 of our strategic framework.
 
-### Key Features of Solar Tube Wells:
-1. **Zero Electricity Dependence**: Operates entirely on 1.2kW solar panels.
-2. **Deep Aquifer Access**: Taps into pristine freshwater layers below 550 feet.
-3. **Community Ownership**: Local water committees are trained to manage routine maintenance.
+### Core Focus Areas:
+1. **Inclusive Education**: Tailored learning modules for 75 children.
+2. **Therapy & Rehabilitation**: Specialized physiotherapy and occupational support for 100 beneficiaries.
+3. **Institutional Capacity**: Strengthening SPUS for long-term operational and financial sustainability.
 
-## Direct Beneficiary Impact
-Over 1,840 wells have been successfully commissioned to date, providing clean drinking water to more than 450,000 villagers every day.`,
-      bn: `## ভূগর্ভস্থ পানির তীব্র লবণাক্ততা
-জলবায়ু পরিবর্তন ও ঘন ঘন ঘূর্ণিঝড়ের প্রভাবে বাংলাদেশের দক্ষিণাঞ্চলীয় উপকূলীয় জেলাগুলোতে দেখা দিয়েছে সুপেয় পানির হাহাকার। স্থানীয় নারী ও শিশুদের পানির পাত্র নিয়ে মাইলের পর মাইল হাঁটতে হয়।
+## Creating Lasting Impact
+By combining community trust with structured institutional support, we aim to ensure dignity, independence, and holistic development for every child.`,
+      bn: `## বাংলাদেশে বিশেষ চাহিদাসম্পন্ন শিশুদের শিক্ষার বর্তমান চিত্র
+বাংলাদেশে ৬০% এরও বেশি প্রতিবন্ধী শিশু প্রাতিষ্ঠানিক শিক্ষার বাইরে থেকে যায়। সাঁতারকুলের মতো এলাকায় সামাজিক কুসংস্কার এবং থেরাপি কেন্দ্রের অভাব পরিবারগুলোর জন্য বড় চ্যালেঞ্জ।
 
-## আমাদের প্রযুক্তিগত উদ্যোগ
-হিউম্যানিটি ফাস্ট বিডি ৬০০ ফুট গভীরতায় সোলার সাবমার্সিবল পাম্প এবং মাল্টি-স্টেজ ফিল্টারেশন প্ল্যান্ট স্থাপন করছে।
+## এসপিইউএস (SPUS)-এর সাথে আমাদের অংশীদারিত্ব (২০২৬–২০২৯)
+শাহীন কেয়ার্স ট্রাস্ট (SCT) তার ১ম ও ৪থ স্তম্ভের আওতায় স্থানীয় প্রতিবন্ধী ব্যক্তিদের পরিচালিত সামাজিক সংস্থা 'সাঁতারকুল প্রতিবন্ধী উন্নয়ন সংস্থা' (SPUS)-এর সাথে ৩ বছর মেয়াদী প্রকল্প চালু করেছে।
 
-### প্রযুক্তিগত বৈশিষ্ট্য:
-১. **বিদ্যুৎনির্ভরতাহীন**: সম্পূর্ণ সোলার প্যানেলে চালিত।
-২. **গভীর স্বাদু পানির স্তর**: ৫৫০ ফুটের নিচের বিশুদ্ধ পানি উত্তোলন।
-৩. **কমিউনিটি মালিকানা**: স্থানীয় কমিটি গঠন করে পরিচালনা করা হয়।`
+### মূল কার্যক্রম:
+১. **অন্তর্ভুক্তিমূলক শিক্ষা**: ৭৫ জন শিশুর জন্য উপযোগী শিক্ষা উপকরণ ও পাঠদান।
+২. **থেরাপি ও পুনর্বাসন**: ১০০ জন সুবিধাভোগীর জন্য ফিজিওথেরাপি ও অকুপেশনাল থেরাপি।
+৩. **প্রতিষ্ঠানের স্থায়িত্ব**: এসপিইউএস-এর নিজস্ব সক্ষমতা বৃদ্ধি করে দীর্ঘমেয়াদী স্থায়িত্ব নিশ্চিতকরণ।`
     },
-    category: { en: 'Water & Environment', bn: 'পানি ও পরিবেশ' },
+    category: { en: 'Special Needs Inclusion', bn: 'বিশেষ চাহিদাসম্পন্ন শিশু' },
     author: {
-      name: 'Engr. Mahmudul Hasan',
-      role: { en: 'Head of WASH Projects', bn: 'প্রধান, ওয়াশ প্রজেক্ট' },
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop'
+      name: 'Sumana Binte Masud',
+      role: { en: 'General Secretary, SCT', bn: 'সাধারণ সম্পাদক, এসসিটি' },
+      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=2000&auto=format&fit=crop'
     },
-    coverImage: 'https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?w=1000&auto=format&fit=crop',
-    publishedAt: '2026-07-20',
+    coverImage: '/Images/filler-image.jpeg?w=2000&auto=format&fit=crop',
+    publishedAt: '2026-08-10',
     readTimeMinutes: 5,
-    tags: ['Water', 'Climate', 'Satkhira', 'WASH']
+    tags: ['Special Needs', 'Inclusive Education', 'SPUS Satarkul', 'Pillar 1']
   },
   {
     id: 'blog-2',
-    slug: 'zakat-as-tool-for-poverty-alleviation',
+    slug: 'intergenerational-care-bridging-youth-and-elders',
     title: {
-      en: 'Zakat as a Sustainable Tool for Micro-Empowerment in Bangladesh',
-      bn: 'বাংলাদেশে দারিদ্র্য বিমোচনে যাকাতের টেকসই ভূমিকা'
+      en: 'Intergenerational Cohesion: Connecting Empowered Youth with Dignified Elderly Care',
+      bn: 'আন্তঃপ্রজন্মীয় বন্ধন: দক্ষ যুবসমাজ ও প্রবীণদের মর্যাদাপূর্ণ যত্ন'
     },
     summary: {
-      en: 'Why shifting Zakat from one-off handouts to asset-building creates long-term financial independence for widow-headed households.',
-      bn: 'এককালীন সাহায্যের বদলে যাকাতের টাকায় ক্ষুদ্র ব্যবসা ও রিকশা কিনে দিয়ে কীভাবে স্থায়ী স্বাবলম্বিতা আনা সম্ভব।'
+      en: 'Exploring SCT’s Strategic Strategy (2026–2031) to train youth in internationally relevant caregiving skills while serving elderly citizens.',
+      bn: 'শাহীন কেয়ার্স ট্রাস্টের কৌশলগত পরিকল্পনা (২০২৬–২০৩১)-এর আওতায় তরুণদের প্রবীণ পরিচর্যায় আন্তর্জাতিক মানের দক্ষতায় গড়ে তোলার উদ্যোগ।'
     },
     content: {
-      en: `## Moving Beyond Handouts
-Traditionally, Zakat is distributed as small cash gifts or garments during Ramadan. While helpful temporarily, it rarely breaks the poverty cycle.
+      en: `## The Demographic Shift & Care System Gap
+As traditional family structures evolve, elderly care system constraints are becoming increasingly visible across urban and rural Bangladesh.
 
-## The Humanity First BD Model
-We utilize Zakat funds to purchase income-generating assets:
-- Battery-operated auto-rickshaws for unemployed youth
-- Commercial sewing machines & fabric stock for widow micro-entrepreneurs
-- Small grocery shop inventory for persons with disabilities
+## The SCT Intergenerational Model
+Under Pillar 2 (Youth Employability) and Pillar 3 (Elderly Care), Shaheen Cares Trust is creating an ecosystem where:
+- Young people acquire market-relevant caregiving, digital, and technical skills.
+- Trained youth provide dignified, structured support to older adults.
+- Intergenerational mentorship fosters mutual trust, respect, and social cohesion.
 
-## Audited Shariah Integrity
-Every project is verified by our Islamic Advisory Board to ensure 100% compliance with Quranic Zakat categories (Asnaf).`,
-      bn: `## স্থায়ী স্বাবলম্বীকরণের মডেল
-প্রথাগতভাবে যাকাত সামান্য পোশাক বা সামান্য নগদ টাকায় সীমাবদ্ধ রাখা হয়। কিন্তু তা দারিদ্র্য ঘোচাতে পারে না।
+## A Vision for 2030 and Beyond
+This systems-based approach ensures that empowered youth gain sustainable livelihoods while elders receive dignified care.`,
+      bn: `## প্রবীণ পরিচর্যা ও সামাজিক কাঠামোর পরিবর্তন
+একক পরিবারের প্রবণতা বৃদ্ধির ফলে বাংলাদেশে বয়স্কদের সুসংগঠিত সেবা ব্যবস্থার প্রয়োজন দেখা দিচ্ছে।
 
-## আমাদের উদ্ভাবনী পথ
-আমরা যাকাতের টাকায় আয়ের উপায় তৈরি করে দেই:
-- বেকার যুবকদের ব্যাটারিচালিত অটোরিকশা প্রদান
-- বিধবা ও দরিদ্র নারীদের সেলাই মেশিন ও প্রাথমিক কাঁচামাল প্রদান
-- প্রতিবন্ধী ব্যক্তিদের জন্য ক্ষুদ্র মুদি দোকান তৈরি`
+## এসসিটি-এর আন্তঃপ্রজন্মীয় কেয়ার মডেল
+আমাদের ২য় (যুব কর্মসংস্থান) ও ৩য় (প্রবীণ সেবা) স্তম্ভের অধীনে:
+- তরুণদের আন্তর্জাতিক মানের প্রবীণ পরিচর্যা ও কারিগরি দক্ষতা প্রদান।
+- দক্ষ তরুণদের মাধ্যমে প্রবীণদের মর্যাদাপূর্ণ পরিচর্যা নিশ্চিতকরণ।
+- তরুণ ও প্রবীণদের মাঝে অভিজ্ঞতা বিনিময় ও সহমর্মিতার বন্ধন সৃষ্টি।`
     },
-    category: { en: 'Economic Empowerment', bn: 'অর্থনৈতিক স্বাবলম্বীকরণ' },
+    category: { en: 'Youth & Elderly Care', bn: 'যুব ও প্রবীণ যত্ন' },
     author: {
-      name: 'Dr. Shahabuddin Al-Azhari',
-      role: { en: 'Shariah Advisory Lead', bn: 'শরীয়াহ উপদেষ্টা প্রধান' },
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop'
+      name: 'Anirban Yasin Aftab',
+      role: { en: 'Trustee, SCT', bn: 'ট্রাস্টি, এসসিটি' },
+      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=2000&auto=format&fit=crop'
     },
-    coverImage: 'https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1000&auto=format&fit=crop',
-    publishedAt: '2026-07-12',
+    coverImage: '/Images/filler-image.jpeg?w=2000&auto=format&fit=crop',
+    publishedAt: '2026-07-28',
     readTimeMinutes: 4,
-    tags: ['Zakat', 'Empowerment', 'Islamic Relief']
+    tags: ['Elderly Care', 'Youth Skills', 'Intergenerational', 'Pillar 2 & 3']
+  },
+  {
+    id: 'blog-3',
+    slug: 'shaheen-community-spirit-from-friendship-to-service',
+    title: {
+      en: 'From Friendship to Service: The Decade-Long Journey Behind Shaheen Cares Trust',
+      bn: 'বন্ধুত্ব থেকে সেবা: শাহীন কেয়ার্স ট্রাস্টের পেছনের এক দশকের গল্প'
+    },
+    summary: {
+      en: 'Tracing how voluntary medical aid and scholarships by the Class of 89 evolved into a formal Trust under the Trust Act of 1882.',
+      bn: 'শাহীন ৮৯ ব্যাচের বন্ধুদের মানবিক উদ্যোগ কীভাবে ১৮৮২ সালের ট্রাস্ট আইনের অধীনে প্রাতিষ্ঠানিক রূপ লাভ করল।'
+    },
+    content: {
+      en: `## A Decade of Quiet Service
+More than ten years ago, members of the Shaheen community—primarily from SSC Class of 1989—started stepping up to support people in need through emergency medical funds, student tuition fees, winter drives, and COVID-19 relief.
+
+## Formalizing the Spirit of Care
+In late 2024, extensive deliberations led to the formal establishment of Shaheen Cares Trust under Bangladesh's Trust Act of 1882.
+
+## Connecting Shaheens Worldwide
+Ahead of our official inauguration on Friday, October 9, 2026, SCT serves as a unified platform connecting Shaheens across Bangladesh, North America, Europe, Australia, and beyond.`,
+      bn: `## এক দশকের নীরবিচ্ছিন্ন সেবা
+এক দশকেরও বেশি সময় আগে শাহীন কমিউনিটির সদস্যবৃন্দ (মূলত ৮৯ ব্যাচ) ব্যক্তিগত উদ্যোগে চিকিৎসা সেবা, ছাত্রবৃত্তি, শীতবস্ত্র বিতরণ ও করোনাকালীন সাহায্য নিয়ে এগিয়ে আসেন।
+
+## মানবিক চেতনার প্রাতিষ্ঠানিক রূপ
+২০২৪ সালের শেষে পরামর্শ পর্বের পর ১৮৮২ সালের ট্রাস্ট আইনের অধীনে 'শাহীন কেয়ার্স ট্রাস্ট' গঠিত হয়। ২০২৬ সালের ৯ই অক্টোবর এর আনুষ্ঠানিক যাত্রা শুরু হচ্ছে।`
+    },
+    category: { en: 'Our Story & Philosophy', bn: 'আমাদের গল্প ও দর্শন' },
+    author: {
+      name: 'Data Magfur',
+      role: { en: 'Chairperson, SCT', bn: 'চেয়ারপারসন, এসসিটি' },
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=2000&auto=format&fit=crop'
+    },
+    coverImage: '/Images/filler-image.jpeg?w=2000&auto=format&fit=crop',
+    publishedAt: '2026-07-15',
+    readTimeMinutes: 6,
+    tags: ['Shaheen Community', 'Trust Act 1882', 'Our Story', 'Pillar 5']
   }
 ];

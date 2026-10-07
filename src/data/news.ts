@@ -3,41 +3,60 @@ import { NewsItem } from '../types';
 export const initialNews: NewsItem[] = [
   {
     id: 'news-1',
-    slug: 'annual-audit-report-released-2025-2026',
+    slug: 'sct-announces-inauguration-and-strategy-2026-2031',
     title: {
-      en: 'Humanity First BD Releases Independent FY 2025-26 Financial Audit Report',
-      bn: 'হিউম্যানিটি ফাস্ট বিডি এর অর্থবছর ২০২৫-২৬ এর বার্ষিক অডিট রিপোর্ট প্রকাশ'
+      en: 'Shaheen Cares Trust Formally Announces Official Inauguration for October 9, 2026',
+      bn: 'আগামী ৯ই অক্টোবর ২০২৬ শাহীন কেয়ার্স ট্রাস্টের আনুষ্ঠানিক উদ্বোধনের ঘোষণা'
     },
     summary: {
-      en: 'Independent chartered accounting audit confirms 88.4% of total funds were directly spent on field humanitarian programs.',
-      bn: 'স্বাধীন চার্টার্ড অ্যাকাউন্ট্যান্ট ফার্মের অডিটে দেখা গেছে প্রাপ্ত মোট ফান্ডের ৮৮.৪% সরাসরি মাঠপর্যায়ের মানবিক সহায়তায় ব্যয় হয়েছে।'
+      en: 'Registered under Bangladesh Trust Act of 1882, SCT launches its 5-Year Strategic Plan focusing on Special Needs, Youth, and Elders.',
+      bn: '১৮৮২ সালের ট্রাস্ট আইনের অধীন নিবন্ধিত ট্রাস্টটি ২০২৬–২০৩১ মেয়াদের ৫টি মূল স্তম্ভ ভিত্তিক কৌশলগত পরিকল্পনা প্রকাশ করেছে।'
     },
     content: {
-      en: 'Humanity First BD is proud to announce the publication of our annual audited financial statements for FY 2025-26. Conducted by A. Qasem & Co. Chartered Accountants, the report confirms strict compliance with NGO Affairs Bureau regulations. 88.4% went to direct programs, 7.2% to administrative operations, and 4.4% to fundraising efforts.',
-      bn: 'হিউম্যানিটি ফাস্ট বিডি অত্যন্ত আনন্দের সাথে ২০২৫-২৬ অর্থবছরের অডিট রিপোর্ট প্রকাশ করেছে। প্রতিবেদন অনুযায়ী মোট অনুদানের ৮৮.৪% সরাসরি জনগণের সেবায়, ৭.২% প্রশাসনিক কাজে এবং ৪.৪% ফান্ড সংগ্রহে ব্যয় হয়েছে।'
+      en: 'Shaheen Cares Trust (SCT) officially announces its inauguration to be held in Dhaka on Friday, October 9, 2026. Established under Bangladesh’s Trust Act of 1882, SCT transforms voluntary community goodwill into a structured, sustainable trust.',
+      bn: 'বাংলাদেশের ট্রাস্ট আইন ১৮৮২-এর অধীনে নিবন্ধিত শাহীন কেয়ার্স ট্রাস্ট (SCT) আগামী ৯ই অক্টোবর ২০২৬ শুক্রবার ঢাকায় আনুষ্ঠানিকভাবে কার্যক্রম শুরুর ঘোষণা দিয়েছে। ট্রাস্টটি তার ৫টি কৌশলগত স্তম্ভের মাধ্যমে স্থায়ী সামাজিক পরিবর্তন অর্জনে প্রতিশ্রুতিবদ্ধ।'
     },
-    source: { en: 'Official Press Release', bn: 'প্রেস বিজ্ঞপ্তি' },
-    coverImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1000&auto=format&fit=crop',
-    publishedAt: '2026-07-01',
+    source: { en: 'SCT Official Secretariat', bn: 'এসসিটি অফিসিয়াল সচিবালয়' },
+    coverImage: '/Images/filler-image.jpeg?w=2000&auto=format&fit=crop',
+    publishedAt: '2026-09-15',
     pdfUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
   },
   {
     id: 'news-2',
-    slug: 'disaster-relief-mou-signed-with-local-districts',
+    slug: 'spus-satarkul-partnership-mou-signed-budget-11m',
     title: {
-      en: 'MoU Signed with Sylhet & Feni District Administration for Rapid Disaster Response',
-      bn: 'দ্রুত দুর্যোগ মোকাবেলায় সিলেট ও ফেনী জেলা প্রশাসনের সাথে সমঝোতা স্মারক স্বাক্ষর'
+      en: 'SCT Signs 3-Year Partnership MoU with SPUS Satarkul with BDT 11.0M Allocation',
+      bn: 'সাঁতারকুল এসপিইউএস-এর সাথে ৩ বছর মেয়াদী ১১.০ মিলিয়ন টাকা বাজেটের সমঝোতা চুক্তি স্বাক্ষর'
     },
     summary: {
-      en: 'Joint coordination protocol established to streamline emergency boat rescue operations and relief supply logistics during flash floods.',
-      bn: 'বন্যার সময় উদ্ধার অভিযান ও ত্রাণ সামগ্রী দ্রুত পৌঁছানোর জন্য জেলা প্রশাসনের সাথে যৌথ সমন্বয় প্রটোকল গঠিত।'
+      en: 'The project supports inclusive education for 75 special needs children and therapy for 100 beneficiaries while strengthening SPUS institutional systems.',
+      bn: 'এসপিইউএস-এর সাথে ৩ বছর মেয়াদী চুক্তির মাধ্যমে বিশেষ চাহিদাসম্পন্ন শিশুদের শিক্ষা, থেরাপি ও প্রতিষ্ঠানের দীর্ঘমেয়াদী স্থায়িত্ব নিশ্চিত করা হবে।'
     },
     content: {
-      en: 'To optimize emergency response speed, Humanity First BD signed a Memorandum of Understanding with the District Disaster Management Committees of Sylhet and Feni.',
-      bn: 'জরুরি দুর্যোগে দ্রুততার সাথে কাজ করতে সিলেট ও ফেনী জেলা দুর্যোগ ব্যবস্থাপনা কমিটির সাথে দ্বিপাক্ষিক সমঝোতা স্মারক স্বাক্ষরিত হয়।'
+      en: 'Shaheen Cares Trust has formally signed a Memorandum of Understanding with Satarkul Protibandhi Unnayan Sangstha (SPUS) for a 3-year project (2026–2029) with a tentative budget of BDT 11.0 Million (~$88,000 USD).',
+      bn: 'শাহীন কেয়ার্স ট্রাস্ট ঘাসমূলের সামাজিক সংস্থা সাঁতারকুল প্রতিবন্ধী উন্নয়ন সংস্থা (SPUS)-এর সাথে ৩ বছর মেয়াদী (২০২৬–২০২৯) ১১.০ মিলিয়ন টাকা অনুমানের প্রজেক্ট চুক্তি সম্পন্ন করেছে।'
     },
-    source: { en: 'Daily Star / Prothom Alo', bn: 'দৈনিক প্রথম আলো' },
-    coverImage: 'https://images.unsplash.com/photo-1547683905-f686c993aae5?w=1000&auto=format&fit=crop',
-    publishedAt: '2026-06-18'
+    source: { en: 'Daily Newspaper / Press Release', bn: 'প্রেস বিজ্ঞপ্তি' },
+    coverImage: '/Images/filler-image.jpeg?w=2000&auto=format&fit=crop',
+    publishedAt: '2026-08-20'
+  },
+  {
+    id: 'news-3',
+    slug: 'board-of-trustees-constituted-city-bank-account',
+    title: {
+      en: 'Board of Trustees Constituted & Official Bank Account Operations Established',
+      bn: 'ট্রাস্টি বোর্ড গঠন এবং অফিসিয়াল সিটি ব্যাংক অ্যাকাউন্ট কার্যক্রম শুরু'
+    },
+    summary: {
+      en: 'Board led by Chairperson Data Magfur establishes financial operations at The City Bank PLC Gulshan Branch with complete transparency.',
+      bn: 'চেয়ারপারসন দাতা মাগফুরের নেতৃত্বে ট্রাস্টি বোর্ড গঠন এবং দি সিটি ব্যাংক পিএলসি গুলশান শাখায় আর্থিক হিসাব শুরু।'
+    },
+    content: {
+      en: 'The Board of Trustees for Shaheen Cares Trust, comprising 9 key members led by Chairperson Data Magfur, General Secretary Sumana Binte Masud, and Treasurer Anisuzzaman Naser Khan, has fully operationalized its banking channels.',
+      bn: 'দাতা মাগফুর (চেয়ারপারসন), সুমানা বিনতে মাসুদ (সাধারণ সম্পাদক) এবং আনিসুজ্জামান নাসের খান (কোষাধ্যক্ষ)-এর নেতৃত্বে ৯ সদস্যের ট্রাস্টি বোর্ড আনুষ্ঠানিকভাবে সব ব্যাংকিং ও পরিচালনা চ্যানেল সক্রিয় করেছে।'
+    },
+    source: { en: 'Financial Transparency Desk', bn: 'অর্থনৈতিক স্বচ্ছতা সেল' },
+    coverImage: '/Images/filler-image.jpeg?w=2000&auto=format&fit=crop',
+    publishedAt: '2026-07-30'
   }
 ];

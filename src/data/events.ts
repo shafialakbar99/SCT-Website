@@ -3,32 +3,56 @@ import { EventItem } from '../types';
 export const initialEvents: EventItem[] = [
   {
     id: 'evt-1',
-    slug: 'dhaka-blood-donation-and-health-camp-2026',
-    title: { en: 'Mega Voluntary Blood Donation & Medical Camp', bn: 'মেগা স্বেচ্ছায় রক্তদান ও বিনামূল্যে চিকিৎসা ক্যাম্প' },
-    description: {
-      en: 'Join us at Dhaka University TSC for a day-long free health checkup, diabetes screening, and voluntary blood donation drive.',
-      bn: 'ঢাকা বিশ্ববিদ্যালয় টিএসসিতে দিনব্যাপী বিনামূল্যে চিকিৎসা সেবা, ডায়াবেটিস পরীক্ষা ও স্বেচ্ছায় রক্তদান কর্মসূচী।'
+    slug: 'shaheen-cares-trust-official-inauguration-2026',
+    title: { 
+      en: 'Official Inauguration Ceremony of Shaheen Cares Trust', 
+      bn: 'শাহীন কেয়ার্স ট্রাস্টের আনুষ্ঠানিক উদ্বোধন অনুষ্ঠান ২০২৬' 
     },
-    eventDate: '2026-08-15',
-    time: '09:00 AM - 05:00 PM',
-    location: { en: 'TSC Premises, Dhaka University', bn: 'টিএসসি প্রাঙ্গণ, ঢাকা বিশ্ববিদ্যালয়' },
-    imageUrl: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?w=1000&auto=format&fit=crop',
-    category: { en: 'Health & Blood Drive', bn: 'স্বাস্থ্য ও রক্তদান' },
-    registeredCount: 380
+    description: {
+      en: 'Celebrating the formal launch of SCT under the Trust Act of 1882, bringing together Trustees, Shaheen Alumni, and sector leaders in Dhaka.',
+      bn: '১৮৮২ সালের ট্রাস্ট আইনের অধীন নিবন্ধিত শাহীন কেয়ার্স ট্রাস্টের আনুষ্ঠানিক উদ্বোধন ও সুধী সমাবেশ।'
+    },
+    eventDate: '2026-10-09',
+    time: '04:00 PM - 08:30 PM',
+    location: { en: 'Grand Ballroom, Dhaka, Bangladesh', bn: 'গ্র্যান্ড বলরুম, ঢাকা, বাংলাদেশ' },
+    imageUrl: '/Images/filler-image.jpeg?w=2000&auto=format&fit=crop',
+    category: { en: 'Trust Launch & Gathering', bn: 'উদ্বোধনী অনুষ্ঠান' },
+    registeredCount: 450
   },
   {
     id: 'evt-2',
-    slug: 'tree-plantation-coastal-green-belt-2026',
-    title: { en: '10,000 Mangrove Tree Plantation Drive', bn: 'উপকূলীয় এলাকায় ১০,০০০ ম্যানগ্রোভ বৃক্ষরোপণ' },
-    description: {
-      en: 'Planting mangrove saplings along the embankments of Koyra and Shyamnagar to protect against embankment erosion.',
-      bn: 'বেড়িবাঁধ রক্ষায় কয়রা ও শ্যামনগরে ১০,০০০ ম্যানগ্রোভ চারা রোপণ অভিযান।'
+    slug: 'spus-satarkul-inclusive-learning-and-therapy-workshop',
+    title: { 
+      en: 'SPUS Special Needs Inclusive Education & Assistive Distribution Drive', 
+      bn: 'এসপিইউএস অন্তর্ভুক্তিমূলক শিক্ষা ও সহায়ক উপকরণ বিতরণ অনুষ্ঠান' 
     },
-    eventDate: '2026-08-28',
-    time: '08:00 AM - 03:00 PM',
-    location: { en: 'Koyra Embankment, Khulna', bn: 'কয়রা বেড়িবাঁধ, খুলনা' },
-    imageUrl: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1000&auto=format&fit=crop',
-    category: { en: 'Environment & Forestry', bn: 'পরিবেশ ও বৃক্ষরোপণ' },
-    registeredCount: 195
+    description: {
+      en: 'Distributing specialized learning kits, hygiene packs, and assistive devices for 75 children and therapy beneficiaries in Satarkul.',
+      bn: 'সাঁতারকুলে বিশেষ চাহিদাসম্পন্ন ৭৫ জন শিশুর মাঝে শিক্ষা উপকরণ, হাইজিন কিট ও সহায়কমূলক ডিভাইস বিতরণ।'
+    },
+    eventDate: '2026-11-15',
+    time: '10:00 AM - 02:00 PM',
+    location: { en: 'SPUS Campus, Satarkul, Dhaka', bn: 'এসপিইউএস ক্যাম্পাস, সাঁতারকুল, ঢাকা' },
+    imageUrl: '/Images/filler-image.jpeg?w=2000&auto=format&fit=crop',
+    category: { en: 'Special Needs Drive', bn: 'বিশেষ চাহিদাসম্পন্ন সেবা' },
+    registeredCount: 120
+  },
+  {
+    id: 'evt-3',
+    slug: 'sct-strategy-2026-2031-expert-consultation-forum',
+    title: { 
+      en: 'Strategy 2026–2031 Advisory Forum on Youth & Care Economy', 
+      bn: 'কৌশলগত পরিকল্পনা ২০২৬-২০৩১: যুব কর্মসংস্থান ও কেয়ার ইকোসিস্টেম ফোরাম' 
+    },
+    description: {
+      en: 'An expert consultation engaging domain specialists, trustees, and NGO leaders to refine youth vocational frameworks and elderly care systems.',
+      bn: 'বিশেষজ্ঞ পুল ও ট্রাস্টি বোর্ডের উপস্থিতিতে যুবদের আন্তর্জাতিক মানের দক্ষতা ও প্রবীণ যত্ন ফ্রেমওয়ার্ক রূপরেখা সভা।'
+    },
+    eventDate: '2026-12-05',
+    time: '03:00 PM - 06:30 PM',
+    location: { en: 'SCT Conference Room, Gulshan-1, Dhaka', bn: 'এসসিটি কনফারেন্স রুম, গুলশান-১, ঢাকা' },
+    imageUrl: '/Images/filler-image.jpeg?w=2000&auto=format&fit=crop',
+    category: { en: 'Strategic Planning', bn: 'কৌশলগত ফোরাম' },
+    registeredCount: 85
   }
 ];

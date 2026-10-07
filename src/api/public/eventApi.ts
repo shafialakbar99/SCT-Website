@@ -1,38 +1,19 @@
-import { EventItem, EventTableRow } from '../../types';
-import { dbGetEvents, dbSaveEvent } from '../index';
-
-export function mapEventRowToModel(row: EventTableRow): EventItem {
-  return {
-    id: row.id,
-    slug: row.slug,
-    title: { en: row.title_en, bn: row.title_bn },
-    description: { en: row.description_en, bn: row.description_bn },
-    category: { en: row.category_en, bn: row.category_bn },
-    imageUrl: row.image_url,
-    eventDate: row.event_date,
-    time: row.time_str,
-    location: { en: row.location_en, bn: row.location_bn },
-    registeredCount: row.registered_count || 0
-  };
-}
+import { EventItem } from '../../types';
+import { initialEvents } from '../../data/events';
 
 export async function getEvents(): Promise<EventItem[]> {
-  const rows = await dbGetEvents();
-  return rows.map(mapEventRowToModel);
+  return initialEvents;
 }
 
 export async function getEventBySlug(slug: string): Promise<EventItem | undefined> {
-  const rows = await dbGetEvents();
-  const found = rows.find(r => r.slug === slug || r.id === slug);
-  return found ? mapEventRowToModel(found) : undefined;
+  const found = initialEvents.find(r => r.slug === slug || r.id === slug);
+  return found;
 }
 
 export async function registerForEvent(slugOrId: string, _info?: any): Promise<boolean> {
-  const rows = await dbGetEvents();
-  const found = rows.find(r => r.slug === slugOrId || r.id === slugOrId);
+  const found = initialEvents.find(r => r.slug === slugOrId || r.id === slugOrId);
   if (found) {
-    found.registered_count = (found.registered_count || 0) + 1;
-    await dbSaveEvent(found);
+    found.registeredCount = (found.registeredCount || 0) + 1;
     return true;
   }
   return false;

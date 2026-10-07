@@ -27,7 +27,10 @@ import {
   HeartHandshake,
   CheckCircle2,
   ShieldCheck,
-  GitBranch
+  GitBranch,
+  Newspaper,
+  Image,
+  Video
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
@@ -127,13 +130,13 @@ export const Header: React.FC = () => {
             </Link>
 
             {/* DESKTOP NAV LINKS (THEMEFOREST STANDARDS) */}
-            <nav className="hidden xl:flex items-center gap-1 text-xs font-bold text-slate-700">
+            <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 text-[11px] xl:text-xs font-bold text-slate-700">
               
               {/* Home */}
               <Link 
                 to="/" 
                 onClick={closeMegaMenu}
-                className="px-2.5 py-2 rounded-lg hover:text-[#138086] hover:bg-slate-100/80 whitespace-nowrap transition-colors"
+                className="px-2 xl:px-2.5 py-1.5 rounded-lg hover:text-[#138086] hover:bg-slate-100/80 whitespace-nowrap transition-colors"
               >
                 {isBn ? 'হোম' : 'Home'}
               </Link>
@@ -146,12 +149,12 @@ export const Header: React.FC = () => {
               >
                 <Link
                   to="/about"
-                  className={`px-2.5 py-2 rounded-lg flex items-center gap-1 whitespace-nowrap transition-colors ${
+                  className={`px-2 xl:px-2.5 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
                     activeMegaTab === 'about' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
                   }`}
                 >
                   <span>{isBn ? 'আমাদের কথা' : 'About'}</span>
-                  <ChevronDown className="w-3 h-3 opacity-60" />
+                  <ChevronDown className="w-2.5 h-2.5 xl:w-3 xl:h-3 opacity-60" />
                 </Link>
               </div>
 
@@ -163,12 +166,12 @@ export const Header: React.FC = () => {
               >
                 <Link
                   to="/pillars"
-                  className={`px-2.5 py-2 rounded-lg flex items-center gap-1 whitespace-nowrap transition-colors ${
+                  className={`px-2 xl:px-2.5 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
                     activeMegaTab === 'pillars' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
                   }`}
                 >
-                  <span>{isBn ? 'আমাদের ৫টি স্তম্ভ' : 'Our Work'}</span>
-                  <ChevronDown className="w-3 h-3 opacity-60" />
+                  <span>{isBn ? 'কার্যক্রম' : 'Our Work'}</span>
+                  <ChevronDown className="w-2.5 h-2.5 xl:w-3 xl:h-3 opacity-60" />
                 </Link>
               </div>
 
@@ -180,19 +183,19 @@ export const Header: React.FC = () => {
               >
                 <Link
                   to="/spus"
-                  className={`px-2.5 py-2 rounded-lg flex items-center gap-1 whitespace-nowrap transition-colors ${
+                  className={`px-2 xl:px-2.5 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
                     activeMegaTab === 'spus' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
                   }`}
                 >
                   <span className="flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#138086] animate-pulse" />
-                    <span>{isBn ? 'প্রথম প্রজেক্ট (SPUS)' : 'First Project: SPUS'}</span>
+                    <span>{isBn ? 'SPUS প্রজেক্ট' : 'First Project: SPUS'}</span>
                   </span>
-                  <ChevronDown className="w-3 h-3 opacity-60" />
+                  <ChevronDown className="w-2.5 h-2.5 xl:w-3 xl:h-3 opacity-60" />
                 </Link>
               </div>
 
-              {/* 4. STRATEGY 2026–2031 */}
+              {/* 4. STRATEGY */}
               <div
                 onMouseEnter={() => handleMouseEnter('strategy')}
                 onMouseLeave={handleMouseLeave}
@@ -200,12 +203,12 @@ export const Header: React.FC = () => {
               >
                 <Link
                   to="/strategy"
-                  className={`px-2.5 py-2 rounded-lg flex items-center gap-1 whitespace-nowrap transition-colors ${
+                  className={`px-2 xl:px-2.5 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
                     activeMegaTab === 'strategy' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
                   }`}
                 >
-                  <span>{isBn ? 'কৌশল ২০২৬–২০৩১' : 'Strategy'}</span>
-                  <ChevronDown className="w-3 h-3 opacity-60" />
+                  <span>{isBn ? 'কৌশল' : 'Strategy'}</span>
+                  <ChevronDown className="w-2.5 h-2.5 xl:w-3 xl:h-3 opacity-60" />
                 </Link>
               </div>
 
@@ -217,16 +220,33 @@ export const Header: React.FC = () => {
               >
                 <Link
                   to="/join-us"
-                  className={`px-2.5 py-2 rounded-lg flex items-center gap-1 whitespace-nowrap transition-colors ${
+                  className={`px-2 xl:px-2.5 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
                     activeMegaTab === 'involved' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
                   }`}
                 >
                   <span>{isBn ? 'যুক্ত হোন' : 'Get Involved'}</span>
-                  <ChevronDown className="w-3 h-3 opacity-60" />
+                  <ChevronDown className="w-2.5 h-2.5 xl:w-3 xl:h-3 opacity-60" />
                 </Link>
               </div>
 
-              {/* 6. RESOURCES & REFERENCES */}
+              {/* 6. MEDIA (NEW) */}
+              <div
+                onMouseEnter={() => handleMouseEnter('media')}
+                onMouseLeave={handleMouseLeave}
+                className="relative"
+              >
+                <Link
+                  to="/news"
+                  className={`px-2 xl:px-2.5 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
+                    activeMegaTab === 'media' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
+                  }`}
+                >
+                  <span>{isBn ? 'মিডিয়া' : 'Media'}</span>
+                  <ChevronDown className="w-2.5 h-2.5 xl:w-3 xl:h-3 opacity-60" />
+                </Link>
+              </div>
+
+              {/* 7. RESOURCES & REFERENCES */}
               <div
                 onMouseEnter={() => handleMouseEnter('resources')}
                 onMouseLeave={handleMouseLeave}
@@ -234,20 +254,20 @@ export const Header: React.FC = () => {
               >
                 <Link
                   to="/resources"
-                  className={`px-2.5 py-2 rounded-lg flex items-center gap-1 whitespace-nowrap transition-colors ${
+                  className={`px-2 xl:px-2.5 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
                     activeMegaTab === 'resources' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
                   }`}
                 >
                   <span>{isBn ? 'রিসোর্স' : 'Resources'}</span>
-                  <ChevronDown className="w-3 h-3 opacity-60" />
+                  <ChevronDown className="w-2.5 h-2.5 xl:w-3 xl:h-3 opacity-60" />
                 </Link>
               </div>
 
-              {/* Contact */}
+              {/* 8. Contact */}
               <Link 
                 to="/contact" 
                 onClick={closeMegaMenu}
-                className="px-2.5 py-2 rounded-lg hover:text-[#138086] hover:bg-slate-100/80 whitespace-nowrap transition-colors"
+                className="px-2 xl:px-2.5 py-1.5 rounded-lg hover:text-[#138086] hover:bg-slate-100/80 whitespace-nowrap transition-colors"
               >
                 {isBn ? 'যোগাযোগ' : 'Contact'}
               </Link>
@@ -255,17 +275,17 @@ export const Header: React.FC = () => {
             </nav>
 
             {/* ACTION BUTTONS (SEARCH & JOIN/DONATE) */}
-            <div className="flex items-center gap-2 sm:gap-3">
+            <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
               
               {/* Global Search Button */}
               <button
                 id="search-trigger-btn"
                 onClick={() => setIsSearchOpen(true)}
-                className="p-2 text-slate-600 hover:text-[#138086] hover:bg-slate-100 rounded-xl flex items-center gap-1.5 transition-colors cursor-pointer"
+                className="p-1.5 sm:p-2 text-slate-600 hover:text-[#138086] hover:bg-slate-100 rounded-xl flex items-center gap-1 transition-colors cursor-pointer"
                 title="Search (Ctrl+K)"
               >
                 <Search className="w-4 h-4" />
-                <span className="hidden xl:inline text-[10px] font-mono text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">
+                <span className="hidden 2xl:inline text-[9px] font-mono text-slate-400 bg-slate-100 px-1 py-0.5 rounded border border-slate-200">
                   Ctrl+K
                 </span>
               </button>
@@ -273,16 +293,16 @@ export const Header: React.FC = () => {
               {/* Primary CTA Button */}
               <Link
                 to="/join-us"
-                className="bg-[#1B365D] hover:bg-[#104E7A] text-white px-4 py-2 sm:py-2.5 rounded-xl text-xs font-bold shadow-md shadow-[#1B365D]/20 hover:shadow-lg flex items-center gap-1.5 transition-all transform active:scale-95"
+                className="bg-[#1B365D] hover:bg-[#104E7A] text-white px-3 sm:px-3.5 py-2 rounded-xl text-xs font-bold shadow-md shadow-[#1B365D]/20 hover:shadow-lg flex items-center gap-1.5 transition-all whitespace-nowrap"
               >
-                <Heart className="w-3.5 h-3.5 text-[#E6A119] fill-[#E6A119]" />
-                <span>{isBn ? 'আমাদের সাথে যুক্ত হোন' : 'Join Us / Donate'}</span>
+                <Heart className="w-3.5 h-3.5 text-[#E6A119] fill-[#E6A119] shrink-0" />
+                <span>{isBn ? 'যুক্ত হোন' : 'Join Us / Donate'}</span>
               </Link>
 
               {/* Mobile Menu Toggle Button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 text-slate-700 hover:text-[#138086] xl:hidden rounded-xl hover:bg-slate-100 cursor-pointer"
+                className="p-2 text-slate-700 hover:text-[#138086] lg:hidden rounded-xl hover:bg-slate-100 cursor-pointer"
                 aria-label="Toggle menu"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -547,7 +567,109 @@ export const Header: React.FC = () => {
                   </div>
                 )}
 
-                {/* 6. RESOURCES MEGA MENU */}
+                {/* 6. MEDIA MEGA MENU */}
+                {activeMegaTab === 'media' && (
+                  <div className="grid grid-cols-12 gap-6">
+                    <div className="col-span-4 bg-slate-50 p-5 rounded-2xl border border-slate-200/80 flex flex-col justify-between">
+                      <div className="space-y-2">
+                        <span className="text-[10px] font-black px-2 py-0.5 rounded bg-blue-100 text-[#1B365D] uppercase">
+                          {isBn ? 'মিডিয়া সেন্টার' : 'Media Center'}
+                        </span>
+                        <h4 className="text-sm font-black text-[#1B365D]">
+                          {isBn ? 'সংবাদ, ইভেন্ট ও ফিল্ড স্টোরিজ' : 'News, Events & Field Stories'}
+                        </h4>
+                        <p className="text-[11px] text-slate-600 leading-relaxed">
+                          {isBn
+                            ? 'শাহীন কেয়ার্স ট্রাস্টের সাম্প্রতিক সংবাদ বিজ্ঞপ্তি, ভিডিও তথ্যচিত্র, ফটো গ্যালারি এবং অনুষ্ঠানমালা।'
+                            : 'Explore our latest press releases, upcoming events, photo albums, and video documentaries.'}
+                        </p>
+                      </div>
+                      <div className="pt-3 border-t border-slate-200 flex items-center justify-between text-xs font-bold text-[#138086]">
+                        <span>{isBn ? 'সকল মিডিয়া কনটেন্ট' : 'All Media Content'}</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </div>
+                    </div>
+
+                    <div className="col-span-8 grid grid-cols-2 gap-3">
+                      {/* Blog */}
+                      <Link to="/blog" onClick={closeMegaMenu} className="p-3.5 bg-slate-50 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-[#138086]/40 hover:shadow-sm transition-all flex items-start gap-3 group">
+                        <div className="w-9 h-9 rounded-xl bg-emerald-50 text-[#0D6E4F] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                          <BookOpen className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <h5 className="text-xs font-black text-slate-900 group-hover:text-[#138086]">
+                            {isBn ? 'মাঠপর্যায়ের ব্লগ ও গল্প' : 'Field Stories & Blog'}
+                          </h5>
+                          <p className="text-[11px] text-slate-500 mt-0.5">
+                            {isBn ? 'সাঁতারকুল ও মাঠপর্যায়ের বাস্তব অভিজ্ঞতা' : 'Voices and insights from our field workers'}
+                          </p>
+                        </div>
+                      </Link>
+
+                      {/* Events */}
+                      <Link to="/events" onClick={closeMegaMenu} className="p-3.5 bg-slate-50 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-[#138086]/40 hover:shadow-sm transition-all flex items-start gap-3 group">
+                        <div className="w-9 h-9 rounded-xl bg-teal-50 text-[#138086] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                          <Calendar className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <h5 className="text-xs font-black text-slate-900 group-hover:text-[#138086]">
+                            {isBn ? 'আসন্ন অনুষ্ঠান ও ইভেন্টস' : 'Upcoming Events & Programs'}
+                          </h5>
+                          <p className="text-[11px] text-slate-500 mt-0.5">
+                            {isBn ? 'উদ্বোধনী অনুষ্ঠান, কর্মশালা ও সমাবেশ' : 'Official launch, forums & workshops'}
+                          </p>
+                        </div>
+                      </Link>
+
+                      {/* News */}
+                      <Link to="/news" onClick={closeMegaMenu} className="p-3.5 bg-slate-50 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-[#138086]/40 hover:shadow-sm transition-all flex items-start gap-3 group">
+                        <div className="w-9 h-9 rounded-xl bg-blue-50 text-[#1B365D] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                          <Newspaper className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <h5 className="text-xs font-black text-slate-900 group-hover:text-[#138086]">
+                            {isBn ? 'প্রেস রিলিজ ও সংবাদ' : 'Press Releases & News'}
+                          </h5>
+                          <p className="text-[11px] text-slate-500 mt-0.5">
+                            {isBn ? 'অফিসিয়াল ঘোষণা ও মিডিয়া কভারেজ' : 'Secretariat announcements and media coverage'}
+                          </p>
+                        </div>
+                      </Link>
+
+                      {/* Photo Gallery */}
+                      <Link to="/gallery/photos" onClick={closeMegaMenu} className="p-3.5 bg-slate-50 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-[#138086]/40 hover:shadow-sm transition-all flex items-start gap-3 group">
+                        <div className="w-9 h-9 rounded-xl bg-amber-50 text-[#D4AF37] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                          <Image className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <h5 className="text-xs font-black text-slate-900 group-hover:text-[#138086]">
+                            {isBn ? 'ফটো গ্যালারি' : 'Field Photo Gallery'}
+                          </h5>
+                          <p className="text-[11px] text-slate-500 mt-0.5">
+                            {isBn ? 'সাঁতারকুল সেন্টার ও মাঠপর্যায়ের স্থিরচিত্র' : 'Eyewitness photos from field and meetings'}
+                          </p>
+                        </div>
+                      </Link>
+
+                      {/* Video Gallery */}
+                      <Link to="/gallery/videos" onClick={closeMegaMenu} className="col-span-2 p-3.5 bg-slate-50 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-[#138086]/40 hover:shadow-sm transition-all flex items-start gap-3 group">
+                        <div className="w-9 h-9 rounded-xl bg-rose-50 text-[#E06D53] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                          <Video className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <h5 className="text-xs font-black text-slate-900 group-hover:text-[#138086]">
+                            {isBn ? 'ভিডিও ডকুমেন্টারি ও রিপোর্ট' : 'Video Documentaries & Reports'}
+                          </h5>
+                          <p className="text-[11px] text-slate-500 mt-0.5">
+                            {isBn ? 'চেয়ারপারসনের বক্তব্য, পরিচিতি ও প্রজেক্ট ভিডিও' : 'Impact films, documentary reports & messages'}
+                          </p>
+                        </div>
+                      </Link>
+                    </div>
+                  </div>
+                )}
+
+                {/* 7. RESOURCES MEGA MENU */}
                 {activeMegaTab === 'resources' && (
                   <div className="grid grid-cols-2 gap-6">
                     <Link to="/transparency" onClick={closeMegaMenu} className="p-5 bg-slate-50 rounded-2xl border border-slate-200 hover:border-[#138086]/40 hover:bg-white transition-all flex items-start gap-4">
@@ -582,7 +704,7 @@ export const Header: React.FC = () => {
         {/* MOBILE NAVIGATION DRAWER (ACCORDION STYLE)                */}
         {/* ========================================================= */}
         {mobileMenuOpen && (
-          <div className="xl:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-8 space-y-2 animate-fadeIn text-sm font-bold text-slate-800 max-h-[80vh] overflow-y-auto">
+          <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-8 space-y-2 animate-fadeIn text-sm font-bold text-slate-800 max-h-[80vh] overflow-y-auto">
             
             <Link to="/" onClick={closeMegaMenu} className="block py-2 border-b border-slate-100">
               {isBn ? 'হোম' : 'Home'}
@@ -616,7 +738,7 @@ export const Header: React.FC = () => {
                 onClick={() => setMobileSubMenu(mobileSubMenu === 'pillars' ? null : 'pillars')}
                 className="w-full flex items-center justify-between py-2 text-left"
               >
-                <span>{isBn ? 'আমাদের ৫টি স্তম্ভ (Five Pillars)' : 'Our Five Pillars'}</span>
+                <span>{isBn ? 'কার্যক্রম (Five Pillars)' : 'Our Five Pillars'}</span>
                 <ChevronDown className={`w-4 h-4 transition-transform ${mobileSubMenu === 'pillars' ? 'rotate-180 text-[#138086]' : ''}`} />
               </button>
               {mobileSubMenu === 'pillars' && (
@@ -660,6 +782,26 @@ export const Header: React.FC = () => {
               )}
             </div>
 
+            {/* Media Accordion (NEW) */}
+            <div className="border-b border-slate-100 py-1">
+              <button 
+                onClick={() => setMobileSubMenu(mobileSubMenu === 'media' ? null : 'media')}
+                className="w-full flex items-center justify-between py-2 text-left"
+              >
+                <span>{isBn ? 'মিডিয়া ও সংবাদ (Media)' : 'Media & Updates'}</span>
+                <ChevronDown className={`w-4 h-4 transition-transform ${mobileSubMenu === 'media' ? 'rotate-180 text-[#138086]' : ''}`} />
+              </button>
+              {mobileSubMenu === 'media' && (
+                <div className="pl-4 pb-2 space-y-2 text-xs font-semibold text-slate-600 animate-fadeIn">
+                  <Link to="/blog" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'ফিল্ড ব্লগ ও গল্প' : 'Blog & Field Stories'}</Link>
+                  <Link to="/events" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'আসন্ন ইভেন্টস' : 'Events & Programs'}</Link>
+                  <Link to="/news" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'প্রেস রিলিজ ও সংবাদ' : 'Press Releases'}</Link>
+                  <Link to="/gallery/photos" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'ফটো গ্যালারি' : 'Photo Gallery'}</Link>
+                  <Link to="/gallery/videos" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'ভিডিও ডকুমেন্টারি' : 'Video Gallery'}</Link>
+                </div>
+              )}
+            </div>
+
             {/* Resources */}
             <div className="border-b border-slate-100 py-1">
               <button 
@@ -689,7 +831,7 @@ export const Header: React.FC = () => {
                 onClick={closeMegaMenu}
                 className="w-full bg-[#1B365D] text-white py-3 rounded-xl text-xs font-bold text-center block shadow-md"
               >
-                {isBn ? 'আমাদের সাথে যুক্ত হোন' : 'Join Our Movement'}
+                {isBn ? 'যুক্ত হোন' : 'Join Our Movement'}
               </Link>
             </div>
 

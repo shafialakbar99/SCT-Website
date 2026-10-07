@@ -4,69 +4,111 @@ export const initialPhotoAlbums: PhotoAlbum[] = [
   {
     id: 'album-1',
     title: {
-      en: 'Feni & Sylhet Flood Emergency Response Operations',
-      bn: 'ফেনী ও সিলেট বন্যা জরুরি উদ্ধার ও খাদ্য বিতরণ'
+      en: 'Special Needs Support & Clothes Distribution at SPUS Satarkul',
+      bn: 'বিশেষ চাহিদাসম্পন্ন শিশুদের মাঝে বস্ত্র ও সহায়তা বিতরণ'
     },
-    category: 'flood',
-    coverImage: 'https://images.unsplash.com/photo-1547683905-f686c993aae5?w=1000&auto=format&fit=crop',
-    date: 'July 2026',
-    location: { en: 'Feni & Sylhet Sadar', bn: 'ফেনী ও সিলেট সদর' },
+    category: 'special-needs',
+    coverImage: '/Images/Photo_Gallery/8.jpeg',
+    date: 'May 2026',
+    location: { en: 'SPUS Center, Satarkul, Badda, Dhaka', bn: 'এসপিইউএস সেন্টার, সাঁতারকুল, বাড্ডা, ঢাকা' },
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1547683905-f686c993aae5?w=1200&auto=format&fit=crop',
-        caption: { en: 'Volunteers maneuvering speedboats through flooded streets delivering rations.', bn: 'বন্যা প্লাবিত অঞ্চলে স্পিডবোটে খাদ্যপ্যাক পৌঁছে দিচ্ছেন স্বেচ্ছাসেবকরা।' },
-        location: { en: 'Feni Sadar', bn: 'ফেনী সদর' },
-        date: '2026-07-26'
+        url: '/Images/Photo_Gallery/7.jpeg',
+        caption: { 
+          en: 'Special needs children and families attending the "Cover with Care" gift distribution drive.', 
+          bn: 'বিশেষ চাহিদাসম্পন্ন শিশু ও অভিভাবকদের অংশগ্রহণে বস্ত্র বিতরণ অনুষ্ঠান।' 
+        },
+        location: { en: 'Satarkul, Dhaka', bn: 'সাঁতারকুল, ঢাকা' },
+        date: '2026-05-20'
       },
       {
-        url: 'https://images.unsplash.com/photo-1532629345422-7515fe926fb8?w=1200&auto=format&fit=crop',
-        caption: { en: 'Distributing clean water containers and water purification tablets.', bn: 'বিশুদ্ধ খাবার পানির জ্যারিকেন ও ট্যাবলেট বিতরণ।' },
-        location: { en: 'Companyganj, Sylhet', bn: 'কোম্পানীগঞ্জ, সিলেট' },
-        date: '2026-07-27'
-      },
-      {
-        url: 'https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1200&auto=format&fit=crop',
-        caption: { en: 'Handing over emergency medical kits and oral saline to mothers.', bn: 'মা ও শিশুদের মাঝে জরুরি স্যালাইন ও স্যা his সামগ্রী বিতরণ।' },
-        location: { en: 'Sunamganj', bn: 'সুনামগঞ্জ' },
-        date: '2026-07-28'
+        url: '/Images/Photo_Gallery/8.jpeg',
+        caption: { 
+          en: 'SCT Trustees and SPUS representatives handing over clothes to a special needs student.', 
+          bn: 'বিশেষ চাহিদাসম্পন্ন এক শিক্ষার্থীর হাতে নতুন পোশাক তুলে দিচ্ছেন এসসিটি ট্রাস্টিবৃন্দ।' 
+        },
+        location: { en: 'Satarkul, Dhaka', bn: 'সাঁতারকুল, ঢাকা' },
+        date: '2026-05-20'
       }
     ]
   },
   {
     id: 'album-2',
     title: {
-      en: 'Solar Deep Tube Wells Inauguration in Satkhira',
-      bn: 'সাতক্ষীরায় সোলার গভীর নলকূপ উদ্বোধন'
+      en: 'Strategic Priorities and Project Review Meeting',
+      bn: 'কৌশলগত অগ্রাধিকার ও প্রজেক্ট রিভিউ সভা'
     },
-    category: 'water',
-    coverImage: 'https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?w=1000&auto=format&fit=crop',
+    category: 'governance',
+    coverImage: '/Images/Photo_Gallery/1.jpeg',
     date: 'June 2026',
-    location: { en: 'Koyra & Shyamnagar', bn: 'কয়রা ও শ্যামনগর' },
+    location: { en: 'Bahari Ahar, RAPA Plaza, Dhanmondi, Dhaka', bn: 'বাহারি আহার, রাপা প্লাজা, ধানমন্ডি, ঢাকা' },
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?w=1200&auto=format&fit=crop',
-        caption: { en: 'Villagers gathering for safe clean drinking water from the solar pump.', bn: 'সোলার পাম্প থেকে সুপেয় পানি সংগ্রহ করছেন উপকূলীয় অধিবাসীরা।' },
-        location: { en: 'Shyamnagar, Satkhira', bn: 'শ্যামনগর, সাতক্ষীরা' },
-        date: '2026-06-15'
+        url: '/Images/Photo_Gallery/1.jpeg',
+        caption: { 
+          en: 'Chairperson Data Magfur presenting SCT’s Strategic Priorities and Five Pillars.', 
+          bn: 'চেয়ারপারসন দাতা মাগফুর এসসিটির কৌশলগত পরিকল্পনা ও ৫টি মূল স্তম্ভ উপস্থাপন করছেন।' 
+        },
+        location: { en: 'Dhanmondi, Dhaka', bn: 'ধানমন্ডি, ঢাকা' },
+        date: '2026-06-19'
+      },
+      {
+        url: '/Images/Photo_Gallery/3.jpeg',
+        caption: { 
+          en: 'Trustees and advisory panel members reviewing project implementation goals.', 
+          bn: 'প্রকল্প বাস্তবায়ন লক্ষ্যমাত্রা পর্যালোচনায় ট্রাস্টি ও বিশেষজ্ঞ প্যানেল।' 
+        },
+        location: { en: 'Dhanmondi, Dhaka', bn: 'ধানমন্ডি, ঢাকা' },
+        date: '2026-06-19'
+      },
+      {
+        url: '/Images/Photo_Gallery/4.jpeg',
+        caption: { 
+          en: 'Overview of the Board of Trustees consultation meeting at Dhanmondi.', 
+          bn: 'ধানমন্ডিতে আয়োজিত ট্রাস্টি বোর্ডের বিশেষ যৌথ পর্যালোচনা সভা।' 
+        },
+        location: { en: 'Dhanmondi, Dhaka', bn: 'ধানমন্ডি, ঢাকা' },
+        date: '2026-06-19'
+      },
+      {
+        url: '/Images/Photo_Gallery/5.jpeg',
+        caption: { 
+          en: 'Interactive session with youth and beneficiary representatives during the review meeting.', 
+          bn: 'রিভিউ সভায় তরুণ ও প্রতিনিধি সুবিধাবোধীদের সাথে অভিজ্ঞতা ও পরিকল্পনা বিনিময়।' 
+        },
+        location: { en: 'Dhanmondi, Dhaka', bn: 'ধানমন্ডি, ঢাকা' },
+        date: '2026-06-19'
+      },
+      {
+        url: '/Images/Photo_Gallery/6.jpeg',
+        caption: { 
+          en: 'General Secretary Sumana Binte Masud with Trustees and committee members.', 
+          bn: 'সাধারণ সম্পাদক সুমানা বিনতে মাসুদ ও অন্যান্য ট্রাস্টিবৃন্দের যৌথ উপস্থিতি।' 
+        },
+        location: { en: 'Dhanmondi, Dhaka', bn: 'ধানমন্ডি, ঢাকা' },
+        date: '2026-06-19'
       }
     ]
   },
   {
     id: 'album-3',
     title: {
-      en: 'Kamrangirchar Slum School & Daily Meal Distribution',
-      bn: 'কামরাঙ্গীরচর বস্তি স্কুল ও মধ্যাহ্নভোজ কার্যক্রম'
+      en: 'Shaheen Cares Trust Formal Registration under Trust Act 1882',
+      bn: '১৮৮২ সালের ট্রাস্ট আইনের অধীনে এসসিটির অফিশিয়াল রেজিস্ট্রেশন'
     },
-    category: 'education',
-    coverImage: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1000&auto=format&fit=crop',
-    date: 'May 2026',
-    location: { en: 'Kamrangirchar, Dhaka', bn: 'কামরাঙ্গীরচর, ঢাকা' },
+    category: 'governance',
+    coverImage: '/Images/Photo_Gallery/2.jpeg',
+    date: 'June 2026',
+    location: { en: 'Dhaka, Bangladesh', bn: 'ঢাকা, বাংলাদেশ' },
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200&auto=format&fit=crop',
-        caption: { en: 'Children receiving new textbooks, stationery and school uniforms.', bn: 'নতুন বই, খাতা ও স্কুল পোশাক পেয়ে আনন্দিত শিশুরা।' },
-        location: { en: 'Dhaka Center', bn: 'ঢাকা কেন্দ্র' },
-        date: '2026-05-10'
+        url: '/Images/Photo_Gallery/2.jpeg',
+        caption: { 
+          en: 'Board of Trustees holding the official registration certificate under the Trust Act of 1882.', 
+          bn: '১৮৮২ সালের ট্রাস্ট আইনের অধীনে অফিশিয়াল রেজিস্ট্রেশন সনদসহ ট্রাস্টি পর্ষদ।' 
+        },
+        location: { en: 'Dhaka, Bangladesh', bn: 'ঢাকা, বাংলাদেশ' },
+        date: '2026-06-25'
       }
     ]
   }

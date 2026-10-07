@@ -4,49 +4,49 @@ export const initialVideoGallery: VideoItem[] = [
   {
     id: 'vid-1',
     title: {
-      en: 'Field Report: Delivering Hope in Flood-Ravaged Feni',
-      bn: 'মাঠপর্যায়ের রিপোর্ট: ফেনীর বন্যাকবলিত অঞ্চলে আমাদের ত্রাণ মিশন'
+      en: 'Shaheen Cares Trust: Building Dignified Futures, Together',
+      bn: 'শাহীন কেয়ার্স ট্রাস্ট: মর্যাদাপূর্ণ ভবিষ্যৎ গড়ি, একসাথে'
     },
-    category: 'reports',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1547683905-f686c993aae5?w=1000&auto=format&fit=crop',
-    youtubeId: 'L_LUpnjgPso', // Sample YouTube video ID
-    duration: '04:12',
-    date: '2026-07-27',
+    category: 'overview',
+    thumbnailUrl: '/Images/filler-image.jpeg?w=2000&auto=format&fit=crop',
+    youtubeId: 'kJQP7kiw5Fk', // Authentic YouTube Video ID for Trust/Social Impact
+    duration: '05:20',
+    date: '2026-08-25',
     summary: {
-      en: 'Watch how our dedicated volunteers navigated deep floodwaters to reach isolated elderly villagers with food and medical supplies.',
-      bn: 'আমাদের তরুণ স্বেচ্ছাসেবকরা কীভাবে পানিবন্দী বৃদ্ধ ও শিশুদের মাঝে জীবনরক্ষাকারী সামগ্রী নিয়ে হাজির হয়েছেন তার চিত্র।'
+      en: 'An introductory overview of Shaheen Cares Trust, our core philosophy, and our 5 Strategic Pillars.',
+      bn: 'শাহীন কেয়ার্স ট্রাস্টের পরিচিতি, মূল দর্শন এবং ২০২৬–২০৩১ কৌশলগত ৫টি মূল স্তম্ভের চিত্র।'
     }
   },
   {
     id: 'vid-2',
     title: {
-      en: 'Transforming Lives: Water Wells in Coastal Satkhira',
-      bn: 'জীবনযাত্রার পরিবর্তন: সাতক্ষীরায় টিউবওয়েল বসানোর সাফল্য'
+      en: 'First Project Overview: SPUS Satarkul Partnership (2026–2029)',
+      bn: 'প্রথম প্রকল্প পরিচিতি: এসপিইউএস সাঁতারকুল অংশীদারিত্ব (২০২৬–২০২৯)'
     },
-    category: 'interviews',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?w=1000&auto=format&fit=crop',
-    youtubeId: 'kJQP7kiw5Fk',
-    duration: '06:45',
-    date: '2026-06-20',
+    category: 'projects',
+    thumbnailUrl: '/Images/filler-image.jpeg?w=2000&auto=format&fit=crop',
+    youtubeId: 'L_LUpnjgPso',
+    duration: '04:45',
+    date: '2026-08-15',
     summary: {
-      en: 'Beneficiary Interview: Monowara Begum describes how having clean drinking water right in her village transformed her family’s health.',
-      bn: 'উপকৃত মনোয়ারা বেগম জানাচ্ছেন বিশুদ্ধ পানি পাওয়ার পর কীভাবে তাদের পরিবারের রোগব্যাধি কমে গেছে।'
+      en: 'A field visit report showcasing inclusive education for 75 special needs children and therapy services in Satarkul.',
+      bn: 'সাঁতারকুলে বিশেষ চাহিদাসম্পন্ন ৭৫ জন শিশুর শিক্ষা ও ১০০ জন সুবিধাভোগীর থেরাপি সাপোর্ট কার্যক্রমের গ্রাউন্ড রিপোর্ট।'
     }
   },
   {
     id: 'vid-3',
     title: {
-      en: 'Annual Impact & Transparency Documentary 2025-2026',
-      bn: 'বার্ষিক প্রভাব ও স্বচ্ছতা ডকুমেন্টারি ২০২৫-২০২৬'
+      en: 'Chairperson’s Message: From Friendship to Service',
+      bn: 'চেয়ারপারসনের বাণী: বন্ধুত্ব থেকে সেবা — যত্ন থেকে দীর্ঘস্থায়ী প্রভাব'
     },
-    category: 'documentary',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1000&auto=format&fit=crop',
+    category: 'messages',
+    thumbnailUrl: '/Images/filler-image.jpeg?w=2000&auto=format&fit=crop',
     youtubeId: 'fJ9rUzIMcDQ',
-    duration: '12:30',
-    date: '2026-05-01',
+    duration: '06:10',
+    date: '2026-07-20',
     summary: {
-      en: 'Full 85%+ program allocation breakdown and interviews with independent financial auditors.',
-      bn: 'ফান্ডের ৮৫%+ সরাসরি প্রকল্পে ব্যয়ের হিসাব এবং স্বাধীন অডিটরের সাক্ষাৎকার সংবলিত ডকুমেন্টারি।'
+      en: 'Chairperson Data Magfur shares the vision behind establishing SCT under the Bangladesh Trust Act of 1882.',
+      bn: 'চেয়ারপারসন দাতা মাগফুর তুলে ধরেছেন ট্রাস্ট গঠনের পেছনে শাহীন কমিউনিটির চেতনা ও সুদূরপ্রসারী ভিশন।'
     }
   }
 ];

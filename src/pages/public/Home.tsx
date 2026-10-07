@@ -10,6 +10,7 @@ import { ChairpersonMessageSection } from '../../components/public/home/Chairper
 import { TransparencySection } from '../../components/public/home/TransparencySection';
 import { WhyJoinUsSection } from '../../components/public/home/WhyJoinUsSection';
 import { GetInvolvedSection } from '../../components/public/home/GetInvolvedSection';
+import { UpcomingEventsSection } from '../../components/public/home/UpcomingEventsSection';
 import { PressNewsSection } from '../../components/public/home/PressNewsSection';
 import { FieldStoriesBlogSection } from '../../components/public/home/FieldStoriesBlogSection';
 import { GalleryHighlights } from '../../components/public/home/GalleryHighlights';
@@ -50,13 +51,16 @@ export const Home: React.FC = () => {
       {/* 11. Get Involved Section */}
       <GetInvolvedSection />
 
-      {/* 12. Press & News Section */}
+      {/* 12. Upcoming Events Section */}
+      <UpcomingEventsSection />
+
+      {/* 13. Press & News Section */}
       <PressNewsSection />
 
-      {/* 13. Field Stories & Blog Section */}
+      {/* 14. Field Stories & Blog Section */}
       <FieldStoriesBlogSection />
 
-      {/* 14. Video and Image Gallery Section */}
+      {/* 15. Video and Image Gallery Section */}
       <GalleryHighlights />
     </main>
   );
