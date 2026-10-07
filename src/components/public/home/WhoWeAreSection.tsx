@@ -41,7 +41,7 @@ export const WhoWeAreSection: React.FC = () => {
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
               <SafeImage
-                src="/Images/filler-image.jpeg?w=800&auto=format&fit=crop"
+                src="/Images/who-we-are.png?w=800&auto=format&fit=crop"
                 alt="Shaheen Cares Trust Community Service"
                 className="w-full h-[420px] sm:h-[480px] object-cover"
                 fallbackCategory="education"
