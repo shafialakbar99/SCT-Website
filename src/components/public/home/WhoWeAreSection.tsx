@@ -53,7 +53,10 @@ export const WhoWeAreSection: React.FC = () => {
                   {isBn ? 'শাহীন ঐতিহ্যের অঙ্গীকার' : 'Shaheen Legacy of Care'}
                 </span>
                 <p className="font-extrabold text-base sm:text-lg leading-snug drop-shadow-md">
-                  {isBn ? '“ওয়ান্স আ শাহীন, অলওয়েজ আ শাহীন — মানবতার কল্যাণে নিবেদিত।”' : '"Once a Shaheen, Always a Shaheen — In Devoted Service to Humanity."'}
+                  {isBn 
+                    ? '“মর্যাদাপূর্ণ ভবিষ্যৎ গড়ি, একসাথে”' 
+                    : '"Building Dignified Futures, Together"'
+                  }
                 </p>
               </div>
             </div>

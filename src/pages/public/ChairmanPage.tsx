@@ -81,10 +81,13 @@ export const ChairmanPage: React.FC = () => {
                   <span>Key Qualifications</span>
                 </div>
                 <ul className="space-y-1 text-[11px] text-slate-500">
-                  <li>• Managing Director of Data Enterprises Limited and Maxtech Limited</li>
-                  <li>• Former Director of the Dhaka Chamber of Commerce & Industry (DCCI)</li>
-                  <li>• Past President of the Rotary Club of Metropolitan Dhaka</li>
-                  <li>• Proud alumnus of Dhaka University and BAF Shaheen College Dhaka</li>
+                  <li>• Managing Director of Data Enterprises Limited</li>
+                  <li>• Former Director & Active Member of Dhaka Chamber of Commerce & Industry (DCCI)</li>
+                  <li>• Former JCI World Vice President (2006) & JCI Bangladesh National President (2004)</li>
+                  <li>• Vice President of Bangladesh Sustainable & Renewable Energy Association (BSREA)</li>
+                  <li>• President of Ex-Shaheen Association Dhaka (ESAD) (2024–25)</li>
+                  <li>• Past President of Rotary Club of Metropolitan Dhaka (2001–02) & Paul Harris Fellow</li>
+                  <li>• M.B.S. in Finance & Banking from Dhaka University and Proud Shaheen Alumnus</li>
                 </ul>
               </div>
             </div>

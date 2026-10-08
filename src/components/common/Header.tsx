@@ -110,20 +110,20 @@ export const Header: React.FC = () => {
 
         {/* MAIN NAVIGATION BAR */}
         <div className="bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-22 flex items-center justify-between gap-2">
             
-            {/* LOGO AREA */}
-            <Link to="/" onClick={closeMegaMenu} className="flex items-center gap-3 shrink-0 py-1">
+            {/* LOGO AREA (PROMINENT & ENLARGED) */}
+            <Link to="/" onClick={closeMegaMenu} className="flex items-center gap-3 shrink-0 py-1.5 group">
               <img 
                 src="/Images/logo.png" 
                 alt="Shaheen Cares Trust Logo" 
-                className="h-11 sm:h-12 w-auto object-contain" 
+                className="h-14 sm:h-16 w-auto object-contain drop-shadow-xs transition-transform group-hover:scale-105" 
               />
               <div className="flex flex-col">
-                <span className="font-black text-[#1B365D] text-base sm:text-lg leading-tight tracking-tight">
+                <span className="font-black text-[#1B365D] text-lg sm:text-xl lg:text-2xl leading-tight tracking-tight">
                   {t(siteContent.orgName)}
                 </span>
-                <span className="text-[10px] text-[#138086] font-bold tracking-tight hidden sm:block">
+                <span className="text-xs text-[#138086] font-bold tracking-tight hidden sm:block mt-0.5">
                   {t(siteContent.orgTagline)}
                 </span>
               </div>
@@ -149,7 +149,7 @@ export const Header: React.FC = () => {
               >
                 <Link
                   to="/about"
-                  className={`px-2 xl:px-2.5 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
+                  className={`px-1.5 xl:px-2 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
                     activeMegaTab === 'about' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
                   }`}
                 >
@@ -166,7 +166,7 @@ export const Header: React.FC = () => {
               >
                 <Link
                   to="/pillars"
-                  className={`px-2 xl:px-2.5 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
+                  className={`px-1.5 xl:px-2 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
                     activeMegaTab === 'pillars' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
                   }`}
                 >
@@ -183,13 +183,13 @@ export const Header: React.FC = () => {
               >
                 <Link
                   to="/spus"
-                  className={`px-2 xl:px-2.5 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
+                  className={`px-1.5 xl:px-2 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
                     activeMegaTab === 'spus' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
                   }`}
                 >
                   <span className="flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#138086] animate-pulse" />
-                    <span>{isBn ? 'SPUS প্রজেক্ট' : 'First Project: SPUS'}</span>
+                    <span>{isBn ? 'SPUS প্রজেক্ট' : 'First Project'}</span>
                   </span>
                   <ChevronDown className="w-2.5 h-2.5 xl:w-3 xl:h-3 opacity-60" />
                 </Link>
@@ -203,7 +203,7 @@ export const Header: React.FC = () => {
               >
                 <Link
                   to="/strategy"
-                  className={`px-2 xl:px-2.5 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
+                  className={`px-1.5 xl:px-2 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
                     activeMegaTab === 'strategy' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
                   }`}
                 >
@@ -220,7 +220,7 @@ export const Header: React.FC = () => {
               >
                 <Link
                   to="/join-us"
-                  className={`px-2 xl:px-2.5 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
+                  className={`px-1.5 xl:px-2 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
                     activeMegaTab === 'involved' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
                   }`}
                 >
@@ -229,7 +229,7 @@ export const Header: React.FC = () => {
                 </Link>
               </div>
 
-              {/* 6. MEDIA (NEW) */}
+              {/* 6. MEDIA */}
               <div
                 onMouseEnter={() => handleMouseEnter('media')}
                 onMouseLeave={handleMouseLeave}
@@ -237,7 +237,7 @@ export const Header: React.FC = () => {
               >
                 <Link
                   to="/news"
-                  className={`px-2 xl:px-2.5 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
+                  className={`px-1.5 xl:px-2 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
                     activeMegaTab === 'media' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
                   }`}
                 >
@@ -254,7 +254,7 @@ export const Header: React.FC = () => {
               >
                 <Link
                   to="/resources"
-                  className={`px-2 xl:px-2.5 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
+                  className={`px-1.5 xl:px-2 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
                     activeMegaTab === 'resources' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
                   }`}
                 >
@@ -267,7 +267,7 @@ export const Header: React.FC = () => {
               <Link 
                 to="/contact" 
                 onClick={closeMegaMenu}
-                className="px-2 xl:px-2.5 py-1.5 rounded-lg hover:text-[#138086] hover:bg-slate-100/80 whitespace-nowrap transition-colors"
+                className="px-1.5 xl:px-2 py-1.5 rounded-lg hover:text-[#138086] hover:bg-slate-100/80 whitespace-nowrap transition-colors"
               >
                 {isBn ? 'যোগাযোগ' : 'Contact'}
               </Link>
@@ -281,19 +281,16 @@ export const Header: React.FC = () => {
               <button
                 id="search-trigger-btn"
                 onClick={() => setIsSearchOpen(true)}
-                className="p-1.5 sm:p-2 text-slate-600 hover:text-[#138086] hover:bg-slate-100 rounded-xl flex items-center gap-1 transition-colors cursor-pointer"
+                className="p-2 text-slate-600 hover:text-[#138086] hover:bg-slate-100 rounded-xl flex items-center gap-1 transition-colors cursor-pointer"
                 title="Search (Ctrl+K)"
               >
                 <Search className="w-4 h-4" />
-                <span className="hidden 2xl:inline text-[9px] font-mono text-slate-400 bg-slate-100 px-1 py-0.5 rounded border border-slate-200">
-                  Ctrl+K
-                </span>
               </button>
 
               {/* Primary CTA Button */}
               <Link
                 to="/join-us"
-                className="bg-[#1B365D] hover:bg-[#104E7A] text-white px-3 sm:px-3.5 py-2 rounded-xl text-xs font-bold shadow-md shadow-[#1B365D]/20 hover:shadow-lg flex items-center gap-1.5 transition-all whitespace-nowrap"
+                className="bg-[#1B365D] hover:bg-[#104E7A] text-white px-3.5 sm:px-4 py-2.5 rounded-xl text-xs font-bold shadow-md shadow-[#1B365D]/20 hover:shadow-lg flex items-center gap-1.5 transition-all whitespace-nowrap"
               >
                 <Heart className="w-3.5 h-3.5 text-[#E6A119] fill-[#E6A119] shrink-0" />
                 <span>{isBn ? 'যুক্ত হোন' : 'Join Us / Donate'}</span>
@@ -782,7 +779,7 @@ export const Header: React.FC = () => {
               )}
             </div>
 
-            {/* Media Accordion (NEW) */}
+            {/* Media Accordion */}
             <div className="border-b border-slate-100 py-1">
               <button 
                 onClick={() => setMobileSubMenu(mobileSubMenu === 'media' ? null : 'media')}
