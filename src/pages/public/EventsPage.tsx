@@ -20,10 +20,10 @@ export const EventsPage: React.FC = () => {
         
         <div className="text-center max-w-2xl mx-auto mb-10">
           <span className="bg-[#0D6E4F]/10 text-[#0D6E4F] font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider">
-            📅 {isBn ? 'ফিল্ড ইভেন্ট ও ক্যাম্প' : 'Field Events & Medical Drives'}
+            📅 {isBn ? 'আসন্ন অনুষ্ঠান ও কর্মসূচি' : 'Upcoming Gatherings & Programs'}
           </span>
           <h1 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mt-2">
-            {isBn ? 'আসন্ন ত্রাণ বিতরণ ও ফ্রি মেডিকেল ক্যাম্প' : 'Upcoming Relief Drives & Volunteer Meets'}
+            {isBn ? 'শাহীন কেয়ার্স ট্রাস্টের অনুষ্ঠানমালা ও কর্মশালা' : 'Official Inauguration, Workshops & Meets'}
           </h1>
         </div>
 

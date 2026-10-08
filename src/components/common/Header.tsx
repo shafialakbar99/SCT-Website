@@ -1,19 +1,14 @@
-import React, { useState, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useRef, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import {
   Globe,
   Search,
   Heart,
   Phone,
-  Shield,
-  Palette,
   Menu,
   X,
   ChevronDown,
-  AlertCircle,
   ArrowRight,
-  Award,
-  Layers,
   Sparkles,
   BookOpen,
   Users,
@@ -24,13 +19,13 @@ import {
   Calendar,
   Building,
   Activity,
-  HeartHandshake,
-  CheckCircle2,
   ShieldCheck,
   GitBranch,
   Newspaper,
   Image,
-  Video
+  Video,
+  ExternalLink,
+  ChevronRight
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
@@ -40,8 +35,7 @@ import { SearchModal } from './SearchModal';
 
 export const Header: React.FC = () => {
   const { language, toggleLanguage, t, isBn } = useLanguage();
-  const { theme, toggleTheme } = useTheme();
-  const navigate = useNavigate();
+  const location = useLocation();
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -49,6 +43,12 @@ export const Header: React.FC = () => {
   const [activeMegaTab, setActiveMegaTab] = useState<string | null>(null);
 
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Close menus on route change
+  useEffect(() => {
+    setActiveMegaTab(null);
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
 
   const handleMouseEnter = (tabKey: string) => {
     if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
@@ -58,7 +58,7 @@ export const Header: React.FC = () => {
   const handleMouseLeave = () => {
     hoverTimeoutRef.current = setTimeout(() => {
       setActiveMegaTab(null);
-    }, 300); // 300ms buffer to prevent flicker
+    }, 280);
   };
 
   const closeMegaMenu = () => {
@@ -67,14 +67,18 @@ export const Header: React.FC = () => {
     setMobileMenuOpen(false);
   };
 
+  const toggleMobileSub = (key: string) => {
+    setMobileSubMenu(prev => prev === key ? null : key);
+  };
+
   return (
     <>
       <header className="sticky top-0 z-40 w-full transition-all duration-300">
         
         {/* TOP EMERGENCY / INAUGURATION ALERT BAR */}
-        <div className="bg-[#1B365D] text-white text-[11px] md:text-xs py-1.5 px-3 sm:px-6 flex items-center justify-between border-b border-white/10">
-          <div className="flex items-center gap-2 overflow-hidden mr-2">
-            <span className="bg-[#E6A119] text-slate-950 font-black px-2 py-0.5 rounded text-[10px] uppercase tracking-wider animate-pulse shrink-0">
+        <div className="bg-[#1B365D] text-white text-[10.5px] sm:text-[11.5px] py-1 sm:py-1.5 px-3 sm:px-6 flex items-center justify-between border-b border-white/10">
+          <div className="flex items-center gap-1.5 sm:gap-2 overflow-hidden mr-2 min-w-0">
+            <span className="bg-[#E6A119] text-slate-950 font-black px-1.5 sm:px-2 py-0.5 rounded text-[9.5px] sm:text-[10px] uppercase tracking-wider animate-pulse shrink-0">
               {isBn ? 'বিজ্ঞপ্তি' : 'INAUGURATION'}
             </span>
             <div className="truncate text-white/95 font-medium">
@@ -82,13 +86,13 @@ export const Header: React.FC = () => {
             </div>
             <Link 
               to="/spus" 
-              className="hidden lg:inline-flex items-center text-[#E6A119] hover:underline font-bold text-[11px] shrink-0 ml-1"
+              className="hidden md:inline-flex items-center text-[#E6A119] hover:underline font-bold text-[11px] shrink-0 ml-1 whitespace-nowrap"
             >
               {isBn ? 'SPUS প্রজেক্ট দেখুন' : 'Explore SPUS'} <ArrowRight className="w-3 h-3 ml-0.5" />
             </Link>
           </div>
 
-          <div className="flex items-center gap-3 shrink-0 text-white/90">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0 text-white/90">
             {/* Hotline */}
             <a href={`tel:${siteContent.hotline.en}`} className="hidden sm:flex items-center gap-1 hover:text-[#E6A119] transition-colors">
               <Phone className="w-3 h-3 text-[#E6A119]" />
@@ -99,7 +103,7 @@ export const Header: React.FC = () => {
             <button
               id="lang-toggle-btn"
               onClick={toggleLanguage}
-              className="flex items-center gap-1 bg-white/10 hover:bg-white/20 px-2 py-0.5 rounded text-[11px] font-bold transition-colors cursor-pointer"
+              className="flex items-center gap-1 bg-white/10 hover:bg-white/20 px-2 py-0.5 rounded text-[10.5px] sm:text-[11px] font-bold transition-colors cursor-pointer"
               title="Change Language"
             >
               <Globe className="w-3 h-3 text-[#E6A119]" />
@@ -110,34 +114,39 @@ export const Header: React.FC = () => {
 
         {/* MAIN NAVIGATION BAR */}
         <div className="bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-22 flex items-center justify-between gap-2">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-20 sm:h-22 flex items-center justify-between gap-1 sm:gap-2">
             
-            {/* LOGO AREA */}
-            <Link to="/" onClick={closeMegaMenu} className="flex items-center gap-3.5 shrink-0 py-1.5 group">
-              {/* শুধু গোলাকার মূল প্রতীকটি বড় হয়ে দেখাবে */}
+            {/* LOGO AREA (FLEXIBLE ON MOBILE SO IT NEVER CUTS OFF) */}
+            <Link 
+              to="/" 
+              onClick={closeMegaMenu} 
+              className="flex items-center gap-2 sm:gap-3 py-1 group min-w-0 flex-1 max-w-[210px] xs:max-w-[260px] sm:max-w-none shrink"
+            >
               <img 
-                src="/Images/logo_circle_part.png" /* বা শুধু লোগোর অংশটুকু cropped image */
+                src="/Images/logo_circle_part.png" 
                 alt="Shaheen Cares Trust Emblem" 
                 className="h-16 sm:h-20 w-auto object-contain drop-shadow-sm transition-transform group-hover:scale-105" 
               />
-              <div className="flex flex-col">
-                <span className="font-black text-[#1B365D] text-xl sm:text-2xl leading-none tracking-tight">
+              <div className="flex flex-col min-w-0">
+                <span className="font-black text-[#1B365D] text-sm xs:text-base sm:text-xl xl:text-2xl leading-none tracking-tight truncate">
                   {t(siteContent.orgName)}
                 </span>
-                <span className="text-xs text-[#138086] font-bold tracking-tight hidden sm:block mt-1">
+                <span className="text-[10px] sm:text-xs text-[#138086] font-bold tracking-tight hidden md:block mt-1 truncate">
                   {t(siteContent.orgTagline)}
                 </span>
               </div>
             </Link>
 
-            {/* DESKTOP NAV LINKS (THEMEFOREST STANDARDS) */}
-            <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 text-[11px] xl:text-xs font-bold text-slate-700">
+            {/* DESKTOP NAV LINKS (STREAMLINED & RESPONSIVE FOR BANGLA & ENGLISH) */}
+            <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 text-[11px] xl:text-[12.5px] font-bold text-slate-700">
               
               {/* Home */}
               <Link 
                 to="/" 
                 onClick={closeMegaMenu}
-                className="px-2 xl:px-2.5 py-1.5 rounded-lg hover:text-[#138086] hover:bg-slate-100/80 whitespace-nowrap transition-colors"
+                className={`px-1.5 xl:px-2 py-1.5 rounded-lg whitespace-nowrap transition-colors ${
+                  location.pathname === '/' ? 'text-[#138086] font-extrabold bg-slate-100/70' : 'hover:text-[#138086] hover:bg-slate-100/60'
+                }`}
               >
                 {isBn ? 'হোম' : 'Home'}
               </Link>
@@ -151,7 +160,7 @@ export const Header: React.FC = () => {
                 <Link
                   to="/about"
                   className={`px-1.5 xl:px-2 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
-                    activeMegaTab === 'about' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
+                    activeMegaTab === 'about' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/60'
                   }`}
                 >
                   <span>{isBn ? 'আমাদের কথা' : 'About'}</span>
@@ -168,7 +177,7 @@ export const Header: React.FC = () => {
                 <Link
                   to="/pillars"
                   className={`px-1.5 xl:px-2 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
-                    activeMegaTab === 'pillars' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
+                    activeMegaTab === 'pillars' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/60'
                   }`}
                 >
                   <span>{isBn ? 'কার্যক্রম' : 'Our Work'}</span>
@@ -185,12 +194,12 @@ export const Header: React.FC = () => {
                 <Link
                   to="/spus"
                   className={`px-1.5 xl:px-2 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
-                    activeMegaTab === 'spus' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
+                    activeMegaTab === 'spus' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/60'
                   }`}
                 >
                   <span className="flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#138086] animate-pulse" />
-                    <span>{isBn ? 'SPUS প্রজেক্ট' : 'First Project'}</span>
+                    <span>{isBn ? 'SPUS প্রজেক্ট' : 'SPUS Satarkul'}</span>
                   </span>
                   <ChevronDown className="w-2.5 h-2.5 xl:w-3 xl:h-3 opacity-60" />
                 </Link>
@@ -205,7 +214,7 @@ export const Header: React.FC = () => {
                 <Link
                   to="/strategy"
                   className={`px-1.5 xl:px-2 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
-                    activeMegaTab === 'strategy' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
+                    activeMegaTab === 'strategy' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/60'
                   }`}
                 >
                   <span>{isBn ? 'কৌশল' : 'Strategy'}</span>
@@ -213,24 +222,7 @@ export const Header: React.FC = () => {
                 </Link>
               </div>
 
-              {/* 5. GET INVOLVED */}
-              <div
-                onMouseEnter={() => handleMouseEnter('involved')}
-                onMouseLeave={handleMouseLeave}
-                className="relative"
-              >
-                <Link
-                  to="/join-us"
-                  className={`px-1.5 xl:px-2 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
-                    activeMegaTab === 'involved' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
-                  }`}
-                >
-                  <span>{isBn ? 'যুক্ত হোন' : 'Get Involved'}</span>
-                  <ChevronDown className="w-2.5 h-2.5 xl:w-3 xl:h-3 opacity-60" />
-                </Link>
-              </div>
-
-              {/* 6. MEDIA */}
+              {/* 5. MEDIA (CONSOLIDATED: BLOG, EVENTS, NEWS, PHOTOS, VIDEOS) */}
               <div
                 onMouseEnter={() => handleMouseEnter('media')}
                 onMouseLeave={handleMouseLeave}
@@ -239,7 +231,7 @@ export const Header: React.FC = () => {
                 <Link
                   to="/news"
                   className={`px-1.5 xl:px-2 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
-                    activeMegaTab === 'media' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
+                    activeMegaTab === 'media' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/60'
                   }`}
                 >
                   <span>{isBn ? 'মিডিয়া' : 'Media'}</span>
@@ -247,7 +239,24 @@ export const Header: React.FC = () => {
                 </Link>
               </div>
 
-              {/* 7. RESOURCES & REFERENCES */}
+              {/* 6. GET INVOLVED */}
+              <div
+                onMouseEnter={() => handleMouseEnter('involved')}
+                onMouseLeave={handleMouseLeave}
+                className="relative"
+              >
+                <Link
+                  to="/join-us"
+                  className={`px-1.5 xl:px-2 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
+                    activeMegaTab === 'involved' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/60'
+                  }`}
+                >
+                  <span>{isBn ? 'যুক্ত হোন' : 'Get Involved'}</span>
+                  <ChevronDown className="w-2.5 h-2.5 xl:w-3 xl:h-3 opacity-60" />
+                </Link>
+              </div>
+
+              {/* 7. RESOURCES & TRANSPARENCY */}
               <div
                 onMouseEnter={() => handleMouseEnter('resources')}
                 onMouseLeave={handleMouseLeave}
@@ -256,7 +265,7 @@ export const Header: React.FC = () => {
                 <Link
                   to="/resources"
                   className={`px-1.5 xl:px-2 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
-                    activeMegaTab === 'resources' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/80'
+                    activeMegaTab === 'resources' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/60'
                   }`}
                 >
                   <span>{isBn ? 'রিসোর্স' : 'Resources'}</span>
@@ -268,42 +277,46 @@ export const Header: React.FC = () => {
               <Link 
                 to="/contact" 
                 onClick={closeMegaMenu}
-                className="px-1.5 xl:px-2 py-1.5 rounded-lg hover:text-[#138086] hover:bg-slate-100/80 whitespace-nowrap transition-colors"
+                className={`px-1.5 xl:px-2 py-1.5 rounded-lg whitespace-nowrap transition-colors ${
+                  location.pathname === '/contact' ? 'text-[#138086] font-extrabold bg-slate-100/70' : 'hover:text-[#138086] hover:bg-slate-100/60'
+                }`}
               >
                 {isBn ? 'যোগাযোগ' : 'Contact'}
               </Link>
 
             </nav>
 
-            {/* ACTION BUTTONS (SEARCH & JOIN/DONATE) */}
-            <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+            {/* ACTION BUTTONS (SEARCH & JOIN/DONATE + MOBILE HAMBURGER) */}
+            <div className="flex items-center gap-1 sm:gap-2 shrink-0">
               
               {/* Global Search Button */}
               <button
                 id="search-trigger-btn"
                 onClick={() => setIsSearchOpen(true)}
-                className="p-2 text-slate-600 hover:text-[#138086] hover:bg-slate-100 rounded-xl flex items-center gap-1 transition-colors cursor-pointer"
+                className="p-1.5 sm:p-2 text-slate-600 hover:text-[#138086] hover:bg-slate-100 rounded-lg sm:rounded-xl flex items-center gap-1 transition-colors cursor-pointer"
                 title="Search (Ctrl+K)"
+                aria-label="Search site"
               >
-                <Search className="w-4 h-4" />
+                <Search className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
               </button>
 
-              {/* Primary CTA Button */}
+              {/* Primary CTA Button (Sleek and compact on mobile so it never gets cut off) */}
               <Link
                 to="/join-us"
-                className="bg-[#1B365D] hover:bg-[#104E7A] text-white px-3.5 sm:px-4 py-2.5 rounded-xl text-xs font-bold shadow-md shadow-[#1B365D]/20 hover:shadow-lg flex items-center gap-1.5 transition-all whitespace-nowrap"
+                className="bg-[#1B365D] hover:bg-[#104E7A] text-white px-2.5 py-1.5 sm:px-3.5 sm:py-2.5 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold shadow-xs sm:shadow-md shadow-[#1B365D]/20 hover:shadow-lg flex items-center gap-1 sm:gap-1.5 transition-all shrink-0 whitespace-nowrap"
               >
                 <Heart className="w-3.5 h-3.5 text-[#E6A119] fill-[#E6A119] shrink-0" />
-                <span>{isBn ? 'যুক্ত হোন' : 'Join Us / Donate'}</span>
+                <span className="hidden xs:inline">{isBn ? 'যুক্ত হোন' : 'Join Us'}</span>
+                <span className="xs:hidden">{isBn ? 'যুক্ত' : 'Join'}</span>
               </Link>
 
-              {/* Mobile Menu Toggle Button */}
+              {/* Mobile Menu Toggle Button (ALWAYS VISIBLE & NEVER OVERFLOWING) */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 text-slate-700 hover:text-[#138086] lg:hidden rounded-xl hover:bg-slate-100 cursor-pointer"
-                aria-label="Toggle menu"
+                className="p-1.5 sm:p-2 text-slate-800 hover:text-[#138086] lg:hidden rounded-lg sm:rounded-xl hover:bg-slate-100 cursor-pointer shrink-0 transition-colors"
+                aria-label="Toggle navigation menu"
               >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {mobileMenuOpen ? <X className="w-6 h-6 text-[#1B365D]" /> : <Menu className="w-6 h-6 text-[#1B365D]" />}
               </button>
 
             </div>
@@ -319,7 +332,7 @@ export const Header: React.FC = () => {
                 if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
               }}
               onMouseLeave={handleMouseLeave}
-              className="absolute top-[calc(100%-1px)] left-0 w-full bg-white border-b border-slate-200 shadow-xl z-50 animate-fadeIn"
+              className="hidden lg:block absolute top-[calc(100%-1px)] left-0 w-full bg-white border-b border-slate-200 shadow-xl z-50 animate-fadeIn"
             >
               {/* Invisible Hover Bridge */}
               <div className="absolute -top-3 left-0 w-full h-3 bg-transparent" />
@@ -365,117 +378,109 @@ export const Header: React.FC = () => {
                           <h5 className="text-xs font-black text-slate-900 mt-0.5">{isBn ? 'সাধারণ সম্পাদকের বার্তা' : "General Secretary's Message"}</h5>
                           <p className="text-[11px] text-slate-500 mt-1 font-semibold">{t(ceoData.name)}</p>
                         </Link>
-                      </div>
 
-                      <div className="mt-2 grid grid-cols-2 gap-2 text-xs">
-                        <Link to="/leadership/board" onClick={closeMegaMenu} className="p-2.5 rounded-xl hover:bg-slate-100 font-bold text-slate-800 flex items-center gap-2">
-                          <Building className="w-4 h-4 text-slate-500" />
-                          <span>{isBn ? 'বোর্ড অফ ট্রাস্টিজ' : 'Board of Trustees'}</span>
+                        <Link to="/leadership/board" onClick={closeMegaMenu} className="p-3 bg-slate-50 hover:bg-[#138086]/5 rounded-2xl border border-slate-100 transition-colors">
+                          <span className="text-[10px] font-black text-slate-400 uppercase block">Trustees</span>
+                          <h5 className="text-xs font-black text-slate-900 mt-0.5">{isBn ? 'বোর্ড অফ ট্রাস্টিজ' : 'Board of Trustees'}</h5>
+                          <p className="text-[11px] text-slate-500 mt-1 font-semibold">{isBn ? '৯ জন প্রতিষ্ঠাতা ট্রাস্টি' : '9 Founding Trustees'}</p>
                         </Link>
-                        <Link to="/team" onClick={closeMegaMenu} className="p-2.5 rounded-xl hover:bg-slate-100 font-bold text-slate-800 flex items-center gap-2">
-                          <Users className="w-4 h-4 text-slate-500" />
-                          <span>{isBn ? 'এক্সপার্ট পুল ও টিম' : 'Secretariat & Team'}</span>
+
+                        <Link to="/team" onClick={closeMegaMenu} className="p-3 bg-slate-50 hover:bg-[#138086]/5 rounded-2xl border border-slate-100 transition-colors">
+                          <span className="text-[10px] font-black text-slate-400 uppercase block">Secretariat</span>
+                          <h5 className="text-xs font-black text-slate-900 mt-0.5">{isBn ? 'সচিবালয় ও টিম' : 'Secretariat & Staff'}</h5>
+                          <p className="text-[11px] text-slate-500 mt-1 font-semibold">{isBn ? 'মাঠপর্যায় সমন্বয়কবৃন্দ' : 'Dedicated Operations'}</p>
                         </Link>
                       </div>
                     </div>
 
-                    <div className="col-span-1 bg-slate-50 p-5 rounded-2xl border border-slate-200/80 flex flex-col justify-between">
-                      <div className="space-y-2">
-                        <span className="text-[10px] font-black px-2 py-0.5 rounded bg-[#138086]/10 text-[#138086] uppercase">Legal Status</span>
-                        <h5 className="text-xs font-black text-[#1B365D]">Trust Act of 1882</h5>
-                        <p className="text-[11px] text-slate-600 leading-relaxed">
-                          {isBn ? 'বাংলাদেশের ১৮৮২ সালের ট্রাস্ট আইনের অধীনে নিবন্ধিত মানবকল্যাণ সংস্থা।' : 'Formally established and governed under the Trust Act of 1882.'}
+                    <div className="col-span-1 space-y-3">
+                      <h4 className="text-xs font-black text-slate-400 uppercase tracking-wider">
+                        {isBn ? 'স্বীকৃতি ও নীতি' : 'Legal & Trust Act'}
+                      </h4>
+                      <div className="bg-emerald-50/70 p-4 rounded-2xl border border-emerald-100 space-y-2">
+                        <span className="text-[10px] font-black text-[#0D6E4F] uppercase block">Trust Act 1882</span>
+                        <p className="text-xs font-bold text-slate-800">
+                          {isBn ? 'বাংলাদেশ ট্রাস্ট আইন ১৮৮২-এর অধীনে সম্পূর্ণ বিধিবদ্ধ দাতব্য ট্রাস্ট।' : 'Registered under Bangladesh Trust Act of 1882.'}
                         </p>
+                        <Link to="/transparency" onClick={closeMegaMenu} className="text-xs font-bold text-[#0D6E4F] hover:underline flex items-center gap-1 pt-1">
+                          <span>{isBn ? 'আর্থিক স্বচ্ছতা দেখুন' : 'Transparency Details'}</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
                       </div>
-                      <Link to="/transparency" onClick={closeMegaMenu} className="text-xs font-bold text-[#138086] hover:underline flex items-center gap-1 mt-3">
-                        <span>{isBn ? 'আর্থিক স্বচ্ছতা পোর্টাল' : 'Transparency Portal'}</span>
-                        <ArrowRight className="w-3 h-3" />
-                      </Link>
                     </div>
                   </div>
                 )}
 
-                {/* 2. OUR WORK / FIVE PILLARS MEGA MENU */}
+                {/* 2. PILLARS MEGA MENU */}
                 {activeMegaTab === 'pillars' && (
                   <div className="space-y-4">
-                    <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                    <div className="flex items-center justify-between pb-2 border-b border-slate-100">
                       <div>
                         <h4 className="text-sm font-black text-[#1B365D]">
-                          {isBn ? 'আমাদের ৫টি কৌশলগত স্তম্ভ (২০২৬–২০৩১)' : 'Our Five Strategic Pillars (2026–2031)'}
+                          {isBn ? 'কৌশলগত পঞ্চস্তম্ভ (২০২৬–২০৩১)' : 'Our Five Strategic Pillars (2026–2031)'}
                         </h4>
-                        <p className="text-xs text-slate-500">
-                          {isBn ? 'আন্তঃপ্রজন্মীয় যত্ন ব্যবস্থা ও টেকসই সমাজ গঠনের পঞ্চস্তর রূপরেখা' : 'Phased intergenerational systems bridging special needs, youth, and elderly care.'}
+                        <p className="text-xs text-slate-500 mt-0.5">
+                          {isBn ? 'টেকসই সামাজিক পরিবর্তন ও অন্তর্ভুক্তিমূলক সমাজ গঠনের পঞ্চমুখী কর্মপরিকল্পনা।' : 'A multi-phase systemic intervention model for long-term social dignity.'}
                         </p>
                       </div>
-                      <Link to="/pillars" onClick={closeMegaMenu} className="text-xs font-black text-[#138086] hover:underline flex items-center gap-1">
-                        <span>{isBn ? 'সকল স্তম্ভ বিস্তারিত' : 'View Full Pillar Architecture'}</span>
+                      <Link to="/pillars" onClick={closeMegaMenu} className="text-xs font-bold text-[#138086] hover:underline flex items-center gap-1">
+                        <span>{isBn ? 'সব স্তম্ভের বিস্তারিত' : 'View All Pillars'}</span>
                         <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
                     </div>
 
                     <div className="grid grid-cols-5 gap-3">
-                      {[
-                        { num: 1, title: 'Children with Special Needs', bnTitle: 'বিশেষ চাহিদাসম্পন্ন শিশু', year: '2026–2029', hash: 'pillar-1', color: '#138086' },
-                        { num: 2, title: 'Youth Employability', bnTitle: 'যুব কর্মসংস্থান ও দক্ষতা', year: '2029–2030', hash: 'pillar-2', color: '#104E7A' },
-                        { num: 3, title: 'Elderly Care', bnTitle: 'প্রবীণ সেবা ও যত্ন', year: '2030 onward', hash: 'pillar-3', color: '#D4AF37' },
-                        { num: 4, title: 'Organizational Sustainability', bnTitle: 'প্রাতিষ্ঠানিক সক্ষমতা ও স্থায়িত্ব', year: 'All Phases', hash: 'pillar-4', color: '#E06D53' },
-                        { num: 5, title: 'Shaheen Community Care', bnTitle: 'শাহীন কমিউনিটি সেবা', year: 'Ongoing', hash: 'pillar-5', color: '#64748B' }
-                      ].map(p => (
-                        <Link
-                          key={p.num}
-                          to={`/pillars#${p.hash}`}
-                          onClick={closeMegaMenu}
-                          className="p-3.5 bg-slate-50 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-[#138086]/40 hover:shadow-sm transition-all space-y-2 group"
-                        >
-                          <div className="flex items-center justify-between">
-                            <span 
-                              className="w-5 h-5 rounded-full text-white text-[10px] font-black flex items-center justify-center font-mono"
-                              style={{ backgroundColor: p.color }}
-                            >
-                              {p.num}
-                            </span>
-                            <span className="text-[10px] font-bold text-slate-400 font-mono">{p.year}</span>
-                          </div>
-                          <h5 className="text-xs font-black text-slate-900 group-hover:text-[#138086] leading-snug">
-                            {isBn ? p.bnTitle : p.title}
-                          </h5>
-                        </Link>
-                      ))}
+                      <Link to="/pillars#pillar-1" onClick={closeMegaMenu} className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200/80 hover:bg-white hover:border-[#138086]/40 hover:shadow-sm transition-all space-y-2">
+                        <span className="text-[10px] font-black uppercase text-[#138086] bg-[#138086]/10 px-2 py-0.5 rounded">Pillar 1</span>
+                        <h5 className="text-xs font-black text-slate-900">{isBn ? 'বিশেষ চাহিদাসম্পন্ন শিশু' : 'Special Needs'}</h5>
+                        <p className="text-[11px] text-slate-500 leading-snug">{isBn ? '২০২৬–২০২৯: শিক্ষা, থেরাপি ও অন্তর্ভুক্তিকরণ' : '2026–2029: Education, Therapy & SPUS Flagship'}</p>
+                      </Link>
+
+                      <Link to="/pillars#pillar-2" onClick={closeMegaMenu} className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200/80 hover:bg-white hover:border-[#138086]/40 hover:shadow-sm transition-all space-y-2">
+                        <span className="text-[10px] font-black uppercase text-[#104E7A] bg-[#104E7A]/10 px-2 py-0.5 rounded">Pillar 2</span>
+                        <h5 className="text-xs font-black text-slate-900">{isBn ? 'যুব দক্ষতা ও কর্মসংস্থান' : 'Youth Skills'}</h5>
+                        <p className="text-[11px] text-slate-500 leading-snug">{isBn ? '২০২৯–২০৩০: কেয়ার ইকোনমি ও ভোকেশনাল প্রশিক্ষণ' : '2029–2030: Vocational & Care Economy Skills'}</p>
+                      </Link>
+
+                      <Link to="/pillars#pillar-3" onClick={closeMegaMenu} className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200/80 hover:bg-white hover:border-[#138086]/40 hover:shadow-sm transition-all space-y-2">
+                        <span className="text-[10px] font-black uppercase text-[#D4AF37] bg-[#D4AF37]/10 px-2 py-0.5 rounded">Pillar 3</span>
+                        <h5 className="text-xs font-black text-slate-900">{isBn ? 'মর্যাদাপূর্ণ প্রবীণ সেবা' : 'Elderly Care'}</h5>
+                        <p className="text-[11px] text-slate-500 leading-snug">{isBn ? '২০৩০+: ডে-কেয়ার, মানসিক সুস্থতা ও জেন-ব্রিজ' : '2030+: Day Care, Well-being & Intergenerational'}</p>
+                      </Link>
+
+                      <Link to="/pillars#pillar-4" onClick={closeMegaMenu} className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200/80 hover:bg-white hover:border-[#138086]/40 hover:shadow-sm transition-all space-y-2">
+                        <span className="text-[10px] font-black uppercase text-[#E06D53] bg-[#E06D53]/10 px-2 py-0.5 rounded">Pillar 4</span>
+                        <h5 className="text-xs font-black text-slate-900">{isBn ? 'এনজিও সক্ষমতা ও স্থায়িত্ব' : 'NGO Capacity'}</h5>
+                        <p className="text-[11px] text-slate-500 leading-snug">{isBn ? 'ঘাসমূল সংস্থাগুলোর সক্ষমতা ও সুশাসন বৃদ্ধি' : 'Grassroots NGO Governance & Sustainability'}</p>
+                      </Link>
+
+                      <Link to="/pillars#pillar-5" onClick={closeMegaMenu} className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200/80 hover:bg-white hover:border-[#138086]/40 hover:shadow-sm transition-all space-y-2">
+                        <span className="text-[10px] font-black uppercase text-[#0D6E4F] bg-[#0D6E4F]/10 px-2 py-0.5 rounded">Pillar 5</span>
+                        <h5 className="text-xs font-black text-slate-900">{isBn ? 'শাহীন কমিউনিটি সেবা' : 'Shaheen Care'}</h5>
+                        <p className="text-[11px] text-slate-500 leading-snug">{isBn ? 'জরুরি চিকিৎসা তহবিল ও পারস্পরিক সহায়তা' : 'Community Safety Net & Mutual Support'}</p>
+                      </Link>
                     </div>
                   </div>
                 )}
 
-                {/* 3. FIRST PROJECT: SPUS MEGA MENU */}
+                {/* 3. FIRST PROJECT SPUS MEGA MENU */}
                 {activeMegaTab === 'spus' && (
-                  <div className="grid grid-cols-12 gap-6 items-center">
-                    <div className="col-span-5 space-y-3 border-r border-slate-100 pr-6">
-                      <div className="flex items-center gap-2">
-                        <span className="px-2.5 py-0.5 rounded bg-[#138086]/10 text-[#138086] text-[10px] font-black uppercase">
-                          Flagship Project (2026–2029)
-                        </span>
-                        <span className="text-[10px] font-bold text-slate-500 font-mono">Pillars 1 & 4</span>
-                      </div>
-                      <h4 className="text-base font-black text-[#1B365D]">
-                        {isBn ? 'সাঁতারকুল প্রতিবন্ধী উন্নয়ন সংস্থা (SPUS)' : 'Satarkul Protibandhi Unnayan Sangstha'}
+                  <div className="grid grid-cols-4 gap-6">
+                    <div className="col-span-1 border-r border-slate-100 pr-4 space-y-2">
+                      <span className="text-[10px] font-black uppercase text-[#138086] bg-[#138086]/10 px-2 py-0.5 rounded">Flagship 2026–2029</span>
+                      <h4 className="text-sm font-black text-[#1B365D]">
+                        {isBn ? 'সাঁতারকুল প্রতিবন্ধী উন্নয়ন সংস্থা (SPUS)' : 'SPUS Satarkul Partnership'}
                       </h4>
                       <p className="text-xs text-slate-600 leading-relaxed">
-                        {isBn 
-                          ? 'সাঁতারকুলে ৭৫ জন বিশেষ শিশুর অন্তর্ভুক্তিমূলক শিক্ষা, ১০০ সুবিধাভোগীর থেরাপি এবং প্রাতিষ্ঠানিক টেকসই উন্নয়নে ৩ বছর মেয়াদী প্রথম প্রধান প্রকল্প।'
-                          : 'Supporting inclusive education for 75 children, regular therapy for 100 beneficiaries, and long-term NGO institutional capacity building.'}
+                        {isBn ? 'সাঁতারকুলে বিশেষ চাহিদাসম্পন্ন ৭৫ জন শিশুর অন্তর্ভুক্তিমূলক শিক্ষা এবং ১০০ জন সুবিধাভোগীর থেরাপি সাপোর্ট।' : 'First community flagship providing education, therapy & grassroots NGO capacity.'}
                       </p>
-                      <div className="pt-2">
-                        <Link
-                          to="/spus"
-                          onClick={closeMegaMenu}
-                          className="bg-[#138086] text-white px-4 py-2 rounded-xl text-xs font-bold inline-flex items-center gap-1.5 hover:bg-[#0f686d] transition-colors"
-                        >
-                          <span>{isBn ? 'সম্পূর্ণ প্রকল্প বিবরণ দেখুন' : 'Explore Full Project'}</span>
-                          <ArrowRight className="w-3.5 h-3.5" />
-                        </Link>
-                      </div>
+                      <Link to="/spus" onClick={closeMegaMenu} className="text-xs font-bold text-[#138086] hover:underline flex items-center gap-1 pt-2">
+                        <span>{isBn ? 'সম্পূর্ণ প্রজেক্ট প্রোফাইল' : 'Full Project Profile'}</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
                     </div>
 
-                    <div className="col-span-7 grid grid-cols-3 gap-3">
+                    <div className="col-span-3 grid grid-cols-3 gap-3">
                       <Link to="/spus" onClick={closeMegaMenu} className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200/80 hover:bg-white hover:border-[#138086]/40 transition-all space-y-1.5">
                         <Activity className="w-5 h-5 text-[#138086]" />
                         <h5 className="text-xs font-black text-slate-900">{isBn ? 'সেবা প্যাকেজ' : 'Service Packages'}</h5>
@@ -490,8 +495,8 @@ export const Header: React.FC = () => {
 
                       <Link to="/spus" onClick={closeMegaMenu} className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200/80 hover:bg-white hover:border-[#138086]/40 transition-all space-y-1.5">
                         <ShieldCheck className="w-5 h-5 text-[#D4AF37]" />
-                        <h5 className="text-xs font-black text-slate-900">{isBn ? 'বাজেট ও যাচাই' : 'Budget & Diligence'}</h5>
-                        <p className="text-[11px] text-slate-500">{isBn ? '১৩.২৭ মিলিয়ন টাকা' : 'BDT 13.27M (~$108K)'}</p>
+                        <h5 className="text-xs font-black text-slate-900">{isBn ? 'বাজেট ও স্বচ্ছতা' : 'Budget & Diligence'}</h5>
+                        <p className="text-[11px] text-slate-500">{isBn ? '১১.০ মিলিয়ন টাকা (~$৮৮ হাজার)' : 'BDT 11.0M (~$88K)'}</p>
                       </Link>
                     </div>
                   </div>
@@ -530,42 +535,13 @@ export const Header: React.FC = () => {
                       <Link to="/strategy" onClick={closeMegaMenu} className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200/80 hover:bg-white hover:border-[#138086]/40 transition-all space-y-1.5">
                         <Globe className="w-5 h-5 text-[#D4AF37]" />
                         <h5 className="text-xs font-black text-slate-900">{isBn ? 'এসডিজি ও বাংলাদেশ আইন' : 'SDG & Policy Alignment'}</h5>
-                        <p className="text-[11px] text-slate-500">CRPD, SDGs & Disability Act 2013</p>
+                        <p className="text-[11px] text-slate-500">CRPD, CRC, SDGs & Trust Act 1882</p>
                       </Link>
                     </div>
                   </div>
                 )}
 
-                {/* 5. GET INVOLVED MEGA MENU */}
-                {activeMegaTab === 'involved' && (
-                  <div className="grid grid-cols-4 gap-4">
-                    <Link to="/join-us" onClick={closeMegaMenu} className="p-4 bg-slate-50 rounded-2xl border border-slate-200 hover:border-[#138086]/40 hover:bg-white transition-all space-y-2">
-                      <HandHeart className="w-6 h-6 text-[#138086]" />
-                      <h5 className="text-xs font-black text-slate-900">{isBn ? 'কেন যুক্ত হবেন? (Why Join Us)' : 'Why Join Us'}</h5>
-                      <p className="text-[11px] text-slate-500">{isBn ? 'বাস্তব অন্তর্ভুক্তি ও স্থায়ী পরিবর্তনের অংশীদার হোন' : 'Be part of real inclusion and lasting change.'}</p>
-                    </Link>
-
-                    <Link to="/volunteer" onClick={closeMegaMenu} className="p-4 bg-slate-50 rounded-2xl border border-slate-200 hover:border-[#138086]/40 hover:bg-white transition-all space-y-2">
-                      <Users className="w-6 h-6 text-[#104E7A]" />
-                      <h5 className="text-xs font-black text-slate-900">{isBn ? 'স্বেচ্ছাসেবী হিসেবে যোগ দিন' : 'Volunteer With Us'}</h5>
-                      <p className="text-[11px] text-slate-500">{isBn ? 'সাঁতারকুল সেন্টারে সময় ও মেধা দিন' : 'Offer your time and support children.'}</p>
-                    </Link>
-
-                    <Link to="/contact" onClick={closeMegaMenu} className="p-4 bg-slate-50 rounded-2xl border border-slate-200 hover:border-[#138086]/40 hover:bg-white transition-all space-y-2">
-                      <Building className="w-6 h-6 text-[#D4AF37]" />
-                      <h5 className="text-xs font-black text-slate-900">{isBn ? 'উপদেষ্টা ও প্রাতিষ্ঠানিক পার্টনার' : 'Advisor / Strategic Partner'}</h5>
-                      <p className="text-[11px] text-slate-500">{isBn ? 'সিএসআর ও গবেষণা যৌথ কার্যক্রম' : 'Pro-bono expert pool & CSR alliances.'}</p>
-                    </Link>
-
-                    <Link to="/donate" onClick={closeMegaMenu} className="p-4 bg-[#1B365D] text-white rounded-2xl hover:bg-[#104E7A] transition-all space-y-2">
-                      <Heart className="w-6 h-6 text-[#E6A119]" />
-                      <h5 className="text-xs font-black">{isBn ? 'অনুদান ও সহায়তা' : 'Support / Donate'}</h5>
-                      <p className="text-[11px] text-slate-200">{isBn ? 'সিটি ব্যাংক ও বিকাশ অনুদান চ্যানেল' : 'The City Bank PLC & verified channels.'}</p>
-                    </Link>
-                  </div>
-                )}
-
-                {/* 6. MEDIA MEGA MENU */}
+                {/* 5. MEDIA MEGA MENU (CONSOLIDATED: BLOG, EVENTS, NEWS, PHOTOS, VIDEOS) */}
                 {activeMegaTab === 'media' && (
                   <div className="grid grid-cols-12 gap-6">
                     <div className="col-span-4 bg-slate-50 p-5 rounded-2xl border border-slate-200/80 flex flex-col justify-between">
@@ -579,12 +555,14 @@ export const Header: React.FC = () => {
                         <p className="text-[11px] text-slate-600 leading-relaxed">
                           {isBn
                             ? 'শাহীন কেয়ার্স ট্রাস্টের সাম্প্রতিক সংবাদ বিজ্ঞপ্তি, ভিডিও তথ্যচিত্র, ফটো গ্যালারি এবং অনুষ্ঠানমালা।'
-                            : 'Explore our latest press releases, upcoming events, photo albums, and video documentaries.'}
+                            : 'Explore our latest press releases, upcoming events, field photo albums, and video documentaries.'}
                         </p>
                       </div>
                       <div className="pt-3 border-t border-slate-200 flex items-center justify-between text-xs font-bold text-[#138086]">
-                        <span>{isBn ? 'সকল মিডিয়া কনটেন্ট' : 'All Media Content'}</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
+                        <Link to="/news" onClick={closeMegaMenu} className="hover:underline flex items-center gap-1">
+                          <span>{isBn ? 'সকল মিডিয়া কনটেন্ট' : 'All Media Content'}</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
                       </div>
                     </div>
 
@@ -629,7 +607,7 @@ export const Header: React.FC = () => {
                             {isBn ? 'প্রেস রিলিজ ও সংবাদ' : 'Press Releases & News'}
                           </h5>
                           <p className="text-[11px] text-slate-500 mt-0.5">
-                            {isBn ? 'অফিসিয়াল ঘোষণা ও মিডিয়া কভারেজ' : 'Secretariat announcements and media coverage'}
+                            {isBn ? 'অফিসিয়াল ঘোষণা ও মিডিয়া কভারেজ' : 'Secretariat announcements & updates'}
                           </p>
                         </div>
                       </Link>
@@ -667,6 +645,35 @@ export const Header: React.FC = () => {
                   </div>
                 )}
 
+                {/* 6. GET INVOLVED MEGA MENU */}
+                {activeMegaTab === 'involved' && (
+                  <div className="grid grid-cols-4 gap-4">
+                    <Link to="/join-us" onClick={closeMegaMenu} className="p-4 bg-slate-50 rounded-2xl border border-slate-200 hover:border-[#138086]/40 hover:bg-white transition-all space-y-2">
+                      <HandHeart className="w-6 h-6 text-[#138086]" />
+                      <h5 className="text-xs font-black text-slate-900">{isBn ? 'কেন যুক্ত হবেন? (Why Join Us)' : 'Why Join Us'}</h5>
+                      <p className="text-[11px] text-slate-500">{isBn ? 'বাস্তব অন্তর্ভুক্তি ও স্থায়ী পরিবর্তনের অংশীদার হোন' : 'Be part of real inclusion and lasting change.'}</p>
+                    </Link>
+
+                    <Link to="/volunteer" onClick={closeMegaMenu} className="p-4 bg-slate-50 rounded-2xl border border-slate-200 hover:border-[#138086]/40 hover:bg-white transition-all space-y-2">
+                      <Users className="w-6 h-6 text-[#104E7A]" />
+                      <h5 className="text-xs font-black text-slate-900">{isBn ? 'স্বেচ্ছাসেবী হিসেবে যোগ দিন' : 'Volunteer With Us'}</h5>
+                      <p className="text-[11px] text-slate-500">{isBn ? 'সাঁতারকুল সেন্টারে সময় ও মেধা দিন' : 'Offer your time and support children.'}</p>
+                    </Link>
+
+                    <Link to="/contact" onClick={closeMegaMenu} className="p-4 bg-slate-50 rounded-2xl border border-slate-200 hover:border-[#138086]/40 hover:bg-white transition-all space-y-2">
+                      <Building className="w-6 h-6 text-[#D4AF37]" />
+                      <h5 className="text-xs font-black text-slate-900">{isBn ? 'উপদেষ্টা ও প্রাতিষ্ঠানিক পার্টনার' : 'Advisor / Strategic Partner'}</h5>
+                      <p className="text-[11px] text-slate-500">{isBn ? 'সিএসআর ও গবেষণা যৌথ কার্যক্রম' : 'Pro-bono expert pool & CSR alliances.'}</p>
+                    </Link>
+
+                    <Link to="/donate" onClick={closeMegaMenu} className="p-4 bg-[#1B365D] text-white rounded-2xl hover:bg-[#104E7A] transition-all space-y-2">
+                      <Heart className="w-6 h-6 text-[#E6A119]" />
+                      <h5 className="text-xs font-black">{isBn ? 'অনুদান ও সহায়তা' : 'Support / Donate'}</h5>
+                      <p className="text-[11px] text-slate-200">{isBn ? 'দি সিটি ব্যাংক পিএলসি ও অনুমোদিত চ্যানেল' : 'The City Bank PLC & verified channels.'}</p>
+                    </Link>
+                  </div>
+                )}
+
                 {/* 7. RESOURCES MEGA MENU */}
                 {activeMegaTab === 'resources' && (
                   <div className="grid grid-cols-2 gap-6">
@@ -699,140 +706,227 @@ export const Header: React.FC = () => {
         </div>
 
         {/* ========================================================= */}
-        {/* MOBILE NAVIGATION DRAWER (ACCORDION STYLE)                */}
+        {/* MOBILE NAVIGATION DRAWER (100% VISIBLE & ROBUST)           */}
         {/* ========================================================= */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-8 space-y-2 animate-fadeIn text-sm font-bold text-slate-800 max-h-[80vh] overflow-y-auto">
-            
-            <Link to="/" onClick={closeMegaMenu} className="block py-2 border-b border-slate-100">
-              {isBn ? 'হোম' : 'Home'}
-            </Link>
-
-            {/* About Accordion */}
-            <div className="border-b border-slate-100 py-1">
-              <button 
-                onClick={() => setMobileSubMenu(mobileSubMenu === 'about' ? null : 'about')}
-                className="w-full flex items-center justify-between py-2 text-left"
-              >
-                <span>{isBn ? 'আমাদের কথা (About SCT)' : 'About SCT'}</span>
-                <ChevronDown className={`w-4 h-4 transition-transform ${mobileSubMenu === 'about' ? 'rotate-180 text-[#138086]' : ''}`} />
-              </button>
-              {mobileSubMenu === 'about' && (
-                <div className="pl-4 pb-2 space-y-2 text-xs font-semibold text-slate-600 animate-fadeIn">
-                  <Link to="/about" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'পটভূমি ও ইতিহাস' : 'Our Story'}</Link>
-                  <Link to="/mission" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'ভিশন ও মিশন' : 'Vision & Mission'}</Link>
-                  <Link to="/purpose" onClick={closeMegaMenu} className="block py-1 text-[#138086] font-bold">• {isBn ? 'আমাদের উদ্দেশ্য (Our Purpose)' : 'Our Purpose'}</Link>
-                  <Link to="/leadership/chairman" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'চেয়ারপারসনের বাণী' : "Chairperson's Message"}</Link>
-                  <Link to="/leadership/ceo" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'সাধারণ সম্পাদকের বার্তা' : "General Secretary's Message"}</Link>
-                  <Link to="/leadership/board" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'বোর্ড অফ ট্রাস্টিজ' : 'Board of Trustees'}</Link>
-                  <Link to="/team" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'টিম ও কর্মী' : 'Secretariat & Team'}</Link>
+          <div className="lg:hidden fixed inset-x-0 top-[calc(theme(spacing.18))] sm:top-[calc(theme(spacing.20))] bottom-0 bg-slate-900/40 backdrop-blur-xs z-50 overflow-y-auto">
+            <div className="bg-white border-b border-slate-200 px-4 pt-3 pb-8 space-y-2 animate-fadeIn text-sm font-bold text-slate-800 max-h-[calc(100vh-5rem)] overflow-y-auto shadow-2xl">
+              
+              {/* TOP ACTION CARD INSIDE DRAWER */}
+              <div className="bg-gradient-to-r from-[#1B365D] to-[#0D6E4F] rounded-2xl p-4 text-white mb-3 shadow-md flex items-center justify-between">
+                <div>
+                  <h4 className="text-xs font-black text-[#E6A119] uppercase tracking-wider">
+                    {isBn ? 'শাহীন কেয়ার্স ট্রাস্ট' : 'Shaheen Cares Trust'}
+                  </h4>
+                  <p className="text-[11px] text-white/90 font-medium mt-0.5">
+                    {isBn ? 'বন্ধুত্ব থেকে সেবা — যত্ন থেকে দীর্ঘস্থায়ী প্রভাব' : 'From Friendship to Service — Dignity for All'}
+                  </p>
                 </div>
-              )}
-            </div>
+                <Link
+                  to="/join-us"
+                  onClick={closeMegaMenu}
+                  className="bg-[#E6A119] hover:bg-[#F2B02A] text-slate-950 px-3 py-1.5 rounded-xl text-xs font-extrabold shrink-0 shadow-sm transition-all"
+                >
+                  {isBn ? 'যুক্ত হোন' : 'Join Us'}
+                </Link>
+              </div>
 
-            {/* Pillars Accordion */}
-            <div className="border-b border-slate-100 py-1">
-              <button 
-                onClick={() => setMobileSubMenu(mobileSubMenu === 'pillars' ? null : 'pillars')}
-                className="w-full flex items-center justify-between py-2 text-left"
+              {/* Home */}
+              <Link 
+                to="/" 
+                onClick={closeMegaMenu} 
+                className={`flex items-center justify-between py-2.5 px-3 rounded-xl transition-colors ${
+                  location.pathname === '/' ? 'bg-[#0D6E4F]/10 text-[#0D6E4F]' : 'hover:bg-slate-50'
+                }`}
               >
-                <span>{isBn ? 'কার্যক্রম (Five Pillars)' : 'Our Five Pillars'}</span>
-                <ChevronDown className={`w-4 h-4 transition-transform ${mobileSubMenu === 'pillars' ? 'rotate-180 text-[#138086]' : ''}`} />
-              </button>
-              {mobileSubMenu === 'pillars' && (
-                <div className="pl-4 pb-2 space-y-2 text-xs font-semibold text-slate-600 animate-fadeIn">
-                  <Link to="/pillars" onClick={closeMegaMenu} className="block py-1 font-bold text-[#138086]">• {isBn ? 'সকল স্তম্ভের সামগ্রিক রূপরেখা' : 'Pillars Overview'}</Link>
-                  <Link to="/pillars#pillar-1" onClick={closeMegaMenu} className="block py-1">• 1. {isBn ? 'বিশেষ চাহিদাসম্পন্ন শিশু (২০২৬–২০২৯)' : 'Special Needs (2026–2029)'}</Link>
-                  <Link to="/pillars#pillar-2" onClick={closeMegaMenu} className="block py-1">• 2. {isBn ? 'যুব কর্মসংস্থান (২০২৯–২০৩০)' : 'Youth Employability (2029–2030)'}</Link>
-                  <Link to="/pillars#pillar-3" onClick={closeMegaMenu} className="block py-1">• 3. {isBn ? 'প্রবীণ সেবা (২০৩০ থেকে)' : 'Elderly Care (2030 onward)'}</Link>
-                  <Link to="/pillars#pillar-4" onClick={closeMegaMenu} className="block py-1">• 4. {isBn ? 'প্রাতিষ্ঠানিক সক্ষমতা ও স্থায়িত্ব' : 'Organizational Sustainability'}</Link>
-                  <Link to="/pillars#pillar-5" onClick={closeMegaMenu} className="block py-1">• 5. {isBn ? 'শাহীন কমিউনিটি সেবা' : 'Shaheen Community Care'}</Link>
-                </div>
-              )}
-            </div>
-
-            {/* First Project SPUS */}
-            <Link to="/spus" onClick={closeMegaMenu} className="block py-2 border-b border-slate-100 text-[#138086] font-bold">
-              ★ {isBn ? 'প্রথম প্রজেক্ট: SPUS সাঁতারকুল' : 'First Project: SPUS Satarkul'}
-            </Link>
-
-            {/* Strategy */}
-            <Link to="/strategy" onClick={closeMegaMenu} className="block py-2 border-b border-slate-100">
-              {isBn ? 'কৌশলগত পরিকল্পনা ২০২৬–২০৩১' : 'Strategy 2026–2031'}
-            </Link>
-
-            {/* Get Involved */}
-            <div className="border-b border-slate-100 py-1">
-              <button 
-                onClick={() => setMobileSubMenu(mobileSubMenu === 'involved' ? null : 'involved')}
-                className="w-full flex items-center justify-between py-2 text-left"
-              >
-                <span>{isBn ? 'যুক্ত হোন (Get Involved)' : 'Get Involved'}</span>
-                <ChevronDown className={`w-4 h-4 transition-transform ${mobileSubMenu === 'involved' ? 'rotate-180 text-[#138086]' : ''}`} />
-              </button>
-              {mobileSubMenu === 'involved' && (
-                <div className="pl-4 pb-2 space-y-2 text-xs font-semibold text-slate-600 animate-fadeIn">
-                  <Link to="/join-us" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'কেন যুক্ত হবেন (Why Join Us)' : 'Why Join Us'}</Link>
-                  <Link to="/volunteer" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'স্বেচ্ছাসেবী হিসেবে যোগ দিন' : 'Volunteer'}</Link>
-                  <Link to="/contact" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'উপদেষ্টা / অংশীদারিত্ব' : 'Partner with SCT'}</Link>
-                  <Link to="/donate" onClick={closeMegaMenu} className="block py-1 font-bold text-[#E6A119]">• {isBn ? 'অনুদান ও সহায়তা' : 'Support / Donate'}</Link>
-                </div>
-              )}
-            </div>
-
-            {/* Media Accordion */}
-            <div className="border-b border-slate-100 py-1">
-              <button 
-                onClick={() => setMobileSubMenu(mobileSubMenu === 'media' ? null : 'media')}
-                className="w-full flex items-center justify-between py-2 text-left"
-              >
-                <span>{isBn ? 'মিডিয়া ও সংবাদ (Media)' : 'Media & Updates'}</span>
-                <ChevronDown className={`w-4 h-4 transition-transform ${mobileSubMenu === 'media' ? 'rotate-180 text-[#138086]' : ''}`} />
-              </button>
-              {mobileSubMenu === 'media' && (
-                <div className="pl-4 pb-2 space-y-2 text-xs font-semibold text-slate-600 animate-fadeIn">
-                  <Link to="/blog" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'ফিল্ড ব্লগ ও গল্প' : 'Blog & Field Stories'}</Link>
-                  <Link to="/events" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'আসন্ন ইভেন্টস' : 'Events & Programs'}</Link>
-                  <Link to="/news" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'প্রেস রিলিজ ও সংবাদ' : 'Press Releases'}</Link>
-                  <Link to="/gallery/photos" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'ফটো গ্যালারি' : 'Photo Gallery'}</Link>
-                  <Link to="/gallery/videos" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'ভিডিও ডকুমেন্টারি' : 'Video Gallery'}</Link>
-                </div>
-              )}
-            </div>
-
-            {/* Resources */}
-            <div className="border-b border-slate-100 py-1">
-              <button 
-                onClick={() => setMobileSubMenu(mobileSubMenu === 'resources' ? null : 'resources')}
-                className="w-full flex items-center justify-between py-2 text-left"
-              >
-                <span>{isBn ? 'রিসোর্স ও স্বচ্ছতা' : 'Resources & Transparency'}</span>
-                <ChevronDown className={`w-4 h-4 transition-transform ${mobileSubMenu === 'resources' ? 'rotate-180 text-[#138086]' : ''}`} />
-              </button>
-              {mobileSubMenu === 'resources' && (
-                <div className="pl-4 pb-2 space-y-2 text-xs font-semibold text-slate-600 animate-fadeIn">
-                  <Link to="/transparency" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'আর্থিক স্বচ্ছতা ও অডিট রিপোর্ট' : 'Financial Transparency'}</Link>
-                  <Link to="/resources" onClick={closeMegaMenu} className="block py-1">• {isBn ? 'তথ্যসূত্র, আইন ও নীতিমালা' : 'Resources & Legal References'}</Link>
-                </div>
-              )}
-            </div>
-
-            {/* Contact */}
-            <Link to="/contact" onClick={closeMegaMenu} className="block py-2 border-b border-slate-100">
-              {isBn ? 'যোগাযোগ' : 'Contact Us'}
-            </Link>
-
-            {/* Bottom Direct CTA */}
-            <div className="pt-4">
-              <Link
-                to="/join-us"
-                onClick={closeMegaMenu}
-                className="w-full bg-[#1B365D] text-white py-3 rounded-xl text-xs font-bold text-center block shadow-md"
-              >
-                {isBn ? 'যুক্ত হোন' : 'Join Our Movement'}
+                <span>{isBn ? 'হোম পেজ' : 'Home'}</span>
+                <ChevronRight className="w-4 h-4 opacity-40" />
               </Link>
-            </div>
 
+              {/* 1. About Accordion */}
+              <div className="border border-slate-100 rounded-2xl overflow-hidden">
+                <button 
+                  onClick={() => toggleMobileSub('about')}
+                  className="w-full flex items-center justify-between p-3 text-left hover:bg-slate-50 transition-colors"
+                >
+                  <span className="flex items-center gap-2">
+                    <BookOpen className="w-4 h-4 text-[#138086]" />
+                    <span>{isBn ? 'আমাদের কথা (About SCT)' : 'About SCT'}</span>
+                  </span>
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileSubMenu === 'about' ? 'rotate-180 text-[#138086]' : ''}`} />
+                </button>
+                {mobileSubMenu === 'about' && (
+                  <div className="pl-6 pr-3 pb-3 pt-1 space-y-2 text-xs font-semibold text-slate-600 bg-slate-50/50">
+                    <Link to="/about" onClick={closeMegaMenu} className="block py-1 hover:text-[#0D6E4F]">• {isBn ? 'পটভূমি ও ইতিহাস' : 'Our Story & Background'}</Link>
+                    <Link to="/mission" onClick={closeMegaMenu} className="block py-1 hover:text-[#0D6E4F]">• {isBn ? 'ভিশন ও মিশন' : 'Vision & Mission'}</Link>
+                    <Link to="/purpose" onClick={closeMegaMenu} className="block py-1 text-[#138086] font-bold">• {isBn ? 'আমাদের উদ্দেশ্য (Our Purpose)' : 'Our Purpose'}</Link>
+                    <Link to="/leadership/chairman" onClick={closeMegaMenu} className="block py-1 hover:text-[#0D6E4F]">• {isBn ? 'চেয়ারপারসনের বাণী' : "Chairperson's Message"}</Link>
+                    <Link to="/leadership/ceo" onClick={closeMegaMenu} className="block py-1 hover:text-[#0D6E4F]">• {isBn ? 'সাধারণ সম্পাদকের বার্তা' : "General Secretary's Message"}</Link>
+                    <Link to="/leadership/board" onClick={closeMegaMenu} className="block py-1 hover:text-[#0D6E4F]">• {isBn ? 'বোর্ড অফ ট্রাস্টিজ' : 'Board of Trustees'}</Link>
+                    <Link to="/team" onClick={closeMegaMenu} className="block py-1 hover:text-[#0D6E4F]">• {isBn ? 'টিম ও সচিবালয়' : 'Secretariat & Team'}</Link>
+                  </div>
+                )}
+              </div>
+
+              {/* 2. Pillars Accordion */}
+              <div className="border border-slate-100 rounded-2xl overflow-hidden">
+                <button 
+                  onClick={() => toggleMobileSub('pillars')}
+                  className="w-full flex items-center justify-between p-3 text-left hover:bg-slate-50 transition-colors"
+                >
+                  <span className="flex items-center gap-2">
+                    <Target className="w-4 h-4 text-[#104E7A]" />
+                    <span>{isBn ? 'কার্যক্রম (Five Pillars)' : 'Our Five Pillars'}</span>
+                  </span>
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileSubMenu === 'pillars' ? 'rotate-180 text-[#138086]' : ''}`} />
+                </button>
+                {mobileSubMenu === 'pillars' && (
+                  <div className="pl-6 pr-3 pb-3 pt-1 space-y-2 text-xs font-semibold text-slate-600 bg-slate-50/50">
+                    <Link to="/pillars" onClick={closeMegaMenu} className="block py-1 font-bold text-[#138086]">• {isBn ? 'সকল স্তম্ভের সামগ্রিক রূপরেখা' : 'Pillars Overview'}</Link>
+                    <Link to="/pillars#pillar-1" onClick={closeMegaMenu} className="block py-1">• 1. {isBn ? 'বিশেষ চাহিদাসম্পন্ন শিশু (২০২৬–২০২৯)' : 'Special Needs (2026–2029)'}</Link>
+                    <Link to="/pillars#pillar-2" onClick={closeMegaMenu} className="block py-1">• 2. {isBn ? 'যুব কর্মসংস্থান (২০২৯–২০৩০)' : 'Youth Employability (2029–2030)'}</Link>
+                    <Link to="/pillars#pillar-3" onClick={closeMegaMenu} className="block py-1">• 3. {isBn ? 'প্রবীণ সেবা (২০৩০ থেকে)' : 'Elderly Care (2030 onward)'}</Link>
+                    <Link to="/pillars#pillar-4" onClick={closeMegaMenu} className="block py-1">• 4. {isBn ? 'প্রাতিষ্ঠানিক সক্ষমতা ও স্থায়িত্ব' : 'Organizational Sustainability'}</Link>
+                    <Link to="/pillars#pillar-5" onClick={closeMegaMenu} className="block py-1">• 5. {isBn ? 'শাহীন কমিউনিটি সেবা' : 'Shaheen Community Care'}</Link>
+                  </div>
+                )}
+              </div>
+
+              {/* 3. First Project SPUS */}
+              <Link 
+                to="/spus" 
+                onClick={closeMegaMenu} 
+                className="flex items-center justify-between py-2.5 px-3 rounded-xl border border-emerald-100 bg-emerald-50/50 text-[#0D6E4F] font-bold"
+              >
+                <span className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#0D6E4F] animate-pulse" />
+                  <span>{isBn ? 'প্রথম প্রজেক্ট: SPUS সাঁতারকুল' : 'First Project: SPUS Satarkul'}</span>
+                </span>
+                <ChevronRight className="w-4 h-4 opacity-70" />
+              </Link>
+
+              {/* 4. Strategy */}
+              <Link 
+                to="/strategy" 
+                onClick={closeMegaMenu} 
+                className={`flex items-center justify-between py-2.5 px-3 rounded-xl transition-colors ${
+                  location.pathname === '/strategy' ? 'bg-[#104E7A]/10 text-[#104E7A]' : 'hover:bg-slate-50'
+                }`}
+              >
+                <span className="flex items-center gap-2">
+                  <Compass className="w-4 h-4 text-[#104E7A]" />
+                  <span>{isBn ? 'কৌশলগত পরিকল্পনা ২০২৬–২০৩১' : 'Strategy 2026–2031'}</span>
+                </span>
+                <ChevronRight className="w-4 h-4 opacity-40" />
+              </Link>
+
+              {/* 5. Media Accordion (CONSOLIDATED: BLOG, EVENT, NEWS, PHOTO, VIDEO) */}
+              <div className="border border-slate-100 rounded-2xl overflow-hidden">
+                <button 
+                  onClick={() => toggleMobileSub('media')}
+                  className="w-full flex items-center justify-between p-3 text-left hover:bg-slate-50 transition-colors"
+                >
+                  <span className="flex items-center gap-2">
+                    <Newspaper className="w-4 h-4 text-[#1B365D]" />
+                    <span>{isBn ? 'মিডিয়া সেন্টার (Media & Stories)' : 'Media & Updates'}</span>
+                  </span>
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileSubMenu === 'media' ? 'rotate-180 text-[#138086]' : ''}`} />
+                </button>
+                {mobileSubMenu === 'media' && (
+                  <div className="pl-6 pr-3 pb-3 pt-1 space-y-2 text-xs font-semibold text-slate-600 bg-slate-50/50">
+                    <Link to="/blog" onClick={closeMegaMenu} className="block py-1 hover:text-[#0D6E4F]">• {isBn ? 'মাঠপর্যায়ের ব্লগ ও গল্প' : 'Blog & Field Stories'}</Link>
+                    <Link to="/events" onClick={closeMegaMenu} className="block py-1 hover:text-[#0D6E4F]">• {isBn ? 'আসন্ন অনুষ্ঠান ও ইভেন্টস' : 'Events & Programs'}</Link>
+                    <Link to="/news" onClick={closeMegaMenu} className="block py-1 hover:text-[#0D6E4F]">• {isBn ? 'প্রেস রিলিজ ও সংবাদ' : 'Press Releases & News'}</Link>
+                    <Link to="/gallery/photos" onClick={closeMegaMenu} className="block py-1 hover:text-[#0D6E4F]">• {isBn ? 'ফটো গ্যালারি' : 'Photo Gallery'}</Link>
+                    <Link to="/gallery/videos" onClick={closeMegaMenu} className="block py-1 hover:text-[#0D6E4F]">• {isBn ? 'ভিডিও ডকুমেন্টারি' : 'Video Gallery'}</Link>
+                  </div>
+                )}
+              </div>
+
+              {/* 6. Get Involved Accordion */}
+              <div className="border border-slate-100 rounded-2xl overflow-hidden">
+                <button 
+                  onClick={() => toggleMobileSub('involved')}
+                  className="w-full flex items-center justify-between p-3 text-left hover:bg-slate-50 transition-colors"
+                >
+                  <span className="flex items-center gap-2">
+                    <HandHeart className="w-4 h-4 text-[#138086]" />
+                    <span>{isBn ? 'যুক্ত হোন (Get Involved)' : 'Get Involved'}</span>
+                  </span>
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileSubMenu === 'involved' ? 'rotate-180 text-[#138086]' : ''}`} />
+                </button>
+                {mobileSubMenu === 'involved' && (
+                  <div className="pl-6 pr-3 pb-3 pt-1 space-y-2 text-xs font-semibold text-slate-600 bg-slate-50/50">
+                    <Link to="/join-us" onClick={closeMegaMenu} className="block py-1 hover:text-[#0D6E4F]">• {isBn ? 'কেন যুক্ত হবেন (Why Join Us)' : 'Why Join Us'}</Link>
+                    <Link to="/volunteer" onClick={closeMegaMenu} className="block py-1 hover:text-[#0D6E4F]">• {isBn ? 'স্বেচ্ছাসেবী হিসেবে যোগ দিন' : 'Volunteer'}</Link>
+                    <Link to="/contact" onClick={closeMegaMenu} className="block py-1 hover:text-[#0D6E4F]">• {isBn ? 'উপদেষ্টা / অংশীদারিত্ব' : 'Partner with SCT'}</Link>
+                    <Link to="/donate" onClick={closeMegaMenu} className="block py-1 font-bold text-[#E6A119]">• {isBn ? 'অনুদান ও সহায়তা' : 'Support / Donate'}</Link>
+                  </div>
+                )}
+              </div>
+
+              {/* 7. Resources Accordion */}
+              <div className="border border-slate-100 rounded-2xl overflow-hidden">
+                <button 
+                  onClick={() => toggleMobileSub('resources')}
+                  className="w-full flex items-center justify-between p-3 text-left hover:bg-slate-50 transition-colors"
+                >
+                  <span className="flex items-center gap-2">
+                    <ShieldCheck className="w-4 h-4 text-[#0D6E4F]" />
+                    <span>{isBn ? 'রিসোর্স ও স্বচ্ছতা' : 'Resources & Transparency'}</span>
+                  </span>
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileSubMenu === 'resources' ? 'rotate-180 text-[#138086]' : ''}`} />
+                </button>
+                {mobileSubMenu === 'resources' && (
+                  <div className="pl-6 pr-3 pb-3 pt-1 space-y-2 text-xs font-semibold text-slate-600 bg-slate-50/50">
+                    <Link to="/transparency" onClick={closeMegaMenu} className="block py-1 hover:text-[#0D6E4F]">• {isBn ? 'আর্থিক স্বচ্ছতা ও অডিট রিপোর্ট' : 'Financial Transparency & Audits'}</Link>
+                    <Link to="/resources" onClick={closeMegaMenu} className="block py-1 hover:text-[#0D6E4F]">• {isBn ? 'তথ্যসূত্র, আইন ও নীতিমালা' : 'Resources & Statutory Citations'}</Link>
+                  </div>
+                )}
+              </div>
+
+              {/* 8. Contact */}
+              <Link 
+                to="/contact" 
+                onClick={closeMegaMenu} 
+                className={`flex items-center justify-between py-2.5 px-3 rounded-xl transition-colors ${
+                  location.pathname === '/contact' ? 'bg-slate-100 text-[#138086]' : 'hover:bg-slate-50'
+                }`}
+              >
+                <span>{isBn ? 'যোগাযোগ ও সচিবালয়' : 'Contact & Secretariat'}</span>
+                <ChevronRight className="w-4 h-4 opacity-40" />
+              </Link>
+
+              {/* Bottom Direct CTA Buttons */}
+              <div className="pt-4 grid grid-cols-2 gap-2">
+                <Link
+                  to="/join-us"
+                  onClick={closeMegaMenu}
+                  className="bg-[#1B365D] hover:bg-[#104E7A] text-white py-3 rounded-xl text-xs font-bold text-center block shadow-md"
+                >
+                  {isBn ? 'যুক্ত হোন' : 'Join Our Movement'}
+                </Link>
+                <Link
+                  to="/donate"
+                  onClick={closeMegaMenu}
+                  className="bg-[#E6A119] hover:bg-[#F2B02A] text-slate-950 py-3 rounded-xl text-xs font-bold text-center block shadow-md"
+                >
+                  {isBn ? 'সহায়তা / অনুদান' : 'Support / Donate'}
+                </Link>
+              </div>
+
+              {/* Quick Language switch on mobile */}
+              <div className="pt-2 flex items-center justify-center gap-2 text-xs text-slate-500 font-semibold border-t border-slate-100 mt-4">
+                <span>{isBn ? 'ভাষা পরিবর্তন:' : 'Change Language:'}</span>
+                <button
+                  onClick={toggleLanguage}
+                  className="text-[#0D6E4F] font-bold underline cursor-pointer"
+                >
+                  {language === 'en' ? 'বাংলা সংস্করণ' : 'English Version'}
+                </button>
+              </div>
+
+            </div>
           </div>
         )}
 

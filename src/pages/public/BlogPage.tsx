@@ -49,7 +49,9 @@ export const BlogPage: React.FC = () => {
                   <h3 className="font-extrabold text-slate-900 text-base hover:text-[#0D6E4F] transition-colors line-clamp-2">
                     <Link to={`/blog/${b.slug}`}>{t(b.title)}</Link>
                   </h3>
-                  <p className="text-xs text-slate-600 mt-2 line-clamp-2">{t(b.excerpt)}</p>
+                  <p className="text-xs text-slate-600 mt-2 line-clamp-2">
+                    {t(b.summary || (b as any).excerpt)}
+                  </p>
                 </div>
 
                 <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-semibold">

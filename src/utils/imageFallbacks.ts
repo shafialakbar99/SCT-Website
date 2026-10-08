@@ -56,15 +56,15 @@ const ICONS = {
 };
 
 export const SVG_FALLBACKS = {
-  emergency: createSvgPlaceholder('Emergency Relief Mission', 'Humanity First Bangladesh', '#991B1B', '#B91C1C', ICONS.emergency),
+  emergency: createSvgPlaceholder('Emergency Initiative', 'Shaheen Cares Trust', '#991B1B', '#B91C1C', ICONS.emergency),
   water: createSvgPlaceholder('Clean Water Project', 'Safe Drinking Water Initiative', '#0369A1', '#0284C7', ICONS.water),
-  education: createSvgPlaceholder('Education & Schooling', 'Empowering Future Generations', '#047857', '#059669', ICONS.education),
-  healthcare: createSvgPlaceholder('Mobile Health Clinic', 'Emergency Medical Supplies', '#4338CA', '#4F46E5', ICONS.healthcare),
-  orphan: createSvgPlaceholder('Orphan & Child Care', 'Sponsorship & Warm Shelter', '#BE185D', '#DB2777', ICONS.child),
-  leadership: createSvgPlaceholder('Humanity First Leadership', 'Dedicated Board & Executive Council', '#1E293B', '#334155', ICONS.person),
-  avatar: createSvgPlaceholder('Supporter Profile', 'Humanity First Donor', '#334155', '#475569', ICONS.person),
-  gallery: createSvgPlaceholder('Field Operation Gallery', 'Humanity First in Action', '#0F766E', '#14B8A6', ICONS.gallery),
-  general: createSvgPlaceholder('Humanity First Bangladesh', 'Serving Humanity with Dignity', '#0D6E4F', '#0B5B41', ICONS.general)
+  education: createSvgPlaceholder('Special Needs Inclusive Education', 'SPUS Satarkul • SCT Flagship', '#047857', '#059669', ICONS.education),
+  healthcare: createSvgPlaceholder('Therapy & Rehabilitation', 'Support for Special Needs Children', '#4338CA', '#4F46E5', ICONS.healthcare),
+  orphan: createSvgPlaceholder('Child Care & Assistive Devices', 'Shaheen Cares Trust', '#BE185D', '#DB2777', ICONS.child),
+  leadership: createSvgPlaceholder('Shaheen Cares Trust Leadership', 'Board of Trustees & Secretariat', '#1E293B', '#334155', ICONS.person),
+  avatar: createSvgPlaceholder('Supporter Profile', 'Shaheen Cares Community', '#334155', '#475569', ICONS.person),
+  gallery: createSvgPlaceholder('Field Operation Gallery', 'Shaheen Cares Trust in Action', '#0F766E', '#14B8A6', ICONS.gallery),
+  general: createSvgPlaceholder('Shaheen Cares Trust', 'Building Dignified Futures, Together', '#0D6E4F', '#0B5B41', ICONS.general)
 };
 
 /**

@@ -133,14 +133,14 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
         {/* Brand Header */}
         <div className="h-16 px-6 flex items-center justify-between border-b border-slate-800/80 bg-slate-950/40">
           <Link to="/admin/dashboard" className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#0D6E4F] to-emerald-400 flex items-center justify-center text-white font-black text-lg shadow-md shadow-emerald-900/30">
-              HF
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#1B365D] to-teal-500 flex items-center justify-center text-white font-black text-xs shadow-md shadow-slate-900/30">
+              SCT
             </div>
             <div>
               <div className="font-bold text-white text-sm tracking-wide flex items-center gap-1.5">
-                Humanity First <span className="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-1.5 py-0.2 rounded font-mono">ADMIN</span>
+                Shaheen Cares <span className="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-1.5 py-0.2 rounded font-mono">ADMIN</span>
               </div>
-              <div className="text-[11px] text-slate-400">Control Panel v2.0</div>
+              <div className="text-[11px] text-slate-400">Trust Secretariat v2.0</div>
             </div>
           </Link>
         </div>

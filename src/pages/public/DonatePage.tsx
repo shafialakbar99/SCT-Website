@@ -312,7 +312,7 @@ export const DonatePage: React.FC = () => {
                     <span>{copiedAccount ? 'Copied' : 'Copy'}</span>
                   </button>
                 </div>
-                <p className="text-slate-600">Routing: 060260783 • Swift: BRACBDDH • Account Name: Humanity First Bangladesh Foundation</p>
+                <p className="text-slate-600">Routing: 060260783 • Swift: CIBLBDDH • Account Name: Shaheen Cares Trust</p>
               </div>
             ) : (
               <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs space-y-2">

@@ -54,8 +54,8 @@ export class ErrorBoundary extends (React.Component as any) {
               <AlertTriangle className="w-8 h-8 text-[#0D6E4F]" />
             </div>
 
-            <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-2 font-serif">
-              Humanity First BD
+            <h2 className="text-xl md:text-2xl font-black text-[#1B365D] mb-2 font-serif">
+              Shaheen Cares Trust
             </h2>
             <p className="text-sm text-slate-600 mb-6">
               একটি অপ্রত্যাশিত সমস্যা দেখা দিয়েছে। নিচের বাটন চেপে পেজটি পুনরায় লোড করুন।

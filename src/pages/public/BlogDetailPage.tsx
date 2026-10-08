@@ -56,11 +56,13 @@ export const BlogDetailPage: React.FC = () => {
         </div>
 
         <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 leading-relaxed text-sm text-slate-700 space-y-4">
-          <p className="text-base font-semibold text-slate-900 border-l-4 border-[#0D6E4F] pl-4 italic">
-            {t(blog.excerpt)}
-          </p>
-          <div className="space-y-4 pt-2">
-            <p>{t(blog.content)}</p>
+          {(blog.summary || (blog as any).excerpt) && (
+            <p className="text-base font-semibold text-slate-900 border-l-4 border-[#0D6E4F] pl-4 italic">
+              {t(blog.summary || (blog as any).excerpt)}
+            </p>
+          )}
+          <div className="space-y-4 pt-2 whitespace-pre-line text-slate-700 leading-relaxed">
+            {t(blog.content)}
           </div>
         </div>
 

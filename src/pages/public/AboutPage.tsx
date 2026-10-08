@@ -43,7 +43,7 @@ export const AboutPage: React.FC = () => {
         <div className="bg-[#0D6E4F] text-white rounded-3xl p-8 sm:p-14 shadow-2xl relative overflow-hidden">
           <div className="max-w-3xl space-y-4 relative z-10">
             <span className="bg-[#E6A119] text-slate-900 font-black text-[10px] px-3 py-1 rounded-full uppercase tracking-wider">
-              {isBn ? 'আমাদের ইতিহাস ও কার্যক্রম' : 'About Humanity First BD'}
+              {isBn ? 'আমাদের ইতিহাস ও কার্যক্রম' : 'About Shaheen Cares Trust'}
             </span>
 
             <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">

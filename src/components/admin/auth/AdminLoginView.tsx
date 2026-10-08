@@ -33,7 +33,7 @@ export const AdminLoginView: React.FC = () => {
             <ShieldCheck className="w-8 h-8 text-[#0D6E4F] dark:text-emerald-400" />
           </div>
           <h2 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">
-            {isBn ? 'হিউম্যানিটি ফার্স্ট অ্যাডমিন পোর্টাল' : 'Humanity First Admin'}
+            {isBn ? 'শাহীন কেয়ার্স ট্রাস্ট অ্যাডমিন পোর্টাল' : 'Shaheen Cares Trust Admin'}
           </h2>
           <p className="text-xs text-slate-500 dark:text-slate-400">
             {isBn ? 'এডমিনিস্ট্রেটর ড্যাশবোর্ডে প্রবেশ করতে সিকিউরিটি পিন দিন' : 'Enter administrator credentials or security PIN'}

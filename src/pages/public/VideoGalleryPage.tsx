@@ -21,10 +21,10 @@ export const VideoGalleryPage: React.FC = () => {
         {/* HEADER */}
         <div className="text-center max-w-2xl mx-auto mb-10">
           <span className="bg-purple-100 text-purple-700 font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider">
-            🎬 {isBn ? 'ভিডিয়ো ডকুমেন্টারি' : 'Video Documentaries'}
+            🎬 {isBn ? 'ভিডিও ডকুমেন্টারি ও রিপোর্ট' : 'Video Documentaries'}
           </span>
           <h1 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mt-2">
-            {isBn ? 'সরেজমিন ফিল্ড ডকুমেন্টারি' : 'Field Relief Documentaries'}
+            {isBn ? 'শাহীন কেয়ার্স ট্রাস্টের পরিচিতি ও প্রজেক্ট ভিডিও' : 'Impact Documentaries & Field Reports'}
           </h1>
         </div>
 
@@ -56,7 +56,9 @@ export const VideoGalleryPage: React.FC = () => {
                 <h3 className="font-extrabold text-slate-900 text-sm hover:text-[#0D6E4F] transition-colors leading-snug">
                   {t(vid.title)}
                 </h3>
-                <p className="text-xs text-slate-500 mt-2 line-clamp-2">{t(vid.description)}</p>
+                <p className="text-xs text-slate-500 mt-2 line-clamp-2">
+                  {t(vid.summary || (vid as any).description)}
+                </p>
               </div>
             </div>
           ))}
