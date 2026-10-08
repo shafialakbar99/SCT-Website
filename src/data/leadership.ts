@@ -21,7 +21,7 @@ export const chairmanData: LeaderProfile = {
   name: { en: 'Data Magfur', bn: 'দাতা মাগফুর' },
   role: { en: 'Chairperson, Board of Trustees', bn: 'চেয়ারপারসন, ট্রাস্টি বোর্ড' },
   designation: { en: 'Chairperson, Shaheen Cares Trust', bn: 'চেয়ারপারসন, শাহীন কেয়ার্স ট্রাস্ট' },
-  imageUrl: '/Images/chairman.jpeg?w=800&auto=format&fit=crop',
+  imageUrl: '/Images/chairman.png?w=800&auto=format&fit=crop',
   quote: {
     en: 'When a community comes together with compassion and purpose, it can create lasting change.',
     bn: 'যখন একটি কমিউনিটি সহানুভূতি ও সুস্পষ্ট উদ্দেশ্য নিয়ে একত্রিত হয়, তখন তা স্থায়ী পরিবর্তন আনতে পারে।'

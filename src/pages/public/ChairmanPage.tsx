@@ -125,7 +125,7 @@ export const ChairmanPage: React.FC = () => {
                 <div className="space-y-1">
                   <p className="font-bold text-slate-900 text-sm">{t(chairman.name)}</p>
                   <p className="text-xs text-slate-500 font-semibold">{t(chairman.role)}</p>
-                  <p className="text-[10px] font-mono text-[#0D6E4F]">Humanity First BD Foundation</p>
+                  <p className="text-[10px] font-mono text-[#0D6E4F]">Shaheen Cares Trust</p>
                 </div>
 
                 <Link
