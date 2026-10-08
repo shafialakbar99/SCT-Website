@@ -112,18 +112,19 @@ export const Header: React.FC = () => {
         <div className="bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-22 flex items-center justify-between gap-2">
             
-            {/* LOGO AREA (PROMINENT & ENLARGED) */}
-            <Link to="/" onClick={closeMegaMenu} className="flex items-center gap-3 shrink-0 py-1.5 group">
+            {/* LOGO AREA */}
+            <Link to="/" onClick={closeMegaMenu} className="flex items-center gap-3.5 shrink-0 py-1.5 group">
+              {/* শুধু গোলাকার মূল প্রতীকটি বড় হয়ে দেখাবে */}
               <img 
-                src="/Images/logo.png" 
-                alt="Shaheen Cares Trust Logo" 
-                className="h-14 sm:h-16 w-auto object-contain drop-shadow-xs transition-transform group-hover:scale-105" 
+                src="/Images/logo_circle_part.png" /* বা শুধু লোগোর অংশটুকু cropped image */
+                alt="Shaheen Cares Trust Emblem" 
+                className="h-16 sm:h-20 w-auto object-contain drop-shadow-sm transition-transform group-hover:scale-105" 
               />
               <div className="flex flex-col">
-                <span className="font-black text-[#1B365D] text-lg sm:text-xl lg:text-2xl leading-tight tracking-tight">
+                <span className="font-black text-[#1B365D] text-xl sm:text-2xl leading-none tracking-tight">
                   {t(siteContent.orgName)}
                 </span>
-                <span className="text-xs text-[#138086] font-bold tracking-tight hidden sm:block mt-0.5">
+                <span className="text-xs text-[#138086] font-bold tracking-tight hidden sm:block mt-1">
                   {t(siteContent.orgTagline)}
                 </span>
               </div>
