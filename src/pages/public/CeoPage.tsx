@@ -44,7 +44,7 @@ export const CeoPage: React.FC = () => {
           <span>/</span>
           <Link to="/about" className="hover:text-[#0D6E4F]">{isBn ? 'আমাদের কথা' : 'About Us'}</Link>
           <span>/</span>
-          <span className="text-[#0D6E4F]">{isBn ? 'ব্যবস্থাপনা পরিচালকের বাণী' : "MD/CEO's Message"}</span>
+          <span className="text-[#0D6E4F]">{isBn ? 'সচিবের বাণী' : "Secretary's Message"}</span>
         </div>
 
         {/* PROFILE & MESSAGE CONTAINER */}
@@ -62,7 +62,7 @@ export const CeoPage: React.FC = () => {
                   fallbackCategory="leadership"
                 />
                 <span className="absolute -bottom-3 right-4 bg-[#0D6E4F] text-white font-black text-[10px] px-3 py-1 rounded-full uppercase shadow-md">
-                  Managing Director & CEO
+                  General Secretary
                 </span>
               </div>
 
@@ -73,21 +73,6 @@ export const CeoPage: React.FC = () => {
                 <p className="text-xs font-bold text-[#0D6E4F]">
                   {t(ceo.designation)}
                 </p>
-                <p className="text-[11px] text-slate-500 font-medium">
-                  22+ Years Disaster Management & Field Operations Executive
-                </p>
-              </div>
-
-              <div className="p-4 bg-[#FDFBF7] rounded-2xl border border-slate-100 text-xs text-slate-600 space-y-2 text-left">
-                <div className="flex items-center gap-2 font-bold text-slate-800">
-                  <Compass className="w-4 h-4 text-[#0D6E4F]" />
-                  <span>Field Priorities</span>
-                </div>
-                <ul className="space-y-1 text-[11px] text-slate-500">
-                  <li>• Rapid Relief Deployment within 6 Hours</li>
-                  <li>• 12,000+ Volunteer Rescue Network</li>
-                  <li>• Real-Time Beneficiary Verification</li>
-                </ul>
               </div>
             </div>
 
@@ -96,7 +81,7 @@ export const CeoPage: React.FC = () => {
               
               <div className="border-b border-slate-200 pb-4">
                 <span className="bg-[#0D6E4F]/10 text-[#0D6E4F] font-black text-[10px] px-3 py-1 rounded-full uppercase tracking-wider">
-                  {isBn ? 'ব্যবস্থাপনা পরিচালকের বার্তা' : "Managing Director & CEO's Address"}
+                  {isBn ? 'সচিবের বার্তা' : "Secretary's Address"}
                 </span>
                 <h1 className="text-3xl font-black text-slate-900 tracking-tight mt-2">
                   {isBn ? 'দক্ষতা, দ্রুত প্রতিক্রিয়া ও শতভাগ মাঠ স্বচ্ছতা' : 'Operational Excellence, Speed & Absolute Field Integrity'}
@@ -125,7 +110,7 @@ export const CeoPage: React.FC = () => {
                 <div className="space-y-1">
                   <p className="font-bold text-slate-900 text-sm">{t(ceo.name)}</p>
                   <p className="text-xs text-slate-500 font-semibold">{t(ceo.role)}</p>
-                  <p className="text-[10px] font-mono text-[#0D6E4F]">Humanity First BD Operations</p>
+                  <p className="text-[10px] font-mono text-[#0D6E4F]">Shaheen Cares Trust</p>
                 </div>
 
                 <div className="flex gap-2">

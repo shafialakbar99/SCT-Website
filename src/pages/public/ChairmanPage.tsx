@@ -73,9 +73,6 @@ export const ChairmanPage: React.FC = () => {
                 <p className="text-xs font-bold text-[#0D6E4F]">
                   {t(chairman.designation)}
                 </p>
-                <p className="text-[11px] text-slate-500 font-medium">
-                  Former Director & Public Health Strategist, BRAC
-                </p>
               </div>
 
               <div className="p-4 bg-[#FDFBF7] rounded-2xl border border-slate-100 text-xs text-slate-600 space-y-2 text-left">
@@ -84,9 +81,10 @@ export const ChairmanPage: React.FC = () => {
                   <span>Key Qualifications</span>
                 </div>
                 <ul className="space-y-1 text-[11px] text-slate-500">
-                  <li>• PhD in Public Health & Humanitarian Strategy</li>
-                  <li>• 35+ Years Global Field Leadership</li>
-                  <li>• NGO Affairs Bureau Trustee Board Chair</li>
+                  <li>• Managing Director of Data Enterprises Limited and Maxtech Limited</li>
+                  <li>• Former Director of the Dhaka Chamber of Commerce & Industry (DCCI)</li>
+                  <li>• Past President of the Rotary Club of Metropolitan Dhaka</li>
+                  <li>• Proud alumnus of Dhaka University and BAF Shaheen College Dhaka</li>
                 </ul>
               </div>
             </div>
@@ -132,7 +130,7 @@ export const ChairmanPage: React.FC = () => {
                   to="/leadership/ceo"
                   className="inline-flex items-center gap-2 bg-[#0D6E4F] text-white px-5 py-2.5 rounded-xl text-xs font-bold hover:bg-[#0A583F] shadow-sm transition-all"
                 >
-                  <span>{isBn ? 'ব্যবস্থাপনা পরিচালকের বাণী পড়ুন' : "Read CEO's Message"}</span>
+                  <span>{isBn ? 'সচিবের বাণী পড়ুন' : "Read Secretary's Message"}</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
