@@ -91,7 +91,7 @@ export const Footer: React.FC = () => {
               <li><Link to="/about" className="hover:text-white transition-colors">📌 {isBn ? 'পটভূমি ও ইতিহাস' : 'Our Story'}</Link></li>
               <li><Link to="/purpose" className="hover:text-[#138086] transition-colors font-bold text-slate-200">🎯 {isBn ? 'আমাদের উদ্দেশ্য (Our Purpose)' : 'Our Purpose'}</Link></li>
               <li><Link to="/pillars" className="hover:text-[#138086] transition-colors font-bold text-slate-200">🏛️ {isBn ? 'আমাদের ৫টি স্তম্ভ' : 'Our Five Pillars'}</Link></li>
-              <li><Link to="/spus" className="hover:text-[#E6A119] transition-colors font-bold text-slate-200">★ {isBn ? 'প্রথম প্রজেক্ট (SPUS সাঁতারকুল)' : 'First Project: SPUS'}</Link></li>
+              <li><Link to="/spus" className="hover:text-[#E6A119] transition-colors font-bold text-slate-200">★ {isBn ? 'SPUS (অক্টোবর ২০২৬ – ২০২৯)' : 'SPUS (Oct 2026 – Oct 2029)'}</Link></li>
               <li><Link to="/strategy" className="hover:text-white transition-colors">🧭 {isBn ? 'কৌশলগত পরিকল্পনা (২০২৬–২০৩১)' : 'Strategy 2026–2031'}</Link></li>
               <li><Link to="/mission" className="hover:text-white transition-colors">👁️ {t(siteContent.nav.missionVision)}</Link></li>
               <li><Link to="/leadership/chairman" className="hover:text-white transition-colors">✍️ {isBn ? 'চেয়ারপারসনের বাণী' : "Chairperson's Message"}</Link></li>

@@ -53,6 +53,17 @@ export interface SpusProjectData {
   budget: {
     totalBdt: string;
     totalUsd: string;
+    annualLimitBdt: string;
+    quarterlyLimitBdt: string;
+    approvedPolicyNote: Localized;
+    quarterlyTable: {
+      sl: string;
+      q1: string;
+      q2: string;
+      q3: string;
+      q4: string;
+      totalPerYear: string;
+    }[];
     yearlyBreakdown: {
       year: string;
       bdt: string;
@@ -215,13 +226,13 @@ export const sctPurposeData: {
       number: '03',
       title: { en: 'Disability Inclusion', bn: 'প্রতিবন্ধী অন্তর্ভুক্তি' },
       description: {
-        en: 'Promoting education, therapy, specialized skills, assistive technology, human dignity, and economic opportunities for persons with disabilities.',
-        bn: 'প্রতিবন্ধী ব্যক্তি ও বিশেষ চাহিদাসম্পন্ন শিশুদের শিক্ষা, থেরাপি, সহায়ক উপকরণ, আত্মমর্যাদা এবং অর্থনৈতিক সুযোগ সৃষ্টি।'
+        en: 'Promoting education, therapy, specialized skills, nutritional support, human dignity, and inclusion for persons with disabilities.',
+        bn: 'প্রতিবন্ধী ব্যক্তি ও বিশেষ চাহিদাসম্পন্ন শিশুদের শিক্ষা, থেরাপি, পুষ্টি সহায়তা, আত্মমর্যাদা এবং সামাজিক অন্তর্ভুক্তি।'
       },
       items: [
         { en: 'Inclusive Classrooms & Adaptive Pedagogy', bn: 'উপযোগী ক্লাসরুম ও অন্তর্ভুক্তিমূলক শিক্ষণ' },
-        { en: 'Assistive Devices (Wheelchairs, Hearing Aids)', bn: 'সহায়ক সামগ্রী (হুইলচেয়ার, শ্রবণযন্ত্র ইত্যাদি)' },
-        { en: 'Disability-Inclusive Vocational Pathways', bn: 'প্রতিবন্ধীবান্ধব কর্মসংস্থান ও স্বাবলম্বীকরণ' },
+        { en: 'Clinical Therapy & Nutritional Well-being', bn: 'ক্লিনিক্যাল থেরাপি ও পুষ্টিকর খাবার কর্মসূচি' },
+        { en: 'Caregiver Support & Positive Parenting Guidance', bn: 'অভিভাবক সহায়তা ও পরিচর্যা প্রশিক্ষণ' },
         { en: 'Anti-Stigma & Community Dignity Advocacy', bn: 'সামাজিক কুসংস্কার দূরীকরণ ও অধিকার সুরক্ষা' }
       ],
       iconName: 'Accessibility',
@@ -505,24 +516,24 @@ export const sctPillarsData: PillarItem[] = [
 ];
 
 // ========================================================
-// 3. FIRST PROJECT — SPUS DATA
+// 3. PROJECT — SPUS DATA (OCTOBER 2026 TO OCTOBER 2029)
 // ========================================================
 export const sctSpusProjectData: SpusProjectData = {
   title: {
-    en: 'First Flagship Project: SPUS Satarkul',
-    bn: 'প্রথম প্রধান প্রকল্প: এসপিইউএস সাঁতারকুল'
+    en: 'SPUS Inclusive Education, Development, and Community Support for Children with Disabilities',
+    bn: 'SPUS: বিশেষ চাহিদাসম্পন্ন শিশুদের অন্তর্ভুক্তিমূলক শিক্ষা, বিকাশ ও সমাজিক সহায়তা'
   },
   partnerName: {
-    en: 'Satarkul Protibandhi Unnayan Sangstha (SPUS)',
-    bn: 'সাঁতারকুল প্রতিবন্ধী উন্নয়ন সংস্থা (SPUS)'
+    en: 'Satarkul Protibandhi Unnayan Sangstha (SPUS) [Implementing Partner]',
+    bn: 'সাঁতারকুল প্রতিবন্ধী উন্নয়ন সংস্থা (SPUS) [বাস্তবায়ন সহযোগী সংস্থা]'
   },
   location: {
     en: 'Satarkul, Badda, Dhaka, Bangladesh',
     bn: 'সাঁতারকুল, বাড্ডা, ঢাকা, বাংলাদেশ'
   },
   period: {
-    en: '2026–2029 (3-Year Partnership)',
-    bn: '২০২৬–২০২৯ (৩ বছর মেয়াদী অংশীদারিত্ব)'
+    en: 'October 2026 to October 2029 (3-Year Timeline)',
+    bn: 'অক্টোবর ২০২৬ থেকে অক্টোবর ২০২৯ (৩ বছর মেয়াদী)'
   },
   associatedPillars: 'Pillars 1 & 4 (Children with Special Needs + Organizational Sustainability)',
   goal: {
@@ -564,24 +575,24 @@ export const sctSpusProjectData: SpusProjectData = {
       iconName: 'Activity'
     },
     {
-      category: { en: 'Nutrition & Assistive Technology', bn: 'পুষ্টি ও সহায়ক উপকরণ' },
+      category: { en: 'Nutrition & Daily Meals', bn: 'পুষ্টি ও খাদ্য সহায়তা' },
       metric: '100%',
-      metricLabel: { en: 'Nutrition & Mobility Cover', bn: 'পুষ্টি ও মুভমেন্ট কভারেজ' },
+      metricLabel: { en: 'Daily Nutrition Cover', bn: 'দৈনিক পুষ্টি কভারেজ' },
       details: [
-        { en: 'Daily fortified nutritious snacks at the center', bn: 'সেন্টারে প্রতিদিন পুষ্টিকর নাস্তা ও সম্পূরক খাদ্য' },
-        { en: 'Customized wheelchairs, hearing aids, and braces', bn: 'উপযোগী হুইলচেয়ার, শ্রবণযন্ত্র ও স্প্লিন্ট প্রদান' },
+        { en: 'Daily fortified nutritious snacks & midday meal at the center', bn: 'সেন্টারে প্রতিদিন পুষ্টিকর নাস্তা ও দুপুরের খাবার' },
+        { en: 'Growth monitoring and micronutrient health support', bn: 'শিশুদের নিয়মিত বৃদ্ধি ট্র্যাকিং ও স্বাস্থ্য তদারকি' },
         { en: 'Hygiene and dental health screening camps', bn: 'নিয়মিত দাঁত ও ব্যক্তিগত পরিচ্ছন্নতা স্ক্রিনিং ক্যাম্প' }
       ],
       iconName: 'Apple'
     },
     {
-      category: { en: 'Livelihoods & Caregiver Skills', bn: 'জীবিকায়ন ও অভিভাবক প্রশিক্ষণ' },
-      metric: '40+',
-      metricLabel: { en: 'Mothers & Youth Trained', bn: 'মা ও তরুণদের প্রশিক্ষণ' },
+      category: { en: 'Caregiver Support & Counseling', bn: 'অভিভাবক সহায়তা ও কাউন্সেলিং' },
+      metric: '75+',
+      metricLabel: { en: 'Families Supported', bn: 'সহায়তাপ্রাপ্ত পরিবার' },
       details: [
-        { en: 'Vocational training for mothers of special needs children', bn: 'বিশেষ শিশুদের মায়েদের হস্তশিল্প ও সেলাই প্রশিক্ষণ' },
-        { en: 'Micro-grant linkage for home-based income generation', bn: 'ঘরে বসে আয়ের জন্য ক্ষুদ্র অনুদান ও কাঁচামাল প্রদান' },
-        { en: 'Direct market linkage for goods produced at center', bn: 'উৎপাদিত পণ্যের সরাসরি বিক্রয় ও বাজার সংযোগ' }
+        { en: 'Psychosocial counseling and peer support groups for mothers', bn: 'মায়েদের মানসিক স্বাস্থ্য কাউন্সেলিং ও পারস্পরিক সহমর্মী গ্রুপ' },
+        { en: 'Specialized home-care guidance for child development', bn: 'ঘরে বসে শিশুর বিশেষ যত্ন ও বিকাশ সংক্রান্ত প্রশিক্ষণ' },
+        { en: 'Parent-teacher regular reviews and progress tracking', bn: 'অভিভাবক-শিক্ষক নিয়মিত পর্যালোচনা ও অগ্রগতি তদারকি' }
       ],
       iconName: 'Briefcase'
     },
@@ -603,7 +614,7 @@ export const sctSpusProjectData: SpusProjectData = {
       details: [
         { en: 'Digitized finance, attendance, and record systems', bn: 'ডিজিটাল হিসাব, হাজিরা ও শিক্ষার্থী ডাটাবেজ' },
         { en: 'Standardized HR and safeguarding policies', bn: 'নিরাপত্তা ও মানবসম্পদ নীতিমালা প্রণয়ন' },
-        { en: 'Self-sustaining income generation strategy design', bn: 'ভবিষ্যতের জন্য স্থায়ী আয় নিশ্চিতকরণ কৌশল' }
+        { en: 'Long-term sustainability and transparent accountability systems', bn: 'স্বচ্ছ জবাবদিহিতা ও দীর্ঘমেয়াদী প্রাতিষ্ঠানিক ভিত্তি' }
       ],
       iconName: 'Shield'
     }
@@ -623,38 +634,26 @@ export const sctSpusProjectData: SpusProjectData = {
     },
     {
       id: 3,
-      title: { en: 'Nutrition & Hygiene Supplementation', bn: 'পুষ্টি ও হাইজিন সহায়তা' },
+      title: { en: 'Nutrition & Midday Meals Program', bn: 'পুষ্টি ও দুপুরের খাবার কর্মসূচি' },
       description: { en: 'Daily cooked meal / egg-milk nutrition boost combating acute malnutrition among students.', bn: 'শিক্ষার্থীদের অপুষ্টি রোধে সেন্টারে প্রতিদিন ডিম, দুধ ও স্বাস্থ্যকর খাবার সরবরাহ।' },
       iconName: 'Apple'
     },
     {
       id: 4,
-      title: { en: 'Assistive Devices Distribution', bn: 'সহায়ক উপকরণ বিতরণ' },
-      description: { en: 'Periodic clinical assessment and free fitting of wheelchairs, standing frames, hearing aids, and glasses.', bn: 'শারীরিক মাপ অনুযায়ী হুইলচেয়ার, স্ট্যান্ডিং ফ্রেম ও প্রয়োজনীয় চশমা-শ্রবণযন্ত্র প্রদান।' },
-      iconName: 'Smile'
+      title: { en: 'Caregiver Counseling & Home-Care Guidance', bn: 'অভিভাবক কাউন্সেলিং ও হোম-কেয়ার প্রশিক্ষণ' },
+      description: { en: 'Psychosocial support sessions and practical home therapy techniques for mothers and caregivers.', bn: 'বিশেষ শিশুদের মা ও অভিভাবকদের মানসিক স্বাস্থ্য সুরক্ষা ও থেরাপিউটিক যত্ন প্রশিক্ষণ।' },
+      iconName: 'HeartHandshake'
     },
     {
       id: 5,
-      title: { en: 'Vocational & Livelihood Training', bn: 'বৃত্তিমূলক ও জীবিকায়ন প্রশিক্ষণ' },
-      description: { en: 'Tailoring, paper crafts, and block-print workshops empowering families of special needs children.', bn: 'বিশেষ শিশুদের মায়েদের জন্য ব্লক-বাটিক, সেলাই ও ক্রাফট প্রশিক্ষণ।' },
-      iconName: 'Scissors'
-    },
-    {
-      id: 6,
-      title: { en: 'SME / Business Seed Support', bn: 'ক্ষুদ্র ব্যবসা ও সিড ফান্ড সহায়তা' },
-      description: { en: 'Providing micro-grants and marketing assistance so mothers can earn while keeping children in school.', bn: 'সন্তানের লেখাপড়ার পাশাপাশি মায়ের নিয়মিত আয়ের জন্য মূলধন সহায়তা।' },
-      iconName: 'DollarSign'
-    },
-    {
-      id: 7,
-      title: { en: 'Community Awareness Campaigns', bn: 'কমিউনিটি সচেতনতা ও প্রচারণা' },
-      description: { en: 'Street dramas, door-to-door counseling, and mosque announcements eliminating fear and superstition.', bn: 'কুসংস্কার দূর করতে সামাজিক নাটক, বাড়ি বাড়ি কাউন্সেলিং ও সচেতনতা বৃদ্ধি।' },
+      title: { en: 'Community Awareness Campaigns', bn: 'কমিউনিটি সচেতনতা ও সামাজিক আন্দোলন' },
+      description: { en: 'Street dramas, door-to-door counseling, and local community dialogues eliminating fear and stigma.', bn: 'কুসংস্কার দূর করতে সামাজিক নাটক, বাড়ি বাড়ি কাউন্সেলিং ও সচেতনতা বৃদ্ধি।' },
       iconName: 'Volume2'
     },
     {
-      id: 8,
+      id: 6,
       title: { en: 'MEAL & Institutional Strengthening', bn: 'ফলাফল তদারকি ও প্রাতিষ্ঠানিক ভিত্তি' },
-      description: { en: 'Continuous monitoring, quarterly financial audits, staff capacity building, and long-term sustainability modeling.', bn: 'ত্রৈমাসিক আর্থিক নিরীক্ষা, শিক্ষক দক্ষতা বৃদ্ধি ও দীর্ঘমেয়াদী স্থায়িত্বের কৌশল নিশ্চিতকরণ।' },
+      description: { en: 'Continuous monitoring, quarterly audits, staff capacity building, and long-term sustainability modeling.', bn: 'ত্রৈমাসিক আর্থিক নিরীক্ষা, শিক্ষক দক্ষতা বৃদ্ধি ও দীর্ঘমেয়াদী স্থায়িত্বের কৌশল নিশ্চিতকরণ।' },
       iconName: 'CheckCircle'
     }
   ],
@@ -685,35 +684,45 @@ export const sctSpusProjectData: SpusProjectData = {
     }
   ],
   budget: {
-    totalBdt: 'BDT 13.27M',
-    totalUsd: '~$108,000 USD',
+    totalBdt: 'BDT 60 Lacs (6,000,000 BDT)',
+    totalUsd: '~$50,000 USD',
+    annualLimitBdt: 'BDT 20 Lacs (2,000,000 BDT per year)',
+    quarterlyLimitBdt: 'BDT 5 Lacs (500,000 BDT per quarter)',
+    approvedPolicyNote: {
+      en: 'The original SPUS proposal amount shall not automatically constitute an SCT commitment. The total approved budget for the 3-year Project is BDT 60 lacs (BDT 20 lacs per year), with a limit of BDT 5 lacs per quarter. Disbursement will be made on a need basis up to a limit of BDT 5 lacs per quarter without adherence to specific budget heads. All amounts are mentioned in Bangladeshi Taka (BDT).',
+      bn: 'মূল SPUS প্রস্তাবিত অংক স্বয়ংক্রিয়ভাবে SCT-এর চূড়ান্ত প্রতিশ্রুতি হিসেবে গণ্য হবে না। ৩ বছর মেয়াদী এই প্রকল্পের মোট অনুমোদিত বাজেট ৬০ লাখ টাকা (প্রতি বছর ২০ লাখ টাকা), যেখানে প্রতি ত্রৈমাসিকে সর্বোচ্চ ৫ লাখ টাকা পর্যন্ত বরাদ্দের সীমা নির্ধারিত। নির্দিষ্ট কোনো বাজেট হেডে আবদ্ধ না থেকে প্রয়োজন এবং বাস্তব অগ্রগতির ভিত্তিতে ত্রৈমাসিকে সর্বোচ্চ ৫ লাখ টাকা পর্যন্ত অর্থ ছাড় করা হবে। সকল অংক বাংলাদেশী টাকায় (BDT) নির্ধারিত।'
+    },
+    quarterlyTable: [
+      { sl: 'Year-1', q1: '*N/A', q2: '500,000', q3: '500,000', q4: '500,000', totalPerYear: '2,000,000' },
+      { sl: 'Year-2', q1: '500,000', q2: '500,000', q3: '500,000', q4: '500,000', totalPerYear: '2,000,000' },
+      { sl: 'Year-3', q1: '500,000', q2: '500,000', q3: '500,000', q4: '500,000', totalPerYear: '2,000,000' }
+    ],
     yearlyBreakdown: [
       {
-        year: 'Year 1 (2026–2027)',
-        bdt: 'BDT 4.76M',
-        usd: '~$38,600',
-        focus: { en: 'Center refurbishment, therapy equipment setup, hiring specialist teachers, baseline survey', bn: 'সেন্টার সংস্কার, থেরাপি যন্ত্রপাতি ক্রয়, বিশেষজ্ঞ শিক্ষক নিয়োগ ও বেসলাইন সমীক্ষা' }
+        year: 'Year 1 (October 2026 – June 2027)',
+        bdt: 'BDT 20 Lacs (2,000,000)',
+        usd: '~$16,600',
+        focus: { en: 'Refurbishment, hiring specialist teachers, baseline evaluation, therapy operations across Q2-Q4', bn: 'সেন্টার মেরামত, স্পেশাল এডুকেটর নিয়োগ, বেসলাইন সমীক্ষা ও Q2-Q4 ত্রৈমাসিক বাস্তবায়ন' }
       },
       {
-        year: 'Year 2 (2027–2028)',
-        bdt: 'BDT 4.24M',
-        usd: '~$34,400',
-        focus: { en: 'Full-scale inclusive education, nutrition, caregiver livelihoods, assistive device distribution', bn: 'পূর্ণাঙ্গ শিক্ষা, নিয়মিত পুষ্টি, মায়েদের হস্তশিল্প প্রশিক্ষণ ও সহায়ক উপকরণ প্রদান' }
+        year: 'Year 2 (July 2027 – June 2028)',
+        bdt: 'BDT 20 Lacs (2,000,000)',
+        usd: '~$16,600',
+        focus: { en: 'Full-scale inclusive education, daily nutrition, caregiver vocational training across 4 quarters', bn: 'পূর্ণাঙ্গ শিক্ষা, নিয়মিত পুষ্টি ও মায়েদের হস্তশিল্প প্রশিক্ষণ (৪টি ত্রৈমাসিক)' }
       },
       {
-        year: 'Year 3 (2028–2029)',
-        bdt: 'BDT 4.26M',
-        usd: '~$34,500',
-        focus: { en: 'Advanced therapy, community transition, social enterprise launch, sustainability handover', bn: 'উন্নত থেরাপি, মূলধারার স্কুলে সংযোগ, সামাজিক ব্যবসা চালু ও টেকসই রূপান্তর' }
+        year: 'Year 3 (July 2028 – June 2029)',
+        bdt: 'BDT 20 Lacs (2,000,000)',
+        usd: '~$16,600',
+        focus: { en: 'Therapy expansion, mainstream school integration, institutional capacity handover', bn: 'উন্নত থেরাপি, মূলধারার স্কুলে সংযোগ ও প্রাতিষ্ঠানিক টেকসই সক্ষমতা রূপান্তর' }
       }
     ],
     categories: [
-      { en: 'Specialist Education & Teachers: 36.4%', bn: 'বিশেষ শিক্ষা ও শিক্ষক সম্মানী: ৩৬.৪%' },
-      { en: 'Therapy & Medical Rehabilitation: 22.7%', bn: 'থেরাপি ও চিকিৎসা পুনর্বাসন: ২২.৭%' },
-      { en: 'Nutrition, Hygiene & Assistive Devices: 18.2%', bn: 'পুষ্টি, পরিচ্ছন্নতা ও সহায়ক সামগ্রী: ১৮.২%' },
-      { en: 'Institutional Capacity, Governance & MEAL: 11.8%', bn: 'প্রাতিষ্ঠানিক সক্ষমতা, সুশাসন ও তদারকি: ১১.৮%' },
-      { en: 'Caregiver Livelihoods & Advocacy: 6.9%', bn: 'অভিভাবক জীবিকায়ন ও প্রচার: ৬.৯%' },
-      { en: 'Operations, Audit & Contingency: 4.0%', bn: 'পরিচালনা, অডিট ও জরুরি রিজার্ভ: ৪.০%' }
+      { en: 'Specialist Inclusive Education & Special Educators: 40.0%', bn: 'বিশেষ শিক্ষা ও শিক্ষক সম্মানী: ৪০.০%' },
+      { en: 'Therapy & Clinical Rehabilitation: 25.0%', bn: 'থেরাপি ও ক্লিনিক্যাল পুনর্বাসন: ২৫.০%' },
+      { en: 'Nutrition & Daily Meals Supplementation: 15.0%', bn: 'পুষ্টি ও খাদ্য সহায়তা: ১৫.০%' },
+      { en: 'Caregiver Psycho-Social Guidance & Awareness: 10.0%', bn: 'অভিভাবক মানসিক সেবা ও সচেতনতা: ১০.০%' },
+      { en: 'MEAL, Governance & Institutional Strengthening: 10.0%', bn: 'ফলাফল তদারকি ও সুশাসন সক্ষমতা: ১০.০%' }
     ]
   },
   dueDiligence: {
@@ -1293,7 +1302,7 @@ export const sctResourcesData: ResourceCategory[] = [
       },
       {
         title: 'SPUS Project Due Diligence & Partnership Review Deck',
-        subtitle: { en: 'Detailed 3-year baseline, BDT 13.27M budget allocation, and institutional strengthening framework.', bn: 'সাঁতারকুল প্রকল্পের বিস্তারিত ৩ বছর মেয়াদী প্রস্তাবিত বাজেট ও মূল্যায়ন দলিল।' },
+        subtitle: { en: 'Detailed 3-year baseline, BDT 60 Lacs approved budget allocation, and institutional strengthening framework.', bn: 'সাঁতারকুল প্রকল্পের বিস্তারিত ৩ বছর মেয়াদী অনুমোদিত বাজেট ও মূল্যায়ন দলিল।' },
         organization: 'SCT Project Review & Governance Secretariat',
         badge: 'Project Deck'
       }

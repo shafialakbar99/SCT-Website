@@ -31,7 +31,7 @@ const HERO_SLIDES: HeroSlide[] = [
       bn: '১৮৮২ সালের ট্রাস্ট আইনে নিবন্ধিত • মানবিক উদ্যোগ'
     },
     title: {
-      en: 'Building Dignified Futures, Together',
+      en: 'Building a Dignified Future Together',
       bn: 'একসাথে মর্যাদাপূর্ণ ভবিষ্যৎ বিনির্মাণ'
     },
     subtitle: {
@@ -48,7 +48,7 @@ const HERO_SLIDES: HeroSlide[] = [
       labelBn: 'আমাদের কার্যক্রম',
       url: '/purpose'
     },
-    image: '/Images/filler-image.jpeg?w=2000&auto=format&fit=crop'
+    image: '/Images/hero_slider/1.png?w=2000&auto=format&fit=crop'
   },
   {
     id: 2,
@@ -65,8 +65,8 @@ const HERO_SLIDES: HeroSlide[] = [
       bn: 'আমরা বিশ্বাস করি যখন একটি সমাজ সহানুভূতি ও সুস্পষ্ট উদ্দেশ্য নিয়ে একত্রিত হয়, তখন তা স্থায়ী পরিবর্তন আনতে পারে।'
     },
     primaryBtn: {
-      labelEn: 'Our First Project',
-      labelBn: 'আমাদের প্রথম প্রজেক্ট (SPUS)',
+      labelEn: 'SPUS (2026–2029)',
+      labelBn: 'SPUS (২০২৬–২০২৯)',
       url: '/spus'
     },
     secondaryBtn: {
@@ -74,7 +74,33 @@ const HERO_SLIDES: HeroSlide[] = [
       labelBn: 'অংশগ্রহণ করুন',
       url: '/volunteer'
     },
-    image: '/Images/filler-image.jpeg?w=2000&auto=format&fit=crop'
+    image: '/Images/Photo_Gallery/2.jpeg?w=2000&auto=format&fit=crop'
+  },
+  {
+  id: 3,
+  badge: {
+    en: 'Inclusive Education • Disability Support • Community Development',
+    bn: 'অন্তর্ভুক্তিমূলক শিক্ষা • প্রতিবন্ধী সহায়তা • কমিউনিটি উন্নয়ন'
+  },
+  title: {
+    en: 'Building a Dignified Future Together',
+    bn: 'একসাথে মর্যাদাপূর্ণ ভবিষ্যৎ বিনির্মাণ'
+  },
+  subtitle: {
+    en: 'Together with Satarkul Protibandhi Unnayan Sangstha (SPUS), Shaheen Cares Trust is building a more inclusive future for children with disabilities through inclusive education, therapy, nutrition, caregiver support, and sustainable community development.',
+    bn: 'সাতারকুল প্রতিবন্ধী উন্নয়ন সংস্থা (SPUS)-এর সঙ্গে অংশীদারত্বে শাহীন কেয়ার্স ট্রাস্ট অন্তর্ভুক্তিমূলক শিক্ষা, থেরাপি, পুষ্টি, পরিচর্যাকারীদের সহায়তা এবং টেকসই কমিউনিটি উন্নয়নের মাধ্যমে প্রতিবন্ধী শিশুদের জন্য আরও অন্তর্ভুক্তিমূলক ভবিষ্যৎ গড়ে তুলছে।'
+  },
+  primaryBtn: {
+    labelEn: 'Explore SPUS Project',
+    labelBn: 'SPUS প্রকল্প সম্পর্কে জানুন',
+    url: '/spus'
+  },
+  secondaryBtn: {
+    labelEn: 'Support Our Mission',
+    labelBn: 'আমাদের উদ্যোগে সহায়তা করুন',
+    url: '/donate'
+  },
+  image: '/Images/hero_slider/2.png'
   }
 ];
 
@@ -109,9 +135,9 @@ export const HomeHero: React.FC = () => {
             className="w-full h-full object-cover object-center"
             fallbackCategory="emergency"
           />
-          {/* ThemeForest Deep Forest Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#071712]/95 via-[#0A2019]/85 to-[#071712]/75" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#138086]/20 via-transparent to-transparent pointer-events-none" />
+          {/* ThemeForest Deep Forest Gradient Overlay (Brighter / Lighter Overlay) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#071712]/80 via-[#0A2019]/55 to-[#071712]/40" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#138086]/10 via-transparent to-transparent pointer-events-none" />
         </div>
       ))}
 
@@ -211,14 +237,14 @@ export const HomeHero: React.FC = () => {
               {/* Highlights List */}
               <div className="space-y-3.5 text-xs">
                 
-                {/* 1. First Project SPUS */}
+                {/* 1. Project SPUS */}
                 <div className="p-3.5 rounded-2xl bg-[#F8FBF9] border border-emerald-100 hover:border-emerald-200 transition-colors flex items-start gap-3">
                   <div className="w-9 h-9 rounded-xl bg-[#0D6E4F]/10 text-[#0D6E4F] flex items-center justify-center shrink-0 mt-0.5">
                     <School className="w-4 h-4" />
                   </div>
                   <div>
                     <div className="font-extrabold text-slate-900 flex items-center gap-1.5">
-                      <span>{isBn ? 'প্রথম প্রকল্প (SPUS সাঁতারকুল)' : 'First Project (SPUS):'}</span>
+                      <span>{isBn ? 'SPUS সাঁতারকুল (২০২৬–২০২৯)' : 'SPUS Satarkul (2026–2029):'}</span>
                     </div>
                     <p className="text-slate-600 mt-0.5 leading-relaxed font-medium">
                       {isBn 

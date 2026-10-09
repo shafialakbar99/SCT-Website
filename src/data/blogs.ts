@@ -9,15 +9,15 @@ export const initialBlogs: BlogPost[] = [
       bn: 'প্রতিবন্ধকতা পেরিয়ে: সাঁতারকুলে বিশেষ চাহিদাসম্পন্ন শিশুদের অন্তর্ভুক্তিমূলক শিক্ষা ও থেরাপি'
     },
     summary: {
-      en: 'How SCT’s flagship partnership with SPUS is transforming the lives of 75 children with special needs and 100 therapy beneficiaries in Satarkul, Dhaka.',
+      en: 'How SCT’s partnership with SPUS is transforming the lives of 75 children with special needs and 100 therapy beneficiaries in Satarkul, Dhaka.',
       bn: 'শাহীন কেয়ার্স ট্রাস্ট ও এসপিইউএস-এর যৌথ উদ্যোগে ঢাকার সাঁতারকুলে ৭৫ জন বিশেষ চাহিদাসম্পন্ন শিশুর শিক্ষা ও ১০০ জনের থেরাপি সেবার নতুন দিগন্ত।'
     },
     content: {
       en: `## The Reality of Special Needs Education in Bangladesh
 More than 60% of children with disabilities in Bangladesh remain out of formal school systems. In grassroots areas like Satarkul, families often face severe social stigma and a lack of specialized therapy facilities.
 
-## Our Partnership with SPUS (2026–2029)
-Shaheen Cares Trust (SCT) has partnered with Satarkul Protibandhi Unnayan Sangstha (SPUS)—a disability-led grassroots organization—under Pillars 1 & 4 of our strategic framework.
+## SPUS Inclusive Education & Community Support (October 2026 to October 2029)
+Shaheen Cares Trust (SCT) has partnered with Satarkul Protibandhi Unnayan Sangstha (SPUS)—a disability-led grassroots organization as the Implementing Partner—under Pillars 1 & 4 of our strategic framework.
 
 ### Core Focus Areas:
 1. **Inclusive Education**: Tailored learning modules for 75 children.
@@ -29,8 +29,8 @@ By combining community trust with structured institutional support, we aim to en
       bn: `## বাংলাদেশে বিশেষ চাহিদাসম্পন্ন শিশুদের শিক্ষার বর্তমান চিত্র
 বাংলাদেশে ৬০% এরও বেশি প্রতিবন্ধী শিশু প্রাতিষ্ঠানিক শিক্ষার বাইরে থেকে যায়। সাঁতারকুলের মতো এলাকায় সামাজিক কুসংস্কার এবং থেরাপি কেন্দ্রের অভাব পরিবারগুলোর জন্য বড় চ্যালেঞ্জ।
 
-## এসপিইউএস (SPUS)-এর সাথে আমাদের অংশীদারিত্ব (২০২৬–২০২৯)
-শাহীন কেয়ার্স ট্রাস্ট (SCT) তার ১ম ও ৪থ স্তম্ভের আওতায় স্থানীয় প্রতিবন্ধী ব্যক্তিদের পরিচালিত সামাজিক সংস্থা 'সাঁতারকুল প্রতিবন্ধী উন্নয়ন সংস্থা' (SPUS)-এর সাথে ৩ বছর মেয়াদী প্রকল্প চালু করেছে।
+## প্রকল্প: এসপিইউএস অন্তর্ভুক্তিমূলক শিক্ষা ও সহায়তা (অক্টোবর ২০২৬ – অক্টোবর ২০২৯)
+শাহীন কেয়ার্স ট্রাস্ট (SCT) তার ১ম ও ৪থ স্তম্ভের আওতায় স্থানীয় প্রতিবন্ধী ব্যক্তিদের পরিচালিত সামাজিক সংস্থা 'সাঁতারকুল প্রতিবন্ধী উন্নয়ন সংস্থা' (SPUS)-কে বাস্তবায়ন সহযোগী হিসেবে নিয়ে ৩ বছর মেয়াদী প্রকল্প চালু করেছে।
 
 ### মূল কার্যক্রম:
 ১. **অন্তর্ভুক্তিমূলক শিক্ষা**: ৭৫ জন শিশুর জন্য উপযোগী শিক্ষা উপকরণ ও পাঠদান।

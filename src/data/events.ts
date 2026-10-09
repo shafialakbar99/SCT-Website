@@ -23,12 +23,12 @@ export const initialEvents: EventItem[] = [
     id: 'evt-2',
     slug: 'spus-satarkul-inclusive-learning-and-therapy-workshop',
     title: { 
-      en: 'SPUS Special Needs Inclusive Education & Assistive Distribution Drive', 
-      bn: 'এসপিইউএস অন্তর্ভুক্তিমূলক শিক্ষা ও সহায়ক উপকরণ বিতরণ অনুষ্ঠান' 
+      en: 'SPUS Special Needs Inclusive Education & Learning Materials Drive', 
+      bn: 'এসপিইউএস অন্তর্ভুক্তিমূলক শিক্ষা ও শ্রেণিকক্ষ শিক্ষা উপকরণ বিতরণ' 
     },
     description: {
-      en: 'Distributing specialized learning kits, hygiene packs, and assistive devices for 75 children and therapy beneficiaries in Satarkul.',
-      bn: 'সাঁতারকুলে বিশেষ চাহিদাসম্পন্ন ৭৫ জন শিশুর মাঝে শিক্ষা উপকরণ, হাইজিন কিট ও সহায়কমূলক ডিভাইস বিতরণ।'
+      en: 'Distributing specialized learning kits, books, and nutrition packs for 75 special needs children in Satarkul.',
+      bn: 'সাঁতারকুলে বিশেষ চাহিদাসম্পন্ন ৭৫ জন শিশুর মাঝে শিক্ষা উপকরণ, বই-খাতা ও পুষ্টিকর খাদ্য সামগ্রী বিতরণ।'
     },
     eventDate: '2026-11-15',
     time: '10:00 AM - 02:00 PM',

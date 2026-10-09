@@ -83,6 +83,29 @@ export const WhyJoinUsPage: React.FC = () => {
             </p>
           </div>
 
+          {/* STANDALONE DONATE NOW APPEAL NOTICE */}
+          <div className="mt-8 p-4 sm:p-5 rounded-2xl bg-white border border-[#E6A119]/50 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="space-y-1">
+              <div className="flex items-center gap-1.5 text-xs font-black text-[#0D6E4F] uppercase tracking-wider">
+                <Heart className="w-4 h-4 text-[#E6A119] fill-[#E6A119]" />
+                <span>{isBn ? 'সরাসরি অনুদান দিন (Donate Now Stands Alone)' : 'Donate Now Stands Alone'}</span>
+              </div>
+              <p className="text-xs text-slate-600 max-w-2xl leading-relaxed">
+                {isBn 
+                  ? 'আমাদের সাথে আনুষ্ঠানিকভাবে সম্পৃক্ত না হয়েও যে কেউ যেকোনো স্থান থেকে সরাসরি অনুদান দিয়ে মানবিক কাজে সহায়তা করতে পারেন। আপনার প্রতিটি অনুদান সরাসরি বিশেষ চাহিদাসম্পন্ন শিশুদের জীবন বদলে দেয়।'
+                  : 'Anyone can donate directly to our cause without needing to get involved or register. Your financial support independently empowers special needs children and community care.'}
+              </p>
+            </div>
+            <Link
+              to="/donate"
+              className="bg-[#0D6E4F] hover:bg-[#09523B] text-white px-5 py-2.5 rounded-xl font-bold text-xs shrink-0 flex items-center gap-1.5 shadow-md transition-all hover:scale-105"
+            >
+              <Heart className="w-3.5 h-3.5 fill-[#E6A119] text-[#E6A119]" />
+              <span>{isBn ? 'অনুদান দিন' : 'Donate Now'}</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
         </div>
       </section>
 

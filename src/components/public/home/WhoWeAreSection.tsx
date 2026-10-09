@@ -55,7 +55,7 @@ export const WhoWeAreSection: React.FC = () => {
                 <p className="font-extrabold text-base sm:text-lg leading-snug drop-shadow-md">
                   {isBn 
                     ? '“মর্যাদাপূর্ণ ভবিষ্যৎ গড়ি, একসাথে”' 
-                    : '"Building Dignified Futures, Together"'
+                    : '"Building a Dignified Future Together"'
                   }
                 </p>
               </div>

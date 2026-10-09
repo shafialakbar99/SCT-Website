@@ -23,18 +23,18 @@ export const initialNews: NewsItem[] = [
   },
   {
     id: 'news-2',
-    slug: 'spus-satarkul-partnership-mou-signed-budget-11m',
+    slug: 'spus-satarkul-partnership-mou-signed-budget-60-lacs',
     title: {
-      en: 'SCT Signs 3-Year Partnership MoU with SPUS Satarkul with BDT 11.0M Allocation',
-      bn: 'সাঁতারকুল এসপিইউএস-এর সাথে ৩ বছর মেয়াদী ১১.০ মিলিয়ন টাকা বাজেটের সমঝোতা চুক্তি স্বাক্ষর'
+      en: 'SCT Approves 3-Year Project with SPUS: BDT 60 Lacs Budget (October 2026 to October 2029)',
+      bn: 'বাস্তবায়ন সহযোগী SPUS-এর সাথে ৩ বছর মেয়াদী ৬০ লাখ টাকা অনুমোদিত বাজেটের প্রকল্প চুক্তি'
     },
     summary: {
-      en: 'The project supports inclusive education for 75 special needs children and therapy for 100 beneficiaries while strengthening SPUS institutional systems.',
+      en: 'The project supports inclusive education for 75 special needs children and therapy for 100 beneficiaries with BDT 20 Lacs per year (max BDT 5 Lacs/quarter).',
       bn: 'এসপিইউএস-এর সাথে ৩ বছর মেয়াদী চুক্তির মাধ্যমে বিশেষ চাহিদাসম্পন্ন শিশুদের শিক্ষা, থেরাপি ও প্রতিষ্ঠানের দীর্ঘমেয়াদী স্থায়িত্ব নিশ্চিত করা হবে।'
     },
     content: {
-      en: 'Shaheen Cares Trust has formally signed a Memorandum of Understanding with Satarkul Protibandhi Unnayan Sangstha (SPUS) for a 3-year project (2026–2029) with a tentative budget of BDT 11.0 Million (~$88,000 USD).',
-      bn: 'শাহীন কেয়ার্স ট্রাস্ট ঘাসমূলের সামাজিক সংস্থা সাঁতারকুল প্রতিবন্ধী উন্নয়ন সংস্থা (SPUS)-এর সাথে ৩ বছর মেয়াদী (২০২৬–২০২৯) ১১.০ মিলিয়ন টাকা অনুমানের প্রজেক্ট চুক্তি সম্পন্ন করেছে।'
+      en: 'Shaheen Cares Trust has formally approved the 3-year SPUS Inclusive Education, Development, and Community Support for Children with Disabilities (October 2026 to October 2029). The total approved budget is BDT 60 Lacs (BDT 20 Lacs per year) with a limit of BDT 5 Lacs per quarter disbursed on a need basis.',
+      bn: 'শাহীন কেয়ার্স ট্রাস্ট ঘাসমূলের বাস্তবায়ন সহযোগী সংস্থা সাঁতারকুল প্রতিবন্ধী উন্নয়ন সংস্থা (SPUS)-এর সাথে ৩ বছর মেয়াদী (অক্টোবর ২০২৬ – অক্টোবর ২০২৯) প্রকল্পের জন্য মোট ৬০ লাখ টাকা (বার্ষিক ২০ লাখ টাকা, ত্রৈমাসিক সর্বোচ্চ ৫ লাখ টাকা) বাজেট অনুমোদন করেছে।'
     },
     source: { en: 'Daily Newspaper / Press Release', bn: 'প্রেস বিজ্ঞপ্তি' },
     coverImage: '/Images/filler-image.jpeg?w=2000&auto=format&fit=crop',

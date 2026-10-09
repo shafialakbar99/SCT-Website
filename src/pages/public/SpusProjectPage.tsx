@@ -60,7 +60,7 @@ export const SpusProjectPage: React.FC = () => {
             <span>/</span>
             <Link to="/pillars" className="hover:text-[#138086] transition-colors">{isBn ? 'কর্মপরিকল্পনা' : 'Our Work'}</Link>
             <span>/</span>
-            <span className="text-[#138086]">{isBn ? 'প্রথম প্রজেক্ট (SPUS)' : 'First Project (SPUS)'}</span>
+            <span className="text-[#138086]">{isBn ? 'SPUS' : 'SPUS'}</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -68,7 +68,7 @@ export const SpusProjectPage: React.FC = () => {
               <div className="flex flex-wrap items-center gap-2">
                 <span className="px-3 py-1 rounded-full bg-[#138086]/10 text-[#138086] text-xs font-black uppercase tracking-wider border border-[#138086]/20 inline-flex items-center gap-1.5">
                   <Sparkles className="w-3.5 h-3.5" />
-                  <span>{isBn ? 'ফ্ল্যাগশিপ অংশীদারিত্ব' : 'Flagship Initiative'}</span>
+                  <span>{isBn ? '৩ বছর মেয়াদী প্রকল্প' : '3-Year Project (2026–2029)'}</span>
                 </span>
                 <span className="px-3 py-1 rounded-full bg-[#1B365D]/10 text-[#1B365D] text-xs font-bold font-mono">
                   {sctSpusProjectData.associatedPillars}
@@ -90,9 +90,16 @@ export const SpusProjectPage: React.FC = () => {
                 </span>
               </div>
 
-              <p className="text-base sm:text-lg font-bold text-[#138086] leading-snug">
-                {t(sctSpusProjectData.partnerName)}
-              </p>
+              <div className="p-3.5 rounded-2xl bg-white border border-[#138086]/20 shadow-xs">
+                <p className="text-sm sm:text-base font-extrabold text-[#0D6E4F]">
+                  {t(sctSpusProjectData.partnerName)}
+                </p>
+                <p className="text-[11px] text-slate-500 font-medium mt-0.5">
+                  {isBn 
+                    ? '* বিশেষ দ্রষ্টব্য: SPUS কোনো প্রকল্প নয়, এটি এই প্রকল্পের বাস্তবায়ন সহযোগী সংস্থা।' 
+                    : '* Note: SPUS is not the project; it is the Implementing Partner organization.'}
+                </p>
+              </div>
 
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed pt-1">
                 {t(sctSpusProjectData.goal)}
@@ -134,7 +141,7 @@ export const SpusProjectPage: React.FC = () => {
           <div className="mt-12 flex flex-wrap items-center gap-2 border-b border-slate-200 pb-2">
             {[
               { id: 'overview', labelEn: 'Project Overview', labelBn: 'প্রকল্প বিবরণ ও সহায়তা' },
-              { id: 'activities', labelEn: 'Key Activities (8 Areas)', labelBn: 'প্রধান কার্যক্রম (৮টি ক্ষেত্র)' },
+              { id: 'activities', labelEn: 'Key Activities (6 Areas)', labelBn: 'প্রধান কার্যক্রম (৮টি ক্ষেত্র)' },
               { id: 'budget', labelEn: '3-Year Budget Plan', labelBn: '৩ বছরের বাজেট পরিকল্পনা' },
               { id: 'diligence', labelEn: 'Due Diligence & Impact', labelBn: 'যাচাই ও প্রত্যাশিত ফলাফল' }
             ].map(tab => (
@@ -301,13 +308,71 @@ export const SpusProjectPage: React.FC = () => {
                 {isBn ? 'স্বচ্ছ অর্থনৈতিক রূপরেখা' : 'Transparent Financial Framework'}
               </span>
               <h2 className="text-2xl sm:text-3xl font-black text-[#1B365D]">
-                {isBn ? '৩ বছর মেয়াদী প্রস্তাবিত বাজেট বিবরণী' : 'Three-Year Project Proposed Budget Statement'}
+                {isBn ? '৩ বছর মেয়াদী প্রকল্পের অনুমোদিত বাজেট বিবরণী' : 'Three-Year Project Approved Budget Statement'}
               </h2>
               <p className="text-xs sm:text-sm text-slate-600">
                 {isBn 
-                  ? 'মোট প্রস্তাবিত বাজেট: ১ কোটি ৩২.৭ লক্ষ টাকা (~১০৮,০০০ ইউএস ডলার)। স্বাধীন অডিট ও কঠোর গভর্ন্যান্স নিয়মে পরিচালিত।'
-                  : 'Total Proposed Budget: BDT 13.27M (~$108,000 USD) governed by strict fiduciary disclosures.'}
+                  ? 'মোট অনুমোদিত বাজেট: ৬০ লাখ টাকা (প্রতি বছর ২০ লাখ টাকা, ত্রৈমাসিকে সর্বোচ্চ ৫ লাখ টাকা)। সকল অংক বাংলাদেশী টাকায় (BDT) নির্ধারিত।'
+                  : 'Total Approved Budget: BDT 60 Lacs (BDT 20 Lacs per year, limit of BDT 5 Lacs per quarter on need basis).'}
               </p>
+            </div>
+
+            {/* Approved Policy Note Banner */}
+            <div className="p-5 sm:p-6 rounded-3xl bg-amber-50/80 border border-amber-200/90 shadow-sm space-y-2">
+              <div className="flex items-center gap-2 text-amber-800 font-black text-xs sm:text-sm uppercase tracking-wider">
+                <ShieldCheck className="w-4 h-4 text-amber-600" />
+                <span>{isBn ? 'বাজেট নীতিমালা ও আর্থিক অঙ্গীকার বিজ্ঞপ্তি' : 'Approved Budget Policy & Fiduciary Commitment Note'}</span>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+                {t(sctSpusProjectData.budget.approvedPolicyNote)}
+              </p>
+            </div>
+
+            {/* Approved Quarterly Disbursement Limit Table */}
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm overflow-hidden space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                <h3 className="text-sm font-black uppercase tracking-wider text-[#1B365D]">
+                  {isBn ? 'অনুমোদিত ত্রৈমাসিক বাজেট ও অর্থ ছাড়ের রূপরেখা' : 'Approved Quarterly Disbursement Ceiling Schedule'}
+                </h3>
+                <span className="text-xs font-mono font-bold text-[#138086] bg-[#138086]/10 px-2.5 py-1 rounded-lg">
+                  Currency: Bangladeshi Taka (BDT)
+                </span>
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs sm:text-sm">
+                  <thead>
+                    <tr className="border-b border-slate-200 text-[#1B365D] font-black uppercase text-[11px] tracking-wider bg-slate-50/60">
+                      <th className="py-3.5 px-4">Sl.</th>
+                      <th className="py-3.5 px-4">Q1 (Jul-Sept)</th>
+                      <th className="py-3.5 px-4">Q2 (Oct-Dec)</th>
+                      <th className="py-3.5 px-4">Q3 (Jan-Mar)</th>
+                      <th className="py-3.5 px-4">Q4 (April-Jun)</th>
+                      <th className="py-3.5 px-4 text-right">Total Per Year</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100 font-medium text-slate-700">
+                    {sctSpusProjectData.budget.quarterlyTable.map((qRow, qIdx) => (
+                      <tr key={qIdx} className="hover:bg-slate-50 transition-colors">
+                        <td className="py-3.5 px-4 font-black text-slate-900">{qRow.sl}</td>
+                        <td className="py-3.5 px-4 font-mono">{qRow.q1}</td>
+                        <td className="py-3.5 px-4 font-mono font-bold text-[#138086]">{qRow.q2}</td>
+                        <td className="py-3.5 px-4 font-mono font-bold text-[#138086]">{qRow.q3}</td>
+                        <td className="py-3.5 px-4 font-mono font-bold text-[#138086]">{qRow.q4}</td>
+                        <td className="py-3.5 px-4 text-right font-mono font-black text-slate-900">{qRow.totalPerYear}</td>
+                      </tr>
+                    ))}
+                    <tr className="bg-emerald-50/70 font-black text-[#1B365D] border-t-2 border-emerald-200">
+                      <td colSpan={5} className="py-3.5 px-4 font-black uppercase text-xs">
+                        {isBn ? 'মোট ৩ বছর অনুমোদিত সর্বোচ্চ বাজেট (Total 3 Years)' : 'Total Approved Budget (3 Years)'}
+                      </td>
+                      <td className="py-3.5 px-4 text-right font-black text-[#0D6E4F] font-mono text-base">
+                        6,000,000 BDT
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
 
             {/* Yearly Table */}

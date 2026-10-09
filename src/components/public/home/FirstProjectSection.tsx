@@ -35,12 +35,12 @@ export const FirstProjectSection: React.FC = () => {
       titleBn: 'শিশুদের জন্য পুষ্টিকর দুপুরের খাবার কর্মসূচি'
     },
     {
-      titleEn: 'Teacher & Caregiver Specialized Training',
+      titleEn: 'Teacher & Caregiver Specialized Guidance',
       titleBn: 'শিক্ষক ও অভিভাবকদের বিশেষায়িত পরিচর্যা প্রশিক্ষণ'
     },
     {
-      titleEn: 'Assistive Devices (Wheelchairs, Hearing Aids)',
-      titleBn: 'সহায়ক সামগ্রী (হুইলচেয়ার, শ্রবণযন্ত্র ইত্যাদি) বিতরণ'
+      titleEn: 'Community Anti-Stigma Awareness & Advocacy',
+      titleBn: 'কুসংস্কার দূরীকরণ ও সামাজিক অন্তর্ভুক্তি সচেতনতা'
     }
   ];
 
@@ -53,11 +53,22 @@ export const FirstProjectSection: React.FC = () => {
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-[#0D6E4F] text-xs font-black uppercase tracking-wider mb-2">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>{isBn ? 'প্রথম ফ্ল্যাগশিপ ৩ বছর মেয়াদী প্রকল্প (২০২৬–২০২৯)' : 'First Flagship 3-Year Project (2026–2029)'}</span>
+              <span>{isBn ? 'প্রকল্প (অক্টোবর ২০২৬ – অক্টোবর ২০২৯)' : 'Project (October 2026 to October 2029)'}</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-[#1B365D] tracking-tight">
-              {isBn ? 'সাঁতারকুল প্রতিবন্ধী উন্নয়ন সংস্থা (SPUS)' : 'Satarkul Protibandhi Unnayan Sangstha (SPUS)'}
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#1B365D] tracking-tight">
+              {isBn 
+                ? 'বিশেষ চাহিদাসম্পন্ন শিশুদের অন্তর্ভুক্তিমূলক শিক্ষা, বিকাশ ও সামাজিক সহায়তা' 
+                : 'SPUS Inclusive Education, Development, and Community Support for Children with Disabilities'}
             </h2>
+            <div className="mt-2 text-xs font-bold text-[#0D6E4F] flex flex-wrap items-center gap-2">
+              <span className="bg-[#0D6E4F]/10 px-2.5 py-0.5 rounded-md">
+                {isBn ? 'বাস্তবায়ন সহযোগী: সাঁতারকুল প্রতিবন্ধী উন্নয়ন সংস্থা (SPUS)' : 'Implementing Partner: Satarkul Protibandhi Unnayan Sangstha (SPUS)'}
+              </span>
+              <span className="text-slate-400">•</span>
+              <span className="text-slate-500 font-normal">
+                {isBn ? '(উল্লেখ্য: SPUS প্রকল্পটি নয়, এটি বাস্তবায়ন সহযোগী সংস্থা)' : '(Note: SPUS is the Implementing Partner, not the project itself)'}
+              </span>
+            </div>
             <div className="flex items-center gap-2 text-xs font-bold text-slate-500 mt-2">
               <MapPin className="w-4 h-4 text-[#E06D53]" />
               <span>{isBn ? 'সাঁতারকুল, বাড্ডা, ঢাকা-১২১২, বাংলাদেশ' : 'Satarkul, Badda, Dhaka-1212, Bangladesh'}</span>
@@ -68,7 +79,7 @@ export const FirstProjectSection: React.FC = () => {
             to="/spus"
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#0D6E4F] hover:text-[#0A583F] hover:underline shrink-0"
           >
-            <span>{isBn ? 'সম্পূর্ণ SPUS প্রজেক্ট দেখুন' : 'Explore Full Project'}</span>
+            <span>{isBn ? 'সম্পূর্ণ প্রকল্পের বিবরণ ও বাজেট দেখুন' : 'Explore Full Project'}</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -107,19 +118,19 @@ export const FirstProjectSection: React.FC = () => {
 
               <div className="p-4 rounded-2xl bg-amber-50/60 border border-amber-100 text-center">
                 <span className="text-2xl sm:text-3xl font-black text-amber-700 block">
-                  {isBn ? '৮টি' : '8'}
+                  {isBn ? '৬টি' : '6'}
                 </span>
                 <span className="text-[11px] font-bold text-slate-700 mt-1 block">
-                  {isBn ? 'প্রধান কর্মপরিকল্পনা' : 'Intervention Areas'}
+                  {isBn ? 'প্রধান প্রকল্প এলাকা' : 'Core Project Areas'}
                 </span>
               </div>
 
               <div className="p-4 rounded-2xl bg-blue-50/60 border border-blue-100 text-center">
                 <span className="text-2xl sm:text-3xl font-black text-[#1B365D] block">
-                  {isBn ? '১১.০M' : '11.0M'}
+                  {isBn ? '৬০ লাখ' : '60 Lacs'}
                 </span>
                 <span className="text-[11px] font-bold text-slate-700 mt-1 block">
-                  {isBn ? '৩ বছর মেয়াদী বাজেট' : '3-Year BDT Budget'}
+                  {isBn ? '৩ বছর মেয়াদী বাজেট (BDT)' : '3-Year BDT Budget'}
                 </span>
               </div>
             </div>
@@ -157,7 +168,7 @@ export const FirstProjectSection: React.FC = () => {
             <div className="bg-[#FDFBF7] p-6 sm:p-7 rounded-3xl border border-slate-200/90 shadow-lg space-y-5">
               <div className="relative rounded-2xl overflow-hidden shadow-md">
                 <SafeImage
-                  src="/Images/filler-image.jpeg?w=800&auto=format&fit=crop"
+                  src="/Images/hero_slider/2.png?w=800&auto=format&fit=crop"
                   alt="SPUS Children Inclusive Classroom"
                   className="w-full h-56 sm:h-64 object-cover"
                   fallbackCategory="education"
@@ -170,7 +181,7 @@ export const FirstProjectSection: React.FC = () => {
               <div className="space-y-3">
                 <div className="flex items-center justify-between text-xs font-extrabold text-slate-800 border-b border-slate-200 pb-2">
                   <span>{isBn ? 'প্রকল্পের সময়কাল:' : 'Project Duration:'}</span>
-                  <span className="text-[#0D6E4F]">2026 – 2029 (3 Years)</span>
+                  <span className="text-[#0D6E4F]">{isBn ? 'অক্টোবর ২০২৬ – অক্টোবর ২০২৯ (৩ বছর)' : 'October 2026 to October 2029 (3 Years)'}</span>
                 </div>
                 <div className="flex items-center justify-between text-xs font-extrabold text-slate-800 border-b border-slate-200 pb-2">
                   <span>{isBn ? 'মূল লক্ষ্যভুক্ত স্তম্ভ:' : 'Primary Pillar:'}</span>

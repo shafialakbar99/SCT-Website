@@ -4,12 +4,12 @@ export const initialVideoGallery: VideoItem[] = [
   {
     id: 'vid-1',
     title: {
-      en: 'Shaheen Cares Trust: Building Dignified Futures, Together',
-      bn: 'শাহীন কেয়ার্স ট্রাস্ট: মর্যাদাপূর্ণ ভবিষ্যৎ গড়ি, একসাথে'
+      en: 'Shaheen Cares Trust: Building a Dignified Future Together',
+      bn: 'শাহীন কেয়ার্স ট্রাস্ট: মর্যাদাপূর্ণ ভবিষ্যৎ গড়ি একসাথে'
     },
     category: 'overview',
     thumbnailUrl: '/Images/filler-image.jpeg?w=2000&auto=format&fit=crop',
-    youtubeId: 'kJQP7kiw5Fk', // Authentic YouTube Video ID for Trust/Social Impact
+    youtubeId: 'z8Vqa1-C_Ow', // Authentic YouTube Video ID for Trust/Social Impact
     duration: '05:20',
     date: '2026-08-25',
     summary: {
@@ -20,12 +20,12 @@ export const initialVideoGallery: VideoItem[] = [
   {
     id: 'vid-2',
     title: {
-      en: 'First Project Overview: SPUS Satarkul Partnership (2026–2029)',
-      bn: 'প্রথম প্রকল্প পরিচিতি: এসপিইউএস সাঁতারকুল অংশীদারিত্ব (২০২৬–২০২৯)'
+      en: 'Project Overview: SPUS Satarkul Partnership (October 2026 to October 2029)',
+      bn: 'প্রকল্প পরিচিতি: এসপিইউএস সাঁতারকুল অংশীদারিত্ব (অক্টোবর ২০২৬ – অক্টোবর ২০২৯)'
     },
     category: 'projects',
     thumbnailUrl: '/Images/filler-image.jpeg?w=2000&auto=format&fit=crop',
-    youtubeId: 'L_LUpnjgPso',
+    youtubeId: 'z8Vqa1-C_Ow',
     duration: '04:45',
     date: '2026-08-15',
     summary: {
@@ -41,7 +41,7 @@ export const initialVideoGallery: VideoItem[] = [
     },
     category: 'messages',
     thumbnailUrl: '/Images/filler-image.jpeg?w=2000&auto=format&fit=crop',
-    youtubeId: 'fJ9rUzIMcDQ',
+    youtubeId: 'z8Vqa1-C_Ow',
     duration: '06:10',
     date: '2026-07-20',
     summary: {

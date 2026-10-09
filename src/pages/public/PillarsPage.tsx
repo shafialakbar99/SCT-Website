@@ -214,7 +214,7 @@ export const PillarsPage: React.FC = () => {
                           to="/spus"
                           className="inline-flex items-center gap-2 bg-[#138086] hover:bg-[#0f686d] text-white px-5 py-2.5 rounded-xl text-xs font-bold transition-all shadow-md"
                         >
-                          <span>{isBn ? '১ম স্তম্ভের প্রজেক্ট (SPUS) দেখুন' : 'Explore Flagship Project (SPUS)'}</span>
+                          <span>{isBn ? '১ম স্তম্ভের প্রজেক্ট (SPUS) দেখুন' : 'Explore Project (SPUS)'}</span>
                           <ArrowRight className="w-3.5 h-3.5" />
                         </Link>
                       </div>

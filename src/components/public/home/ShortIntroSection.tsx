@@ -72,7 +72,7 @@ export const ShortIntroSection: React.FC = () => {
           </span>
 
           <h2 className="text-3xl sm:text-4xl font-black text-[#1B365D] tracking-tight leading-tight">
-            {isBn ? 'একসাথে, আমরা স্থায়ী কল্যাণ তৈরি করতে পারি' : 'Together, We Can Create Lasting Good'}
+            {isBn ? 'একসাথে আমরা স্থায়ী কল্যাণ তৈরি করতে পারি' : 'Together we can create a lasting impact'}
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">

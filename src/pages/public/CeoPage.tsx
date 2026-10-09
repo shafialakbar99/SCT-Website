@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Quote, Compass, Users, Loader2 } from 'lucide-react';
+import { Quote, Compass, Users, Loader2, ShieldCheck } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { getCeoData } from '../../api/public/leadershipApi';
 import { LeaderProfile } from '../../types';
@@ -73,6 +73,21 @@ export const CeoPage: React.FC = () => {
                 <p className="text-xs font-bold text-[#0D6E4F]">
                   {t(ceo.designation)}
                 </p>
+              </div>
+              <div className="p-4 bg-[#FDFBF7] rounded-2xl border border-slate-100 text-xs text-slate-600 space-y-2 text-left">
+                <div className="flex items-center gap-2 font-bold text-slate-800">
+                  <ShieldCheck className="w-4 h-4 text-[#0D6E4F]" />
+                  <span>Key Qualifications</span>
+                </div>
+                <ul className="space-y-1 text-[11px] text-slate-500">
+                  <li>• Managing Director of Stellar Associates</li>
+                  <li>• Development Professional with 20+ Years in Civic Space, Rights & Governance</li>
+                  <li>• Former Lead/Manager for USAID, ILO, CIVICUS, and NETZ Bangladesh Programs</li>
+                  <li>• Expert in AI Integration for Development Practice, Research Design & Analytics</li>
+                  <li>• Master of Social Welfare (DU) & Master of Public Advocacy and Action (Victoria Univ.)</li>
+                  <li>• Policy Analysis Graduate from BIGM & Member of Rotary Club of Banani, Dhaka</li>
+                  <li>• Founding Trustee & General Secretary of Shaheen Cares Trust</li>
+                </ul>
               </div>
             </div>
 

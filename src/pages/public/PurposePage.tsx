@@ -189,8 +189,8 @@ export const PurposePage: React.FC = () => {
             </h3>
             <p className="text-xs sm:text-sm text-slate-200 max-w-xl">
               {isBn 
-                ? 'প্রথম ৩ বছর মেয়াদী প্রধান প্রকল্প: সাঁতারকুল প্রতিবন্ধী উন্নয়ন সংস্থা (SPUS) (২০২৬-২০২৯)।'
-                : 'Flagship 3-Year Project: Satarkul Protibandhi Unnayan Sangstha (SPUS) for Disability Inclusion (2026–2029).'}
+                ? '(অক্টোবর ২০২৬ – অক্টোবর ২০২৯): বিশেষ চাহিদাসম্পন্ন শিশুদের অন্তর্ভুক্তিমূলক শিক্ষা, বিকাশ ও সামাজিক সহায়তা — বাস্তবায়ন সহযোগী: SPUS।'
+                : 'SPUS Inclusive Education, Development, and Community Support for Children with Disabilities (October 2026 to October 2029) — Implementing Partner: SPUS.'}
             </p>
           </div>
 

@@ -3,12 +3,12 @@ import { SiteContent, AboutOrganization, MissionVisionData } from '../types';
 export const initialSiteContent: SiteContent = {
   id: 'site_content_default',
   orgName: { en: 'Shaheen Cares Trust', bn: 'শাহীন কেয়ার্স ট্রাস্ট' },
-  orgTagline: { en: 'Building Dignified Futures, Together', bn: 'মর্যাদাপূর্ণ ভবিষ্যৎ গড়ি, একসাথে' },
+  orgTagline: { en: 'Building a Dignified Future Together', bn: 'মর্যাদাপূর্ণ ভবিষ্যৎ গড়ি একসাথে' },
   regInfo: { en: 'Established under Trust Act of 1882 of Bangladesh', bn: 'বাংলাদেশের ১৮৮২ সালের ট্রাস্ট আইনের অধীনে নিবন্ধিত' },
   taxInfo: { en: 'Charitable & Humanitarian Initiative of the Shaheen Community', bn: 'শাহীন কমিউনিটির একটি দাতব্য ও মানবিক উদ্যোগ' },
   emergencyTicker: {
-    en: 'ANNOUNCEMENT: Shaheen Cares Trust Inauguration on Friday, October 9, 2026 in Dhaka. First Major Project: SPUS Satarkul (2026–2029).',
-    bn: 'বিজ্ঞপ্তি: আগামী শুক্রবার, ৯ই অক্টোবর, ২০২৬ ঢাকায় শাহীন কেয়ার্স ট্রাস্টের আনুষ্ঠানিক উদ্বোধন। প্রথম প্রকল্প: এসপিইউএস সাঁতারকুল (২০২৬-২০২৯)।'
+    en: 'ANNOUNCEMENT: Shaheen Cares Trust Inauguration on Friday, October 9, 2026 in Dhaka.',
+    bn: 'বিজ্ঞপ্তি: আগামী শুক্রবার, ৯ই অক্টোবর, ২০২৬ ঢাকায় শাহীন কেয়ার্স ট্রাস্টের আনুষ্ঠানিক উদ্বোধন।'
   },
   hotline: { en: '+880 1805-099605', bn: '+880 ১৮০৫-০৯৯৬০৫' },
   email: { en: 'shaheencares@gmail.com', bn: 'shaheencares@gmail.com' },
@@ -20,7 +20,7 @@ export const initialSiteContent: SiteContent = {
   nav: {
     home: { en: 'Home', bn: 'হোম' },
     causes: { en: 'Our Five Pillars', bn: 'আমাদের ৫টি স্তম্ভ' },
-    emergency: { en: 'First Project: SPUS', bn: 'প্রথম প্রকল্প: SPUS' },
+    emergency: { en: 'SPUS', bn: 'SPUS' },
     zakat: { en: 'Impact & Measurement', bn: 'প্রভাব ও পরিমাপ' },
     gallery: { en: 'Media & Gallery', bn: 'মিডিয়া ও গ্যালারি' },
     photos: { en: 'Photo Gallery', bn: 'ছবি গ্যালারি' },
@@ -63,8 +63,8 @@ export const initialSiteContent: SiteContent = {
     wellsLabel: { en: 'Therapy & Rehab Beneficiaries', bn: 'থেরাপি ও পুনর্বাসন সুবিধাভোগী' },
     students: { en: '5', bn: '৫' },
     studentsLabel: { en: 'Core Strategic Pillars', bn: 'কৌশলগত মূল স্তম্ভ' },
-    lives: { en: 'BDT 11.0M', bn: '১১.০ মিলিয়ন টাকা' },
-    livesLabel: { en: '3-Year SPUS Project Budget (~$88K)', bn: '৩ বছর মেয়াদী SPUS প্রকল্প বাজেট' }
+    lives: { en: 'BDT 60 Lacs', bn: '৬০ লাখ টাকা' },
+    livesLabel: { en: '3-Year Approved Project Budget (Oct 2026 – Oct 2029)', bn: '৩ বছর মেয়াদী অনুমোদিত প্রকল্প বাজেট' }
   },
   bankDetails: {
     bankName: { en: 'The City Bank PLC', bn: 'দি সিটি ব্যাংক পিএলসি' },
@@ -139,15 +139,15 @@ export const initialAboutData: AboutOrganization = {
     },
     {
       year: '2026–2029',
-      title: { en: 'First Major Project: SPUS Satarkul', bn: 'প্রথম প্রকল্প: এসপিইউএস সাঁতারকুল' },
-      desc: { en: '3-year partnership with Satarkul Protibandhi Unnayan Sangstha (BDT 11.0M tentative budget) for disability inclusion.', bn: 'সাঁতারকুল প্রতিবন্ধী উন্নয়ন সংস্থার সাথে ৩ বছর মেয়াদী (১১.০ মিলিয়ন টাকা বাজেট) অংশীদারিত্ব।' }
+      title: { en: 'SPUS Inclusive Education & Community Support', bn: 'এসপিইউএস অন্তর্ভুক্তিমূলক শিক্ষা ও সহায়তা' },
+      desc: { en: '3-year project (October 2026 to October 2029) with implementing partner SPUS with approved budget of BDT 60 Lacs.', bn: 'বাস্তবায়ন সহযোগী সংস্থা সাঁতারকুল প্রতিবন্ধী উন্নয়ন সংস্থার সাথে ৩ বছর মেয়াদী (৬০ লাখ টাকা অনুমোদিত বাজেট) প্রকল্প।' }
     }
   ],
   stats: [
     { label: { en: 'Inclusive Education Beneficiaries', bn: 'অন্তর্ভুক্তিমূলক শিক্ষা শিক্ষার্থী' }, value: { en: '75', bn: '৭৫' } },
     { label: { en: 'Therapy & Rehabilitation Support', bn: 'থেরাপি ও পুনর্বাসন সুবিধাভোগী' }, value: { en: '100', bn: '১০০' } },
     { label: { en: 'Strategic Pillars (2026–2031)', bn: 'কৌশলগত স্তম্ভ' }, value: { en: '5 Pillars', bn: '৫টি স্তম্ভ' } },
-    { label: { en: 'First Project Budget (3 Years)', bn: 'প্রথম প্রকল্পের বাজেট' }, value: { en: 'BDT 11.0M', bn: '১১.০ মিলিয়ন টাকা' } }
+    { label: { en: 'Project Approved Budget (3 Years)', bn: 'অনুমোদিত প্রকল্প বাজেট (৩ বছর)' }, value: { en: 'BDT 60 Lacs', bn: '৬০ লাখ টাকা' } }
   ]
 };
 

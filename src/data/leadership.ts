@@ -88,7 +88,7 @@ export const ceoData: LeaderProfile = {
   },
   bio: {
     en: 'Sumana Binte Masud serves as the General Secretary of Shaheen Cares Trust, overseeing the strategic implementation of SCT’s Five Pillars (Special Needs, Youth Employability, Elderly Care, Organizational Sustainability, and Shaheen Community Care) and leading partnerships like the SPUS Satarkul project.',
-    bn: 'সুমানা বিনতে মাসুদ শাহীন কেয়ার্স ট্রাস্টের সাধারণ সম্পাদক হিসেবে দায়িত্ব পালন করছেন। তিনি ট্রাস্টের পাঁচটি কৌশলগত স্তম্ভ বাস্তবায়নে এবং প্রথম ফ্ল্যাগশিপ প্রজেক্ট (SPUS সাঁতারকুল) পরিচালনায় গুরুত্বপূর্ণ ভূমিকা রাখছেন।'
+    bn: 'সুমানা বিনতে মাসুদ শাহীন কেয়ার্স ট্রাস্টের সাধারণ সম্পাদক হিসেবে দায়িত্ব পালন করছেন। তিনি ট্রাস্টের পাঁচটি কৌশলগত স্তম্ভ বাস্তবায়নে এবং প্রকল্প (SPUS সাঁতারকুল) পরিচালনায় গুরুত্বপূর্ণ ভূমিকা রাখছেন।'
   },
   message: {
     en: `Greetings to the Shaheen Community & Friends,
@@ -97,7 +97,7 @@ Shaheen Cares Trust (SCT) was created to transform the spirit of "Once a Shaheen
 
 Our primary purpose is to improve the lives of disadvantaged, vulnerable, and underserved people while contributing to the sustainable development of local communities across Bangladesh. 
 
-Through our first project with Satarkul Protibandhi Unnayan Sangstha (SPUS) (2026–2029), we are supporting inclusive education for 75 children, therapy services for 100 beneficiaries, and strengthening institutional capacity.
+Through our project with Satarkul Protibandhi Unnayan Sangstha (SPUS) (October 2026 to October 2029), we are supporting inclusive education for 75 children, therapy services for 100 beneficiaries, and strengthening institutional capacity.
 
 We invite you to join us with your time, skills, and compassion as we build an inclusive nation where everyone lives with dignity.
 
@@ -111,7 +111,7 @@ Shaheen Cares Trust`,
 
 আমাদের মূল উদ্দেশ্য হলো বিশেষ চাহিদাসম্পন্ন শিশু, বেকার যুবসমাজ ও প্রবীণদের পাশে দাঁড়ানো এবং স্থানীয় সামাজিক সংস্থাগুলোর প্রাতিষ্ঠানিক সক্ষমতা বৃদ্ধিতে ভূমিকা রাখা।
 
-আমাদের প্রথম প্রধান উদ্যোগ (২০২৬–২০২৯) শুরু হয়েছে সাঁতারকুল প্রতিবন্ধী উন্নয়ন সংস্থার (SPUS) সাথে অংশীদারিত্বের মাধ্যমে, যেখানে ৭৫ জন শিশুর অন্তর্ভুক্তিমূলক শিক্ষা, ১০০ জন সুবিধাভোগীর থেরাপি ও পুনর্বাসন সেবা এবং সংস্থাসমূহের স্থায়িত্ব নিশ্চিত করা হচ্ছে।
+আমাদের প্রকল্প (অক্টোবর ২০২৬ – অক্টোবর ২০২৯) শুরু হয়েছে সাঁতারকুল প্রতিবন্ধী উন্নয়ন সংস্থার (SPUS) সাথে অংশীদারিত্বের মাধ্যমে, যেখানে ৭৫ জন শিশুর অন্তর্ভুক্তিমূলক শিক্ষা, ১০০ জন সুবিধাভোগীর থেরাপি ও পুনর্বাসন সেবা এবং সংস্থাসমূহের স্থায়িত্ব নিশ্চিত করা হচ্ছে।
 
 আসুন, আমরা সবাই আমাদের মেধা, সময় ও সহমর্মিতা নিয়ে একসাথে কাজ করি।
 
@@ -220,7 +220,7 @@ export const staffMembersData: LeaderProfile[] = [
     role: { en: 'Accounts & Compliance Lead', bn: 'হিসাব ও কমপ্লায়েন্স প্রধান' },
     designation: { en: 'Finance Officer', bn: 'অর্থ কর্মকর্তা' },
     imageUrl: '/Images/user.jpeg?w=800&auto=format&fit=crop',
-    bio: { en: 'Handles financial compliance, budget tracking for BDT 13.27M SPUS project, and bank disclosures.', bn: 'প্রকল্পের বাজেট বরাদ্দ, ব্যাংকিং লেনদেন এবং বার্ষিক আর্থিক হিসাব সংরক্ষণ করেন।' },
+    bio: { en: 'Handles financial compliance, quarterly budget tracking for BDT 60 Lacs SPUS project, and bank disclosures.', bn: 'প্রকল্পের অনুমোদিত ৬০ লাখ টাকা বাজেট বরাদ্দ, ত্রৈমাসিক অর্থছাড় ও ব্যাংকিং লেনদেনের হিসাব সংরক্ষণ করেন।' },
     department: 'Finance',
     email: 'shaheencares@gmail.com',
     phone: '+880 1805-099605'

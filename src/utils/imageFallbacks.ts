@@ -58,13 +58,13 @@ const ICONS = {
 export const SVG_FALLBACKS = {
   emergency: createSvgPlaceholder('Emergency Initiative', 'Shaheen Cares Trust', '#991B1B', '#B91C1C', ICONS.emergency),
   water: createSvgPlaceholder('Clean Water Project', 'Safe Drinking Water Initiative', '#0369A1', '#0284C7', ICONS.water),
-  education: createSvgPlaceholder('Special Needs Inclusive Education', 'SPUS Satarkul • SCT Flagship', '#047857', '#059669', ICONS.education),
+  education: createSvgPlaceholder('Special Needs Inclusive Education', 'Project SPUS • Oct 2026 – Oct 2029', '#047857', '#059669', ICONS.education),
   healthcare: createSvgPlaceholder('Therapy & Rehabilitation', 'Support for Special Needs Children', '#4338CA', '#4F46E5', ICONS.healthcare),
-  orphan: createSvgPlaceholder('Child Care & Assistive Devices', 'Shaheen Cares Trust', '#BE185D', '#DB2777', ICONS.child),
+  orphan: createSvgPlaceholder('Child Care & Holistic Wellbeing', 'Shaheen Cares Trust', '#BE185D', '#DB2777', ICONS.child),
   leadership: createSvgPlaceholder('Shaheen Cares Trust Leadership', 'Board of Trustees & Secretariat', '#1E293B', '#334155', ICONS.person),
   avatar: createSvgPlaceholder('Supporter Profile', 'Shaheen Cares Community', '#334155', '#475569', ICONS.person),
   gallery: createSvgPlaceholder('Field Operation Gallery', 'Shaheen Cares Trust in Action', '#0F766E', '#14B8A6', ICONS.gallery),
-  general: createSvgPlaceholder('Shaheen Cares Trust', 'Building Dignified Futures, Together', '#0D6E4F', '#0B5B41', ICONS.general)
+  general: createSvgPlaceholder('Shaheen Cares Trust', 'Building a Dignified Future Together', '#0D6E4F', '#0B5B41', ICONS.general)
 };
 
 /**

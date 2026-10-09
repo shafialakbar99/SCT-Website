@@ -32,9 +32,9 @@ export const ImpactCounters: React.FC = () => {
     },
     {
       icon: <CircleDollarSign className="w-7 h-7 text-[#1B365D]" />,
-      number: isBn ? '১১.০M টাকা' : 'BDT 11.0M',
-      label: isBn ? '৩ বছর মেয়াদী SPUS প্রকল্প বাজেট (~$৮৮হাজার)' : '3-Year SPUS Project Budget (~$88K)',
-      sub: isBn ? 'শতভাগ নিরীক্ষিত ও স্বচ্ছ বরাদ্দ' : '100% audited transparent allocation',
+      number: isBn ? '৬০ লাখ টাকা' : 'BDT 60 Lacs',
+      label: isBn ? '৩ বছর মেয়াদী প্রকল্প অনুমোদিত বাজেট' : '3-Year Project Approved Budget',
+      sub: isBn ? 'বার্ষিক ২০ লাখ • ত্রৈমাসিক সর্বোচ্চ ৫ লাখ' : 'BDT 20L/yr • Max BDT 5L/quarter limit',
       borderColor: 'border-blue-100 hover:border-blue-300',
       iconBg: 'bg-blue-50'
     }

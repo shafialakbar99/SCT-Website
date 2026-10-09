@@ -30,13 +30,17 @@ export const Home: React.FC = () => {
       {/* 4. Who We Are Section */}
       <WhoWeAreSection />
 
-      {/* 5. Our Purpose Section */}
+      {/* 5. Our Purpose Section 
       <OurPurposeSection />
+      */}
+      
+      {/* 15. Video and Image Gallery Section */}
+      <GalleryHighlights />
 
       {/* 6. Five Pillars Section */}
       <FivePillarsSection />
 
-      {/* 7. First Project (SPUS Satarkul) Section */}
+      {/* 7. Project (SPUS Satarkul) Section */}
       <FirstProjectSection />
 
       {/* 8. Message from Chairperson Section */}
@@ -58,10 +62,7 @@ export const Home: React.FC = () => {
       <PressNewsSection />
 
       {/* 14. Field Stories & Blog Section */}
-      <FieldStoriesBlogSection />
-
-      {/* 15. Video and Image Gallery Section */}
-      <GalleryHighlights />
+      <FieldStoriesBlogSection />      
     </main>
   );
 };

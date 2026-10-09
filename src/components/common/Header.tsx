@@ -75,8 +75,8 @@ export const Header: React.FC = () => {
     <>
       <header className="sticky top-0 z-40 w-full transition-all duration-300">
         
-        {/* TOP EMERGENCY / INAUGURATION ALERT BAR */}
-        <div className="bg-[#1B365D] text-white text-[10.5px] sm:text-[11.5px] py-1 sm:py-1.5 px-3 sm:px-6 flex items-center justify-between border-b border-white/10">
+        {/* TOP EMERGENCY / INAUGURATION ALERT BAR WITH SCROLLING & FLASHING DONATE APPEAL */}
+        <div className="bg-[#1B365D] text-white text-[10.5px] sm:text-[11.5px] py-1 sm:py-1.5 px-3 sm:px-6 flex items-center justify-between border-b border-white/10 gap-2 overflow-hidden">
           <div className="flex items-center gap-1.5 sm:gap-2 overflow-hidden mr-2 min-w-0">
             <span className="bg-[#E6A119] text-slate-950 font-black px-1.5 sm:px-2 py-0.5 rounded text-[9.5px] sm:text-[10px] uppercase tracking-wider animate-pulse shrink-0">
               {isBn ? 'বিজ্ঞপ্তি' : 'INAUGURATION'}
@@ -88,11 +88,20 @@ export const Header: React.FC = () => {
               to="/spus" 
               className="hidden md:inline-flex items-center text-[#E6A119] hover:underline font-bold text-[11px] shrink-0 ml-1 whitespace-nowrap"
             >
-              {isBn ? 'SPUS প্রজেক্ট দেখুন' : 'Explore SPUS'} <ArrowRight className="w-3 h-3 ml-0.5" />
+              {isBn ? 'SPUS দেখুন' : 'Explore SPUS'} <ArrowRight className="w-3 h-3 ml-0.5" />
             </Link>
           </div>
 
           <div className="flex items-center gap-2 sm:gap-3 shrink-0 text-white/90">
+            {/* Mobile quick donate link */}
+            <Link
+              to="/donate"
+              className="sm:hidden flex items-center gap-1 text-[#E6A119] hover:underline font-bold text-[10.5px]"
+            >
+              <Heart className="w-2.5 h-2.5 fill-[#E6A119]" />
+              <span>{isBn ? 'অনুদান' : 'Donate'}</span>
+            </Link>
+
             {/* Hotline */}
             <a href={`tel:${siteContent.hotline.en}`} className="hidden sm:flex items-center gap-1 hover:text-[#E6A119] transition-colors">
               <Phone className="w-3 h-3 text-[#E6A119]" />
@@ -114,7 +123,7 @@ export const Header: React.FC = () => {
 
         {/* MAIN NAVIGATION BAR */}
         <div className="bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs relative">
-          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-20 sm:h-22 flex items-center justify-between gap-1 sm:gap-2">
+          <div className="max-w-7xl mx-auto px-2.5 sm:px-5 lg:px-6 h-18 sm:h-20 flex items-center justify-between gap-1 sm:gap-2">
             
             {/* LOGO AREA (FLEXIBLE ON MOBILE SO IT NEVER CUTS OFF) */}
             <Link 
@@ -125,7 +134,7 @@ export const Header: React.FC = () => {
               <img 
                 src="/Images/logo_circle_part.png" 
                 alt="Shaheen Cares Trust Emblem" 
-                className="h-16 sm:h-20 w-auto object-contain drop-shadow-sm transition-transform group-hover:scale-105" 
+                className="h-14 sm:h-16 w-auto object-contain drop-shadow-sm transition-transform group-hover:scale-105" 
               />
               <div className="flex flex-col min-w-0">
                 <span className="font-black text-[#1B365D] text-sm xs:text-base sm:text-xl xl:text-2xl leading-none tracking-tight truncate">
@@ -137,14 +146,14 @@ export const Header: React.FC = () => {
               </div>
             </Link>
 
-            {/* DESKTOP NAV LINKS (STREAMLINED & RESPONSIVE FOR BANGLA & ENGLISH) */}
-            <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 text-[11px] xl:text-[12.5px] font-bold text-slate-700">
+            {/* DESKTOP NAV LINKS (STREAMLINED & COMPACT FOR BANGLA & ENGLISH) */}
+            <nav className="hidden lg:flex items-center gap-0 xl:gap-0.5 text-[11px] xl:text-[12px] font-bold text-slate-700">
               
               {/* Home */}
               <Link 
                 to="/" 
                 onClick={closeMegaMenu}
-                className={`px-1.5 xl:px-2 py-1.5 rounded-lg whitespace-nowrap transition-colors ${
+                className={`px-1.5 xl:px-2 py-1 rounded-md whitespace-nowrap transition-colors ${
                   location.pathname === '/' ? 'text-[#138086] font-extrabold bg-slate-100/70' : 'hover:text-[#138086] hover:bg-slate-100/60'
                 }`}
               >
@@ -159,12 +168,12 @@ export const Header: React.FC = () => {
               >
                 <Link
                   to="/about"
-                  className={`px-1.5 xl:px-2 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
+                  className={`px-1.5 xl:px-2 py-1 rounded-md flex items-center gap-0.5 whitespace-nowrap transition-colors ${
                     activeMegaTab === 'about' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/60'
                   }`}
                 >
                   <span>{isBn ? 'আমাদের কথা' : 'About'}</span>
-                  <ChevronDown className="w-2.5 h-2.5 xl:w-3 xl:h-3 opacity-60" />
+                  <ChevronDown className="w-2.5 h-2.5 opacity-60" />
                 </Link>
               </div>
 
@@ -176,16 +185,16 @@ export const Header: React.FC = () => {
               >
                 <Link
                   to="/pillars"
-                  className={`px-1.5 xl:px-2 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
+                  className={`px-1.5 xl:px-2 py-1 rounded-md flex items-center gap-0.5 whitespace-nowrap transition-colors ${
                     activeMegaTab === 'pillars' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/60'
                   }`}
                 >
                   <span>{isBn ? 'কার্যক্রম' : 'Our Work'}</span>
-                  <ChevronDown className="w-2.5 h-2.5 xl:w-3 xl:h-3 opacity-60" />
+                  <ChevronDown className="w-2.5 h-2.5 opacity-60" />
                 </Link>
               </div>
 
-              {/* 3. FIRST PROJECT: SPUS */}
+              {/* 3. SPUS */}
               <div
                 onMouseEnter={() => handleMouseEnter('spus')}
                 onMouseLeave={handleMouseLeave}
@@ -193,15 +202,15 @@ export const Header: React.FC = () => {
               >
                 <Link
                   to="/spus"
-                  className={`px-1.5 xl:px-2 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
+                  className={`px-1.5 xl:px-2 py-1 rounded-md flex items-center gap-0.5 whitespace-nowrap transition-colors ${
                     activeMegaTab === 'spus' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/60'
                   }`}
                 >
                   <span className="flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#138086] animate-pulse" />
-                    <span>{isBn ? 'SPUS প্রজেক্ট' : 'SPUS Satarkul'}</span>
+                    <span>{isBn ? 'SPUS' : 'SPUS'}</span>
                   </span>
-                  <ChevronDown className="w-2.5 h-2.5 xl:w-3 xl:h-3 opacity-60" />
+                  <ChevronDown className="w-2.5 h-2.5 opacity-60" />
                 </Link>
               </div>
 
@@ -213,16 +222,16 @@ export const Header: React.FC = () => {
               >
                 <Link
                   to="/strategy"
-                  className={`px-1.5 xl:px-2 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
+                  className={`px-1.5 xl:px-2 py-1 rounded-md flex items-center gap-0.5 whitespace-nowrap transition-colors ${
                     activeMegaTab === 'strategy' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/60'
                   }`}
                 >
                   <span>{isBn ? 'কৌশল' : 'Strategy'}</span>
-                  <ChevronDown className="w-2.5 h-2.5 xl:w-3 xl:h-3 opacity-60" />
+                  <ChevronDown className="w-2.5 h-2.5 opacity-60" />
                 </Link>
               </div>
 
-              {/* 5. MEDIA (CONSOLIDATED: BLOG, EVENTS, NEWS, PHOTOS, VIDEOS) */}
+              {/* 5. MEDIA & RESOURCES (CONSOLIDATED: BLOG, EVENTS, NEWS, PHOTOS, VIDEOS, TRANSPARENCY, CITATIONS) */}
               <div
                 onMouseEnter={() => handleMouseEnter('media')}
                 onMouseLeave={handleMouseLeave}
@@ -230,12 +239,12 @@ export const Header: React.FC = () => {
               >
                 <Link
                   to="/news"
-                  className={`px-1.5 xl:px-2 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
+                  className={`px-1.5 xl:px-2 py-1 rounded-md flex items-center gap-0.5 whitespace-nowrap transition-colors ${
                     activeMegaTab === 'media' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/60'
                   }`}
                 >
-                  <span>{isBn ? 'মিডিয়া' : 'Media'}</span>
-                  <ChevronDown className="w-2.5 h-2.5 xl:w-3 xl:h-3 opacity-60" />
+                  <span>{isBn ? 'মিডিয়া ও রিসোর্স' : 'Media'}</span>
+                  <ChevronDown className="w-2.5 h-2.5 opacity-60" />
                 </Link>
               </div>
 
@@ -247,37 +256,20 @@ export const Header: React.FC = () => {
               >
                 <Link
                   to="/join-us"
-                  className={`px-1.5 xl:px-2 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
+                  className={`px-1.5 xl:px-2 py-1 rounded-md flex items-center gap-0.5 whitespace-nowrap transition-colors ${
                     activeMegaTab === 'involved' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/60'
                   }`}
                 >
                   <span>{isBn ? 'যুক্ত হোন' : 'Get Involved'}</span>
-                  <ChevronDown className="w-2.5 h-2.5 xl:w-3 xl:h-3 opacity-60" />
+                  <ChevronDown className="w-2.5 h-2.5 opacity-60" />
                 </Link>
               </div>
 
-              {/* 7. RESOURCES & TRANSPARENCY */}
-              <div
-                onMouseEnter={() => handleMouseEnter('resources')}
-                onMouseLeave={handleMouseLeave}
-                className="relative"
-              >
-                <Link
-                  to="/resources"
-                  className={`px-1.5 xl:px-2 py-1.5 rounded-lg flex items-center gap-0.5 whitespace-nowrap transition-colors ${
-                    activeMegaTab === 'resources' ? 'text-[#138086] bg-slate-100/80' : 'hover:text-[#138086] hover:bg-slate-100/60'
-                  }`}
-                >
-                  <span>{isBn ? 'রিসোর্স' : 'Resources'}</span>
-                  <ChevronDown className="w-2.5 h-2.5 xl:w-3 xl:h-3 opacity-60" />
-                </Link>
-              </div>
-
-              {/* 8. Contact */}
+              {/* 7. Contact */}
               <Link 
                 to="/contact" 
                 onClick={closeMegaMenu}
-                className={`px-1.5 xl:px-2 py-1.5 rounded-lg whitespace-nowrap transition-colors ${
+                className={`px-1.5 xl:px-2 py-1 rounded-md whitespace-nowrap transition-colors ${
                   location.pathname === '/contact' ? 'text-[#138086] font-extrabold bg-slate-100/70' : 'hover:text-[#138086] hover:bg-slate-100/60'
                 }`}
               >
@@ -300,14 +292,15 @@ export const Header: React.FC = () => {
                 <Search className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
               </button>
 
-              {/* Primary CTA Button (Sleek and compact on mobile so it never gets cut off) */}
+              {/* Primary CTA Button (Standalone Donate Now Appeal) */}
               <Link
-                to="/join-us"
-                className="bg-[#1B365D] hover:bg-[#104E7A] text-white px-2.5 py-1.5 sm:px-3.5 sm:py-2.5 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold shadow-xs sm:shadow-md shadow-[#1B365D]/20 hover:shadow-lg flex items-center gap-1 sm:gap-1.5 transition-all shrink-0 whitespace-nowrap"
+                to="/donate"
+                className="bg-[#0D6E4F] hover:bg-[#09523B] text-white px-2.5 py-1.5 sm:px-4 sm:py-2.5 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-black shadow-xs sm:shadow-md shadow-emerald-900/20 hover:shadow-lg flex items-center gap-1 sm:gap-1.5 transition-all shrink-0 whitespace-nowrap"
+                title="Donate Now to Shaheen Cares Trust"
               >
                 <Heart className="w-3.5 h-3.5 text-[#E6A119] fill-[#E6A119] shrink-0" />
-                <span className="hidden xs:inline">{isBn ? 'যুক্ত হোন' : 'Join Us'}</span>
-                <span className="xs:hidden">{isBn ? 'যুক্ত' : 'Join'}</span>
+                <span className="hidden xs:inline">{isBn ? 'অনুদান দিন' : 'Donate Now'}</span>
+                <span className="xs:hidden">{isBn ? 'অনুদান' : 'Donate'}</span>
               </Link>
 
               {/* Mobile Menu Toggle Button (ALWAYS VISIBLE & NEVER OVERFLOWING) */}
@@ -433,7 +426,7 @@ export const Header: React.FC = () => {
                       <Link to="/pillars#pillar-1" onClick={closeMegaMenu} className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200/80 hover:bg-white hover:border-[#138086]/40 hover:shadow-sm transition-all space-y-2">
                         <span className="text-[10px] font-black uppercase text-[#138086] bg-[#138086]/10 px-2 py-0.5 rounded">Pillar 1</span>
                         <h5 className="text-xs font-black text-slate-900">{isBn ? 'বিশেষ চাহিদাসম্পন্ন শিশু' : 'Special Needs'}</h5>
-                        <p className="text-[11px] text-slate-500 leading-snug">{isBn ? '২০২৬–২০২৯: শিক্ষা, থেরাপি ও অন্তর্ভুক্তিকরণ' : '2026–2029: Education, Therapy & SPUS Flagship'}</p>
+                        <p className="text-[11px] text-slate-500 leading-snug">{isBn ? '২০২৬–২০২৯: শিক্ষা, থেরাপি ও অন্তর্ভুক্তিকরণ' : '2026–2029: Education, Therapy & SPUS Project'}</p>
                       </Link>
 
                       <Link to="/pillars#pillar-2" onClick={closeMegaMenu} className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200/80 hover:bg-white hover:border-[#138086]/40 hover:shadow-sm transition-all space-y-2">
@@ -463,16 +456,19 @@ export const Header: React.FC = () => {
                   </div>
                 )}
 
-                {/* 3. FIRST PROJECT SPUS MEGA MENU */}
+                {/* 3. SPUS MEGA MENU */}
                 {activeMegaTab === 'spus' && (
                   <div className="grid grid-cols-4 gap-6">
                     <div className="col-span-1 border-r border-slate-100 pr-4 space-y-2">
-                      <span className="text-[10px] font-black uppercase text-[#138086] bg-[#138086]/10 px-2 py-0.5 rounded">Flagship 2026–2029</span>
+                      <span className="text-[10px] font-black uppercase text-[#138086] bg-[#138086]/10 px-2 py-0.5 rounded">Timeline: Oct 2026 – Oct 2029</span>
                       <h4 className="text-sm font-black text-[#1B365D]">
-                        {isBn ? 'সাঁতারকুল প্রতিবন্ধী উন্নয়ন সংস্থা (SPUS)' : 'SPUS Satarkul Partnership'}
+                        {isBn ? 'প্রকল্প: এসপিইউএস (SPUS) অন্তর্ভুক্তিমূলক শিক্ষা, উন্নয়ন এবং প্রতিবন্ধী শিশুদের জন্য কমিউনিটি সহায়তা' : 'Project: SPUS Inclusive Education, Development, and Community Support for Children with Disabilities'}
                       </h4>
+                      <p className="text-[11px] font-bold text-[#0D6E4F]">
+                        {isBn ? 'বাস্তবায়নকারী সহযোগী: SPUS' : 'Implementing Partner: SPUS'}
+                      </p>
                       <p className="text-xs text-slate-600 leading-relaxed">
-                        {isBn ? 'সাঁতারকুলে বিশেষ চাহিদাসম্পন্ন ৭৫ জন শিশুর অন্তর্ভুক্তিমূলক শিক্ষা এবং ১০০ জন সুবিধাভোগীর থেরাপি সাপোর্ট।' : 'First community flagship providing education, therapy & grassroots NGO capacity.'}
+                        {isBn ? 'সাঁতারকুলে বিশেষ চাহিদাসম্পন্ন শিশুদের অন্তর্ভুক্তিমূলক শিক্ষা, বিকাশ ও থেরাপি সেবা।' : 'Providing inclusive education, therapy & grassroots community empowerment.'}
                       </p>
                       <Link to="/spus" onClick={closeMegaMenu} className="text-xs font-bold text-[#138086] hover:underline flex items-center gap-1 pt-2">
                         <span>{isBn ? 'সম্পূর্ণ প্রজেক্ট প্রোফাইল' : 'Full Project Profile'}</span>
@@ -489,14 +485,14 @@ export const Header: React.FC = () => {
 
                       <Link to="/spus" onClick={closeMegaMenu} className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200/80 hover:bg-white hover:border-[#138086]/40 transition-all space-y-1.5">
                         <Calendar className="w-5 h-5 text-[#104E7A]" />
-                        <h5 className="text-xs font-black text-slate-900">{isBn ? '৮টি প্রধান কার্যক্রম' : '8 Key Activities'}</h5>
-                        <p className="text-[11px] text-slate-500">{isBn ? 'মাঠপর্যায়ের রূপরেখা' : 'Operational Implementation'}</p>
+                        <h5 className="text-xs font-black text-slate-900">{isBn ? '৬টি প্রধান কার্যক্রম' : '6 Key Interventions'}</h5>
+                        <p className="text-[11px] text-slate-500">{isBn ? 'অনুমোদিত মাঠপর্যায়ের কর্মপরিকল্পনা' : 'Approved Field Interventions'}</p>
                       </Link>
 
                       <Link to="/spus" onClick={closeMegaMenu} className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200/80 hover:bg-white hover:border-[#138086]/40 transition-all space-y-1.5">
                         <ShieldCheck className="w-5 h-5 text-[#D4AF37]" />
-                        <h5 className="text-xs font-black text-slate-900">{isBn ? 'বাজেট ও স্বচ্ছতা' : 'Budget & Diligence'}</h5>
-                        <p className="text-[11px] text-slate-500">{isBn ? '১১.০ মিলিয়ন টাকা (~$৮৮ হাজার)' : 'BDT 11.0M (~$88K)'}</p>
+                        <h5 className="text-xs font-black text-slate-900">{isBn ? 'অনুমোদিত বাজেট' : 'Approved Budget'}</h5>
+                        <p className="text-[11px] text-slate-500">{isBn ? '৬০ লাখ টাকা (ত্রৈমাসিকে সর্বোচ্চ ৫ লাখ)' : 'BDT 60 Lacs (Max 5L/Quarter)'}</p>
                       </Link>
                     </div>
                   </div>
@@ -541,105 +537,144 @@ export const Header: React.FC = () => {
                   </div>
                 )}
 
-                {/* 5. MEDIA MEGA MENU (CONSOLIDATED: BLOG, EVENTS, NEWS, PHOTOS, VIDEOS) */}
+                {/* 5. MEDIA & RESOURCES MEGA MENU (CONSOLIDATED: BLOG, EVENTS, NEWS, PHOTOS, VIDEOS, TRANSPARENCY, CITATIONS) */}
                 {activeMegaTab === 'media' && (
-                  <div className="grid grid-cols-12 gap-6">
+                  <div className="grid grid-cols-12 gap-5">
+                    {/* Left overview card */}
                     <div className="col-span-4 bg-slate-50 p-5 rounded-2xl border border-slate-200/80 flex flex-col justify-between">
                       <div className="space-y-2">
                         <span className="text-[10px] font-black px-2 py-0.5 rounded bg-blue-100 text-[#1B365D] uppercase">
-                          {isBn ? 'মিডিয়া সেন্টার' : 'Media Center'}
+                          {isBn ? 'মিডিয়া ও রিসোর্স হাব' : 'Media & Knowledge Hub'}
                         </span>
                         <h4 className="text-sm font-black text-[#1B365D]">
-                          {isBn ? 'সংবাদ, ইভেন্ট ও ফিল্ড স্টোরিজ' : 'News, Events & Field Stories'}
+                          {isBn ? 'সংবাদ, প্রকাশনা, অডিট ও তথ্যভাণ্ডার' : 'News, Publications, Audits & Records'}
                         </h4>
                         <p className="text-[11px] text-slate-600 leading-relaxed">
                           {isBn
-                            ? 'শাহীন কেয়ার্স ট্রাস্টের সাম্প্রতিক সংবাদ বিজ্ঞপ্তি, ভিডিও তথ্যচিত্র, ফটো গ্যালারি এবং অনুষ্ঠানমালা।'
-                            : 'Explore our latest press releases, upcoming events, field photo albums, and video documentaries.'}
+                            ? 'শাহীন কেয়ার্স ট্রাস্টের সাম্প্রতিক সংবাদ বিজ্ঞপ্তি, ভিডিও তথ্যচিত্র, ফটো গ্যালারি, সংবিধিবদ্ধ আইন ও সনদ এবং আর্থিক অডিট রিপোর্ট।'
+                            : 'Explore press releases, field stories, documentaries, photo albums, statutory frameworks, and certified audit reports.'}
                         </p>
                       </div>
                       <div className="pt-3 border-t border-slate-200 flex items-center justify-between text-xs font-bold text-[#138086]">
                         <Link to="/news" onClick={closeMegaMenu} className="hover:underline flex items-center gap-1">
-                          <span>{isBn ? 'সকল মিডিয়া কনটেন্ট' : 'All Media Content'}</span>
+                          <span>{isBn ? 'প্রেস ও সংবাদ' : 'All Media'}</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
+                        <Link to="/resources" onClick={closeMegaMenu} className="hover:underline flex items-center gap-1">
+                          <span>{isBn ? 'রিসোর্স ভাণ্ডার' : 'Resources'}</span>
                           <ArrowRight className="w-3.5 h-3.5" />
                         </Link>
                       </div>
                     </div>
 
-                    <div className="col-span-8 grid grid-cols-2 gap-3">
+                    {/* Right grid: Media items + Resources & Audits */}
+                    <div className="col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-2.5">
                       {/* Blog */}
-                      <Link to="/blog" onClick={closeMegaMenu} className="p-3.5 bg-slate-50 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-[#138086]/40 hover:shadow-sm transition-all flex items-start gap-3 group">
-                        <div className="w-9 h-9 rounded-xl bg-emerald-50 text-[#0D6E4F] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                      <Link to="/blog" onClick={closeMegaMenu} className="p-3 bg-slate-50 hover:bg-white rounded-xl border border-slate-200/80 hover:border-[#138086]/40 hover:shadow-xs transition-all flex items-start gap-2.5 group">
+                        <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#0D6E4F] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                           <BookOpen className="w-4 h-4" />
                         </div>
                         <div>
                           <h5 className="text-xs font-black text-slate-900 group-hover:text-[#138086]">
-                            {isBn ? 'মাঠপর্যায়ের ব্লগ ও গল্প' : 'Field Stories & Blog'}
+                            {isBn ? 'মাঠপর্যায়ের গল্প ও ব্লগ' : 'Stories & Blog'}
                           </h5>
-                          <p className="text-[11px] text-slate-500 mt-0.5">
-                            {isBn ? 'সাঁতারকুল ও মাঠপর্যায়ের বাস্তব অভিজ্ঞতা' : 'Voices and insights from our field workers'}
+                          <p className="text-[10.5px] text-slate-500 mt-0.5 line-clamp-1">
+                            {isBn ? 'বাস্তব অভিজ্ঞতা' : 'Voices from field'}
                           </p>
                         </div>
                       </Link>
 
                       {/* Events */}
-                      <Link to="/events" onClick={closeMegaMenu} className="p-3.5 bg-slate-50 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-[#138086]/40 hover:shadow-sm transition-all flex items-start gap-3 group">
-                        <div className="w-9 h-9 rounded-xl bg-teal-50 text-[#138086] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                      <Link to="/events" onClick={closeMegaMenu} className="p-3 bg-slate-50 hover:bg-white rounded-xl border border-slate-200/80 hover:border-[#138086]/40 hover:shadow-xs transition-all flex items-start gap-2.5 group">
+                        <div className="w-8 h-8 rounded-lg bg-teal-50 text-[#138086] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                           <Calendar className="w-4 h-4" />
                         </div>
                         <div>
                           <h5 className="text-xs font-black text-slate-900 group-hover:text-[#138086]">
-                            {isBn ? 'আসন্ন অনুষ্ঠান ও ইভেন্টস' : 'Upcoming Events & Programs'}
+                            {isBn ? 'আসন্ন অনুষ্ঠানমালা' : 'Events & Programs'}
                           </h5>
-                          <p className="text-[11px] text-slate-500 mt-0.5">
-                            {isBn ? 'উদ্বোধনী অনুষ্ঠান, কর্মশালা ও সমাবেশ' : 'Official launch, forums & workshops'}
+                          <p className="text-[10.5px] text-slate-500 mt-0.5 line-clamp-1">
+                            {isBn ? 'উদ্বোধনী ও সমাবেশ' : 'Launch & forums'}
                           </p>
                         </div>
                       </Link>
 
                       {/* News */}
-                      <Link to="/news" onClick={closeMegaMenu} className="p-3.5 bg-slate-50 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-[#138086]/40 hover:shadow-sm transition-all flex items-start gap-3 group">
-                        <div className="w-9 h-9 rounded-xl bg-blue-50 text-[#1B365D] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                      <Link to="/news" onClick={closeMegaMenu} className="p-3 bg-slate-50 hover:bg-white rounded-xl border border-slate-200/80 hover:border-[#138086]/40 hover:shadow-xs transition-all flex items-start gap-2.5 group">
+                        <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#1B365D] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                           <Newspaper className="w-4 h-4" />
                         </div>
                         <div>
                           <h5 className="text-xs font-black text-slate-900 group-hover:text-[#138086]">
-                            {isBn ? 'প্রেস রিলিজ ও সংবাদ' : 'Press Releases & News'}
+                            {isBn ? 'প্রেস রিলিজ ও সংবাদ' : 'Press Releases'}
                           </h5>
-                          <p className="text-[11px] text-slate-500 mt-0.5">
-                            {isBn ? 'অফিসিয়াল ঘোষণা ও মিডিয়া কভারেজ' : 'Secretariat announcements & updates'}
+                          <p className="text-[10.5px] text-slate-500 mt-0.5 line-clamp-1">
+                            {isBn ? 'অফিসিয়াল ঘোষণা' : 'Notices & updates'}
                           </p>
                         </div>
                       </Link>
 
                       {/* Photo Gallery */}
-                      <Link to="/gallery/photos" onClick={closeMegaMenu} className="p-3.5 bg-slate-50 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-[#138086]/40 hover:shadow-sm transition-all flex items-start gap-3 group">
-                        <div className="w-9 h-9 rounded-xl bg-amber-50 text-[#D4AF37] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                      <Link to="/gallery/photos" onClick={closeMegaMenu} className="p-3 bg-slate-50 hover:bg-white rounded-xl border border-slate-200/80 hover:border-[#138086]/40 hover:shadow-xs transition-all flex items-start gap-2.5 group">
+                        <div className="w-8 h-8 rounded-lg bg-amber-50 text-[#D4AF37] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                           <Image className="w-4 h-4" />
                         </div>
                         <div>
                           <h5 className="text-xs font-black text-slate-900 group-hover:text-[#138086]">
-                            {isBn ? 'ফটো গ্যালারি' : 'Field Photo Gallery'}
+                            {isBn ? 'ফটো গ্যালারি' : 'Photo Gallery'}
                           </h5>
-                          <p className="text-[11px] text-slate-500 mt-0.5">
-                            {isBn ? 'সাঁতারকুল সেন্টার ও মাঠপর্যায়ের স্থিরচিত্র' : 'Eyewitness photos from field and meetings'}
+                          <p className="text-[10.5px] text-slate-500 mt-0.5 line-clamp-1">
+                            {isBn ? 'সাঁতারকুল স্থিরচিত্র' : 'Field photos'}
                           </p>
                         </div>
                       </Link>
 
                       {/* Video Gallery */}
-                      <Link to="/gallery/videos" onClick={closeMegaMenu} className="col-span-2 p-3.5 bg-slate-50 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-[#138086]/40 hover:shadow-sm transition-all flex items-start gap-3 group">
-                        <div className="w-9 h-9 rounded-xl bg-rose-50 text-[#E06D53] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                      <Link to="/gallery/videos" onClick={closeMegaMenu} className="p-3 bg-slate-50 hover:bg-white rounded-xl border border-slate-200/80 hover:border-[#138086]/40 hover:shadow-xs transition-all flex items-start gap-2.5 group">
+                        <div className="w-8 h-8 rounded-lg bg-rose-50 text-[#E06D53] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                           <Video className="w-4 h-4" />
                         </div>
                         <div>
                           <h5 className="text-xs font-black text-slate-900 group-hover:text-[#138086]">
-                            {isBn ? 'ভিডিও ডকুমেন্টারি ও রিপোর্ট' : 'Video Documentaries & Reports'}
+                            {isBn ? 'ভিডিও গ্যালারি' : 'Video Gallery'}
                           </h5>
-                          <p className="text-[11px] text-slate-500 mt-0.5">
-                            {isBn ? 'চেয়ারপারসনের বক্তব্য, পরিচিতি ও প্রজেক্ট ভিডিও' : 'Impact films, documentary reports & messages'}
+                          <p className="text-[10.5px] text-slate-500 mt-0.5 line-clamp-1">
+                            {isBn ? 'ডকুমেন্টারি ও বার্তা' : 'Films & reports'}
                           </p>
                         </div>
+                      </Link>
+
+                      {/* Transparency & Audits (Integrated inside Media) */}
+                      <Link to="/transparency" onClick={closeMegaMenu} className="p-3 bg-emerald-50/70 hover:bg-white rounded-xl border border-emerald-200/80 hover:border-[#0D6E4F] hover:shadow-xs transition-all flex items-start gap-2.5 group">
+                        <div className="w-8 h-8 rounded-lg bg-emerald-100 text-[#0D6E4F] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                          <ShieldCheck className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <h5 className="text-xs font-black text-slate-900 group-hover:text-[#0D6E4F]">
+                            {isBn ? 'স্বচ্ছতা ও অডিট' : 'Audits & Records'}
+                          </h5>
+                          <p className="text-[10.5px] text-slate-500 mt-0.5 line-clamp-1">
+                            {isBn ? 'নিরীক্ষিত রিপোর্ট' : 'Audited CA filings'}
+                          </p>
+                        </div>
+                      </Link>
+
+                      {/* Resources & Statutory Citations (Integrated inside Media) */}
+                      <Link to="/resources" onClick={closeMegaMenu} className="col-span-2 sm:col-span-3 p-3 bg-slate-50 hover:bg-white rounded-xl border border-slate-200/80 hover:border-[#138086]/40 hover:shadow-xs transition-all flex items-center justify-between group">
+                        <div className="flex items-center gap-2.5">
+                          <div className="w-8 h-8 rounded-lg bg-[#138086]/10 text-[#138086] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                            <BookOpen className="w-4 h-4" />
+                          </div>
+                          <div>
+                            <h5 className="text-xs font-black text-slate-900 group-hover:text-[#138086]">
+                              {isBn ? 'রিসোর্স ভাণ্ডার ও সংবিধিবদ্ধ তথ্যসূত্র (Resources & Citations)' : 'Resources & Statutory Citations Repository'}
+                            </h5>
+                            <p className="text-[10.5px] text-slate-500 mt-0.5">
+                              {isBn ? 'জাতিসংঘ সনদ (CRPD, CRC), বাংলাদেশ ট্রাস্ট আইন ১৮৮২ ও প্রতিবন্ধী ব্যক্তি অধিকার আইন ২০১৩।' : 'UN CRPD, CRC, SDGs, Bangladesh Trust Act 1882, Rights & Protection of Persons with Disabilities Act 2013.'}
+                            </p>
+                          </div>
+                        </div>
+                        <ArrowRight className="w-4 h-4 text-[#138086] group-hover:translate-x-1 transition-transform shrink-0 ml-2" />
                       </Link>
                     </div>
                   </div>
@@ -670,31 +705,6 @@ export const Header: React.FC = () => {
                       <Heart className="w-6 h-6 text-[#E6A119]" />
                       <h5 className="text-xs font-black">{isBn ? 'অনুদান ও সহায়তা' : 'Support / Donate'}</h5>
                       <p className="text-[11px] text-slate-200">{isBn ? 'দি সিটি ব্যাংক পিএলসি ও অনুমোদিত চ্যানেল' : 'The City Bank PLC & verified channels.'}</p>
-                    </Link>
-                  </div>
-                )}
-
-                {/* 7. RESOURCES MEGA MENU */}
-                {activeMegaTab === 'resources' && (
-                  <div className="grid grid-cols-2 gap-6">
-                    <Link to="/transparency" onClick={closeMegaMenu} className="p-5 bg-slate-50 rounded-2xl border border-slate-200 hover:border-[#138086]/40 hover:bg-white transition-all flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-xl bg-emerald-100 text-[#0D6E4F] flex items-center justify-center shrink-0">
-                        <ShieldCheck className="w-5 h-5" />
-                      </div>
-                      <div className="space-y-1">
-                        <h5 className="text-xs font-black text-slate-900">{isBn ? 'আর্থিক স্বচ্ছতা ও অডিট পোর্টাল' : 'Financial Transparency & Audits'}</h5>
-                        <p className="text-[11px] text-slate-500">{isBn ? 'স্বাধীন চার্টার্ড অ্যাকাউন্ট্যান্টস দ্বারা নিরীক্ষিত বার্ষিক স্টেটমেন্ট ও বাজেট বিবরণী।' : 'Audited reports certified by independent Chartered Accountants.'}</p>
-                      </div>
-                    </Link>
-
-                    <Link to="/resources" onClick={closeMegaMenu} className="p-5 bg-slate-50 rounded-2xl border border-slate-200 hover:border-[#138086]/40 hover:bg-white transition-all flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-xl bg-[#138086]/10 text-[#138086] flex items-center justify-center shrink-0">
-                        <BookOpen className="w-5 h-5" />
-                      </div>
-                      <div className="space-y-1">
-                        <h5 className="text-xs font-black text-slate-900">{isBn ? 'তথ্যসূত্র, আইন ও গবেষণা সংস্থান' : 'Resources & References Repository'}</h5>
-                        <p className="text-[11px] text-slate-500">{isBn ? 'জাতিসংঘ সনদ (CRPD, CRC), বাংলাদেশ ট্রাস্ট আইন ১৮৮২ ও প্রতিবন্ধী আইন ২০১৩।' : 'UN CRPD, CRC, SDGs, Bangladesh Trust Act 1882 & statutory citations.'}</p>
-                      </div>
                     </Link>
                   </div>
                 )}
@@ -792,7 +802,7 @@ export const Header: React.FC = () => {
                 )}
               </div>
 
-              {/* 3. First Project SPUS */}
+              {/* 3. Project: SPUS */}
               <Link 
                 to="/spus" 
                 onClick={closeMegaMenu} 
@@ -800,7 +810,7 @@ export const Header: React.FC = () => {
               >
                 <span className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#0D6E4F] animate-pulse" />
-                  <span>{isBn ? 'প্রথম প্রজেক্ট: SPUS সাঁতারকুল' : 'First Project: SPUS Satarkul'}</span>
+                  <span>{isBn ? 'প্রকল্প: SPUS সাঁতারকুল (২০২৬–২০২৯)' : 'Project: SPUS Satarkul (2026–2029)'}</span>
                 </span>
                 <ChevronRight className="w-4 h-4 opacity-70" />
               </Link>
@@ -820,7 +830,7 @@ export const Header: React.FC = () => {
                 <ChevronRight className="w-4 h-4 opacity-40" />
               </Link>
 
-              {/* 5. Media Accordion (CONSOLIDATED: BLOG, EVENT, NEWS, PHOTO, VIDEO) */}
+              {/* 5. Media & Resources Accordion */}
               <div className="border border-slate-100 rounded-2xl overflow-hidden">
                 <button 
                   onClick={() => toggleMobileSub('media')}
@@ -828,7 +838,7 @@ export const Header: React.FC = () => {
                 >
                   <span className="flex items-center gap-2">
                     <Newspaper className="w-4 h-4 text-[#1B365D]" />
-                    <span>{isBn ? 'মিডিয়া সেন্টার (Media & Stories)' : 'Media & Updates'}</span>
+                    <span>{isBn ? 'মিডিয়া ও রিসোর্স (Media & Resources)' : 'Media & Resources'}</span>
                   </span>
                   <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileSubMenu === 'media' ? 'rotate-180 text-[#138086]' : ''}`} />
                 </button>
@@ -839,6 +849,10 @@ export const Header: React.FC = () => {
                     <Link to="/news" onClick={closeMegaMenu} className="block py-1 hover:text-[#0D6E4F]">• {isBn ? 'প্রেস রিলিজ ও সংবাদ' : 'Press Releases & News'}</Link>
                     <Link to="/gallery/photos" onClick={closeMegaMenu} className="block py-1 hover:text-[#0D6E4F]">• {isBn ? 'ফটো গ্যালারি' : 'Photo Gallery'}</Link>
                     <Link to="/gallery/videos" onClick={closeMegaMenu} className="block py-1 hover:text-[#0D6E4F]">• {isBn ? 'ভিডিও ডকুমেন্টারি' : 'Video Gallery'}</Link>
+                    <div className="border-t border-slate-200/80 my-1 pt-1 space-y-1">
+                      <Link to="/transparency" onClick={closeMegaMenu} className="block py-1 text-[#0D6E4F] font-bold">• {isBn ? 'আর্থিক স্বচ্ছতা ও অডিট রিপোর্ট' : 'Financial Transparency & Audits'}</Link>
+                      <Link to="/resources" onClick={closeMegaMenu} className="block py-1 text-[#138086] font-bold">• {isBn ? 'তথ্যসূত্র, আইন ও নীতিমালা' : 'Resources & Statutory Citations'}</Link>
+                    </div>
                   </div>
                 )}
               </div>
@@ -865,27 +879,7 @@ export const Header: React.FC = () => {
                 )}
               </div>
 
-              {/* 7. Resources Accordion */}
-              <div className="border border-slate-100 rounded-2xl overflow-hidden">
-                <button 
-                  onClick={() => toggleMobileSub('resources')}
-                  className="w-full flex items-center justify-between p-3 text-left hover:bg-slate-50 transition-colors"
-                >
-                  <span className="flex items-center gap-2">
-                    <ShieldCheck className="w-4 h-4 text-[#0D6E4F]" />
-                    <span>{isBn ? 'রিসোর্স ও স্বচ্ছতা' : 'Resources & Transparency'}</span>
-                  </span>
-                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileSubMenu === 'resources' ? 'rotate-180 text-[#138086]' : ''}`} />
-                </button>
-                {mobileSubMenu === 'resources' && (
-                  <div className="pl-6 pr-3 pb-3 pt-1 space-y-2 text-xs font-semibold text-slate-600 bg-slate-50/50">
-                    <Link to="/transparency" onClick={closeMegaMenu} className="block py-1 hover:text-[#0D6E4F]">• {isBn ? 'আর্থিক স্বচ্ছতা ও অডিট রিপোর্ট' : 'Financial Transparency & Audits'}</Link>
-                    <Link to="/resources" onClick={closeMegaMenu} className="block py-1 hover:text-[#0D6E4F]">• {isBn ? 'তথ্যসূত্র, আইন ও নীতিমালা' : 'Resources & Statutory Citations'}</Link>
-                  </div>
-                )}
-              </div>
-
-              {/* 8. Contact */}
+              {/* 7. Contact */}
               <Link 
                 to="/contact" 
                 onClick={closeMegaMenu} 
@@ -897,22 +891,21 @@ export const Header: React.FC = () => {
                 <ChevronRight className="w-4 h-4 opacity-40" />
               </Link>
 
-              {/* Bottom Direct CTA Buttons */}
-              <div className="pt-4 grid grid-cols-2 gap-2">
-                <Link
-                  to="/join-us"
-                  onClick={closeMegaMenu}
-                  className="bg-[#1B365D] hover:bg-[#104E7A] text-white py-3 rounded-xl text-xs font-bold text-center block shadow-md"
-                >
-                  {isBn ? 'যুক্ত হোন' : 'Join Our Movement'}
-                </Link>
+              {/* Standalone Donate Now Appeal in Mobile Drawer */}
+              <div className="pt-4 space-y-2">
                 <Link
                   to="/donate"
                   onClick={closeMegaMenu}
-                  className="bg-[#E6A119] hover:bg-[#F2B02A] text-slate-950 py-3 rounded-xl text-xs font-bold text-center block shadow-md"
+                  className="w-full bg-[#0D6E4F] hover:bg-[#09523B] text-white py-3.5 px-4 rounded-2xl text-xs font-black text-center shadow-lg shadow-emerald-900/20 flex items-center justify-center gap-2 transition-all"
                 >
-                  {isBn ? 'সহায়তা / অনুদান' : 'Support / Donate'}
+                  <Heart className="w-4 h-4 text-[#E6A119] fill-[#E6A119] animate-pulse" />
+                  <span>{isBn ? 'সরাসরি অনুদান দিন (Donate Now Appeal)' : 'Donate Now Appeal (Standalone)'}</span>
                 </Link>
+                <p className="text-[10.5px] text-center text-slate-500 font-medium">
+                  {isBn 
+                    ? '* যে কেউ আনুষ্ঠানিকভাবে সম্পৃক্ত না হয়েও সরাসরি অনুদান দিতে পারেন' 
+                    : '* Standalone Appeal: Anyone can donate directly without being involved'}
+                </p>
               </div>
 
               {/* Quick Language switch on mobile */}

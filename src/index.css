@@ -90,3 +90,27 @@
   border: 1px solid rgba(226, 232, 240, 0.8);
 }
 
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes flash-glow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.88; transform: scale(1.05); filter: drop-shadow(0 0 8px rgba(230, 161, 25, 0.85)); }
+}
+
+.animate-flash-glow {
+  animation: flash-glow 2s ease-in-out infinite;
+}
+

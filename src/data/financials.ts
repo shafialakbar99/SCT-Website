@@ -3,17 +3,17 @@ import { AuditReport } from '../types';
 export const initialAuditReports: AuditReport[] = [
   {
     id: 'audit-2026-2029',
-    year: '2026-2029 (Tentative Budget)',
+    year: 'October 2026 to October 2029',
     title: { 
-      en: 'SPUS Project 3-Year Tentative Budget Statement (2026–2029)', 
-      bn: 'এসপিইউএস ৩ বছর মেয়াদী প্রস্তাবিত বাজেট বিবরণী (২০২৬-২০২৯)' 
+      en: 'SPUS Approved Budget Statement (October 2026 to October 2029)', 
+      bn: 'প্রকল্প: SPUS অনুমোদিত বাজেট বিবরণী (অক্টোবর ২০২৬ – অক্টোবর ২০২৯)' 
     },
     pdfUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
     fileSize: '2.1 MB',
     auditorName: 'Shaheen Cares Trust Finance Committee & Audit Review',
     summary: { 
-      en: 'Total Tentative Budget: BDT 11.0M (~$88,000 USD) | Year 1: BDT 4.0M ($32,000) | Year 2: BDT 3.5M ($28,000) | Year 3: BDT 3.5M ($28,000)', 
-      bn: 'মোট প্রস্তাবিত বাজেট: ১ কোটি ১০ লক্ষ টাকা (~৮৮,০০০ ইউএসডি) | ১ম বছর: ৪০.০ লক্ষ | ২য় বছর: ৩৫.০ লক্ষ | ৩য় বছর: ৩৫.০ লক্ষ' 
+      en: 'Total Approved Budget: BDT 60 Lacs (6,000,000 BDT) | BDT 20 Lacs per year | Limit: BDT 5 Lacs per quarter on need basis.', 
+      bn: 'মোট অনুমোদিত বাজেট: ৬০ লাখ টাকা (৬,০০০,০০০ BDT) | বার্ষিক ২০ লাখ টাকা | প্রয়োজনভিত্তিক ত্রৈমাসিক সীমা: সর্বোচ্চ ৫ লাখ টাকা।' 
     }
   },
   {
@@ -35,7 +35,7 @@ export const initialAuditReports: AuditReport[] = [
 
 export const expenseAllocationData = [
   { nameEn: 'Pillar 1: Special Needs Inclusive Education & Therapy', nameBn: 'স্তম্ভ ১: বিশেষ চাহিদাসম্পন্ন শিশু শিক্ষা ও থেরাপি', value: 36.4, color: '#138086' },
-  { nameEn: 'Nutrition, Hygiene & Assistive Support', nameBn: 'পুষ্টি, হাইজিন ও সহায়ক উপকরণ', value: 22.7, color: '#104E7A' },
+  { nameEn: 'Nutrition, Hygiene & Healthcare Support', nameBn: 'পুষ্টি, হাইজিন ও স্বাস্থ্য সেবা', value: 22.7, color: '#104E7A' },
   { nameEn: 'Pillar 2 & 3: Youth Skills & Elderly Care Systems', nameBn: 'স্তম্ভ ২ ও ৩: যুব দক্ষতা ও প্রবীণ যত্ন ব্যবস্থা', value: 18.2, color: '#D4AF37' },
   { nameEn: 'Pillar 4: SPUS Institutional Capacity & Monitoring', nameBn: 'স্তম্ভ ৪: প্রাতিষ্ঠানিক সক্ষমতা ও মনিটরিং', value: 11.8, color: '#E06D53' },
   { nameEn: 'Staffing, Advocacy & Operational Expenses', nameBn: 'স্টাফিং, অ্যাডভোকেসি ও পরিচালনা খরচ', value: 6.9, color: '#64748B' },

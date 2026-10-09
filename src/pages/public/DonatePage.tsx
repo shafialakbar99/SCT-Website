@@ -168,6 +168,11 @@ export const DonatePage: React.FC = () => {
           <p className="text-xs sm:text-sm text-slate-600 mt-2 max-w-xl mx-auto">
             {t(siteContent.taxInfo)}
           </p>
+          <div className="mt-3 inline-block bg-emerald-50 border border-emerald-200 text-[#0D6E4F] text-[11px] sm:text-xs font-semibold px-4 py-1.5 rounded-full">
+            {isBn 
+              ? '★ যে কেউ সম্পৃক্ত না হয়েও সরাসরি অনুদান দিতে পারেন — যেকোনো পরিমাণ অবদান গ্রহণযোগ্য' 
+              : '★ Standalone Appeal: Anyone can donate directly without having to register or get involved'}
+          </div>
         </div>
 
         <form onSubmit={handleSubmit} className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl space-y-8">
