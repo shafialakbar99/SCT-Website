@@ -7,8 +7,8 @@ export const initialSiteContent: SiteContent = {
   regInfo: { en: 'Established under Trust Act of 1882 of Bangladesh', bn: 'বাংলাদেশের ১৮৮২ সালের ট্রাস্ট আইনের অধীনে নিবন্ধিত' },
   taxInfo: { en: 'Charitable & Humanitarian Initiative of the Shaheen Community', bn: 'শাহীন কমিউনিটির একটি দাতব্য ও মানবিক উদ্যোগ' },
   emergencyTicker: {
-    en: 'ANNOUNCEMENT: Shaheen Cares Trust Inauguration on Friday, October 9, 2026 in Dhaka.',
-    bn: 'বিজ্ঞপ্তি: আগামী শুক্রবার, ৯ই অক্টোবর, ২০২৬ ঢাকায় শাহীন কেয়ার্স ট্রাস্টের আনুষ্ঠানিক উদ্বোধন।'
+    en: 'INAUGURATION: Shaheen Cares Trust officially launched; landmark MoU signed with SPUS. National media coverage available.',
+    bn: 'শুভ উদ্বোধন: শাহীন কেয়ার্স ট্রাস্টের আনুষ্ঠানিক উদ্বোধন ও SPUS-এর সাথে চুক্তি সম্পন্ন। জাতীয় মিডিয়া কাভারেজ দেখুন।'
   },
   hotline: { en: '+880 1805-099605', bn: '+880 ১৮০৫-০৯৯৬০৫' },
   email: { en: 'shaheencares@gmail.com', bn: 'shaheencares@gmail.com' },

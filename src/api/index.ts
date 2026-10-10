@@ -298,7 +298,12 @@ const defaultNewsRows: NewsItemTableRow[] = initialNews.map(n => ({
   content_bn: n.content.bn,
   source_en: n.source.en,
   source_bn: n.source.bn,
+  source_type: n.sourceType,
+  source_name: n.sourceName,
+  external_url: n.externalUrl,
   cover_image: n.coverImage,
+  gallery_json: n.gallery,
+  is_featured: n.featured,
   pdf_url: n.pdfUrl,
   published_at: n.publishedAt,
   created_at: n.publishedAt

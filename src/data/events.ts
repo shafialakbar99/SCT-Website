@@ -13,11 +13,11 @@ export const initialEvents: EventItem[] = [
       bn: '১৮৮২ সালের ট্রাস্ট আইনের অধীন নিবন্ধিত শাহীন কেয়ার্স ট্রাস্টের আনুষ্ঠানিক উদ্বোধন ও সুধী সমাবেশ।'
     },
     eventDate: '2026-10-09',
-    time: '04:00 PM - 08:30 PM',
-    location: { en: 'Grand Ballroom, Dhaka, Bangladesh', bn: 'গ্র্যান্ড বলরুম, ঢাকা, বাংলাদেশ' },
-    imageUrl: '/Images/filler-image.jpeg?w=2000&auto=format&fit=crop',
+    time: '07:00 PM - 09:30 PM',
+    location: { en: 'Banquet Hall, Banani Club Limited, Dhaka, Bangladesh', bn: 'ব্যাঙ্কুয়েট হল, বনানী ক্লাব লিমিটেড, ঢাকা, বাংলাদেশ' },
+    imageUrl: '/Images/News/inaguration.jfif?w=2000&auto=format&fit=crop',
     category: { en: 'Trust Launch & Gathering', bn: 'উদ্বোধনী অনুষ্ঠান' },
-    registeredCount: 450
+    registeredCount: 120
   },
   {
     id: 'evt-2',
@@ -30,12 +30,12 @@ export const initialEvents: EventItem[] = [
       en: 'Distributing specialized learning kits, books, and nutrition packs for 75 special needs children in Satarkul.',
       bn: 'সাঁতারকুলে বিশেষ চাহিদাসম্পন্ন ৭৫ জন শিশুর মাঝে শিক্ষা উপকরণ, বই-খাতা ও পুষ্টিকর খাদ্য সামগ্রী বিতরণ।'
     },
-    eventDate: '2026-11-15',
+    eventDate: '2026-09-15',
     time: '10:00 AM - 02:00 PM',
     location: { en: 'SPUS Campus, Satarkul, Dhaka', bn: 'এসপিইউএস ক্যাম্পাস, সাঁতারকুল, ঢাকা' },
-    imageUrl: '/Images/filler-image.jpeg?w=2000&auto=format&fit=crop',
+    imageUrl: '/Images/Photo_Gallery/8.jpeg?w=2000&auto=format&fit=crop',
     category: { en: 'Special Needs Drive', bn: 'বিশেষ চাহিদাসম্পন্ন সেবা' },
-    registeredCount: 120
+    registeredCount: 95
   },
   {
     id: 'evt-3',
@@ -51,7 +51,7 @@ export const initialEvents: EventItem[] = [
     eventDate: '2026-12-05',
     time: '03:00 PM - 06:30 PM',
     location: { en: 'SCT Conference Room, Gulshan-1, Dhaka', bn: 'এসসিটি কনফারেন্স রুম, গুলশান-১, ঢাকা' },
-    imageUrl: '/Images/filler-image.jpeg?w=2000&auto=format&fit=crop',
+    imageUrl: '/Images/shaheen_bg_1.png?w=2000&auto=format&fit=crop',
     category: { en: 'Strategic Planning', bn: 'কৌশলগত ফোরাম' },
     registeredCount: 85
   }

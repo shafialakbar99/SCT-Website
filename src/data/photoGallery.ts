@@ -2,6 +2,82 @@ import { PhotoAlbum } from '../types';
 
 export const initialPhotoAlbums: PhotoAlbum[] = [
   {
+    id: 'album-inauguration-2026',
+    title: {
+      en: 'Grand Inauguration Ceremony of Shaheen Cares Trust & SPUS MoU Signing',
+      bn: 'শাহীন কেয়ার্স ট্রাস্টের শুভ উদ্বোধন ও SPUS-এর সাথে সমঝোতা স্মারক (MoU) স্বাক্ষর'
+    },
+    category: 'governance',
+    coverImage: '/Images/News/MoU_sign.jfif',
+    date: 'October 2026',
+    location: { en: 'Dhaka, Bangladesh', bn: 'ঢাকা, বাংলাদেশ' },
+    images: [
+      {
+        url: '/Images/News/MoU_sign.jfif',
+        caption: {
+          en: 'Formal signing of the 3-year BDT 60 Lacs MoU between Shaheen Cares Trust and SPUS.',
+          bn: 'শাহীন কেয়ার্স ট্রাস্ট ও সাঁতারকুল প্রতিবন্ধী উন্নয়ন সংস্থার (SPUS) ৩ বছর মেয়াদী সমঝোতা স্মারক স্বাক্ষর।'
+        },
+        location: { en: 'Dhaka, Bangladesh', bn: 'ঢাকা, বাংলাদেশ' },
+        date: '2026-10-09'
+      },
+      {
+        url: '/Images/News/2.jfif',
+        caption: {
+          en: 'Trustees and guests attending the formal inauguration ceremony.',
+          bn: 'উদ্বোধনী অনুষ্ঠানে সম্মানিত ট্রাস্টি ও আমন্ত্রিত অতিথিবৃন্দ।'
+        },
+        location: { en: 'Dhaka, Bangladesh', bn: 'ঢাকা, বাংলাদেশ' },
+        date: '2026-10-09'
+      },
+      {
+        url: '/Images/News/3.jfif',
+        caption: {
+          en: 'Exchange of partnership documents and discussion on inclusive special needs education.',
+          bn: 'চুক্তিপত্র হস্তান্তর ও বিশেষ শিশুদের অন্তর্ভুক্তি নিয়ে আলোচনা।'
+        },
+        location: { en: 'Dhaka, Bangladesh', bn: 'ঢাকা, বাংলাদেশ' },
+        date: '2026-10-09'
+      },
+      {
+        url: '/Images/News/4.jfif',
+        caption: {
+          en: 'Keynote address on the 5 Strategic Pillars of Shaheen Cares Trust.',
+          bn: 'শাহীন কেয়ার্স ট্রাস্টের ৫টি মূল স্তম্ভ ভিত্তিক মানবিক কর্মপরিকল্পনা উপস্থাপন।'
+        },
+        location: { en: 'Dhaka, Bangladesh', bn: 'ঢাকা, বাংলাদেশ' },
+        date: '2026-10-09'
+      },
+      {
+        url: '/Images/News/5.jfif',
+        caption: {
+          en: 'Dignitaries and community leaders expressing solidarity with SCT’s mission.',
+          bn: 'ট্রাস্টের মহতী উদ্যোগের সাথে একাত্মতা প্রকাশে বিশিষ্ট ব্যক্তিবর্গ।'
+        },
+        location: { en: 'Dhaka, Bangladesh', bn: 'ঢাকা, বাংলাদেশ' },
+        date: '2026-10-09'
+      },
+      {
+        url: '/Images/News/6.jfif',
+        caption: {
+          en: 'National media correspondents and attendees at the inauguration program.',
+          bn: 'উদ্বোধনী অনুষ্ঠানে উপস্থিত জাতীয় গণমাধ্যমের প্রতিনিধিবৃন্দ।'
+        },
+        location: { en: 'Dhaka, Bangladesh', bn: 'ঢাকা, বাংলাদেশ' },
+        date: '2026-10-09'
+      },
+      {
+        url: '/Images/News/7.jfif',
+        caption: {
+          en: 'Group photo of SCT Board of Trustees and SPUS management at the ceremony.',
+          bn: 'অনুষ্ঠান শেষে ট্রাস্টি বোর্ড ও এসপিইউএস ব্যবস্থাপনা পর্ষদের যৌথ ফটোসেশন।'
+        },
+        location: { en: 'Dhaka, Bangladesh', bn: 'ঢাকা, বাংলাদেশ' },
+        date: '2026-10-09'
+      }
+    ]
+  },
+  {
     id: 'album-1',
     title: {
       en: 'Special Needs Support & Clothes Distribution at SPUS Satarkul',

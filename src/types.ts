@@ -112,7 +112,13 @@ export interface NewsItem {
   summary: Localized;
   content: Localized;
   source: Localized;
+  sourceType?: 'tv' | 'newspaper' | 'portal' | 'official';
+  sourceName?: string;
+  externalUrl?: string;
   coverImage: string;
+  gallery?: string[];
+  featured?: boolean;
+  videoUrl?: string;
   publishedAt: string;
   pdfUrl?: string;
   pdfAttachmentUrl?: string;
@@ -500,7 +506,12 @@ export interface NewsItemTableRow {
   content_bn: string;
   source_en?: string;
   source_bn?: string;
+  source_type?: string;
+  source_name?: string;
+  external_url?: string;
   cover_image: string;
+  gallery_json?: string[];
+  is_featured?: boolean;
   pdf_url?: string;
   pdf_attachment_url?: string;
   published_at: string;

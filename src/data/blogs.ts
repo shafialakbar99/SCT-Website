@@ -43,7 +43,7 @@ By combining community trust with structured institutional support, we aim to en
       role: { en: 'General Secretary, SCT', bn: 'সাধারণ সম্পাদক, এসসিটি' },
       avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=2000&auto=format&fit=crop'
     },
-    coverImage: '/Images/filler-image.jpeg?w=2000&auto=format&fit=crop',
+    coverImage: '/Images/hero_slider/2.png?w=2000&auto=format&fit=crop',
     publishedAt: '2026-08-10',
     readTimeMinutes: 5,
     tags: ['Special Needs', 'Inclusive Education', 'SPUS Satarkul', 'Pillar 1']
@@ -123,7 +123,7 @@ Ahead of our official inauguration on Friday, October 9, 2026, SCT serves as a u
       role: { en: 'Chairperson, SCT', bn: 'চেয়ারপারসন, এসসিটি' },
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=2000&auto=format&fit=crop'
     },
-    coverImage: '/Images/filler-image.jpeg?w=2000&auto=format&fit=crop',
+    coverImage: '/Images/Photo_Gallery/2.jpeg?w=2000&auto=format&fit=crop',
     publishedAt: '2026-07-15',
     readTimeMinutes: 6,
     tags: ['Shaheen Community', 'Trust Act 1882', 'Our Story', 'Pillar 5']

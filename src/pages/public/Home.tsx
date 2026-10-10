@@ -24,6 +24,9 @@ export const Home: React.FC = () => {
       {/* 2. Impact Numbers Section */}
       <ImpactCounters />
 
+      {/* 13. Press & News Section */}
+      <PressNewsSection />
+
       {/* 3. Short Introduction Section */}
       <ShortIntroSection />
 
@@ -57,9 +60,6 @@ export const Home: React.FC = () => {
 
       {/* 12. Upcoming Events Section */}
       <UpcomingEventsSection />
-
-      {/* 13. Press & News Section */}
-      <PressNewsSection />
 
       {/* 14. Field Stories & Blog Section */}
       <FieldStoriesBlogSection />      

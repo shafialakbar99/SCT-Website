@@ -77,30 +77,30 @@ const HERO_SLIDES: HeroSlide[] = [
     image: '/Images/Photo_Gallery/2.jpeg?w=2000&auto=format&fit=crop'
   },
   {
-  id: 3,
-  badge: {
-    en: 'Inclusive Education • Disability Support • Community Development',
-    bn: 'অন্তর্ভুক্তিমূলক শিক্ষা • প্রতিবন্ধী সহায়তা • কমিউনিটি উন্নয়ন'
-  },
-  title: {
-    en: 'Building a Dignified Future Together',
-    bn: 'একসাথে মর্যাদাপূর্ণ ভবিষ্যৎ বিনির্মাণ'
-  },
-  subtitle: {
-    en: 'Together with Satarkul Protibandhi Unnayan Sangstha (SPUS), Shaheen Cares Trust is building a more inclusive future for children with disabilities through inclusive education, therapy, nutrition, caregiver support, and sustainable community development.',
-    bn: 'সাতারকুল প্রতিবন্ধী উন্নয়ন সংস্থা (SPUS)-এর সঙ্গে অংশীদারত্বে শাহীন কেয়ার্স ট্রাস্ট অন্তর্ভুক্তিমূলক শিক্ষা, থেরাপি, পুষ্টি, পরিচর্যাকারীদের সহায়তা এবং টেকসই কমিউনিটি উন্নয়নের মাধ্যমে প্রতিবন্ধী শিশুদের জন্য আরও অন্তর্ভুক্তিমূলক ভবিষ্যৎ গড়ে তুলছে।'
-  },
-  primaryBtn: {
-    labelEn: 'Explore SPUS Project',
-    labelBn: 'SPUS প্রকল্প সম্পর্কে জানুন',
-    url: '/spus'
-  },
-  secondaryBtn: {
-    labelEn: 'Support Our Mission',
-    labelBn: 'আমাদের উদ্যোগে সহায়তা করুন',
-    url: '/donate'
-  },
-  image: '/Images/hero_slider/2.png'
+    id: 3,
+    badge: {
+      en: 'Inclusive Education • Disability Support • Community Development',
+      bn: 'অন্তর্ভুক্তিমূলক শিক্ষা • প্রতিবন্ধী সহায়তা • কমিউনিটি উন্নয়ন'
+    },
+    title: {
+      en: 'Building a Dignified Future Together',
+      bn: 'একসাথে মর্যাদাপূর্ণ ভবিষ্যৎ বিনির্মাণ'
+    },
+    subtitle: {
+      en: 'Together with Satarkul Protibandhi Unnayan Sangstha (SPUS), Shaheen Cares Trust is building a more inclusive future for children with disabilities through inclusive education, therapy, nutrition, caregiver support, and sustainable community development.',
+      bn: 'সাতারকুল প্রতিবন্ধী উন্নয়ন সংস্থা (SPUS)-এর সঙ্গে অংশীদারত্বে শাহীন কেয়ার্স ট্রাস্ট অন্তর্ভুক্তিমূলক শিক্ষা, থেরাপি, পুষ্টি, পরিচর্যাকারীদের সহায়তা এবং টেকসই কমিউনিটি উন্নয়নের মাধ্যমে প্রতিবন্ধী শিশুদের জন্য আরও অন্তর্ভুক্তিমূলক ভবিষ্যৎ গড়ে তুলছে।'
+    },
+    primaryBtn: {
+      labelEn: 'Explore SPUS Project',
+      labelBn: 'SPUS প্রকল্প সম্পর্কে জানুন',
+      url: '/spus'
+    },
+    secondaryBtn: {
+      labelEn: 'Support Our Mission',
+      labelBn: 'আমাদের উদ্যোগে সহায়তা করুন',
+      url: '/donate'
+    },
+    image: '/Images/hero_slider/2.png'
   }
 ];
 

@@ -85,10 +85,10 @@ export const Header: React.FC = () => {
               {t(siteContent.emergencyTicker)}
             </div>
             <Link 
-              to="/spus" 
+              to="/news" 
               className="hidden md:inline-flex items-center text-[#E6A119] hover:underline font-bold text-[11px] shrink-0 ml-1 whitespace-nowrap"
             >
-              {isBn ? 'SPUS দেখুন' : 'Explore SPUS'} <ArrowRight className="w-3 h-3 ml-0.5" />
+              {isBn ? 'সংবাদ কাভারেজ' : 'Media Coverage'} <ArrowRight className="w-3 h-3 ml-0.5" />
             </Link>
           </div>
 
