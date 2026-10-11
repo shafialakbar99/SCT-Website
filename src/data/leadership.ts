@@ -124,11 +124,33 @@ Shaheen Cares Trust`,
 
 export const boardMembersData: LeaderProfile[] = [
   {
+    id: 'bm-chairman',
+    name: { en: 'Data Magfur', bn: 'দাতা মাগফুর' },
+    role: { en: 'Chairperson', bn: 'চেয়ারপারসন' },
+    designation: { en: 'Chairperson, Board of Trustees', bn: 'চেয়ারপারসন, ট্রাস্টি বোর্ড' },
+    imageUrl: '/Images/chairman.png?w=800&auto=format&fit=crop',
+    bio: {
+      en: 'Chairperson of Shaheen Cares Trust, leading community mobilization and humanitarian trust governance.',
+      bn: 'শাহীন কেয়ার্স ট্রাস্টের চেয়ারপারসন হিসেবে ট্রাস্টের সার্বিক নেতৃত্ব ও সুশাসন পরিচালনা করছেন।'
+    }
+  },
+  {
+    id: 'bm-gs',
+    name: { en: 'Sumana Binte Masud', bn: 'সুমানা বিনতে মাসুদ' },
+    role: { en: 'General Secretary & Trustee', bn: 'সাধারণ সম্পাদক ও সদস্য' },
+    designation: { en: 'General Secretary, Board of Trustees', bn: 'সাধারণ সম্পাদক, ট্রাস্টি বোর্ড' },
+    imageUrl: '/Images/Sumona-GS.jpeg?w=800&auto=format&fit=crop',
+    bio: {
+      en: 'General Secretary of Shaheen Cares Trust, overseeing strategic execution and project partnerships.',
+      bn: 'শাহীন কেয়ার্স ট্রাস্টের সাধারণ সম্পাদক হিসেবে কৌশলগত বাস্তবায়ন ও প্রকল্প অংশীদারিত্ব তত্ত্বাবধান করছেন।'
+    }
+  },
+  {
     id: 'bm-1',
     name: { en: 'Anisuzzaman Naser Khan', bn: 'আনিসুজ্জামান নাসের খান' },
     role: { en: 'Treasurer', bn: 'কোষাধ্যক্ষ' },
-    designation: { en: 'Treasurer, Board of Trustees', bn: 'কোষাধ্যক্ষ, ট্রাস্টি বোর্ড' },
-    imageUrl: '/Images/user.jpeg?w=800&auto=format&fit=crop',
+    designation: { en: 'Treasurer, Board of Trustees', bn: 'কোষাধ্যক্ষ ও সদস্য, ট্রাস্টি বোর্ড' },
+    imageUrl: '/Images/Trustees/3.png?w=800&auto=format&fit=crop',
     bio: {
       en: 'Manages financial transparency, fund management, and banking operations including The City Bank PLC and merchant bKash channels for Shaheen Cares Trust.',
       bn: 'শাহীন কেয়ার্স ট্রাস্টের আর্থিক স্বচ্ছতা, ট্রাস্ট অ্যাকাউন্ট (দি সিটি ব্যাংক পিএলসি) এবং মার্চেন্ট বিকাশ চ্যানেল পর্যবেক্ষণ ও পরিচালনা করেন।'
@@ -139,7 +161,7 @@ export const boardMembersData: LeaderProfile[] = [
     name: { en: 'Selin Sultana', bn: 'সেলিন সুলতানা' },
     role: { en: 'Trustee', bn: 'ট্রাস্টি' },
     designation: { en: 'Member, Board of Trustees', bn: 'সদস্য, ট্রাস্টি বোর্ড' },
-    imageUrl: '/Images/user.jpeg?w=800&auto=format&fit=crop',
+    imageUrl: '/Images/Trustees/9.png?w=800&auto=format&fit=crop',
     bio: {
       en: 'Actively guides children with special needs inclusion programs and community engagement frameworks.',
       bn: 'বিশেষ চাহিদাসম্পন্ন শিশুদের অন্তর্ভুক্তিমূলক শিক্ষা ও সামাজিক সচেতনতা তৈরির কাজ পরিচালনা করেন।'
@@ -150,7 +172,7 @@ export const boardMembersData: LeaderProfile[] = [
     name: { en: 'Shahnaz Sharmeen', bn: 'শাহনাজ শারমীন' },
     role: { en: 'Trustee', bn: 'ট্রাস্টি' },
     designation: { en: 'Member, Board of Trustees', bn: 'সদস্য, ট্রাস্টি বোর্ড' },
-    imageUrl: '/Images/user.jpeg?w=800&auto=format&fit=crop',
+    imageUrl: '/Images/Trustees/4.png?w=800&auto=format&fit=crop',
     bio: {
       en: 'Advises on youth skills development, vocational pathways, and strategic partnerships.',
       bn: 'যুব কর্মসংস্থান, বৃত্তিমূলক প্রশিক্ষণ এবং কৌশলগত অংশীদারিত্ব নির্ধারণে দিকনির্দেশনা প্রদান করেন।'
@@ -161,7 +183,7 @@ export const boardMembersData: LeaderProfile[] = [
     name: { en: 'Anirban Yasin Aftab', bn: 'অনির্বাণ ইয়াসিন আফতাব' },
     role: { en: 'Trustee', bn: 'ট্রাস্টি' },
     designation: { en: 'Member, Board of Trustees', bn: 'সদস্য, ট্রাস্টি বোর্ড' },
-    imageUrl: '/Images/user.jpeg?w=800&auto=format&fit=crop',
+    imageUrl: '/Images/Trustees/7.png?w=800&auto=format&fit=crop',
     bio: {
       en: 'Oversees organizational capacity building (Pillar 4) and project monitoring frameworks.',
       bn: 'অলাভজনক সামাজিক সংস্থাসমূহের প্রাতিষ্ঠানিক সক্ষমতা বৃদ্ধি (স্তম্ভ ৪) এবং প্রজেক্ট তদারকি পরিচালনা করেন।'
@@ -172,7 +194,7 @@ export const boardMembersData: LeaderProfile[] = [
     name: { en: 'Rozana Rouf', bn: 'রোজানা রউফ' },
     role: { en: 'Trustee', bn: 'ট্রাস্টি' },
     designation: { en: 'Member, Board of Trustees', bn: 'সদস্য, ট্রাস্টি বোর্ড' },
-    imageUrl: '/Images/user.jpeg?w=800&auto=format&fit=crop',
+    imageUrl: '/Images/Trustees/6.png?w=800&auto=format&fit=crop',
     bio: {
       en: 'Focuses on elderly care initiatives (Pillar 3) and intergenerational community care models.',
       bn: 'প্রবীণদের সেবা ব্যবস্থা (স্তম্ভ ৩) এবং আন্তঃপ্রজন্মীয় সামাজিক সংযোগ উদ্যোগে নিয়োজিত।'
@@ -183,7 +205,7 @@ export const boardMembersData: LeaderProfile[] = [
     name: { en: 'M Mazedul Islam', bn: 'এম মাজহারুল ইসলাম' },
     role: { en: 'Trustee', bn: 'ট্রাস্টি' },
     designation: { en: 'Member, Board of Trustees', bn: 'সদস্য, ট্রাস্টি বোর্ড' },
-    imageUrl: '/Images/user.jpeg?w=800&auto=format&fit=crop',
+    imageUrl: '/Images/Trustees/5.png?w=800&auto=format&fit=crop',
     bio: {
       en: 'Leads global Shaheen diaspora outreach and volunteer engagement across North America, Europe, and Australia.',
       bn: 'বিশ্বজুড়ে ছড়িয়ে থাকা শাহীন কমিউনিটির সাথে ট্রাস্টের সমন্বয় ও নেটওয়ার্কিং কার্যক্রম দেখাশোনা করেন।'
@@ -194,7 +216,7 @@ export const boardMembersData: LeaderProfile[] = [
     name: { en: 'Fazal Salahuddin Ahmad', bn: 'ফজল সালাহউদ্দিন আহমদ' },
     role: { en: 'Trustee', bn: 'ট্রাস্টি' },
     designation: { en: 'Member, Board of Trustees', bn: 'সদস্য, ট্রাস্টি বোর্ড' },
-    imageUrl: '/Images/user.jpeg?w=800&auto=format&fit=crop',
+    imageUrl: '/Images/Trustees/8.png?w=800&auto=format&fit=crop',
     bio: {
       en: 'Coordinates Shaheen Community Care (Pillar 5), supporting teachers and community members in genuine need.',
       bn: 'শাহীন কমিউনিটি কেয়ার (স্তম্ভ ৫) এবং প্রাক্তন শিক্ষক ও প্রবীণ শাহীনদের বিপদে-আপদে সহায়তা নিশ্চিত করেন।'
@@ -220,7 +242,7 @@ export const staffMembersData: LeaderProfile[] = [
     role: { en: 'Accounts & Compliance Lead', bn: 'হিসাব ও কমপ্লায়েন্স প্রধান' },
     designation: { en: 'Finance Officer', bn: 'অর্থ কর্মকর্তা' },
     imageUrl: '/Images/user.jpeg?w=800&auto=format&fit=crop',
-    bio: { en: 'Handles financial compliance, quarterly budget tracking for BDT 60 Lacs SPUS project, and bank disclosures.', bn: 'প্রকল্পের অনুমোদিত ৬০ লাখ টাকা বাজেট বরাদ্দ, ত্রৈমাসিক অর্থছাড় ও ব্যাংকিং লেনদেনের হিসাব সংরক্ষণ করেন।' },
+    bio: { en: 'Handles financial compliance, quarterly budget tracking for BDT 60 Lacs SPUS project, and bank disclosures.', bn: 'প্রকল্পের অনুমোদিত ৬০ লাখ টাকা বাজেট বরাদ্দ, ত্রৈমাসিক অর্থছাড় ও ব্যাংকিং লেনদেনের হিসাব সংরক্ষণ করেন।' },
     department: 'Finance',
     email: 'shaheencares@gmail.com',
     phone: '+880 1805-099605'
