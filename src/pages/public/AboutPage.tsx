@@ -133,7 +133,7 @@ export const AboutPage: React.FC = () => {
                   {isBn ? 'আমাদের গভর্ন্যান্স ও নেতৃত্ব দল দেখুন' : 'Meet Our Leadership & Executive Governance'}
                 </h3>
                 <p className="text-xs text-slate-500">
-                  {isBn ? 'চেয়ারম্যান, সিইও এবং ট্রাস্টি বোর্ডের বার্তা পাঠ করুন।' : 'Read messages from Chairman, Managing Director/CEO, and Board of Trustees.'}
+                  {isBn ? 'চেয়ারম্যান, সাধারণ সম্পাদক এবং ট্রাস্টি বোর্ডের বার্তা পাঠ করুন।' : 'Read messages from Chairman, General Secretary, and Board of Trustees.'}
                 </p>
               </div>
 
@@ -141,14 +141,15 @@ export const AboutPage: React.FC = () => {
                 <Link to="/leadership/chairman" className="bg-[#0D6E4F] text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow-sm">
                   {isBn ? 'চেয়ারম্যানের বাণী' : 'Chairman Message'}
                 </Link>
-                <Link to="/leadership/ceo" className="bg-[#0D6E4F] text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow-sm">
-                  {isBn ? 'সিইও-এর বাণী' : 'CEO Message'}
+                <Link to="/leadership/secretary" className="bg-[#0D6E4F] text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow-sm">
+                  {isBn ? 'সাধারণ সম্পাদকের বাণী' : 'General Secretary Message'}
                 </Link>
                 <Link to="/leadership/board" className="bg-slate-100 text-slate-800 px-4 py-2.5 rounded-xl text-xs font-bold hover:bg-slate-200">
                   {isBn ? 'ট্রাস্টি বোর্ড' : 'Board of Trustees'}
                 </Link>
               </div>
             </div>
+
           </div>
         )}
 
