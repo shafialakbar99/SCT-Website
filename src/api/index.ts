@@ -357,10 +357,12 @@ const defaultVideoRows: VideoItemTableRow[] = initialVideoGallery.map(v => ({
   category: v.category,
   thumbnail_url: v.thumbnailUrl,
   youtube_id: v.youtubeId,
+  video_url: v.videoUrl,
   duration: v.duration,
   date_str: v.date,
   summary_en: v.summary.en,
   summary_bn: v.summary.bn,
+  is_featured: v.isFeatured,
   created_at: '2026-05-01T00:00:00Z'
 }));
 

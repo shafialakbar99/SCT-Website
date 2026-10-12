@@ -83,12 +83,14 @@ export interface PhotoAlbum {
 export interface VideoItem {
   id: string;
   title: Localized;
-  category: 'reports' | 'interviews' | 'highlights' | 'documentary' | string;
+  category: 'reports' | 'interviews' | 'highlights' | 'documentary' | 'intro' | 'overview' | string;
   thumbnailUrl: string;
-  youtubeId: string;
+  youtubeId?: string;
+  videoUrl?: string; // Direct or local video link, e.g. /Videos/Intro/intro.mp4
   duration: string;
   date: string;
   summary: Localized;
+  isFeatured?: boolean;
 }
 
 export interface BlogPost {
@@ -460,11 +462,13 @@ export interface VideoItemTableRow {
   title_bn: string;
   category: string;
   thumbnail_url: string;
-  youtube_id: string;
+  youtube_id?: string;
+  video_url?: string;
   duration: string;
   date_str: string;
   summary_en?: string;
   summary_bn?: string;
+  is_featured?: boolean;
   created_at?: string;
   updated_at?: string;
 }

@@ -4,7 +4,7 @@ import { Image, Video, Play, MapPin, X, ArrowRight, Layers, Eye } from 'lucide-r
 import { useLanguage } from '../../../context/LanguageContext';
 import { initialPhotoAlbums } from '../../../data/photoGallery';
 import { initialVideoGallery } from '../../../data/videoGallery';
-import { PhotoAlbum } from '../../../types';
+import { PhotoAlbum, VideoItem } from '../../../types';
 import { SafeImage } from '../../common/SafeImage';
 import { PhotoLightboxModal } from '../../common/PhotoLightboxModal';
 
@@ -13,7 +13,7 @@ export const GalleryHighlights: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'photos' | 'videos'>('photos');
 
   // Modal Video state
-  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const [selectedVideo, setSelectedVideo] = useState<VideoItem | null>(null);
 
   // Modal Photo Slider state
   const [selectedAlbum, setSelectedAlbum] = useState<PhotoAlbum | null>(null);
@@ -125,7 +125,7 @@ export const GalleryHighlights: React.FC = () => {
             {initialVideoGallery.map((vid) => (
               <div
                 key={vid.id}
-                onClick={() => setSelectedVideo(vid.youtubeId)}
+                onClick={() => setSelectedVideo(vid)}
                 className="group relative rounded-2xl overflow-hidden shadow-md h-64 cursor-pointer bg-slate-900"
               >
                 <SafeImage
@@ -139,8 +139,19 @@ export const GalleryHighlights: React.FC = () => {
                     <Play className="w-5 h-5 fill-white ml-0.5" />
                   </div>
                 </div>
+                <div className="absolute top-3 left-3 flex items-center gap-1.5">
+                  {vid.videoUrl ? (
+                    <span className="text-[10px] font-black uppercase tracking-wider bg-emerald-600 text-white px-2 py-0.5 rounded shadow">
+                      {isBn ? 'মূল তথ্যচিত্র' : 'Official HD'}
+                    </span>
+                  ) : (
+                    <span className="text-[10px] font-black uppercase tracking-wider bg-red-600 text-white px-2 py-0.5 rounded shadow">
+                      YouTube
+                    </span>
+                  )}
+                </div>
                 <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <span className="text-[10px] font-bold text-white bg-red-600 px-2 py-0.5 rounded uppercase">
+                  <span className="text-[10px] font-bold text-white bg-slate-900/80 backdrop-blur-xs px-2 py-0.5 rounded uppercase">
                     {vid.duration}
                   </span>
                   <h4 className="text-sm font-extrabold mt-1 group-hover:text-[#E6A119] transition-colors line-clamp-2">
@@ -156,22 +167,49 @@ export const GalleryHighlights: React.FC = () => {
 
       {/* VIDEO POPUP MODAL */}
       {selectedVideo && (
-        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="relative bg-black w-full max-w-3xl rounded-2xl overflow-hidden shadow-2xl">
-            <button
-              onClick={() => setSelectedVideo(null)}
-              className="absolute top-3 right-3 text-white bg-slate-800/80 hover:bg-slate-700 p-2 rounded-full z-10 cursor-pointer"
-            >
-              <X className="w-5 h-5" />
-            </button>
-            <div className="aspect-video w-full">
-              <iframe
-                src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1`}
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full border-0"
-              />
+        <div className="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4">
+          <div className="relative bg-slate-950 border border-white/10 w-full max-w-3xl rounded-2xl overflow-hidden shadow-2xl">
+            <div className="flex items-center justify-between p-3.5 border-b border-white/10 bg-slate-900/90 text-white">
+              <div className="truncate pr-3">
+                <span className="text-[10px] font-black uppercase tracking-wider bg-[#0D6E4F] text-white px-2 py-0.5 rounded mr-2">
+                  {selectedVideo.videoUrl ? (isBn ? 'ভিডিও তথ্যচিত্র' : 'HD Video') : 'YouTube'}
+                </span>
+                <span className="text-xs sm:text-sm font-bold text-white truncate">
+                  {t(selectedVideo.title)}
+                </span>
+              </div>
+              <button
+                onClick={() => setSelectedVideo(null)}
+                className="text-white/80 hover:text-white bg-white/10 hover:bg-white/20 p-1.5 rounded-full z-10 cursor-pointer shrink-0 transition-colors"
+                aria-label="Close video"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            
+            <div className="aspect-video w-full bg-black flex items-center justify-center">
+              {selectedVideo.videoUrl ? (
+                <video
+                  src={selectedVideo.videoUrl}
+                  controls
+                  autoPlay
+                  playsInline
+                  poster={selectedVideo.thumbnailUrl}
+                  className="w-full h-full object-contain"
+                >
+                  Your browser does not support HTML5 video.
+                </video>
+              ) : selectedVideo.youtubeId ? (
+                <iframe
+                  src={`https://www.youtube.com/embed/${selectedVideo.youtubeId}?autoplay=1`}
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full border-0"
+                />
+              ) : (
+                <div className="p-8 text-center text-slate-400">Video source not found.</div>
+              )}
             </div>
           </div>
         </div>

@@ -2,6 +2,23 @@ import { VideoItem } from '../types';
 
 export const initialVideoGallery: VideoItem[] = [
   {
+    id: 'vid-intro-sct',
+    title: {
+      en: 'Shaheen Cares Trust: Official Introduction Documentary & Journey',
+      bn: 'শাহীন কেয়ার্স ট্রাস্ট: অফিসিয়াল পরিচিতি তথ্যচিত্র ও মানবিক অভিযাত্রা'
+    },
+    category: 'documentary',
+    thumbnailUrl: '/Images/inaguration.jfif',
+    videoUrl: '/Videos/Intro/intro.mp4',
+    duration: '03:45',
+    date: '2026-10-09',
+    isFeatured: true,
+    summary: {
+      en: 'Official introductory film of Shaheen Cares Trust detailing our registered mission under Bangladesh Trust Act 1882, strategic pillars, and collaborative partnerships for lasting dignity.',
+      bn: '১৮৮২ সালের ট্রাস্ট আইনের অধীন শাহীন কেয়ার্স ট্রাস্টের প্রাতিষ্ঠানিক পরিচিতি, সমাজসেবামূলক লক্ষ্য এবং সুবিধাবঞ্চিত মানুষের জীবনমান উন্নয়নের অফিসিয়াল তথ্যচিত্র।'
+    }
+  },
+  {
     id: 'vid-1',
     title: {
       en: 'Shaheen Cares Trust: Building a Dignified Future Together',
