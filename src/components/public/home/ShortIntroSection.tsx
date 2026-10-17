@@ -198,7 +198,7 @@ export const ShortIntroSection: React.FC = () => {
             {/* Trust Metrics Pill Strip */}
             <div className="grid grid-cols-3 gap-3 pt-2">
               <div className="p-3 bg-white rounded-2xl border border-slate-200/90 shadow-xs text-center">
-                <span className="block text-base sm:text-lg font-black text-[#1B365D]">১৮৮২</span>
+                <span className="block text-base sm:text-lg font-black text-[#1B365D]">1882</span>
                 <span className="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase">
                   {isBn ? 'ট্রাস্ট আইন নিবন্ধিত' : 'Trust Act 1882'}
                 </span>
@@ -210,7 +210,7 @@ export const ShortIntroSection: React.FC = () => {
                 </span>
               </div>
               <div className="p-3 bg-white rounded-2xl border border-slate-200/90 shadow-xs text-center">
-                <span className="block text-base sm:text-lg font-black text-[#E6A119]">১০০%</span>
+                <span className="block text-base sm:text-lg font-black text-[#E6A119]">100%</span>
                 <span className="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase">
                   {isBn ? 'স্বচ্ছ ব্যবস্থাপনা' : 'Transparent'}
                 </span>
